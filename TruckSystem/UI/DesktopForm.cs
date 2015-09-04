@@ -1,0 +1,224 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using DevExpress.XtraBars;
+using DevExpress.XtraTab;
+using DevExpress.XtraSplashScreen;
+using DevExpress.XtraEditors;
+using TruckSystem.Utils;
+using DevExpress.XtraTab.ViewInfo;
+using TruckSystem.UI.Customer;
+using TruckSystem.UI.Utils;
+using TruckSystem.UI.BankAccounts;
+using TruckSystem.UI.Drivers;
+using TruckSystem.UI.Truck;
+using TruckSystem.UI.Freights;
+using TruckSystem.UI.Payments;
+using System.IO;
+using TruckSystem.Connection;
+using TruckSystem.UI.SplashScreens;
+
+namespace TruckSystem.UI
+{
+    public partial class DesktopForm : DevExpress.XtraBars.Ribbon.RibbonForm
+    {
+        TabControlUtil tabUtil;
+        public DesktopForm()
+        {
+            InitializeComponent();
+            tabUtil = new TabControlUtil(this);
+            UserControlUtil.desk = this;
+            SplashScreenManager.CloseForm(false);
+        }
+
+        public void AddTab(XtraUserControl userControl, string titleTab, bool newTab)
+        {
+            tabUtil.AddTab(userControl, titleTab, newTab);
+        }
+
+        public void AddTabAndCloseCurrent(XtraUserControl userControl, string titleTab, bool newTab)
+        {
+            tabUtil.CloseSelectedPage();
+            tabUtil.AddTab(userControl, titleTab, newTab);
+        }
+
+        public void CloseCurrentTab()
+        {
+            tabUtil.CloseSelectedPage();
+        }
+
+        private void tabControl_CustomHeaderButtonClick(object sender, DevExpress.XtraTab.ViewInfo.CustomHeaderButtonEventArgs e)
+        {
+            if (Convert.ToInt32(e.Button.Tag) != 1
+                || this.tabControl.TabPages.Count <= 0
+                || XtraMessageBox.Show("Tem certeza que deseja fechar todas as guias?", "Confirmação de fechamento",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                return;
+            this.tabControl.TabPages.Clear();
+        }
+
+        private void tabControl_CloseButtonClick(object sender, EventArgs e)
+        {
+            this.tabControl.TabPages.Remove((e as ClosePageButtonEventArgs).Page as XtraTabPage);
+        }
+
+        private void DesktopForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (tabControl.TabPages.Count > 0)
+            {
+                DialogResult rs = XtraMessageBox.Show("Deseja realmente sair?", "Confirmação de Saída",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+                if (rs == DialogResult.No)
+                    e.Cancel = true;
+            }
+        }       
+
+        private void tabControl_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (tabUtil != null)
+                tabUtil.CenterControlsInPanel();
+        }
+
+        private void tabControl_Resize(object sender, EventArgs e)
+        {
+            if (tabUtil != null)
+                tabUtil.CenterControlsInPanel();
+        }
+
+        private void btnNewCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            CustomerForm cf = new CustomerForm(null);
+            AddTab(cf, "Novo Cliente", false);
+        }
+
+        private void btnSearchCustomer_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchCustomersForm scf = new SearchCustomersForm();
+            AddTab(scf, "Buscar Clientes", false);
+        }
+
+        private void btnManagerAccountants_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ManagerBankAccountsForm mbaf = new ManagerBankAccountsForm();
+            mbaf.ShowDialog();
+        }
+
+        private void btnSearchDriver_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchDriversForm sdf = new SearchDriversForm();
+            AddTab(sdf, "Buscar Motoristas", false);
+        }
+
+        private void btnNewDriver_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            DriverForm df = new DriverForm(null);
+            AddTab(df, "Novo Motorista", false);
+        }
+
+        private void btnSearchTrucks_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchTrucksForm stf = new SearchTrucksForm();
+            AddTab(stf, "Buscar Caminhões", false);
+        }
+
+        private void btnNewTruck_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            TruckForm tf = new TruckForm(null);
+            AddTab(tf, "Novo Caminhão", false);
+        }
+
+        private void btnNewPayment_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            PaymentForm pf = new PaymentForm(null);
+            AddTab(pf, "Novo Pagamento", false);
+        }
+
+        private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchPaymentsForm spf = new SearchPaymentsForm();
+            AddTab(spf, "Buscar Pagamentos", false);
+        }
+
+        private void btnNewFreight_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            FreightForm ff = new FreightForm(null);
+            AddTab(ff, "Novo Frete", false);
+        }
+
+        private void btnSearchFreights_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchFreightsForm sff = new SearchFreightsForm();
+            AddTab(sff, "Buscar Fretes", false);
+        }
+
+        private void DesktopForm_Shown(object sender, EventArgs e)
+        {
+            string greeting;
+            DateTime now = user.Now();
+            user s = Singleton.getUser();
+            List<logins> listL = logins.Fetch("SELECT date FROM logins WHERE user_id=@0 ORDER BY id DESC LIMIT 2", s.id);
+            if (now.Hour >= 6 && now.Hour < 12)
+                greeting = "Bom dia ";
+            else if (now.Hour >= 12 && now.Hour < 18)
+                greeting = "Boa tarde ";
+            else
+                greeting = "Boa noite ";
+            greeting += String.Format("{0}, seu ultimo acesso foi em: {1:dd/MM/yyyy} as {1:HH:mm:ss}",
+                s.full_name, listL.Count > 1 ? listL[1].date : now);
+            lbStatusUser.Caption = greeting;
+
+            int DaysInMonth = DateTime.DaysInMonth(now.Year, now.Month);
+
+            if (now.Day <= 10)
+            {
+                lbWarings.Caption = String.Format("Lembre-se ja estamos no dia {0:dd/MM}, o movimento do mês {1:MM} já esta com o contador?", 
+                    now, now.AddMonths(-1));
+                if (now.Day == 10)
+                    XtraMessageBox.Show("Ultimo dia para o movimento mensal estar com o contador!");
+            }
+            else if ((DaysInMonth - 7) <= now.Day)
+            {
+                lbWarings.Caption = String.Format("Lembre-se ja estamos no dia {0:dd/MM}, os CT-e's deste mês ja estão todos prontos?", now);
+                if (DaysInMonth == now.Day)
+                    XtraMessageBox.Show("Ultimo dia do mês, os CT-e's ja estão todos prontos?");
+            }
+            else
+                lbWarings.Caption = String.Format(@"Nenhum aviso para hoje! :\");           
+        }
+
+        private void btnBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SplashScreenManager.ShowForm(this, typeof(PleaseWaitForm), false, false, false);
+            ConnectionUtil conn = new ConnectionUtil();
+            string file = String.Format(@"{0}\Utils\CTPG\CTPG.exe", Directory.GetCurrentDirectory());
+            string args = String.Format("\"{0}\" \"{1}\" \"{2}\" \"{3}\" \"{4}\"", conn.Host, conn.Port, conn.User, conn.Password, conn.DataBase);
+            int exit = RunUtil.Run(file, args, true);
+            SplashScreenManager.CloseForm(false);
+            if (exit != 0)
+            {                
+                XtraMessageBox.Show("Ocorre um erro na tentativa de executar o backup, ou o mesmo foi cancelado pelo usuário!");
+            }
+            else
+            {
+                XtraMessageBox.Show("Concluído com sucesso, verifique se o arquivo de backup foi criado!");
+            }
+        }
+
+        private void btnChooseColor_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ChooseColorFocusedForm ccff = new ChooseColorFocusedForm();
+            ccff.ShowDialog();
+        }
+
+        private void tabControl_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
