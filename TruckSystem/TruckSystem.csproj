@@ -213,6 +213,12 @@
     <Compile Include="UI\Payments\SearchPaymentsForm.Designer.cs">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SearchCNPJ\SearchCNPJForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\SearchCNPJ\SearchCNPJForm.Designer.cs">
+      <DependentUpon>SearchCNPJForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SplashScreens\PleaseWaitForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Utils\Dates.cs" />
+    <Compile Include="Utils\SearchCPFCNPJUtil.cs" />
     <Compile Include="Utils\FTPUtil.cs" />
     <Compile Include="Utils\INI.cs" />
     <Compile Include="Utils\RunUtil.cs" />
@@ -323,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Payments\SearchPaymentsForm.resx">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SearchCNPJ\SearchCNPJForm.resx">
+      <DependentUpon>SearchCNPJForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SplashScreens\PleaseWaitForm.resx">
       <DependentUpon>PleaseWaitForm.cs</DependentUpon>

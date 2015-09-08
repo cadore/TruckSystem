@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -64,6 +64,7 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.btnSearchCNPJ = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -91,9 +92,10 @@
             this.lbStatusUser,
             this.lbWarings,
             this.btnBackup,
-            this.btnChooseColor});
+            this.btnChooseColor,
+            this.btnSearchCNPJ});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 25;
+            this.ribbon.MaxItemId = 26;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -288,6 +290,7 @@
             this.ribbonPageGroup4.AllowTextClipping = false;
             this.ribbonPageGroup4.ItemLinks.Add(this.btnNewCustomer);
             this.ribbonPageGroup4.ItemLinks.Add(this.btnSearchCustomer);
+            this.ribbonPageGroup4.ItemLinks.Add(this.btnSearchCNPJ);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
             this.ribbonPageGroup4.Text = "Clientes";
@@ -371,7 +374,7 @@
             // 
             this.tabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
             this.tabControl.CustomHeaderButtons.AddRange(new DevExpress.XtraTab.Buttons.CustomHeaderButton[] {
-            new DevExpress.XtraTab.Buttons.CustomHeaderButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", -1, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, serializableAppearanceObject2, "", 1, null, true)});
+            new DevExpress.XtraTab.Buttons.CustomHeaderButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", -1, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, serializableAppearanceObject1, "", 1, null, true)});
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 144);
             this.tabControl.Name = "tabControl";
@@ -382,6 +385,14 @@
             this.tabControl.Click += new System.EventHandler(this.tabControl_Click);
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
+            // 
+            // btnSearchCNPJ
+            // 
+            this.btnSearchCNPJ.Caption = "Pesquisar Cadastro CNPJ";
+            this.btnSearchCNPJ.Id = 25;
+            this.btnSearchCNPJ.Name = "btnSearchCNPJ";
+            this.btnSearchCNPJ.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSearchCNPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchCNPJ_ItemClick);
             // 
             // DesktopForm
             // 
@@ -444,5 +455,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
         private DevExpress.XtraBars.BarButtonItem btnChooseColor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
+        private DevExpress.XtraBars.BarButtonItem btnSearchCNPJ;
     }
 }

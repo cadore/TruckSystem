@@ -69,13 +69,20 @@ namespace TruckSystem.Utils
         {
             if (isConnectedWeb())
             {
-                WebClient t = new WebClient();
-                string meuip = t.DownloadString("http://meuip.net.br/");
-                return meuip
-                    .Substring(
-                    meuip.IndexOf("o Meu IP? ") + "o Meu IP? ".Length,
-                    meuip.IndexOf("</title>") - meuip.IndexOf("o Meu IP? ")
-                    - "o Meu IP? ".Length);
+                try
+                {
+                    WebClient t = new WebClient();
+                    string meuip = t.DownloadString("http://meuip.net.br/");
+                    return meuip
+                        .Substring(
+                        meuip.IndexOf("o Meu IP? ") + "o Meu IP? ".Length,
+                        meuip.IndexOf("</title>") - meuip.IndexOf("o Meu IP? ")
+                        - "o Meu IP? ".Length);
+                }
+                catch(Exception)
+                {
+                    return "null";
+                }
             }
             else
                 return "null";

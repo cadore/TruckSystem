@@ -99,7 +99,16 @@ namespace TruckSystem
             {
                 bool web = Util.isConnectedWeb();
                 if (web)
-                    return Dates.getUTCDateTime();
+                {
+                    try
+                    {
+                        return Dates.getUTCDateTime();
+                    }
+                    catch (Exception)
+                    {
+                        return repo.ExecuteScalar<DateTime>("SELECT LOCALTIMESTAMP");
+                    }
+                }                    
                 else
                     return repo.ExecuteScalar<DateTime>("SELECT LOCALTIMESTAMP");
             }

@@ -23,6 +23,7 @@ using TruckSystem.UI.Payments;
 using System.IO;
 using TruckSystem.Connection;
 using TruckSystem.UI.SplashScreens;
+using TruckSystem.UI.SearchCNPJ;
 
 namespace TruckSystem.UI
 {
@@ -219,6 +220,12 @@ namespace TruckSystem.UI
         private void tabControl_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSearchCNPJ_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchCNPJForm scf = new SearchCNPJForm();
+            AddTab(scf, "Pesquisar Cadastro de CNPJ", false);
         }
     }
 }
