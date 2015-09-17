@@ -1188,146 +1188,57 @@ namespace TruckSystem
 
     
 	[TableName("freights")]
-
-
 	[PrimaryKey("id")]
-
-
-
 	[ExplicitColumns]
     public partial class freight : TruckSystemRepo.Record<freight>  
     {
-
-
-
 		[Column] public long id { get; set; }
-
-
-
-
-
 		[Column] public DateTime? registred_at { get; set; }
-
-
-
-
-
-		[Column] public long registred_by { get; set; }
-
-
-
-
-
+        [Column] public long registred_by { get; set; }
 		[Column] public bool inactive { get; set; }
-
-
-
-
-
 		[Column] public long truck_id { get; set; }
-
-
-
-
-
 		[Column] public long driver_id { get; set; }
-
-
-
-
-
 		[Column] public int? number_note { get; set; }
-
-
-
-
-
 		[Column] public int? number_cte { get; set; }
-
-
-
-
-
 		[Column] public long company_source { get; set; }
-
-
-
-
-
 		[Column] public long company_destination { get; set; }
-
-
         [Column] public long carrier { get; set; }
-
-
-
-
-
 		[Column] public string product { get; set; }
-
-
-
-
-
 		[Column] public DateTime? start { get; set; }
-
-
-
-
-
 		[Column] public DateTime? end { get; set; }
-
-
-
-
-
 		[Column] public decimal weight { get; set; }
-
-
-
-
-
-		[Column] public decimal value_ton { get; set; }
-
-
-
-
-
-		[Column] public decimal value_comission { get; set; }
-
+        [Column] public decimal value_ton { get; set; }
+        [Column] public decimal value_comission { get; set; }
         [Column] public decimal taxe_comission { get; set; }
-
-
-
-
-
 		[Column] public decimal discounts_comission { get; set; }
-
-
-
-
-
 		[Column] public decimal extra_comission { get; set; }
-
-
-
-
-
 		[Column] public string observations { get; set; }
-
-
+        
         public string company_source_name { get; set; }
         public string company_destination_name { get; set; }
         public decimal total { get; set; }
         public decimal total_fueled { get; set; }
         public string truck_board { get; set; }
-
         public string viewStay { get; set; }
-
 	}
 
-
+    [TableName("accounts_to_pay")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class accounts_to_pay : TruckSystemRepo.Record<accounts_to_pay>
+    {
+        [Column] public long id { get; set; }
+        [Column] public string description { get; set; }
+        [Column] public string chave { get; set; }
+        [Column] public string number { get; set; }
+        [Column] public int serie { get; set; }
+        [Column] public long customer_id { get; set; }
+        [Column] public DateTime? emission_at { get; set; }
+        [Column] public decimal value_products { get; set; }
+        [Column] public decimal value_freight { get; set; }
+        [Column] public decimal value_security { get; set; }
+        [Column] public decimal value_discount { get; set; }
+        [Column] public decimal value_ipi { get; set; }
+        [Column] public string observations { get; set; }
+    }
 }
-
-
-

@@ -24,12 +24,10 @@ namespace TruckSystem
         [STAThread]
         static void Main()
         {
-            MessageBox.Show("0");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            MessageBox.Show("1");
             UserLookAndFeel.Default.SetSkinStyle("Office 2013"); //Office 2013 //The Asphalt World
             verefyProcesses();
             SplashScreenManager.ShowForm(null, typeof(SplashScreenForm), false, false, false);

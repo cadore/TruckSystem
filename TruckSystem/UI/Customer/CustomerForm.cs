@@ -47,6 +47,16 @@ namespace TruckSystem.UI.Customer
             bdgAddress.DataSource = d;
         }
 
+        public void loadFromCnpj(customer c, address d)
+        {
+            rgType.EditValue = c.type;
+            bdgCustomer.DataSource = c;
+            bdgAddress.DataSource = d;
+            IsNew = true;
+            subPnData.Enabled = true;
+            pnAddress.Enabled = true;
+        }
+
         private void rgType_SelectedIndexChanged(object sender, EventArgs e)
         {
             Validations.ValidatorCPFCNPJ validatorCPFCNPJ1 = new Validations.ValidatorCPFCNPJ();

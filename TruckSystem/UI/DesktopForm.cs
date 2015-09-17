@@ -24,6 +24,7 @@ using System.IO;
 using TruckSystem.Connection;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.UI.SearchCNPJ;
+using TruckSystem.UI.AccountsToPay;
 
 namespace TruckSystem.UI
 {
@@ -134,18 +135,6 @@ namespace TruckSystem.UI
             AddTab(tf, "Novo Caminhão", false);
         }
 
-        private void btnNewPayment_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            PaymentForm pf = new PaymentForm(null);
-            AddTab(pf, "Novo Pagamento", false);
-        }
-
-        private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            SearchPaymentsForm spf = new SearchPaymentsForm();
-            AddTab(spf, "Buscar Pagamentos", false);
-        }
-
         private void btnNewFreight_ItemClick(object sender, ItemClickEventArgs e)
         {
             FreightForm ff = new FreightForm(null);
@@ -226,6 +215,12 @@ namespace TruckSystem.UI
         {
             SearchCNPJForm scf = new SearchCNPJForm();
             AddTab(scf, "Pesquisar Cadastro de CNPJ", false);
+        }
+
+        private void btnNewAccountToPay_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AccountsToPayForm atpf = new AccountsToPayForm(null);
+            AddTab(atpf, "Nova Conta a Pagar", false);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 
 namespace TruckSystem.Utils.CPFCNPJ
 {
@@ -42,6 +43,14 @@ namespace TruckSystem.Utils.CPFCNPJ
         {
             try
             {
+                /*
+                StreamReader sr = new StreamReader(fileDocument);
+                StreamWriter sw = new StreamWriter(fileDocument, false, Encoding.GetEncoding(1252));
+                sw.WriteLine(sr.ReadToEnd());
+                sw.Close();
+                sr.Close();
+                */
+
                 // CNPJ
                 NCNPJ = INI.ReadValue("CNPJ", "NCNPJ", fileDocument);
                 RAZAOSOCIAL = INI.ReadValue("CNPJ", "RAZAOSOCIAL", fileDocument);
@@ -86,7 +95,8 @@ namespace TruckSystem.Utils.CPFCNPJ
                 return false;
             try
             {
-                int exitCod = RunUtil.Run((type == Document.CNPJ) ? fileCNPJ : fileCPF, document, true);
+                string file = (type == Document.CNPJ) ? fileCNPJ : fileCPF;
+                int exitCod = RunUtil.Run(file, document, true);
                 if (exitCod == 2)
                     if (GetCurrentDocument() && (!String.IsNullOrEmpty(NCNPJ) || !String.IsNullOrEmpty(NCPF)))
                         return true;

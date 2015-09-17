@@ -105,6 +105,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singletons\Singleton.cs" />
+    <Compile Include="UI\AccountsToPay\AccountsToPayForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AccountsToPay\AccountsToPayForm.Designer.cs">
+      <DependentUpon>AccountsToPayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\BankAccounts\BankAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -277,6 +283,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\AccountsToPay\AccountsToPayForm.resx">
+      <DependentUpon>AccountsToPayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\BankAccounts\BankAccountForm.resx">
       <DependentUpon>BankAccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -362,8 +371,10 @@
     <None Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <None Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\accounts_to_pay.datasource" />
     <None Include="Properties\DataSources\address.datasource" />
     <None Include="Properties\DataSources\bank_account.datasource" />
+    <None Include="Properties\DataSources\business.datasource" />
     <None Include="Properties\DataSources\city.datasource" />
     <None Include="Properties\DataSources\customer.datasource" />
     <None Include="Properties\DataSources\driver.datasource" />
@@ -373,10 +384,15 @@
     <None Include="Properties\DataSources\logins.datasource" />
     <None Include="Properties\DataSources\output.datasource" />
     <None Include="Properties\DataSources\payment.datasource" />
+    <None Include="Properties\DataSources\Program.datasource" />
+    <None Include="Properties\DataSources\Singleton.datasource" />
     <None Include="Properties\DataSources\state.datasource" />
     <None Include="Properties\DataSources\stay.datasource" />
     <None Include="Properties\DataSources\trailer.datasource" />
     <None Include="Properties\DataSources\truck.datasource" />
+    <None Include="Properties\DataSources\TruckSystemRepo.datasource" />
+    <None Include="Properties\DataSources\TruckSystemRepo.IFactory.datasource" />
+    <None Include="Properties\DataSources\TruckSystemRepo.Record`1.datasource" />
     <None Include="Properties\DataSources\user.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

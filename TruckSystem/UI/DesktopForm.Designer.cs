@@ -41,14 +41,15 @@
             this.btnSearchTrucks = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewGasStation = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchGasStations = new DevExpress.XtraBars.BarButtonItem();
-            this.btnNewPayment = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSearchPayments = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNewAccountToPay = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSearchAccountsToPay = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewFreight = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchFreights = new DevExpress.XtraBars.BarButtonItem();
             this.lbStatusUser = new DevExpress.XtraBars.BarStaticItem();
             this.lbWarings = new DevExpress.XtraBars.BarStaticItem();
             this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
             this.btnChooseColor = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSearchCNPJ = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,7 +65,6 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.btnSearchCNPJ = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -85,8 +85,8 @@
             this.btnSearchTrucks,
             this.btnNewGasStation,
             this.btnSearchGasStations,
-            this.btnNewPayment,
-            this.btnSearchPayments,
+            this.btnNewAccountToPay,
+            this.btnSearchAccountsToPay,
             this.btnNewFreight,
             this.btnSearchFreights,
             this.lbStatusUser,
@@ -186,21 +186,20 @@
             this.btnSearchGasStations.Id = 23;
             this.btnSearchGasStations.Name = "btnSearchGasStations";
             // 
-            // btnNewPayment
+            // btnNewAccountToPay
             // 
-            this.btnNewPayment.Caption = "Novo  Pagamento";
-            this.btnNewPayment.Id = 13;
-            this.btnNewPayment.Name = "btnNewPayment";
-            this.btnNewPayment.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnNewPayment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewPayment_ItemClick);
+            this.btnNewAccountToPay.Caption = "Nova Conta a Pagar";
+            this.btnNewAccountToPay.Id = 13;
+            this.btnNewAccountToPay.Name = "btnNewAccountToPay";
+            this.btnNewAccountToPay.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnNewAccountToPay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewAccountToPay_ItemClick);
             // 
-            // btnSearchPayments
+            // btnSearchAccountsToPay
             // 
-            this.btnSearchPayments.Caption = "Buscar Pagamentos";
-            this.btnSearchPayments.Id = 14;
-            this.btnSearchPayments.Name = "btnSearchPayments";
-            this.btnSearchPayments.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSearchPayments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchPayments_ItemClick);
+            this.btnSearchAccountsToPay.Caption = "Buscar Contas a Pagar";
+            this.btnSearchAccountsToPay.Id = 14;
+            this.btnSearchAccountsToPay.Name = "btnSearchAccountsToPay";
+            this.btnSearchAccountsToPay.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // btnNewFreight
             // 
@@ -249,6 +248,14 @@
             this.btnChooseColor.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnChooseColor.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChooseColor_ItemClick);
             // 
+            // btnSearchCNPJ
+            // 
+            this.btnSearchCNPJ.Caption = "Pesquisar Cadastro CNPJ";
+            this.btnSearchCNPJ.Id = 25;
+            this.btnSearchCNPJ.Name = "btnSearchCNPJ";
+            this.btnSearchCNPJ.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSearchCNPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchCNPJ_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -269,8 +276,8 @@
             // ribbonPageGroup2
             // 
             this.ribbonPageGroup2.AllowTextClipping = false;
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnNewPayment);
-            this.ribbonPageGroup2.ItemLinks.Add(this.btnSearchPayments);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnNewAccountToPay);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnSearchAccountsToPay);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Pagamentos";
@@ -386,14 +393,6 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // btnSearchCNPJ
-            // 
-            this.btnSearchCNPJ.Caption = "Pesquisar Cadastro CNPJ";
-            this.btnSearchCNPJ.Id = 25;
-            this.btnSearchCNPJ.Name = "btnSearchCNPJ";
-            this.btnSearchCNPJ.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSearchCNPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchCNPJ_ItemClick);
-            // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,8 +443,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
         private DevExpress.XtraBars.BarButtonItem btnNewGasStation;
         private DevExpress.XtraBars.BarButtonItem btnSearchGasStations;
-        private DevExpress.XtraBars.BarButtonItem btnNewPayment;
-        private DevExpress.XtraBars.BarButtonItem btnSearchPayments;
+        private DevExpress.XtraBars.BarButtonItem btnNewAccountToPay;
+        private DevExpress.XtraBars.BarButtonItem btnSearchAccountsToPay;
         private DevExpress.XtraBars.BarButtonItem btnNewFreight;
         private DevExpress.XtraBars.BarButtonItem btnSearchFreights;
         private DevExpress.XtraBars.BarStaticItem lbStatusUser;
