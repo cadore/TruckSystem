@@ -23,17 +23,7 @@ namespace TruckSystem.Utils
         {
             return Regex.Replace(text, "[^0-9a-zA-Z]+?", "");
         }
-        public static int CalculateAge(DateTime source, DateTime birthday)
-        {
-            int anos = source.Year - birthday.Year;
-            if (source.Month < birthday.Month 
-                || (source.Month == birthday.Month 
-                && source.Day < birthday.Day))
-                anos--;
-            return anos;
-        }
-
-
+        
         [DllImport("wininet.dll")]
         private extern static Boolean InternetGetConnectedState(out int Description, int ReservedValue);
         public static bool isConnectedWeb()

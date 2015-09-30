@@ -65,6 +65,9 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnEmitterReceipt = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -93,13 +96,15 @@
             this.lbWarings,
             this.btnBackup,
             this.btnChooseColor,
-            this.btnSearchCNPJ});
+            this.btnSearchCNPJ,
+            this.btnEmitterReceipt});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 26;
+            this.ribbon.MaxItemId = 27;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage3,
+            this.ribbonPage5,
             this.ribbonPage2,
             this.ribbonPage4});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
@@ -393,6 +398,29 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
+            // ribbonPage5
+            // 
+            this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.ribbonPage5.Name = "ribbonPage5";
+            this.ribbonPage5.Text = "Utilidades";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnEmitterReceipt);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Recibos";
+            // 
+            // btnEmitterReceipt
+            // 
+            this.btnEmitterReceipt.Caption = "Emitir Recibo Avulso";
+            this.btnEmitterReceipt.Id = 26;
+            this.btnEmitterReceipt.Name = "btnEmitterReceipt";
+            this.btnEmitterReceipt.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnEmitterReceipt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmitterReceipt_ItemClick);
+            // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,5 +483,8 @@
         private DevExpress.XtraBars.BarButtonItem btnChooseColor;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup10;
         private DevExpress.XtraBars.BarButtonItem btnSearchCNPJ;
+        private DevExpress.XtraBars.BarButtonItem btnEmitterReceipt;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
     }
 }

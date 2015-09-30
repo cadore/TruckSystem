@@ -76,6 +76,9 @@
       <HintPath>..\packages\Npgsql.2.2.5\lib\net45\Npgsql.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Receipt">
+      <HintPath>..\..\Receipt\bin\Debug\Receipt.dll</HintPath>
+    </Reference>
     <Reference Include="SecureApp">
       <HintPath>..\..\..\DLL\SecureApp.dll</HintPath>
     </Reference>
@@ -219,6 +222,12 @@
     <Compile Include="UI\Payments\SearchPaymentsForm.Designer.cs">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Receipts\SingleReceipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Receipts\SingleReceipt.Designer.cs">
+      <DependentUpon>SingleReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\SearchCNPJ\SearchCNPJForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -266,6 +275,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Utils\Dates.cs" />
+    <Compile Include="Utils\Money.cs" />
     <Compile Include="Utils\SearchCPFCNPJUtil.cs" />
     <Compile Include="Utils\FTPUtil.cs" />
     <Compile Include="Utils\INI.cs" />
@@ -339,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Payments\SearchPaymentsForm.resx">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Receipts\SingleReceipt.resx">
+      <DependentUpon>SingleReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SearchCNPJ\SearchCNPJForm.resx">
       <DependentUpon>SearchCNPJForm.cs</DependentUpon>

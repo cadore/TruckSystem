@@ -25,6 +25,7 @@ using TruckSystem.Connection;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.UI.SearchCNPJ;
 using TruckSystem.UI.AccountsToPay;
+using TruckSystem.UI.Receipts;
 
 namespace TruckSystem.UI
 {
@@ -221,6 +222,12 @@ namespace TruckSystem.UI
         {
             AccountsToPayForm atpf = new AccountsToPayForm(null);
             AddTab(atpf, "Nova Conta a Pagar", false);
+        }
+
+        private void btnEmitterReceipt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SingleReceipt sr = new SingleReceipt();
+            AddTab(sr, "Emitir Recibo Avulso", false);
         }
     }
 }

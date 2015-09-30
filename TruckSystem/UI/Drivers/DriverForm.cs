@@ -60,7 +60,7 @@ namespace TruckSystem.UI.Drivers
 
         private void tfBirthday_EditValueChanged(object sender, EventArgs e)
         {
-            int year = Util.CalculateAge(driver.Now(), tfBirthday.DateTime);
+            int year = Dates.CalculateAge(driver.Now(), tfBirthday.DateTime);
             if (year < 0)
                 year = 0;
             lbBirthday.Text = String.Format("{0:d} Anos", year);
@@ -76,7 +76,7 @@ namespace TruckSystem.UI.Drivers
                 {                    
                     driver dr = (driver)bdgDriver.Current;
                     address ad = (address)bdgAddress.Current;
-                    if (Util.CalculateAge(driver.Now(), tfBirthday.DateTime) < 18)
+                    if (Dates.CalculateAge(driver.Now(), tfBirthday.DateTime) < 18)
                     {
                         XtraMessageBox.Show("Idade incorreta, deve ter no mínimo 18 anos");
                         return;

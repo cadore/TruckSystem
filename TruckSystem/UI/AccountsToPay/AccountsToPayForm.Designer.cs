@@ -29,31 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountsToPayForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
-            this.calcEdit6 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
-            this.calcEdit5 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.calcEdit4 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
-            this.calcEdit3 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.calcEdit2 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.calcEdit1 = new DevExpress.XtraEditors.CalcEdit();
-            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
-            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.memoEdit1 = new DevExpress.XtraEditors.MemoEdit();
+            this.tabControl = new DevExpress.XtraTab.XtraTabControl();
+            this.tabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
+            this.tfDescription = new DevExpress.XtraEditors.TextEdit();
+            this.bdgAccountToPay = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.dateEdit1 = new DevExpress.XtraEditors.DateEdit();
+            this.tfDateEmission = new DevExpress.XtraEditors.DateEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-            this.timeEdit1 = new DevExpress.XtraEditors.TimeEdit();
+            this.tfTimeEmission = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
+            this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.cbCustomer = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -68,205 +64,130 @@
             this.tfChave = new DevExpress.XtraEditors.TextEdit();
             this.tfNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.tfObservation = new DevExpress.XtraEditors.MemoEdit();
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.tfValueTotal = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
+            this.tfValueDiscount = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.tfValueIPI = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.tfValueSegurity = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.tfValueFreight = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
+            this.tfValueProducts = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.tabPayment = new DevExpress.XtraTab.XtraTabPage();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.bdgPayments = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.coldescription = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colexpiration_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalue = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.btnGenerateParcels = new WCButtons.Black.ButtonSettingsBlack();
+            this.tfDateStart = new DevExpress.XtraEditors.DateEdit();
+            this.tfIntervalDays = new DevExpress.XtraEditors.SpinEdit();
+            this.tfQntParcels = new DevExpress.XtraEditors.SpinEdit();
+            this.tfValueTotalNote = new DevExpress.XtraEditors.CalcEdit();
+            this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.bdgAccountToPay = new System.Windows.Forms.BindingSource(this.components);
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.validatorParcels = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
-            this.groupControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit6.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit5.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit4.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
-            this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
+            this.tabControl.SuspendLayout();
+            this.tabGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTimeEmission.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCustomer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSerie.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChave.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
+            this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfObservation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueTotal.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueDiscount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueIPI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueSegurity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueFreight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueProducts.Properties)).BeginInit();
+            this.tabPayment.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgPayments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfIntervalDays.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfQntParcels.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueTotalNote.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validatorParcels)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.groupControl3);
-            this.panelControl1.Controls.Add(this.groupControl2);
-            this.panelControl1.Controls.Add(this.groupControl1);
+            this.panelControl1.Controls.Add(this.tabControl);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(653, 448);
+            this.panelControl1.Size = new System.Drawing.Size(663, 472);
             this.panelControl1.TabIndex = 0;
             // 
-            // groupControl3
+            // tabControl
             // 
-            this.groupControl3.Controls.Add(this.calcEdit6);
-            this.groupControl3.Controls.Add(this.labelControl13);
-            this.groupControl3.Controls.Add(this.calcEdit5);
-            this.groupControl3.Controls.Add(this.labelControl12);
-            this.groupControl3.Controls.Add(this.calcEdit4);
-            this.groupControl3.Controls.Add(this.labelControl11);
-            this.groupControl3.Controls.Add(this.calcEdit3);
-            this.groupControl3.Controls.Add(this.labelControl10);
-            this.groupControl3.Controls.Add(this.calcEdit2);
-            this.groupControl3.Controls.Add(this.labelControl9);
-            this.groupControl3.Controls.Add(this.calcEdit1);
-            this.groupControl3.Controls.Add(this.labelControl8);
-            this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(2, 133);
-            this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(649, 129);
-            this.groupControl3.TabIndex = 1;
-            this.groupControl3.Text = "Valores";
+            this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl.Location = new System.Drawing.Point(2, 2);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedTabPage = this.tabGeneral;
+            this.tabControl.Size = new System.Drawing.Size(659, 468);
+            this.tabControl.TabIndex = 3;
+            this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.tabGeneral,
+            this.tabPayment});
             // 
-            // calcEdit6
+            // tabGeneral
             // 
-            this.calcEdit6.Location = new System.Drawing.Point(334, 98);
-            this.calcEdit6.Name = "calcEdit6";
-            this.calcEdit6.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit6.Properties.ReadOnly = true;
-            this.calcEdit6.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit6.TabIndex = 5;
-            this.calcEdit6.TabStop = false;
-            // 
-            // labelControl13
-            // 
-            this.labelControl13.Location = new System.Drawing.Point(234, 101);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(94, 13);
-            this.labelControl13.TabIndex = 0;
-            this.labelControl13.Text = "Valor total da Nota:";
-            // 
-            // calcEdit5
-            // 
-            this.calcEdit5.Location = new System.Drawing.Point(334, 24);
-            this.calcEdit5.Name = "calcEdit5";
-            this.calcEdit5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit5.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit5.TabIndex = 4;
-            // 
-            // labelControl12
-            // 
-            this.labelControl12.Location = new System.Drawing.Point(238, 27);
-            this.labelControl12.Name = "labelControl12";
-            this.labelControl12.Size = new System.Drawing.Size(76, 13);
-            this.labelControl12.TabIndex = 0;
-            this.labelControl12.Text = "Valor Desconto:";
-            // 
-            // calcEdit4
-            // 
-            this.calcEdit4.Location = new System.Drawing.Point(99, 102);
-            this.calcEdit4.Name = "calcEdit4";
-            this.calcEdit4.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit4.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit4.TabIndex = 3;
-            // 
-            // labelControl11
-            // 
-            this.labelControl11.Location = new System.Drawing.Point(6, 105);
-            this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(45, 13);
-            this.labelControl11.TabIndex = 0;
-            this.labelControl11.Text = "Valor IPI:";
-            // 
-            // calcEdit3
-            // 
-            this.calcEdit3.Location = new System.Drawing.Point(99, 76);
-            this.calcEdit3.Name = "calcEdit3";
-            this.calcEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit3.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit3.TabIndex = 2;
-            // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(6, 79);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(65, 13);
-            this.labelControl10.TabIndex = 0;
-            this.labelControl10.Text = "Valor Seguro:";
-            // 
-            // calcEdit2
-            // 
-            this.calcEdit2.Location = new System.Drawing.Point(99, 50);
-            this.calcEdit2.Name = "calcEdit2";
-            this.calcEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit2.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit2.TabIndex = 1;
-            // 
-            // labelControl9
-            // 
-            this.labelControl9.Location = new System.Drawing.Point(6, 53);
-            this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(57, 13);
-            this.labelControl9.TabIndex = 0;
-            this.labelControl9.Text = "Valor Frete:";
-            // 
-            // calcEdit1
-            // 
-            this.calcEdit1.Location = new System.Drawing.Point(99, 24);
-            this.calcEdit1.Name = "calcEdit1";
-            this.calcEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.calcEdit1.Size = new System.Drawing.Size(110, 20);
-            this.calcEdit1.TabIndex = 0;
-            // 
-            // labelControl8
-            // 
-            this.labelControl8.Location = new System.Drawing.Point(6, 27);
-            this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(74, 13);
-            this.labelControl8.TabIndex = 0;
-            this.labelControl8.Text = "Valor Produtos:";
-            // 
-            // groupControl2
-            // 
-            this.groupControl2.Controls.Add(this.memoEdit1);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl2.Location = new System.Drawing.Point(2, 262);
-            this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(649, 184);
-            this.groupControl2.TabIndex = 2;
-            this.groupControl2.Text = "Observações";
-            // 
-            // memoEdit1
-            // 
-            this.memoEdit1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoEdit1.Location = new System.Drawing.Point(2, 21);
-            this.memoEdit1.Name = "memoEdit1";
-            this.memoEdit1.Size = new System.Drawing.Size(645, 161);
-            this.memoEdit1.TabIndex = 0;
-            this.memoEdit1.UseOptimizedRendering = true;
+            this.tabGeneral.Controls.Add(this.groupControl1);
+            this.tabGeneral.Controls.Add(this.groupControl2);
+            this.tabGeneral.Controls.Add(this.groupControl3);
+            this.tabGeneral.Name = "tabGeneral";
+            this.tabGeneral.ShowCloseButton = DevExpress.Utils.DefaultBoolean.False;
+            this.tabGeneral.Size = new System.Drawing.Size(653, 440);
+            this.tabGeneral.Text = "Informações Gerais";
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.textEdit1);
+            this.groupControl1.Controls.Add(this.tfDescription);
             this.groupControl1.Controls.Add(this.labelControl1);
-            this.groupControl1.Controls.Add(this.dateEdit1);
+            this.groupControl1.Controls.Add(this.tfDateEmission);
             this.groupControl1.Controls.Add(this.labelControl5);
-            this.groupControl1.Controls.Add(this.timeEdit1);
+            this.groupControl1.Controls.Add(this.tfTimeEmission);
             this.groupControl1.Controls.Add(this.labelControl4);
-            this.groupControl1.Controls.Add(this.textEdit2);
+            this.groupControl1.Controls.Add(this.tfId);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.cbCustomer);
@@ -276,18 +197,26 @@
             this.groupControl1.Controls.Add(this.tfNumber);
             this.groupControl1.Controls.Add(this.labelControl3);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupControl1.Location = new System.Drawing.Point(2, 2);
+            this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(649, 131);
+            this.groupControl1.Size = new System.Drawing.Size(653, 131);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Dados Gerais";
             // 
-            // textEdit1
+            // tfDescription
             // 
-            this.textEdit1.Location = new System.Drawing.Point(99, 24);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Size = new System.Drawing.Size(309, 20);
-            this.textEdit1.TabIndex = 0;
+            this.tfDescription.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "description", true));
+            this.tfDescription.Location = new System.Drawing.Point(99, 24);
+            this.tfDescription.Name = "tfDescription";
+            this.tfDescription.Size = new System.Drawing.Size(309, 20);
+            this.tfDescription.TabIndex = 0;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe a Descrição";
+            this.validator.SetValidationRule(this.tfDescription, conditionValidationRule1);
+            // 
+            // bdgAccountToPay
+            // 
+            this.bdgAccountToPay.DataSource = typeof(TruckSystem.accounts_to_pay);
             // 
             // labelControl1
             // 
@@ -297,18 +226,21 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Chave de Acesso:";
             // 
-            // dateEdit1
+            // tfDateEmission
             // 
-            this.dateEdit1.EditValue = null;
-            this.dateEdit1.Location = new System.Drawing.Point(99, 102);
-            this.dateEdit1.Name = "dateEdit1";
-            this.dateEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tfDateEmission.EditValue = null;
+            this.tfDateEmission.Location = new System.Drawing.Point(99, 102);
+            this.tfDateEmission.Name = "tfDateEmission";
+            this.tfDateEmission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tfDateEmission.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dateEdit1.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateEdit1.Size = new System.Drawing.Size(110, 20);
-            this.dateEdit1.TabIndex = 5;
+            this.tfDateEmission.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.tfDateEmission.Size = new System.Drawing.Size(110, 20);
+            this.tfDateEmission.TabIndex = 5;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe a Data de Emissão";
+            this.validator.SetValidationRule(this.tfDateEmission, conditionValidationRule2);
             // 
             // labelControl5
             // 
@@ -318,16 +250,16 @@
             this.labelControl5.TabIndex = 0;
             this.labelControl5.Text = "Descrição:";
             // 
-            // timeEdit1
+            // tfTimeEmission
             // 
-            this.timeEdit1.EditValue = new System.DateTime(2015, 9, 17, 0, 0, 0, 0);
-            this.timeEdit1.Location = new System.Drawing.Point(215, 102);
-            this.timeEdit1.Name = "timeEdit1";
-            this.timeEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.tfTimeEmission.EditValue = new System.DateTime(2015, 9, 17, 0, 0, 0, 0);
+            this.tfTimeEmission.Location = new System.Drawing.Point(215, 102);
+            this.tfTimeEmission.Name = "tfTimeEmission";
+            this.tfTimeEmission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.timeEdit1.Properties.Mask.EditMask = "HH:mm:ss";
-            this.timeEdit1.Size = new System.Drawing.Size(75, 20);
-            this.timeEdit1.TabIndex = 6;
+            this.tfTimeEmission.Properties.Mask.EditMask = "HH:mm:ss";
+            this.tfTimeEmission.Size = new System.Drawing.Size(75, 20);
+            this.tfTimeEmission.TabIndex = 6;
             // 
             // labelControl4
             // 
@@ -337,13 +269,14 @@
             this.labelControl4.TabIndex = 0;
             this.labelControl4.Text = "Prestador:";
             // 
-            // textEdit2
+            // tfId
             // 
-            this.textEdit2.Location = new System.Drawing.Point(588, 24);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Size = new System.Drawing.Size(56, 20);
-            this.textEdit2.TabIndex = 3;
-            this.textEdit2.TabStop = false;
+            this.tfId.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "id", true));
+            this.tfId.Location = new System.Drawing.Point(588, 24);
+            this.tfId.Name = "tfId";
+            this.tfId.Size = new System.Drawing.Size(56, 20);
+            this.tfId.TabIndex = 3;
+            this.tfId.TabStop = false;
             // 
             // labelControl7
             // 
@@ -355,14 +288,15 @@
             // 
             // labelControl6
             // 
-            this.labelControl6.Location = new System.Drawing.Point(567, 27);
+            this.labelControl6.Location = new System.Drawing.Point(555, 27);
             this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(15, 13);
+            this.labelControl6.Size = new System.Drawing.Size(27, 13);
             this.labelControl6.TabIndex = 0;
-            this.labelControl6.Text = "ID:";
+            this.labelControl6.Text = "Cod.:";
             // 
             // cbCustomer
             // 
+            this.cbCustomer.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "customer_id", true));
             this.cbCustomer.Location = new System.Drawing.Point(99, 76);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -374,6 +308,10 @@
             this.cbCustomer.Properties.View = this.searchLookUpEdit1View;
             this.cbCustomer.Size = new System.Drawing.Size(309, 20);
             this.cbCustomer.TabIndex = 4;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Informe o Prestador";
+            conditionValidationRule3.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCustomer, conditionValidationRule3);
             // 
             // bdgCustomer
             // 
@@ -441,6 +379,7 @@
             // 
             // tfSerie
             // 
+            this.tfSerie.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "serie", true));
             this.tfSerie.EditValue = "";
             this.tfSerie.Location = new System.Drawing.Point(588, 50);
             this.tfSerie.Name = "tfSerie";
@@ -452,6 +391,7 @@
             // 
             // tfChave
             // 
+            this.tfChave.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "chave", true));
             this.tfChave.EditValue = "";
             this.tfChave.Location = new System.Drawing.Point(99, 50);
             this.tfChave.Name = "tfChave";
@@ -463,6 +403,7 @@
             // 
             // tfNumber
             // 
+            this.tfNumber.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "number", true));
             this.tfNumber.EditValue = "";
             this.tfNumber.Location = new System.Drawing.Point(468, 50);
             this.tfNumber.Name = "tfNumber";
@@ -480,14 +421,425 @@
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Série:";
             // 
+            // groupControl2
+            // 
+            this.groupControl2.Controls.Add(this.tfObservation);
+            this.groupControl2.Location = new System.Drawing.Point(0, 260);
+            this.groupControl2.Name = "groupControl2";
+            this.groupControl2.Size = new System.Drawing.Size(653, 143);
+            this.groupControl2.TabIndex = 2;
+            this.groupControl2.Text = "Observações";
+            // 
+            // tfObservation
+            // 
+            this.tfObservation.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "observations", true));
+            this.tfObservation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tfObservation.Location = new System.Drawing.Point(2, 21);
+            this.tfObservation.Name = "tfObservation";
+            this.tfObservation.Size = new System.Drawing.Size(649, 120);
+            this.tfObservation.TabIndex = 0;
+            this.tfObservation.UseOptimizedRendering = true;
+            // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.tfValueTotal);
+            this.groupControl3.Controls.Add(this.labelControl13);
+            this.groupControl3.Controls.Add(this.tfValueDiscount);
+            this.groupControl3.Controls.Add(this.labelControl12);
+            this.groupControl3.Controls.Add(this.tfValueIPI);
+            this.groupControl3.Controls.Add(this.labelControl11);
+            this.groupControl3.Controls.Add(this.tfValueSegurity);
+            this.groupControl3.Controls.Add(this.labelControl10);
+            this.groupControl3.Controls.Add(this.tfValueFreight);
+            this.groupControl3.Controls.Add(this.labelControl9);
+            this.groupControl3.Controls.Add(this.tfValueProducts);
+            this.groupControl3.Controls.Add(this.labelControl8);
+            this.groupControl3.Location = new System.Drawing.Point(0, 131);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(653, 129);
+            this.groupControl3.TabIndex = 1;
+            this.groupControl3.Text = "Valores";
+            // 
+            // tfValueTotal
+            // 
+            this.tfValueTotal.Location = new System.Drawing.Point(334, 98);
+            this.tfValueTotal.Name = "tfValueTotal";
+            this.tfValueTotal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueTotal.Properties.Mask.EditMask = "c2";
+            this.tfValueTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueTotal.Properties.Precision = 2;
+            this.tfValueTotal.Properties.ReadOnly = true;
+            this.tfValueTotal.Size = new System.Drawing.Size(110, 20);
+            this.tfValueTotal.TabIndex = 5;
+            this.tfValueTotal.TabStop = false;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Informe os valor para gerar o valor total da Nota";
+            conditionValidationRule4.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.validator.SetValidationRule(this.tfValueTotal, conditionValidationRule4);
+            this.tfValueTotal.EditValueChanged += new System.EventHandler(this.tfValueTotal_EditValueChanged);
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(234, 101);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(94, 13);
+            this.labelControl13.TabIndex = 0;
+            this.labelControl13.Text = "Valor total da Nota:";
+            // 
+            // tfValueDiscount
+            // 
+            this.tfValueDiscount.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "value_discount", true));
+            this.tfValueDiscount.Location = new System.Drawing.Point(334, 24);
+            this.tfValueDiscount.Name = "tfValueDiscount";
+            this.tfValueDiscount.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueDiscount.Properties.Mask.EditMask = "c2";
+            this.tfValueDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueDiscount.Properties.Precision = 2;
+            this.tfValueDiscount.Size = new System.Drawing.Size(110, 20);
+            this.tfValueDiscount.TabIndex = 4;
+            this.tfValueDiscount.EditValueChanged += new System.EventHandler(this.CalcValueNote);
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Location = new System.Drawing.Point(238, 27);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(76, 13);
+            this.labelControl12.TabIndex = 0;
+            this.labelControl12.Text = "Valor Desconto:";
+            // 
+            // tfValueIPI
+            // 
+            this.tfValueIPI.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "value_ipi", true));
+            this.tfValueIPI.Location = new System.Drawing.Point(99, 102);
+            this.tfValueIPI.Name = "tfValueIPI";
+            this.tfValueIPI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueIPI.Properties.Mask.EditMask = "c2";
+            this.tfValueIPI.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueIPI.Properties.Precision = 2;
+            this.tfValueIPI.Size = new System.Drawing.Size(110, 20);
+            this.tfValueIPI.TabIndex = 3;
+            this.tfValueIPI.EditValueChanged += new System.EventHandler(this.CalcValueNote);
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(6, 105);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(45, 13);
+            this.labelControl11.TabIndex = 0;
+            this.labelControl11.Text = "Valor IPI:";
+            // 
+            // tfValueSegurity
+            // 
+            this.tfValueSegurity.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "value_freight", true));
+            this.tfValueSegurity.Location = new System.Drawing.Point(99, 76);
+            this.tfValueSegurity.Name = "tfValueSegurity";
+            this.tfValueSegurity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueSegurity.Properties.Mask.EditMask = "c2";
+            this.tfValueSegurity.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueSegurity.Properties.Precision = 2;
+            this.tfValueSegurity.Size = new System.Drawing.Size(110, 20);
+            this.tfValueSegurity.TabIndex = 2;
+            this.tfValueSegurity.EditValueChanged += new System.EventHandler(this.CalcValueNote);
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(6, 79);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(65, 13);
+            this.labelControl10.TabIndex = 0;
+            this.labelControl10.Text = "Valor Seguro:";
+            // 
+            // tfValueFreight
+            // 
+            this.tfValueFreight.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "value_freight", true));
+            this.tfValueFreight.Location = new System.Drawing.Point(99, 50);
+            this.tfValueFreight.Name = "tfValueFreight";
+            this.tfValueFreight.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueFreight.Properties.Mask.EditMask = "c2";
+            this.tfValueFreight.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueFreight.Properties.Precision = 2;
+            this.tfValueFreight.Size = new System.Drawing.Size(110, 20);
+            this.tfValueFreight.TabIndex = 1;
+            this.tfValueFreight.EditValueChanged += new System.EventHandler(this.CalcValueNote);
+            // 
+            // labelControl9
+            // 
+            this.labelControl9.Location = new System.Drawing.Point(6, 53);
+            this.labelControl9.Name = "labelControl9";
+            this.labelControl9.Size = new System.Drawing.Size(57, 13);
+            this.labelControl9.TabIndex = 0;
+            this.labelControl9.Text = "Valor Frete:";
+            // 
+            // tfValueProducts
+            // 
+            this.tfValueProducts.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "value_products", true));
+            this.tfValueProducts.Location = new System.Drawing.Point(99, 24);
+            this.tfValueProducts.Name = "tfValueProducts";
+            this.tfValueProducts.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueProducts.Properties.Mask.EditMask = "c2";
+            this.tfValueProducts.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueProducts.Properties.Precision = 2;
+            this.tfValueProducts.Size = new System.Drawing.Size(110, 20);
+            this.tfValueProducts.TabIndex = 0;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule5.ErrorText = "Informe o valor dos produtos";
+            conditionValidationRule5.Value1 = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.validator.SetValidationRule(this.tfValueProducts, conditionValidationRule5);
+            this.tfValueProducts.EditValueChanged += new System.EventHandler(this.CalcValueNote);
+            // 
+            // labelControl8
+            // 
+            this.labelControl8.Location = new System.Drawing.Point(6, 27);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(74, 13);
+            this.labelControl8.TabIndex = 0;
+            this.labelControl8.Text = "Valor Produtos:";
+            // 
+            // tabPayment
+            // 
+            this.tabPayment.Controls.Add(this.panelControl3);
+            this.tabPayment.Name = "tabPayment";
+            this.tabPayment.PageEnabled = false;
+            this.tabPayment.Size = new System.Drawing.Size(653, 440);
+            this.tabPayment.Text = "Faturas";
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.gridControl1);
+            this.panelControl3.Controls.Add(this.btnGenerateParcels);
+            this.panelControl3.Controls.Add(this.tfDateStart);
+            this.panelControl3.Controls.Add(this.tfIntervalDays);
+            this.panelControl3.Controls.Add(this.tfQntParcels);
+            this.panelControl3.Controls.Add(this.tfValueTotalNote);
+            this.panelControl3.Controls.Add(this.labelControl17);
+            this.panelControl3.Controls.Add(this.labelControl16);
+            this.panelControl3.Controls.Add(this.labelControl15);
+            this.panelControl3.Controls.Add(this.labelControl14);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl3.Location = new System.Drawing.Point(0, 0);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(653, 440);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.bdgPayments;
+            this.gridControl1.Location = new System.Drawing.Point(0, 58);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(653, 340);
+            this.gridControl1.TabIndex = 11;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // bdgPayments
+            // 
+            this.bdgPayments.DataSource = typeof(TruckSystem.payment);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.coldescription,
+            this.colexpiration_date,
+            this.colvalue});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsView.ShowFooter = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colexpiration_date, DevExpress.Data.ColumnSortOrder.Ascending)});
+            // 
+            // coldescription
+            // 
+            this.coldescription.Caption = "Descrição";
+            this.coldescription.FieldName = "description";
+            this.coldescription.Name = "coldescription";
+            this.coldescription.OptionsColumn.AllowEdit = false;
+            this.coldescription.Visible = true;
+            this.coldescription.VisibleIndex = 0;
+            this.coldescription.Width = 339;
+            // 
+            // colexpiration_date
+            // 
+            this.colexpiration_date.Caption = "Vencimento";
+            this.colexpiration_date.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colexpiration_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colexpiration_date.FieldName = "expiration_date";
+            this.colexpiration_date.Name = "colexpiration_date";
+            this.colexpiration_date.SortMode = DevExpress.XtraGrid.ColumnSortMode.Value;
+            this.colexpiration_date.Visible = true;
+            this.colexpiration_date.VisibleIndex = 1;
+            this.colexpiration_date.Width = 146;
+            // 
+            // colvalue
+            // 
+            this.colvalue.Caption = "Valor";
+            this.colvalue.DisplayFormat.FormatString = "c2";
+            this.colvalue.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colvalue.FieldName = "value";
+            this.colvalue.Name = "colvalue";
+            this.colvalue.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value", "{0:c2}")});
+            this.colvalue.Visible = true;
+            this.colvalue.VisibleIndex = 2;
+            this.colvalue.Width = 150;
+            // 
+            // btnGenerateParcels
+            // 
+            this.btnGenerateParcels.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnGenerateParcels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerateParcels.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnGenerateParcels.ForeColor = System.Drawing.Color.White;
+            this.btnGenerateParcels.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerateParcels.Image")));
+            this.btnGenerateParcels.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerateParcels.Location = new System.Drawing.Point(498, 14);
+            this.btnGenerateParcels.Name = "btnGenerateParcels";
+            this.btnGenerateParcels.Size = new System.Drawing.Size(145, 33);
+            this.btnGenerateParcels.TabIndex = 10;
+            this.btnGenerateParcels.Text = "Gerar Parcelas";
+            this.btnGenerateParcels.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerateParcels.UseVisualStyleBackColor = false;
+            this.btnGenerateParcels.Click += new System.EventHandler(this.btnGenerateParcels_Click);
+            // 
+            // tfDateStart
+            // 
+            this.tfDateStart.EditValue = null;
+            this.tfDateStart.Location = new System.Drawing.Point(337, 31);
+            this.tfDateStart.Name = "tfDateStart";
+            this.tfDateStart.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfDateStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfDateStart.Properties.Mask.EditMask = "dd/MM/yyyy";
+            this.tfDateStart.Size = new System.Drawing.Size(100, 20);
+            this.tfDateStart.TabIndex = 9;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe a data inicial";
+            this.validatorParcels.SetValidationRule(this.tfDateStart, conditionValidationRule6);
+            // 
+            // tfIntervalDays
+            // 
+            this.tfIntervalDays.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tfIntervalDays.Location = new System.Drawing.Point(111, 31);
+            this.tfIntervalDays.Name = "tfIntervalDays";
+            this.tfIntervalDays.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfIntervalDays.Properties.MaxValue = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.tfIntervalDays.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tfIntervalDays.Size = new System.Drawing.Size(110, 20);
+            this.tfIntervalDays.TabIndex = 8;
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule7.ErrorText = "Informe o intervalo de dias";
+            conditionValidationRule7.Value1 = 0;
+            this.validatorParcels.SetValidationRule(this.tfIntervalDays, conditionValidationRule7);
+            // 
+            // tfQntParcels
+            // 
+            this.tfQntParcels.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.tfQntParcels.Location = new System.Drawing.Point(337, 5);
+            this.tfQntParcels.Name = "tfQntParcels";
+            this.tfQntParcels.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfQntParcels.Properties.MaxValue = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.tfQntParcels.Properties.MinValue = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tfQntParcels.Size = new System.Drawing.Size(100, 20);
+            this.tfQntParcels.TabIndex = 8;
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule8.ErrorText = "Informe a quantidade de parcelas";
+            conditionValidationRule8.Value1 = 0;
+            this.validatorParcels.SetValidationRule(this.tfQntParcels, conditionValidationRule8);
+            // 
+            // tfValueTotalNote
+            // 
+            this.tfValueTotalNote.Location = new System.Drawing.Point(111, 5);
+            this.tfValueTotalNote.Name = "tfValueTotalNote";
+            this.tfValueTotalNote.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfValueTotalNote.Properties.Mask.EditMask = "c2";
+            this.tfValueTotalNote.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfValueTotalNote.Properties.ReadOnly = true;
+            this.tfValueTotalNote.Size = new System.Drawing.Size(110, 20);
+            this.tfValueTotalNote.TabIndex = 7;
+            this.tfValueTotalNote.TabStop = false;
+            // 
+            // labelControl17
+            // 
+            this.labelControl17.Location = new System.Drawing.Point(232, 34);
+            this.labelControl17.Name = "labelControl17";
+            this.labelControl17.Size = new System.Drawing.Size(55, 13);
+            this.labelControl17.TabIndex = 6;
+            this.labelControl17.Text = "Data inicial:";
+            // 
+            // labelControl16
+            // 
+            this.labelControl16.Location = new System.Drawing.Point(6, 34);
+            this.labelControl16.Name = "labelControl16";
+            this.labelControl16.Size = new System.Drawing.Size(85, 13);
+            this.labelControl16.TabIndex = 6;
+            this.labelControl16.Text = "Intervalo de dias:";
+            // 
+            // labelControl15
+            // 
+            this.labelControl15.Location = new System.Drawing.Point(232, 8);
+            this.labelControl15.Name = "labelControl15";
+            this.labelControl15.Size = new System.Drawing.Size(99, 13);
+            this.labelControl15.TabIndex = 6;
+            this.labelControl15.Text = "Numero de parcelas:";
+            // 
+            // labelControl14
+            // 
+            this.labelControl14.Location = new System.Drawing.Point(6, 8);
+            this.labelControl14.Name = "labelControl14";
+            this.labelControl14.Size = new System.Drawing.Size(94, 13);
+            this.labelControl14.TabIndex = 6;
+            this.labelControl14.Text = "Valor total da Nota:";
+            // 
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 405);
+            this.panelControl2.Location = new System.Drawing.Point(0, 429);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(653, 43);
+            this.panelControl2.Size = new System.Drawing.Size(663, 43);
             this.panelControl2.TabIndex = 0;
             // 
             // btnSave
@@ -505,6 +857,7 @@
             this.btnSave.Text = "Salvar";
             this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
@@ -523,10 +876,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // bdgAccountToPay
-            // 
-            this.bdgAccountToPay.DataSource = typeof(TruckSystem.accounts_to_pay);
-            // 
             // AccountsToPayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,38 +883,55 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "AccountsToPayForm";
-            this.Size = new System.Drawing.Size(653, 448);
+            this.Size = new System.Drawing.Size(663, 472);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
-            this.groupControl3.ResumeLayout(false);
-            this.groupControl3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit6.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit5.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit4.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.calcEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
-            this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tabControl)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.tabGeneral.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.timeEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTimeEmission.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCustomer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfSerie.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChave.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
+            this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tfObservation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueTotal.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueDiscount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueIPI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueSegurity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueFreight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueProducts.Properties)).EndInit();
+            this.tabPayment.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            this.panelControl3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgPayments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfIntervalDays.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfQntParcels.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfValueTotalNote.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validatorParcels)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -585,28 +951,28 @@
         private DevExpress.XtraEditors.TextEdit tfSerie;
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl4;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
+        private DevExpress.XtraEditors.TextEdit tfId;
+        private DevExpress.XtraEditors.TextEdit tfDescription;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.MemoEdit memoEdit1;
-        private DevExpress.XtraEditors.DateEdit dateEdit1;
-        private DevExpress.XtraEditors.TimeEdit timeEdit1;
+        private DevExpress.XtraEditors.MemoEdit tfObservation;
+        private DevExpress.XtraEditors.DateEdit tfDateEmission;
+        private DevExpress.XtraEditors.TimeEdit tfTimeEmission;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.LabelControl labelControl8;
-        private DevExpress.XtraEditors.CalcEdit calcEdit1;
-        private DevExpress.XtraEditors.CalcEdit calcEdit6;
+        private DevExpress.XtraEditors.CalcEdit tfValueProducts;
+        private DevExpress.XtraEditors.CalcEdit tfValueTotal;
         private DevExpress.XtraEditors.LabelControl labelControl13;
-        private DevExpress.XtraEditors.CalcEdit calcEdit5;
+        private DevExpress.XtraEditors.CalcEdit tfValueDiscount;
         private DevExpress.XtraEditors.LabelControl labelControl12;
-        private DevExpress.XtraEditors.CalcEdit calcEdit4;
+        private DevExpress.XtraEditors.CalcEdit tfValueIPI;
         private DevExpress.XtraEditors.LabelControl labelControl11;
-        private DevExpress.XtraEditors.CalcEdit calcEdit3;
+        private DevExpress.XtraEditors.CalcEdit tfValueSegurity;
         private DevExpress.XtraEditors.LabelControl labelControl10;
-        private DevExpress.XtraEditors.CalcEdit calcEdit2;
+        private DevExpress.XtraEditors.CalcEdit tfValueFreight;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private System.Windows.Forms.BindingSource bdgCustomer;
         private System.Windows.Forms.BindingSource bdgAccountToPay;
@@ -614,5 +980,26 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcorporate_name;
         private DevExpress.XtraGrid.Columns.GridColumn colfantasy_name;
         private DevExpress.XtraGrid.Columns.GridColumn coldocument;
+        private DevExpress.XtraTab.XtraTabControl tabControl;
+        private DevExpress.XtraTab.XtraTabPage tabGeneral;
+        public DevExpress.XtraTab.XtraTabPage tabPayment;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private WCButtons.Black.ButtonSettingsBlack btnGenerateParcels;
+        private DevExpress.XtraEditors.DateEdit tfDateStart;
+        private DevExpress.XtraEditors.SpinEdit tfIntervalDays;
+        private DevExpress.XtraEditors.SpinEdit tfQntParcels;
+        private DevExpress.XtraEditors.CalcEdit tfValueTotalNote;
+        private DevExpress.XtraEditors.LabelControl labelControl17;
+        private DevExpress.XtraEditors.LabelControl labelControl16;
+        private DevExpress.XtraEditors.LabelControl labelControl15;
+        private DevExpress.XtraEditors.LabelControl labelControl14;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private System.Windows.Forms.BindingSource bdgPayments;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn coldescription;
+        private DevExpress.XtraGrid.Columns.GridColumn colexpiration_date;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalue;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validatorParcels;
     }
 }

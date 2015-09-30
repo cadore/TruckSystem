@@ -1240,5 +1240,7 @@ namespace TruckSystem
         [Column] public decimal value_discount { get; set; }
         [Column] public decimal value_ipi { get; set; }
         [Column] public string observations { get; set; }
+        [Column] public long registred_by { get; set; }
+        [Column] public DateTime registred_at { get; set; }
     }
 }

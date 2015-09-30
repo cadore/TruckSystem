@@ -73,18 +73,14 @@ namespace TruckSystem.Utils
                            ((x & 0xff000000) >> 24));
         }
 
-        /*public enum StatusOfMonth
+        public static int CalculateAge(DateTime source, DateTime birthday)
         {
-            FirstWeek = 0,
-            FirstHalf = 1,
-            SecondHalf = 2,
-            LastWeek = 3
+            int anos = source.Year - birthday.Year;
+            if (source.Month < birthday.Month
+                || (source.Month == birthday.Month
+                && source.Day < birthday.Day))
+                anos--;
+            return anos;
         }
-        public StatusOfMonth StatusMonth(int month)
-        {
-            DateTime now = business.Now();
-            if (now.Day >= 1 || now.Day <= 7)
-            return -1;
-        }*/
     }
 }

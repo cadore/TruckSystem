@@ -36,6 +36,20 @@ namespace TruckSystem.UI.Utils
             }
             desk.CloseCurrentTab();
             return false;
-        }        
+        }
+
+        protected decimal ToDecimal(object b)
+        {
+            decimal d;
+            try
+            {
+                d = Convert.ToDecimal(b);
+            }
+            catch (Exception)
+            {
+                d = 0;
+            }
+            return d;
+        }
     }
 }
