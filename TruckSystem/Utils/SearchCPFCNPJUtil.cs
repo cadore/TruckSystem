@@ -93,19 +93,19 @@ namespace TruckSystem.Utils.CPFCNPJ
             document = document.Replace("-", "");
             if (String.IsNullOrWhiteSpace(document))
                 return false;
-            try
-            {
+            /*try
+            {*/
                 string file = (type == Document.CNPJ) ? fileCNPJ : fileCPF;
                 int exitCod = RunUtil.Run(file, document, true);
                 if (exitCod == 2)
                     if (GetCurrentDocument() && (!String.IsNullOrEmpty(NCNPJ) || !String.IsNullOrEmpty(NCPF)))
                         return true;
                 return false;
-            }
+            /*}
             catch (Exception ex)
             {
                 throw new Exception(ex.Message, ex.InnerException);
-            }
+            }*/
 
         }
     }

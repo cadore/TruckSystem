@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TruckSystem.Utils.CPFCNPJ;
 using TruckSystem.UI.Customer;
+using PetaPoco;
 
 namespace TruckSystem.UI.SearchCNPJ
 {
@@ -25,7 +26,7 @@ namespace TruckSystem.UI.SearchCNPJ
         {
             if (!validator.Validate())
                 return;
-            try
+          try
             {
                 //validações
                 var countcnpj = customer.repo.ExecuteScalar<string>("SELECT COUNT(id) FROM customers WHERE document=@0",
@@ -57,11 +58,21 @@ namespace TruckSystem.UI.SearchCNPJ
                     d.complement = cc.COMPLEMENTO;
                     d.district = cc.BAIRRO;
                     d.cep = cc.CEP;
-                    state st = state.SingleOrDefault("WHERE symbol=@0", cc.UF);
-                    Console.WriteLine(st.symbol);
-                    d.state_id = st != null ? st.id : 0;
-                    List<city> lci = city.Fetch("WHERE name ILIKE @0 AND state_id=@1", city.Concat(cc.CIDADE), st.id);
-                    d.city_id = lci[0] != null ? lci[0].id : 0;
+
+                    // para evitar problemas com estados e cidades try para ignorar esta etapa caso haja erros!
+                    try
+                    {
+                        state st = state.SingleOrDefault("WHERE symbol=@0", cc.UF);
+                        d.state_id = st != null ? st.id : 0;
+                        string sql_remove = (@"CREATE OR REPLACE FUNCTION remove_character(character varying)
+                                RETURNS character varying  AS
+                                'SELECT translate($1,''áàâãäéèêëíìïóòôõöúùûüÁÀÂÃÄÉÈÊËÍÌÏÓÒÔÕÖÚÙÛÜçÇ'', 
+                                ''aaaaaeeeeiiiooooouuuuAAAAAEEEEIIIOOOOOUUUUcC'');' LANGUAGE SQL;");
+                        TruckSystemRepo.GetInstance().Execute(sql_remove);
+                        List<city> lci = city.Fetch("WHERE remove_character(name) ILIKE @0 AND state_id=@1",
+                            city.Concat(cc.CIDADE), st.id);
+                        d.city_id = lci != null ? lci[0].id : 0;
+                    } catch (Exception) { }
 
                     string[] f = cc.TELEFONE.Replace(" ", "").Split('/');
                     if (f.Length >= 1)

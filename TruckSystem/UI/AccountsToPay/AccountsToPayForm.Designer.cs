@@ -42,6 +42,11 @@
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.cbTruck = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colboard = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tfDescription = new DevExpress.XtraEditors.TextEdit();
             this.bdgAccountToPay = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -59,6 +64,7 @@
             this.colcorporate_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfantasy_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldocument = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl18 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.tfSerie = new DevExpress.XtraEditors.TextEdit();
             this.tfChave = new DevExpress.XtraEditors.TextEdit();
@@ -108,6 +114,9 @@
             this.tabGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).BeginInit();
@@ -181,6 +190,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.cbTruck);
             this.groupControl1.Controls.Add(this.tfDescription);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.tfDateEmission);
@@ -191,6 +201,7 @@
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl6);
             this.groupControl1.Controls.Add(this.cbCustomer);
+            this.groupControl1.Controls.Add(this.labelControl18);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.tfSerie);
             this.groupControl1.Controls.Add(this.tfChave);
@@ -202,6 +213,55 @@
             this.groupControl1.Size = new System.Drawing.Size(653, 131);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Dados Gerais";
+            // 
+            // cbTruck
+            // 
+            this.cbTruck.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "truck_id", true));
+            this.cbTruck.Location = new System.Drawing.Point(468, 76);
+            this.cbTruck.Name = "cbTruck";
+            this.cbTruck.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbTruck.Properties.DataSource = this.bdgTruck;
+            this.cbTruck.Properties.DisplayMember = "board";
+            this.cbTruck.Properties.NullText = "";
+            this.cbTruck.Properties.ValueMember = "id";
+            this.cbTruck.Properties.View = this.gridView2;
+            this.cbTruck.Size = new System.Drawing.Size(176, 20);
+            this.cbTruck.TabIndex = 7;
+            // 
+            // bdgTruck
+            // 
+            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.colboard});
+            this.gridView2.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView2.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Cod.";
+            this.gridColumn1.FieldName = "id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 215;
+            // 
+            // colboard
+            // 
+            this.colboard.Caption = "Placa";
+            this.colboard.FieldName = "board";
+            this.colboard.Name = "colboard";
+            this.colboard.OptionsColumn.AllowEdit = false;
+            this.colboard.Visible = true;
+            this.colboard.VisibleIndex = 1;
+            this.colboard.Width = 863;
             // 
             // tfDescription
             // 
@@ -368,6 +428,14 @@
             this.coldocument.Visible = true;
             this.coldocument.VisibleIndex = 3;
             this.coldocument.Width = 156;
+            // 
+            // labelControl18
+            // 
+            this.labelControl18.Location = new System.Drawing.Point(421, 79);
+            this.labelControl18.Name = "labelControl18";
+            this.labelControl18.Size = new System.Drawing.Size(37, 13);
+            this.labelControl18.TabIndex = 0;
+            this.labelControl18.Text = "Veículo:";
             // 
             // labelControl2
             // 
@@ -892,6 +960,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).EndInit();
@@ -1001,5 +1072,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colvalue;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validatorParcels;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbTruck;
+        private System.Windows.Forms.BindingSource bdgTruck;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colboard;
+        private DevExpress.XtraEditors.LabelControl labelControl18;
     }
 }

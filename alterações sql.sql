@@ -24,3 +24,10 @@ ALTER TABLE accounts_to_pay
 
 ALTER TABLE accounts_to_pay
   ADD COLUMN observations text;
+  
+ ALTER TABLE payments
+  ADD COLUMN account_id bigint;
+ALTER TABLE accounts_to_pay
+  ADD COLUMN guid_payment character varying;
+ALTER TABLE accounts_to_pay
+  ADD COLUMN truck_id bigint;

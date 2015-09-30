@@ -894,6 +894,7 @@ namespace TruckSystem
 
 
 		[Column] public long id { get; set; }
+        [Column] public long account_id { get; set; }
 
 
 
@@ -1242,5 +1243,7 @@ namespace TruckSystem
         [Column] public string observations { get; set; }
         [Column] public long registred_by { get; set; }
         [Column] public DateTime registred_at { get; set; }
+        [Column] public string guid_payment { get; set; }
+        [Column] public long truck_id { get; set; }
     }
 }
