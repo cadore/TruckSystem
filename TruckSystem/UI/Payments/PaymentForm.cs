@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraEditors.DXErrorProvider;
+using TruckSystem.UI.Category;
 
 namespace TruckSystem.UI.Payments
 {
@@ -33,6 +34,7 @@ namespace TruckSystem.UI.Payments
             {
                 bdgCustomer.DataSource = customer.Fetch("");
                 bdgTruck.DataSource = truck.Fetch("");
+                bdgCategory.DataSource = category.Fetch("WHERE type=@0 ORDER BY name", (int)category.Categorys.Payment);
             }
             catch (Exception ex)
             {
@@ -66,13 +68,13 @@ namespace TruckSystem.UI.Payments
 
         private void btnParcel_Click(object sender, EventArgs e)
         {
-            if (!validate())
+            /*if (!validate())
                 return;
             ParcelPaymentForm ppf = new ParcelPaymentForm((payment)bdgPayment.Current);
             DialogResult rs = ppf.ShowDialog();
             if (rs == DialogResult.OK)
                 if (MessageToSave("Pagamento"))
-                    desk.AddTabAndCloseCurrent(new PaymentForm(null), "Novo Pagamento", false);
+                    desk.AddTabAndCloseCurrent(new PaymentForm(null), "Novo Pagamento", false);*/
         }
         bool validate()
         {
@@ -122,6 +124,15 @@ namespace TruckSystem.UI.Payments
                 validatorPaid.SetValidationRule(tfReasonExpiration, null);
                 validatorPaid.RemoveControlError(tfReasonExpiration);
             }                
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            NewCategoryForm ncf = new NewCategoryForm(category.Categorys.Payment);
+            if (ncf.ShowDialog() == DialogResult.OK)
+                loadData();
+            else
+                XtraMessageBox.Show("Categoria não cadastrada!");
         }
     }
 }

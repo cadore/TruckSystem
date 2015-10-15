@@ -82,5 +82,53 @@ namespace TruckSystem.Utils
                 anos--;
             return anos;
         }
+
+        public static String GetWeekOfMonthExtensive(DateTime date)
+        {
+            string s = "";
+            int n = GetWeekOfMonth(date);
+            switch (n)
+            {
+                case 1:
+                    s = "Primeira";
+                    break;
+                case 2:
+                    s = "Segunda";
+                    break;
+                case 3:
+                    s = "Terceira";
+                    break;
+                case 4:
+                    s = "Quarta";
+                    break;
+                case 5:
+                    s = "Quinta";
+                    break;
+                case 6:
+                    s = "Sexta";
+                    break;
+            }
+            return s;
+        }
+
+        public static int GetWeekOfMonth(DateTime date)
+        {
+            DateTime beginningOfMonth = new DateTime(date.Year, date.Month, 1);
+            while (date.Date.AddDays(1).DayOfWeek != System.Globalization.CultureInfo.CurrentCulture.DateTimeFormat.FirstDayOfWeek)
+                date = date.AddDays(1);
+            return (int)Math.Truncate((double)date.Subtract(beginningOfMonth).TotalDays / 7f) + 1;
+        }
+
+        public static DateTime GetDateStartWeek(DateTime date, int p = 0)
+        {
+            DateTime dateStart = date.AddDays(p - date.DayOfWeek.GetHashCode());
+            return dateStart;
+        }
+
+        public static DateTime GetDateEndWeek(DateTime date, int p = 6)
+        {
+            DateTime dateEnd = date.AddDays(p - date.DayOfWeek.GetHashCode());
+            return dateEnd;
+        }        
     }
 }

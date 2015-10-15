@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -50,14 +49,20 @@
             this.btnBackup = new DevExpress.XtraBars.BarButtonItem();
             this.btnChooseColor = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchCNPJ = new DevExpress.XtraBars.BarButtonItem();
+            this.btnEmitterReceipt = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNewPayment = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSearchPayments = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -65,9 +70,6 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnEmitterReceipt = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -97,9 +99,11 @@
             this.btnBackup,
             this.btnChooseColor,
             this.btnSearchCNPJ,
-            this.btnEmitterReceipt});
+            this.btnEmitterReceipt,
+            this.btnNewPayment,
+            this.btnSearchPayments});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 27;
+            this.ribbon.MaxItemId = 30;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -108,7 +112,7 @@
             this.ribbonPage2,
             this.ribbonPage4});
             this.ribbon.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2013;
-            this.ribbon.Size = new System.Drawing.Size(1002, 144);
+            this.ribbon.Size = new System.Drawing.Size(918, 144);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // barButtonItem1
@@ -205,6 +209,7 @@
             this.btnSearchAccountsToPay.Id = 14;
             this.btnSearchAccountsToPay.Name = "btnSearchAccountsToPay";
             this.btnSearchAccountsToPay.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSearchAccountsToPay.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchAccountsToPay_ItemClick);
             // 
             // btnNewFreight
             // 
@@ -261,11 +266,35 @@
             this.btnSearchCNPJ.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnSearchCNPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchCNPJ_ItemClick);
             // 
+            // btnEmitterReceipt
+            // 
+            this.btnEmitterReceipt.Caption = "Emitir Recibo Avulso";
+            this.btnEmitterReceipt.Id = 26;
+            this.btnEmitterReceipt.Name = "btnEmitterReceipt";
+            this.btnEmitterReceipt.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnEmitterReceipt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmitterReceipt_ItemClick);
+            // 
+            // btnNewPayment
+            // 
+            this.btnNewPayment.Caption = "Novo Pagamento Avulso";
+            this.btnNewPayment.Id = 27;
+            this.btnNewPayment.Name = "btnNewPayment";
+            this.btnNewPayment.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnNewPayment.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewPayment_ItemClick);
+            // 
+            // btnSearchPayments
+            // 
+            this.btnSearchPayments.Caption = "Buscar Pagamentos";
+            this.btnSearchPayments.Id = 28;
+            this.btnSearchPayments.Name = "btnSearchPayments";
+            this.btnSearchPayments.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup11});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Gestão";
             // 
@@ -285,7 +314,16 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnSearchAccountsToPay);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.ShowCaptionButton = false;
-            this.ribbonPageGroup2.Text = "Pagamentos";
+            this.ribbonPageGroup2.Text = "Contas à Pagar";
+            // 
+            // ribbonPageGroup11
+            // 
+            this.ribbonPageGroup11.AllowTextClipping = false;
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnNewPayment);
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnSearchPayments);
+            this.ribbonPageGroup11.Name = "ribbonPageGroup11";
+            this.ribbonPageGroup11.ShowCaptionButton = false;
+            this.ribbonPageGroup11.Text = "Pagamentos";
             // 
             // ribbonPage3
             // 
@@ -333,6 +371,21 @@
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Contas Bancarias";
             // 
+            // ribbonPage5
+            // 
+            this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup8});
+            this.ribbonPage5.Name = "ribbonPage5";
+            this.ribbonPage5.Text = "Utilidades";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.AllowTextClipping = false;
+            this.ribbonPageGroup8.ItemLinks.Add(this.btnEmitterReceipt);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.ShowCaptionButton = false;
+            this.ribbonPageGroup8.Text = "Recibos";
+            // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -377,20 +430,18 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.lbStatusUser);
             this.ribbonStatusBar.ItemLinks.Add(this.lbWarings);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 492);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 464);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1002, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(918, 31);
             // 
             // tabControl
             // 
             this.tabControl.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InActiveTabPageHeader;
-            this.tabControl.CustomHeaderButtons.AddRange(new DevExpress.XtraTab.Buttons.CustomHeaderButton[] {
-            new DevExpress.XtraTab.Buttons.CustomHeaderButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Close, "", -1, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, serializableAppearanceObject1, "", 1, null, true)});
             this.tabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl.Location = new System.Drawing.Point(0, 144);
             this.tabControl.Name = "tabControl";
-            this.tabControl.Size = new System.Drawing.Size(1002, 348);
+            this.tabControl.Size = new System.Drawing.Size(918, 320);
             this.tabControl.TabIndex = 2;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             this.tabControl.CustomHeaderButtonClick += new DevExpress.XtraTab.ViewInfo.CustomHeaderButtonEventHandler(this.tabControl_CustomHeaderButtonClick);
@@ -398,34 +449,11 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // ribbonPage5
-            // 
-            this.ribbonPage5.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup8});
-            this.ribbonPage5.Name = "ribbonPage5";
-            this.ribbonPage5.Text = "Utilidades";
-            // 
-            // ribbonPageGroup8
-            // 
-            this.ribbonPageGroup8.AllowTextClipping = false;
-            this.ribbonPageGroup8.ItemLinks.Add(this.btnEmitterReceipt);
-            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-            this.ribbonPageGroup8.ShowCaptionButton = false;
-            this.ribbonPageGroup8.Text = "Recibos";
-            // 
-            // btnEmitterReceipt
-            // 
-            this.btnEmitterReceipt.Caption = "Emitir Recibo Avulso";
-            this.btnEmitterReceipt.Id = 26;
-            this.btnEmitterReceipt.Name = "btnEmitterReceipt";
-            this.btnEmitterReceipt.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnEmitterReceipt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnEmitterReceipt_ItemClick);
-            // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1002, 523);
+            this.ClientSize = new System.Drawing.Size(918, 495);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
@@ -486,5 +514,8 @@
         private DevExpress.XtraBars.BarButtonItem btnEmitterReceipt;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage5;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnNewPayment;
+        private DevExpress.XtraBars.BarButtonItem btnSearchPayments;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
     }
 }

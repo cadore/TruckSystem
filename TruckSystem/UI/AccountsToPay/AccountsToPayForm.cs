@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TruckSystem.Utils;
 using Receipt;
+using TruckSystem.UI.Category;
 
 namespace TruckSystem.UI.AccountsToPay
 {
@@ -24,10 +25,16 @@ namespace TruckSystem.UI.AccountsToPay
                 atp = new accounts_to_pay() { emission_at = null };
                 IsNew = true;
             }
-            bdgCustomer.DataSource = customer.Fetch("ORDER BY corporate_name");
-            bdgTruck.DataSource = truck.Fetch("");
+            loadData();
             bdgAccountToPay.DataSource = atp;
             EmissionAt(atp.emission_at);                
+        }
+
+        private void loadData()
+        {
+            bdgCustomer.DataSource = customer.Fetch("ORDER BY corporate_name");
+            bdgCategory.DataSource = category.Fetch("WHERE type=@0 ORDER BY name", (int)category.Categorys.Payment);
+            bdgTruck.DataSource = truck.Fetch("");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -156,6 +163,15 @@ namespace TruckSystem.UI.AccountsToPay
                 initialDate = initialDate.AddDays(intervalDays);
             }
             bdgPayments.DataSource = pay;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            NewCategoryForm ncf = new NewCategoryForm(category.Categorys.Payment);
+            if (ncf.ShowDialog() == DialogResult.OK)
+                loadData();
+            else
+                XtraMessageBox.Show("Categoria não cadastrada!");
         }
     }
 }

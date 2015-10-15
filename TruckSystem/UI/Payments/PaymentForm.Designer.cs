@@ -40,6 +40,7 @@
             DevExpress.XtraEditors.LabelControl truck_idLabel;
             DevExpress.XtraEditors.LabelControl valueLabel;
             DevExpress.XtraEditors.LabelControl value_paidLabel;
+            DevExpress.XtraEditors.LabelControl labelControl1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -54,10 +55,13 @@
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.cbCategory = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltype = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tfObservation = new DevExpress.XtraEditors.MemoEdit();
-            this.bdgPayment = new System.Windows.Forms.BindingSource(this.components);
             this.cbCustomer = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.customer_idSearchLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcorporate_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -70,7 +74,6 @@
             this.tfDatePayment = new DevExpress.XtraEditors.DateEdit();
             this.tfReasonExpiration = new DevExpress.XtraEditors.TextEdit();
             this.cbTruck = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             this.truck_idSearchLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colboard = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -78,6 +81,11 @@
             this.tfValuePaid = new DevExpress.XtraEditors.CalcEdit();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validatorPaid = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.bdgPayment = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCategory = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCustomer = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             customer_idLabel = new DevExpress.XtraEditors.LabelControl();
             descriptionLabel = new DevExpress.XtraEditors.LabelControl();
             expiration_dateLabel = new DevExpress.XtraEditors.LabelControl();
@@ -89,14 +97,15 @@
             truck_idLabel = new DevExpress.XtraEditors.LabelControl();
             valueLabel = new DevExpress.XtraEditors.LabelControl();
             value_paidLabel = new DevExpress.XtraEditors.LabelControl();
+            labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfObservation.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgPayment)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCustomer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customer_idSearchLookUpEditView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateExpiration.Properties.CalendarTimeProperties)).BeginInit();
@@ -107,12 +116,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfDatePayment.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfReasonExpiration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.truck_idSearchLookUpEditView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValuePaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validatorPaid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgPayment)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
             this.SuspendLayout();
             // 
             // customer_idLabel
@@ -133,7 +145,7 @@
             // 
             // expiration_dateLabel
             // 
-            expiration_dateLabel.Location = new System.Drawing.Point(5, 60);
+            expiration_dateLabel.Location = new System.Drawing.Point(5, 86);
             expiration_dateLabel.Name = "expiration_dateLabel";
             expiration_dateLabel.Size = new System.Drawing.Size(100, 13);
             expiration_dateLabel.TabIndex = 4;
@@ -149,7 +161,7 @@
             // 
             // observationLabel
             // 
-            observationLabel.Location = new System.Drawing.Point(5, 141);
+            observationLabel.Location = new System.Drawing.Point(5, 168);
             observationLabel.Name = "observationLabel";
             observationLabel.Size = new System.Drawing.Size(67, 13);
             observationLabel.TabIndex = 10;
@@ -157,7 +169,7 @@
             // 
             // paidLabel
             // 
-            paidLabel.Location = new System.Drawing.Point(406, 60);
+            paidLabel.Location = new System.Drawing.Point(406, 86);
             paidLabel.Name = "paidLabel";
             paidLabel.Size = new System.Drawing.Size(28, 13);
             paidLabel.TabIndex = 12;
@@ -165,7 +177,7 @@
             // 
             // paid_dateLabel
             // 
-            paid_dateLabel.Location = new System.Drawing.Point(5, 86);
+            paid_dateLabel.Location = new System.Drawing.Point(5, 112);
             paid_dateLabel.Name = "paid_dateLabel";
             paid_dateLabel.Size = new System.Drawing.Size(99, 13);
             paid_dateLabel.TabIndex = 14;
@@ -173,7 +185,7 @@
             // 
             // reason_expirationLabel
             // 
-            reason_expirationLabel.Location = new System.Drawing.Point(5, 112);
+            reason_expirationLabel.Location = new System.Drawing.Point(5, 138);
             reason_expirationLabel.Name = "reason_expirationLabel";
             reason_expirationLabel.Size = new System.Drawing.Size(94, 13);
             reason_expirationLabel.TabIndex = 16;
@@ -189,7 +201,7 @@
             // 
             // valueLabel
             // 
-            valueLabel.Location = new System.Drawing.Point(217, 60);
+            valueLabel.Location = new System.Drawing.Point(217, 86);
             valueLabel.Name = "valueLabel";
             valueLabel.Size = new System.Drawing.Size(44, 13);
             valueLabel.TabIndex = 20;
@@ -197,11 +209,19 @@
             // 
             // value_paidLabel
             // 
-            value_paidLabel.Location = new System.Drawing.Point(217, 86);
+            value_paidLabel.Location = new System.Drawing.Point(217, 112);
             value_paidLabel.Name = "value_paidLabel";
             value_paidLabel.Size = new System.Drawing.Size(71, 13);
             value_paidLabel.TabIndex = 22;
             value_paidLabel.Text = "Valor Pago R$:";
+            // 
+            // labelControl1
+            // 
+            labelControl1.Location = new System.Drawing.Point(5, 60);
+            labelControl1.Name = "labelControl1";
+            labelControl1.Size = new System.Drawing.Size(51, 13);
+            labelControl1.TabIndex = 4;
+            labelControl1.Text = "Categoria:";
             // 
             // panelControl1
             // 
@@ -210,7 +230,7 @@
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 263);
+            this.panelControl1.Location = new System.Drawing.Point(0, 287);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(625, 44);
             this.panelControl1.TabIndex = 1;
@@ -281,11 +301,14 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnAdd);
+            this.panelControl2.Controls.Add(this.cbCategory);
             this.panelControl2.Controls.Add(this.tfObservation);
             this.panelControl2.Controls.Add(customer_idLabel);
             this.panelControl2.Controls.Add(this.cbCustomer);
             this.panelControl2.Controls.Add(descriptionLabel);
             this.panelControl2.Controls.Add(this.tfDescription);
+            this.panelControl2.Controls.Add(labelControl1);
             this.panelControl2.Controls.Add(expiration_dateLabel);
             this.panelControl2.Controls.Add(this.tfDateExpiration);
             this.panelControl2.Controls.Add(idLabel);
@@ -306,22 +329,70 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(625, 263);
+            this.panelControl2.Size = new System.Drawing.Size(625, 287);
             this.panelControl2.TabIndex = 0;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "category_id", true));
+            this.cbCategory.Location = new System.Drawing.Point(111, 57);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCategory.Properties.DataSource = this.bdgCategory;
+            this.cbCategory.Properties.DisplayMember = "name";
+            this.cbCategory.Properties.NullText = "";
+            this.cbCategory.Properties.ValueMember = "id";
+            this.cbCategory.Properties.View = this.searchLookUpEdit1View;
+            this.cbCategory.Size = new System.Drawing.Size(283, 20);
+            this.cbCategory.TabIndex = 23;
+            // 
+            // searchLookUpEdit1View
+            // 
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.colname,
+            this.coltype});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Cod.";
+            this.gridColumn1.FieldName = "id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 295;
+            // 
+            // colname
+            // 
+            this.colname.Caption = "Categoria";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.OptionsColumn.AllowEdit = false;
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 1;
+            this.colname.Width = 783;
+            // 
+            // coltype
+            // 
+            this.coltype.FieldName = "type";
+            this.coltype.Name = "coltype";
+            this.coltype.OptionsColumn.AllowEdit = false;
             // 
             // tfObservation
             // 
             this.tfObservation.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "observation", true));
-            this.tfObservation.Location = new System.Drawing.Point(5, 160);
+            this.tfObservation.Location = new System.Drawing.Point(5, 187);
             this.tfObservation.Name = "tfObservation";
             this.tfObservation.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfObservation.Size = new System.Drawing.Size(614, 96);
             this.tfObservation.TabIndex = 9;
             this.tfObservation.UseOptimizedRendering = true;
-            // 
-            // bdgPayment
-            // 
-            this.bdgPayment.DataSource = typeof(TruckSystem.payment);
             // 
             // cbCustomer
             // 
@@ -342,10 +413,6 @@
             conditionValidationRule1.ErrorText = "Informe o Cliente/Prestador";
             conditionValidationRule1.Value1 = ((long)(0));
             this.validator.SetValidationRule(this.cbCustomer, conditionValidationRule1);
-            // 
-            // bdgCustomer
-            // 
-            this.bdgCustomer.DataSource = typeof(TruckSystem.customer);
             // 
             // customer_idSearchLookUpEditView
             // 
@@ -415,7 +482,7 @@
             // 
             this.tfDateExpiration.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "expiration_date", true));
             this.tfDateExpiration.EditValue = null;
-            this.tfDateExpiration.Location = new System.Drawing.Point(111, 57);
+            this.tfDateExpiration.Location = new System.Drawing.Point(111, 83);
             this.tfDateExpiration.Name = "tfDateExpiration";
             this.tfDateExpiration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -441,7 +508,7 @@
             // ckPaid
             // 
             this.ckPaid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "paid", true));
-            this.ckPaid.Location = new System.Drawing.Point(440, 59);
+            this.ckPaid.Location = new System.Drawing.Point(440, 85);
             this.ckPaid.Name = "ckPaid";
             this.ckPaid.Properties.Caption = "";
             this.ckPaid.Size = new System.Drawing.Size(16, 15);
@@ -453,7 +520,7 @@
             this.tfDatePayment.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "paid_date", true));
             this.tfDatePayment.EditValue = null;
             this.tfDatePayment.Enabled = false;
-            this.tfDatePayment.Location = new System.Drawing.Point(111, 83);
+            this.tfDatePayment.Location = new System.Drawing.Point(111, 109);
             this.tfDatePayment.Name = "tfDatePayment";
             this.tfDatePayment.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -470,7 +537,7 @@
             // 
             this.tfReasonExpiration.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "reason_expiration", true));
             this.tfReasonExpiration.Enabled = false;
-            this.tfReasonExpiration.Location = new System.Drawing.Point(111, 109);
+            this.tfReasonExpiration.Location = new System.Drawing.Point(111, 135);
             this.tfReasonExpiration.Name = "tfReasonExpiration";
             this.tfReasonExpiration.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.tfReasonExpiration.Properties.Appearance.Options.UseBackColor = true;
@@ -495,10 +562,6 @@
             this.cbTruck.TabIndex = 1;
             conditionValidationRule5.ErrorText = "This value is not valid";
             this.validator.SetValidationRule(this.cbTruck, conditionValidationRule5);
-            // 
-            // bdgTruck
-            // 
-            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
             // 
             // truck_idSearchLookUpEditView
             // 
@@ -533,7 +596,7 @@
             // tfValue
             // 
             this.tfValue.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "value", true));
-            this.tfValue.Location = new System.Drawing.Point(294, 57);
+            this.tfValue.Location = new System.Drawing.Point(294, 83);
             this.tfValue.Name = "tfValue";
             this.tfValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -554,7 +617,7 @@
             // 
             this.tfValuePaid.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgPayment, "value_paid", true));
             this.tfValuePaid.Enabled = false;
-            this.tfValuePaid.Location = new System.Drawing.Point(294, 83);
+            this.tfValuePaid.Location = new System.Drawing.Point(294, 109);
             this.tfValuePaid.Name = "tfValuePaid";
             this.tfValuePaid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -571,6 +634,33 @@
             0});
             this.validatorPaid.SetValidationRule(this.tfValuePaid, conditionValidationRule7);
             // 
+            // btnAdd
+            // 
+            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd.Location = new System.Drawing.Point(400, 55);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(23, 23);
+            this.btnAdd.TabIndex = 24;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // bdgPayment
+            // 
+            this.bdgPayment.DataSource = typeof(TruckSystem.payment);
+            // 
+            // bdgCategory
+            // 
+            this.bdgCategory.DataSource = typeof(TruckSystem.category);
+            // 
+            // bdgCustomer
+            // 
+            this.bdgCustomer.DataSource = typeof(TruckSystem.customer);
+            // 
+            // bdgTruck
+            // 
+            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
+            // 
             // PaymentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,16 +668,16 @@
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Name = "PaymentForm";
-            this.Size = new System.Drawing.Size(625, 307);
+            this.Size = new System.Drawing.Size(625, 331);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfObservation.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgPayment)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCustomer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customer_idSearchLookUpEditView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateExpiration.Properties.CalendarTimeProperties)).EndInit();
@@ -598,12 +688,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfDatePayment.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfReasonExpiration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.truck_idSearchLookUpEditView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfValuePaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validatorPaid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgPayment)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,5 +733,12 @@
         private DevExpress.XtraEditors.SimpleButton btnUpdateData;
         private WCButtons.Black.ButtonSettingsBlack btnParcel;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validatorPaid;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbCategory;
+        private System.Windows.Forms.BindingSource bdgCategory;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
+        private DevExpress.XtraGrid.Columns.GridColumn coltype;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
     }
 }

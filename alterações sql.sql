@@ -16,6 +16,7 @@ CREATE TABLE accounts_to_pay
 WITH (
   OIDS=FALSE
 );
+
 ALTER TABLE accounts_to_pay
   OWNER TO postgres;
   
@@ -27,7 +28,26 @@ ALTER TABLE accounts_to_pay
   
  ALTER TABLE payments
   ADD COLUMN account_id bigint;
+  
 ALTER TABLE accounts_to_pay
   ADD COLUMN guid_payment character varying;
+  
 ALTER TABLE accounts_to_pay
   ADD COLUMN truck_id bigint;
+
+CREATE TABLE categorys
+(
+   id bigserial NOT NULL, 
+   type integer, 
+   name character varying, 
+   CONSTRAINT "PK_categorys_id" PRIMARY KEY (id)
+) 
+WITH (
+  OIDS = FALSE
+);
+ALTER TABLE payments
+  ADD COLUMN category_id integer;
+  
+ALTER TABLE accounts_to_pay
+  ADD COLUMN category_id integer;
+

@@ -26,6 +26,8 @@ using TruckSystem.UI.SplashScreens;
 using TruckSystem.UI.SearchCNPJ;
 using TruckSystem.UI.AccountsToPay;
 using TruckSystem.UI.Receipts;
+using System.Globalization;
+using TruckSystem.UI.Payments.Warings;
 
 namespace TruckSystem.UI
 {
@@ -37,6 +39,9 @@ namespace TruckSystem.UI
             InitializeComponent();
             tabUtil = new TabControlUtil(this);
             UserControlUtil.desk = this;
+
+            AddTab(new WaringsPaymentsDayForm(), "Pagamentos", true);
+
             SplashScreenManager.CloseForm(false);
         }
 
@@ -73,7 +78,7 @@ namespace TruckSystem.UI
 
         private void DesktopForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (tabControl.TabPages.Count > 0)
+            if (tabControl.TabPages.Count > 1)
             {
                 DialogResult rs = XtraMessageBox.Show("Deseja realmente sair?", "Confirmação de Saída",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
@@ -224,10 +229,24 @@ namespace TruckSystem.UI
             AddTab(atpf, "Nova Conta a Pagar", false);
         }
 
+        private void btnSearchAccountsToPay_ItemClick(object sender, ItemClickEventArgs e)
+        {            
+        }
+
         private void btnEmitterReceipt_ItemClick(object sender, ItemClickEventArgs e)
         {
             SingleReceipt sr = new SingleReceipt();
             AddTab(sr, "Emitir Recibo Avulso", false);
         }
+
+        private void btnWaringsPayments_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new WaringsPaymentsDayForm(), "Pagamentos", true);
+        }
+
+        private void btnNewPayment_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new PaymentForm(null), "Novo Pagamento", false);
+        }        
     }
 }

@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountsToPayForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AccountsToPayForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -42,15 +42,23 @@
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
             this.tabGeneral = new DevExpress.XtraTab.XtraTabPage();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnAdd = new DevExpress.XtraEditors.SimpleButton();
+            this.cbCategory = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgAccountToPay = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgCategory = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coltype = new DevExpress.XtraGrid.Columns.GridColumn();
             this.cbTruck = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colboard = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tfDescription = new DevExpress.XtraEditors.TextEdit();
-            this.bdgAccountToPay = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfDateEmission = new DevExpress.XtraEditors.DateEdit();
+            this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.tfTimeEmission = new DevExpress.XtraEditors.TimeEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -114,11 +122,14 @@
             this.tabGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCategory.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeEmission.Properties)).BeginInit();
@@ -190,10 +201,13 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.btnAdd);
+            this.groupControl1.Controls.Add(this.cbCategory);
             this.groupControl1.Controls.Add(this.cbTruck);
             this.groupControl1.Controls.Add(this.tfDescription);
             this.groupControl1.Controls.Add(this.labelControl1);
             this.groupControl1.Controls.Add(this.tfDateEmission);
+            this.groupControl1.Controls.Add(this.labelControl19);
             this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.tfTimeEmission);
             this.groupControl1.Controls.Add(this.labelControl4);
@@ -210,14 +224,82 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(653, 131);
+            this.groupControl1.Size = new System.Drawing.Size(653, 154);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Dados Gerais";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd.Location = new System.Drawing.Point(414, 48);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(23, 23);
+            this.btnAdd.TabIndex = 25;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "category_id", true));
+            this.cbCategory.Location = new System.Drawing.Point(99, 50);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbCategory.Properties.DataSource = this.bdgCategory;
+            this.cbCategory.Properties.DisplayMember = "name";
+            this.cbCategory.Properties.NullText = "";
+            this.cbCategory.Properties.ValueMember = "id";
+            this.cbCategory.Properties.View = this.gridView3;
+            this.cbCategory.Size = new System.Drawing.Size(309, 20);
+            this.cbCategory.TabIndex = 8;
+            // 
+            // bdgAccountToPay
+            // 
+            this.bdgAccountToPay.DataSource = typeof(TruckSystem.accounts_to_pay);
+            // 
+            // bdgCategory
+            // 
+            this.bdgCategory.DataSource = typeof(TruckSystem.category);
+            // 
+            // gridView3
+            // 
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn2,
+            this.colname,
+            this.coltype});
+            this.gridView3.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn2
+            // 
+            this.gridColumn2.Caption = "Cod.";
+            this.gridColumn2.FieldName = "id";
+            this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.Visible = true;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 233;
+            // 
+            // colname
+            // 
+            this.colname.Caption = "Categoria";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 1;
+            this.colname.Width = 845;
+            // 
+            // coltype
+            // 
+            this.coltype.FieldName = "type";
+            this.coltype.Name = "coltype";
             // 
             // cbTruck
             // 
             this.cbTruck.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "truck_id", true));
-            this.cbTruck.Location = new System.Drawing.Point(468, 76);
+            this.cbTruck.Location = new System.Drawing.Point(468, 102);
             this.cbTruck.Name = "cbTruck";
             this.cbTruck.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -274,13 +356,9 @@
             conditionValidationRule1.ErrorText = "Informe a Descrição";
             this.validator.SetValidationRule(this.tfDescription, conditionValidationRule1);
             // 
-            // bdgAccountToPay
-            // 
-            this.bdgAccountToPay.DataSource = typeof(TruckSystem.accounts_to_pay);
-            // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(6, 53);
+            this.labelControl1.Location = new System.Drawing.Point(6, 79);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(87, 13);
             this.labelControl1.TabIndex = 0;
@@ -289,7 +367,7 @@
             // tfDateEmission
             // 
             this.tfDateEmission.EditValue = null;
-            this.tfDateEmission.Location = new System.Drawing.Point(99, 102);
+            this.tfDateEmission.Location = new System.Drawing.Point(99, 128);
             this.tfDateEmission.Name = "tfDateEmission";
             this.tfDateEmission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -302,6 +380,14 @@
             conditionValidationRule2.ErrorText = "Informe a Data de Emissão";
             this.validator.SetValidationRule(this.tfDateEmission, conditionValidationRule2);
             // 
+            // labelControl19
+            // 
+            this.labelControl19.Location = new System.Drawing.Point(6, 53);
+            this.labelControl19.Name = "labelControl19";
+            this.labelControl19.Size = new System.Drawing.Size(51, 13);
+            this.labelControl19.TabIndex = 0;
+            this.labelControl19.Text = "Categoria:";
+            // 
             // labelControl5
             // 
             this.labelControl5.Location = new System.Drawing.Point(6, 27);
@@ -313,7 +399,7 @@
             // tfTimeEmission
             // 
             this.tfTimeEmission.EditValue = new System.DateTime(2015, 9, 17, 0, 0, 0, 0);
-            this.tfTimeEmission.Location = new System.Drawing.Point(215, 102);
+            this.tfTimeEmission.Location = new System.Drawing.Point(215, 128);
             this.tfTimeEmission.Name = "tfTimeEmission";
             this.tfTimeEmission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -323,7 +409,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(6, 79);
+            this.labelControl4.Location = new System.Drawing.Point(6, 105);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(51, 13);
             this.labelControl4.TabIndex = 0;
@@ -340,7 +426,7 @@
             // 
             // labelControl7
             // 
-            this.labelControl7.Location = new System.Drawing.Point(6, 105);
+            this.labelControl7.Location = new System.Drawing.Point(6, 131);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(83, 13);
             this.labelControl7.TabIndex = 0;
@@ -357,7 +443,7 @@
             // cbCustomer
             // 
             this.cbCustomer.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "customer_id", true));
-            this.cbCustomer.Location = new System.Drawing.Point(99, 76);
+            this.cbCustomer.Location = new System.Drawing.Point(99, 102);
             this.cbCustomer.Name = "cbCustomer";
             this.cbCustomer.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -431,7 +517,7 @@
             // 
             // labelControl18
             // 
-            this.labelControl18.Location = new System.Drawing.Point(421, 79);
+            this.labelControl18.Location = new System.Drawing.Point(421, 105);
             this.labelControl18.Name = "labelControl18";
             this.labelControl18.Size = new System.Drawing.Size(37, 13);
             this.labelControl18.TabIndex = 0;
@@ -439,7 +525,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(421, 53);
+            this.labelControl2.Location = new System.Drawing.Point(421, 79);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(41, 13);
             this.labelControl2.TabIndex = 0;
@@ -449,7 +535,7 @@
             // 
             this.tfSerie.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "serie", true));
             this.tfSerie.EditValue = "";
-            this.tfSerie.Location = new System.Drawing.Point(588, 50);
+            this.tfSerie.Location = new System.Drawing.Point(588, 76);
             this.tfSerie.Name = "tfSerie";
             this.tfSerie.Properties.Mask.EditMask = "00";
             this.tfSerie.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -461,7 +547,7 @@
             // 
             this.tfChave.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "chave", true));
             this.tfChave.EditValue = "";
-            this.tfChave.Location = new System.Drawing.Point(99, 50);
+            this.tfChave.Location = new System.Drawing.Point(99, 76);
             this.tfChave.Name = "tfChave";
             this.tfChave.Properties.Mask.EditMask = "0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000";
             this.tfChave.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -473,7 +559,7 @@
             // 
             this.tfNumber.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "number", true));
             this.tfNumber.EditValue = "";
-            this.tfNumber.Location = new System.Drawing.Point(468, 50);
+            this.tfNumber.Location = new System.Drawing.Point(468, 76);
             this.tfNumber.Name = "tfNumber";
             this.tfNumber.Properties.Mask.EditMask = "000.000.000";
             this.tfNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
@@ -483,7 +569,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(554, 53);
+            this.labelControl3.Location = new System.Drawing.Point(554, 79);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(28, 13);
             this.labelControl3.TabIndex = 0;
@@ -492,9 +578,9 @@
             // groupControl2
             // 
             this.groupControl2.Controls.Add(this.tfObservation);
-            this.groupControl2.Location = new System.Drawing.Point(0, 260);
+            this.groupControl2.Location = new System.Drawing.Point(0, 284);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(653, 143);
+            this.groupControl2.Size = new System.Drawing.Size(653, 119);
             this.groupControl2.TabIndex = 2;
             this.groupControl2.Text = "Observações";
             // 
@@ -504,7 +590,7 @@
             this.tfObservation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tfObservation.Location = new System.Drawing.Point(2, 21);
             this.tfObservation.Name = "tfObservation";
-            this.tfObservation.Size = new System.Drawing.Size(649, 120);
+            this.tfObservation.Size = new System.Drawing.Size(649, 96);
             this.tfObservation.TabIndex = 0;
             this.tfObservation.UseOptimizedRendering = true;
             // 
@@ -522,7 +608,7 @@
             this.groupControl3.Controls.Add(this.labelControl9);
             this.groupControl3.Controls.Add(this.tfValueProducts);
             this.groupControl3.Controls.Add(this.labelControl8);
-            this.groupControl3.Location = new System.Drawing.Point(0, 131);
+            this.groupControl3.Location = new System.Drawing.Point(0, 154);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(653, 129);
             this.groupControl3.TabIndex = 1;
@@ -960,11 +1046,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cbCategory.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDescription.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgAccountToPay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEmission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeEmission.Properties)).EndInit();
@@ -1078,5 +1167,13 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colboard;
         private DevExpress.XtraEditors.LabelControl labelControl18;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbCategory;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraEditors.LabelControl labelControl19;
+        private System.Windows.Forms.BindingSource bdgCategory;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
+        private DevExpress.XtraGrid.Columns.GridColumn coltype;
+        private DevExpress.XtraEditors.SimpleButton btnAdd;
     }
 }

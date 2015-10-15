@@ -114,6 +114,12 @@
     <Compile Include="UI\AccountsToPay\AccountsToPayForm.Designer.cs">
       <DependentUpon>AccountsToPayForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\AccountsToPay\SearchAccontsToPayForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AccountsToPay\SearchAccontsToPayForm.Designer.cs">
+      <DependentUpon>SearchAccontsToPayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\BankAccounts\BankAccountForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,12 @@
     </Compile>
     <Compile Include="UI\BankAccounts\ManagerBankAccountsForm.Designer.cs">
       <DependentUpon>ManagerBankAccountsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Category\NewCategoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Category\NewCategoryForm.Designer.cs">
+      <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Customer\CustomerForm.cs">
       <SubType>UserControl</SubType>
@@ -204,12 +216,6 @@
     <Compile Include="UI\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Payments\ParcelPaymentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Payments\ParcelPaymentForm.Designer.cs">
-      <DependentUpon>ParcelPaymentForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Payments\PaymentForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -221,6 +227,12 @@
     </Compile>
     <Compile Include="UI\Payments\SearchPaymentsForm.Designer.cs">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Payments\Warings\WaringsPaymentsDayForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Payments\Warings\WaringsPaymentsDayForm.Designer.cs">
+      <DependentUpon>WaringsPaymentsDayForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Receipts\SingleReceipt.cs">
       <SubType>UserControl</SubType>
@@ -296,11 +308,17 @@
     <EmbeddedResource Include="UI\AccountsToPay\AccountsToPayForm.resx">
       <DependentUpon>AccountsToPayForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\AccountsToPay\SearchAccontsToPayForm.resx">
+      <DependentUpon>SearchAccontsToPayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\BankAccounts\BankAccountForm.resx">
       <DependentUpon>BankAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\BankAccounts\ManagerBankAccountsForm.resx">
       <DependentUpon>ManagerBankAccountsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Category\NewCategoryForm.resx">
+      <DependentUpon>NewCategoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Customer\CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
@@ -341,14 +359,14 @@
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Payments\ParcelPaymentForm.resx">
-      <DependentUpon>ParcelPaymentForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\Payments\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Payments\SearchPaymentsForm.resx">
       <DependentUpon>SearchPaymentsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Payments\Warings\WaringsPaymentsDayForm.resx">
+      <DependentUpon>WaringsPaymentsDayForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Receipts\SingleReceipt.resx">
       <DependentUpon>SingleReceipt.cs</DependentUpon>
@@ -388,6 +406,7 @@
     <None Include="Properties\DataSources\address.datasource" />
     <None Include="Properties\DataSources\bank_account.datasource" />
     <None Include="Properties\DataSources\business.datasource" />
+    <None Include="Properties\DataSources\category.datasource" />
     <None Include="Properties\DataSources\city.datasource" />
     <None Include="Properties\DataSources\customer.datasource" />
     <None Include="Properties\DataSources\driver.datasource" />

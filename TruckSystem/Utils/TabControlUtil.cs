@@ -32,14 +32,16 @@ namespace TruckSystem.Utils
             XtraTabPage sysTabPage1 = new XtraTabPage();
 
             // mostra o botao de fechamento da Tab
-            sysTabPage1.ShowCloseButton = DefaultBoolean.True;
+            if (userControl.Name.Equals("WaringsPaymentsDayForm"))
+                sysTabPage1.ShowCloseButton = DefaultBoolean.False;
+            else
+                sysTabPage1.ShowCloseButton = DefaultBoolean.True;
 
             //informa qual o Control
             sysTabPage1.Controls.Add((Control)userControl);
 
             //informa o nome do Control para comparações futuras
             sysTabPage1.Tag = userControl.Name;
-
             //informa o titulo da Tab
             sysTabPage1.Text = titleTab;
 
@@ -77,7 +79,7 @@ namespace TruckSystem.Utils
 
             // se existir e nao deseja vincular nova apenas da foco
             else
-                desk.tabControl.SelectedTabPage = sysTabPage2;
+                desk.tabControl.SelectedTabPage = sysTabPage2;            
             SplashScreenManager.CloseForm(false);
         }
 

@@ -890,99 +890,24 @@ namespace TruckSystem
 	[ExplicitColumns]
     public partial class payment : TruckSystemRepo.Record<payment>  
     {
-
-
-
 		[Column] public long id { get; set; }
         [Column] public long account_id { get; set; }
-
-
-
-
-
 		[Column] public string description { get; set; }
-
-
-
-
-
 		[Column] public DateTime? expiration_date { get; set; }
-
-
-
-
-
 		[Column] public DateTime? paid_date { get; set; }
-
-
-
-
-
-		[Column] public decimal value { get; set; }
-
-
-
-
-
+        [Column] public decimal value { get; set; }
 		[Column] public decimal value_paid { get; set; }
-
-
-
-
-
 		[Column] public string observation { get; set; }
-
-
-
-
-
 		[Column] public long customer_id { get; set; }
-
-
-
-
-
 		[Column] public long truck_id { get; set; }
-
-
-
-
-
 		[Column] public long freight_id { get; set; }
-
-
-
-
-
 		[Column] public string reason_expiration { get; set; }
-
-
-
-
-
 		[Column] public bool paid { get; set; }
-
-
-
-
-
-		[Column] public bool is_payment { get; set; }
-
-
-
-
-
+        [Column] public bool is_payment { get; set; }
 		[Column] public DateTime? registred_at { get; set; }
-
-
-
-
-
 		[Column] public long registred_by { get; set; }
-
-
-
         [Column] public string guid { get; set; }
+        [Column] public int category_id { get; set; }
 
         public string customer_name { get; set; }
         public string truck_board { get; set; }
@@ -1245,5 +1170,21 @@ namespace TruckSystem
         [Column] public DateTime registred_at { get; set; }
         [Column] public string guid_payment { get; set; }
         [Column] public long truck_id { get; set; }
+        [Column] public int category_id { get; set; }
+    }
+
+    [TableName("categorys")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class category : TruckSystemRepo.Record<category>
+    {
+        [Column] public long id { get; set; }
+        [Column] public string name { get; set; }
+        [Column] public int type { get; set; }
+
+        public enum Categorys
+        {
+            Payment = 0,
+        }
     }
 }
