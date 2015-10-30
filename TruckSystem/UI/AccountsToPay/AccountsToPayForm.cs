@@ -123,6 +123,7 @@ namespace TruckSystem.UI.AccountsToPay
                         p.registred_by = acp.registred_by;
                         p.account_id = acp.id;
                         p.guid = acp.guid_payment;
+                        p.category_id = acp.category_id;
                         p.Save();
                     }
                     scope.Complete();
@@ -172,6 +173,11 @@ namespace TruckSystem.UI.AccountsToPay
                 loadData();
             else
                 XtraMessageBox.Show("Categoria não cadastrada!");
+        }
+
+        private void btnRefreshData_Click(object sender, EventArgs e)
+        {
+            loadData();
         }
     }
 }

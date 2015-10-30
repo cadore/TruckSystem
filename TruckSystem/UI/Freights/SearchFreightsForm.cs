@@ -74,6 +74,7 @@ namespace TruckSystem.UI.Freights
                     city cacd = city.SingleOrDefault(address.SingleOrDefault(cd.address_id).city_id);
                     f.company_destination_name = String.Format("{0}/{1}", cacd.name, cd.corporate_name);
                     f.truck_board = truck.SingleOrDefault(f.truck_id).board;
+                    f.driver_name = driver.SingleOrDefault(f.driver_id).full_name;
 
 
                     decimal gross = ((f.weight * f.value_ton) + totalStays(f.id));

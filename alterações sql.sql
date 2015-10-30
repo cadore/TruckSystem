@@ -51,3 +51,5 @@ ALTER TABLE payments
 ALTER TABLE accounts_to_pay
   ADD COLUMN category_id integer;
 
+  //Ja aplicadas dia 26/10/2015
+  

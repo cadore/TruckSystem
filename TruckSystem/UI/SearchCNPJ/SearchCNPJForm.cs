@@ -26,8 +26,8 @@ namespace TruckSystem.UI.SearchCNPJ
         {
             if (!validator.Validate())
                 return;
-          try
-            {
+          //try
+           // {
                 //validações
                 var countcnpj = customer.repo.ExecuteScalar<string>("SELECT COUNT(id) FROM customers WHERE document=@0",
                     tfCNPJ.EditValue);
@@ -74,11 +74,14 @@ namespace TruckSystem.UI.SearchCNPJ
                         d.city_id = lci != null ? lci[0].id : 0;
                     } catch (Exception) { }
 
-                    string[] f = cc.TELEFONE.Replace(" ", "").Split('/');
-                    if (f.Length >= 1)
-                        cre.phone_fixed = f[0];
-                    if (f.Length >= 2)
-                        cre.phone_mobile = f[1];
+                    if (!String.IsNullOrEmpty(cc.TELEFONE))
+                    {
+                        string[] f = cc.TELEFONE.Replace(" ", "").Split('/');
+                        if (f.Length >= 1)
+                            cre.phone_fixed = f[0];
+                        if (f.Length >= 2)
+                            cre.phone_mobile = f[1];
+                    }                   
 
                     bdgAddress.DataSource = d;
                     bdgCustomer.DataSource = cre;
@@ -90,11 +93,11 @@ namespace TruckSystem.UI.SearchCNPJ
                     tfCnae2.EditValue = cc.CNAE2;
                     tfJuridic.EditValue = cc.NATUREZA;
                 }
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
+            //}
         }
 
         private void cbStateAddress_EditValueChanged(object sender, EventArgs e)

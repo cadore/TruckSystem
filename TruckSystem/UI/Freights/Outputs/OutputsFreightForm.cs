@@ -14,12 +14,14 @@ namespace TruckSystem.UI.Freights.Outputs
     public partial class OutputsFreightForm : DevExpress.XtraEditors.XtraForm
     {
         public output NewOutput;
-        public OutputsFreightForm()
+        public OutputsFreightForm(freight f)
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
-            bdgOutput.DataSource = new output();
+            bdgOutput.DataSource = new output() { freight_id = 0, truck_id = f.truck_id };
             bdgCustomers.DataSource = customer.Fetch("");
+            tfDate.Properties.MaxValue = Convert.ToDateTime(f.end);
+            tfDate.Properties.MinValue = Convert.ToDateTime(f.start);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

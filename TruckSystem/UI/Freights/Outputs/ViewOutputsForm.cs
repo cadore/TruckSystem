@@ -13,10 +13,12 @@ namespace TruckSystem.UI.Freights.Outputs
 {
     public partial class ViewOutputsForm : DevExpress.XtraEditors.XtraForm
     {
-        public ViewOutputsForm(List<output> lo)
+        freight fre;
+        public ViewOutputsForm(List<output> lo, freight fr)
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
+            fre = fr;
             if (lo == null)
             {
                 bdgOutputs.DataSource = new List<output>();
@@ -45,7 +47,7 @@ namespace TruckSystem.UI.Freights.Outputs
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            OutputsFreightForm off = new OutputsFreightForm();
+            OutputsFreightForm off = new OutputsFreightForm(fre);
             if (off.ShowDialog() == DialogResult.OK)
             {
                 bdgOutputs.Add(off.NewOutput);

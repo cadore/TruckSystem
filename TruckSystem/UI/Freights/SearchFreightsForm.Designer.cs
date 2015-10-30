@@ -59,9 +59,9 @@
             this.colcompany_source_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstart = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colweight = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colvalue_ton = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltruck_board = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.coldriver_name = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdgFreights)).BeginInit();
@@ -337,9 +337,9 @@
             this.colcompany_source_name,
             this.colstart,
             this.colweight,
-            this.colvalue_ton,
             this.coltotal,
-            this.coltruck_board});
+            this.coltruck_board,
+            this.coldriver_name});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -362,7 +362,7 @@
             this.colnumber_note.OptionsColumn.AllowEdit = false;
             this.colnumber_note.Visible = true;
             this.colnumber_note.VisibleIndex = 2;
-            this.colnumber_note.Width = 78;
+            this.colnumber_note.Width = 69;
             // 
             // colcompany_destination_name
             // 
@@ -372,7 +372,7 @@
             this.colcompany_destination_name.OptionsColumn.AllowEdit = false;
             this.colcompany_destination_name.Visible = true;
             this.colcompany_destination_name.VisibleIndex = 4;
-            this.colcompany_destination_name.Width = 235;
+            this.colcompany_destination_name.Width = 226;
             // 
             // colcompany_source_name
             // 
@@ -382,7 +382,7 @@
             this.colcompany_source_name.OptionsColumn.AllowEdit = false;
             this.colcompany_source_name.Visible = true;
             this.colcompany_source_name.VisibleIndex = 3;
-            this.colcompany_source_name.Width = 220;
+            this.colcompany_source_name.Width = 210;
             // 
             // colstart
             // 
@@ -394,7 +394,7 @@
             this.colstart.OptionsColumn.AllowEdit = false;
             this.colstart.Visible = true;
             this.colstart.VisibleIndex = 5;
-            this.colstart.Width = 68;
+            this.colstart.Width = 72;
             // 
             // colweight
             // 
@@ -408,19 +408,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "weight", "{0:n2}")});
             this.colweight.Visible = true;
             this.colweight.VisibleIndex = 6;
-            this.colweight.Width = 77;
-            // 
-            // colvalue_ton
-            // 
-            this.colvalue_ton.Caption = "R$ Ton";
-            this.colvalue_ton.DisplayFormat.FormatString = "c2";
-            this.colvalue_ton.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colvalue_ton.FieldName = "value_ton";
-            this.colvalue_ton.Name = "colvalue_ton";
-            this.colvalue_ton.OptionsColumn.AllowEdit = false;
-            this.colvalue_ton.Visible = true;
-            this.colvalue_ton.VisibleIndex = 7;
-            this.colvalue_ton.Width = 84;
+            this.colweight.Width = 65;
             // 
             // coltotal
             // 
@@ -433,8 +421,8 @@
             this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0:c2}")});
             this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 8;
-            this.coltotal.Width = 113;
+            this.coltotal.VisibleIndex = 7;
+            this.coltotal.Width = 80;
             // 
             // coltruck_board
             // 
@@ -445,6 +433,16 @@
             this.coltruck_board.Visible = true;
             this.coltruck_board.VisibleIndex = 1;
             this.coltruck_board.Width = 71;
+            // 
+            // coldriver_name
+            // 
+            this.coldriver_name.Caption = "Motorista";
+            this.coldriver_name.FieldName = "driver_name";
+            this.coldriver_name.Name = "coldriver_name";
+            this.coldriver_name.OptionsColumn.AllowEdit = false;
+            this.coldriver_name.Visible = true;
+            this.coldriver_name.VisibleIndex = 8;
+            this.coldriver_name.Width = 153;
             // 
             // SearchFreightsForm
             // 
@@ -493,7 +491,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colnumber_note;
         private DevExpress.XtraGrid.Columns.GridColumn colstart;
         private DevExpress.XtraGrid.Columns.GridColumn colweight;
-        private DevExpress.XtraGrid.Columns.GridColumn colvalue_ton;
         private DevExpress.XtraGrid.Columns.GridColumn colcompany_destination_name;
         private DevExpress.XtraGrid.Columns.GridColumn colcompany_source_name;
         private DevExpress.XtraGrid.Columns.GridColumn coltotal;
@@ -512,5 +509,6 @@
         private System.Windows.Forms.BindingSource bdgTruck;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colboard;
+        private DevExpress.XtraGrid.Columns.GridColumn coldriver_name;
     }
 }

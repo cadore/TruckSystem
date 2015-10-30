@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCategoryForm));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfCategoryName = new DevExpress.XtraEditors.TextEdit();
@@ -52,11 +52,12 @@
             // 
             this.tfCategoryName.Location = new System.Drawing.Point(69, 9);
             this.tfCategoryName.Name = "tfCategoryName";
+            this.tfCategoryName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfCategoryName.Size = new System.Drawing.Size(335, 20);
             this.tfCategoryName.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe o Nome da Categoria";
-            this.validator.SetValidationRule(this.tfCategoryName, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe o Nome da Categoria";
+            this.validator.SetValidationRule(this.tfCategoryName, conditionValidationRule1);
             // 
             // btnCancel
             // 
@@ -96,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 74);
+            this.ClientSize = new System.Drawing.Size(407, 70);
             this.ControlBox = false;
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);

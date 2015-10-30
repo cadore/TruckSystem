@@ -115,6 +115,7 @@
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validatorParcels = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.btnRefreshData = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
@@ -184,7 +185,7 @@
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedTabPage = this.tabGeneral;
             this.tabControl.Size = new System.Drawing.Size(659, 468);
-            this.tabControl.TabIndex = 3;
+            this.tabControl.TabIndex = 0;
             this.tabControl.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.tabGeneral,
             this.tabPayment});
@@ -252,7 +253,7 @@
             this.cbCategory.Properties.ValueMember = "id";
             this.cbCategory.Properties.View = this.gridView3;
             this.cbCategory.Size = new System.Drawing.Size(309, 20);
-            this.cbCategory.TabIndex = 8;
+            this.cbCategory.TabIndex = 1;
             // 
             // bdgAccountToPay
             // 
@@ -309,7 +310,7 @@
             this.cbTruck.Properties.ValueMember = "id";
             this.cbTruck.Properties.View = this.gridView2;
             this.cbTruck.Size = new System.Drawing.Size(176, 20);
-            this.cbTruck.TabIndex = 7;
+            this.cbTruck.TabIndex = 6;
             // 
             // bdgTruck
             // 
@@ -350,6 +351,7 @@
             this.tfDescription.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAccountToPay, "description", true));
             this.tfDescription.Location = new System.Drawing.Point(99, 24);
             this.tfDescription.Name = "tfDescription";
+            this.tfDescription.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfDescription.Size = new System.Drawing.Size(309, 20);
             this.tfDescription.TabIndex = 0;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -375,7 +377,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDateEmission.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.tfDateEmission.Size = new System.Drawing.Size(110, 20);
-            this.tfDateEmission.TabIndex = 5;
+            this.tfDateEmission.TabIndex = 7;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Informe a Data de Emissão";
             this.validator.SetValidationRule(this.tfDateEmission, conditionValidationRule2);
@@ -405,7 +407,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfTimeEmission.Properties.Mask.EditMask = "HH:mm:ss";
             this.tfTimeEmission.Size = new System.Drawing.Size(75, 20);
-            this.tfTimeEmission.TabIndex = 6;
+            this.tfTimeEmission.TabIndex = 8;
             // 
             // labelControl4
             // 
@@ -453,7 +455,7 @@
             this.cbCustomer.Properties.ValueMember = "id";
             this.cbCustomer.Properties.View = this.searchLookUpEdit1View;
             this.cbCustomer.Size = new System.Drawing.Size(309, 20);
-            this.cbCustomer.TabIndex = 4;
+            this.cbCustomer.TabIndex = 5;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule3.ErrorText = "Informe o Prestador";
             conditionValidationRule3.Value1 = ((long)(0));
@@ -537,10 +539,11 @@
             this.tfSerie.EditValue = "";
             this.tfSerie.Location = new System.Drawing.Point(588, 76);
             this.tfSerie.Name = "tfSerie";
+            this.tfSerie.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfSerie.Properties.Mask.EditMask = "00";
             this.tfSerie.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfSerie.Size = new System.Drawing.Size(56, 20);
-            this.tfSerie.TabIndex = 3;
+            this.tfSerie.TabIndex = 4;
             this.tfSerie.Enter += new System.EventHandler(this.Focus);
             // 
             // tfChave
@@ -549,10 +552,11 @@
             this.tfChave.EditValue = "";
             this.tfChave.Location = new System.Drawing.Point(99, 76);
             this.tfChave.Name = "tfChave";
+            this.tfChave.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfChave.Properties.Mask.EditMask = "0000 0000 0000 0000 0000 0000 0000 0000 0000 0000 0000";
             this.tfChave.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfChave.Size = new System.Drawing.Size(309, 20);
-            this.tfChave.TabIndex = 1;
+            this.tfChave.TabIndex = 2;
             this.tfChave.Enter += new System.EventHandler(this.Focus);
             // 
             // tfNumber
@@ -561,10 +565,11 @@
             this.tfNumber.EditValue = "";
             this.tfNumber.Location = new System.Drawing.Point(468, 76);
             this.tfNumber.Name = "tfNumber";
+            this.tfNumber.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNumber.Properties.Mask.EditMask = "000.000.000";
             this.tfNumber.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfNumber.Size = new System.Drawing.Size(73, 20);
-            this.tfNumber.TabIndex = 2;
+            this.tfNumber.TabIndex = 3;
             this.tfNumber.Enter += new System.EventHandler(this.Focus);
             // 
             // labelControl3
@@ -590,6 +595,7 @@
             this.tfObservation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tfObservation.Location = new System.Drawing.Point(2, 21);
             this.tfObservation.Name = "tfObservation";
+            this.tfObservation.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfObservation.Size = new System.Drawing.Size(649, 96);
             this.tfObservation.TabIndex = 0;
             this.tfObservation.UseOptimizedRendering = true;
@@ -656,7 +662,7 @@
             this.tfValueDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValueDiscount.Properties.Precision = 2;
             this.tfValueDiscount.Size = new System.Drawing.Size(110, 20);
-            this.tfValueDiscount.TabIndex = 4;
+            this.tfValueDiscount.TabIndex = 1;
             this.tfValueDiscount.EditValueChanged += new System.EventHandler(this.CalcValueNote);
             // 
             // labelControl12
@@ -678,7 +684,7 @@
             this.tfValueIPI.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValueIPI.Properties.Precision = 2;
             this.tfValueIPI.Size = new System.Drawing.Size(110, 20);
-            this.tfValueIPI.TabIndex = 3;
+            this.tfValueIPI.TabIndex = 4;
             this.tfValueIPI.EditValueChanged += new System.EventHandler(this.CalcValueNote);
             // 
             // labelControl11
@@ -700,7 +706,7 @@
             this.tfValueSegurity.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValueSegurity.Properties.Precision = 2;
             this.tfValueSegurity.Size = new System.Drawing.Size(110, 20);
-            this.tfValueSegurity.TabIndex = 2;
+            this.tfValueSegurity.TabIndex = 3;
             this.tfValueSegurity.EditValueChanged += new System.EventHandler(this.CalcValueNote);
             // 
             // labelControl10
@@ -722,7 +728,7 @@
             this.tfValueFreight.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValueFreight.Properties.Precision = 2;
             this.tfValueFreight.Size = new System.Drawing.Size(110, 20);
-            this.tfValueFreight.TabIndex = 1;
+            this.tfValueFreight.TabIndex = 2;
             this.tfValueFreight.EditValueChanged += new System.EventHandler(this.CalcValueNote);
             // 
             // labelControl9
@@ -988,6 +994,7 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnRefreshData);
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1029,6 +1036,17 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnRefreshData
+            // 
+            this.btnRefreshData.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnRefreshData.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshData.Image")));
+            this.btnRefreshData.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRefreshData.Location = new System.Drawing.Point(6, 5);
+            this.btnRefreshData.Name = "btnRefreshData";
+            this.btnRefreshData.Size = new System.Drawing.Size(33, 33);
+            this.btnRefreshData.TabIndex = 2;
+            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
             // AccountsToPayForm
             // 
@@ -1175,5 +1193,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colname;
         private DevExpress.XtraGrid.Columns.GridColumn coltype;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
+        private DevExpress.XtraEditors.SimpleButton btnRefreshData;
     }
 }

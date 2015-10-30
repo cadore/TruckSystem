@@ -13,10 +13,12 @@ namespace TruckSystem.UI.Freights.Fueled
 {
     public partial class ViewFueledsForm : DevExpress.XtraEditors.XtraForm
     {
-        public ViewFueledsForm(List<fueled> lf)
+        freight fre;
+        public ViewFueledsForm(List<fueled> lf, freight fr)
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
+            fre = fr;
             if (lf == null)
             {
                 bdgFueleds.DataSource = new List<fueled>();
@@ -50,7 +52,7 @@ namespace TruckSystem.UI.Freights.Fueled
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            FueledForm ff = new FueledForm();
+            FueledForm ff = new FueledForm(fre);
             if (ff.ShowDialog() == DialogResult.OK)
             {
                 bdgFueleds.Add(ff.NewFueled);

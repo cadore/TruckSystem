@@ -62,9 +62,9 @@
             this.panelControl1.Controls.Add(this.btnRemove);
             this.panelControl1.Controls.Add(this.btnConfirm);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 276);
+            this.panelControl1.Location = new System.Drawing.Point(0, 272);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(875, 43);
+            this.panelControl1.Size = new System.Drawing.Size(871, 43);
             this.panelControl1.TabIndex = 0;
             // 
             // btnAdd
@@ -78,7 +78,7 @@
             this.btnAdd.Location = new System.Drawing.Point(5, 5);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(110, 33);
-            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Adicionar";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -110,10 +110,10 @@
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(760, 5);
+            this.btnConfirm.Location = new System.Drawing.Point(756, 5);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(114, 33);
-            this.btnConfirm.TabIndex = 0;
+            this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "Concluido";
             this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -125,7 +125,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(875, 276);
+            this.panelControl2.Size = new System.Drawing.Size(871, 272);
             this.panelControl2.TabIndex = 1;
             // 
             // gridControl1
@@ -135,7 +135,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(871, 272);
+            this.gridControl1.Size = new System.Drawing.Size(867, 268);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -269,7 +269,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 319);
+            this.ClientSize = new System.Drawing.Size(871, 315);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

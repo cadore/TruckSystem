@@ -121,16 +121,18 @@ namespace TruckSystem.UI.Freights
 
                     if (ListFueleds != null)
                     {
-                        Console.WriteLine("Fueleds not null");
+                        //Console.WriteLine("Fueleds not null");
                         foreach (fueled fue in ListFueleds)
                         {
-                            Console.WriteLine("single fueled");
+                            //Console.WriteLine("single fueled");
                             fue.registred_at = fueled.Now();
                             fue.registred_by = Singleton.getUser().id;
                             fue.freight_id = fre.id;
+                            fue.driver_id = fre.driver_id;
+                            fue.truck_id = fre.truck_id;
                             if (fue.IsNew())
                             {
-                                Console.WriteLine("fueled saved");
+                                //Console.WriteLine("fueled saved");
                                 fue.Save();
                             }
                         }
@@ -138,17 +140,17 @@ namespace TruckSystem.UI.Freights
 
                     if (ListOutputs != null)
                     {
-                        Console.WriteLine("Outputs not null");
+                        //Console.WriteLine("Outputs not null");
                         foreach (output o in ListOutputs)
                         {
-                            Console.WriteLine("single output");
+                            //Console.WriteLine("single output");
                             o.registred_at = output.Now();
                             o.registred_by = Singleton.getUser().id;
                             o.freight_id = fre.id;
                             o.truck_id = fre.truck_id;
                             if (o.IsNew())
                             {
-                                Console.WriteLine("output saved");
+                                //Console.WriteLine("output saved");
                                 o.Save();
                             }
                         }
@@ -261,7 +263,7 @@ namespace TruckSystem.UI.Freights
         {
             if (!validator.Validate())
                 return;
-            ViewFueledsForm ff = new ViewFueledsForm(ListFueleds);
+            ViewFueledsForm ff = new ViewFueledsForm(ListFueleds, (freight)bdgFreight.Current);
             if (ff.ShowDialog() == DialogResult.OK)
             {
                 if (ListFueleds == null)
@@ -288,7 +290,7 @@ namespace TruckSystem.UI.Freights
         {
             if (!validator.Validate())
                 return;
-            ViewOutputsForm vof = new ViewOutputsForm(ListOutputs);
+            ViewOutputsForm vof = new ViewOutputsForm(ListOutputs, (freight)bdgFreight.Current);
             if (vof.ShowDialog() == DialogResult.OK)
             {
                 if (ListOutputs == null)

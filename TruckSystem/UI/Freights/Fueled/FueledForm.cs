@@ -16,12 +16,14 @@ namespace TruckSystem.UI.Freights.Fueled
     public partial class FueledForm : DevExpress.XtraEditors.XtraForm
     {
         public fueled NewFueled;
-        public FueledForm()
+        public FueledForm(freight f)
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
-            bdgFueled.DataSource = new fueled() { freight_id = 0 };
+            bdgFueled.DataSource = new fueled() { freight_id = 0, truck_id = f.truck_id, driver_id = f.driver_id };
             bdgCustomers.DataSource = customer.Fetch("");
+            tfDate.Properties.MaxValue = Convert.ToDateTime(f.end);
+            tfDate.Properties.MinValue = Convert.ToDateTime(f.start);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
