@@ -22,6 +22,7 @@ namespace TruckSystem.UI.Freights.Outputs
             bdgCustomers.DataSource = customer.Fetch("");
             tfDate.Properties.MaxValue = Convert.ToDateTime(f.end);
             tfDate.Properties.MinValue = Convert.ToDateTime(f.start);
+            cbCustomer.Focus();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

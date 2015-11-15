@@ -451,7 +451,7 @@ namespace TruckSystem.UI.Freights
             this.tfProduct.Name = "tfProduct";
             this.tfProduct.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfProduct.Size = new System.Drawing.Size(338, 20);
-            this.tfProduct.TabIndex = 8;
+            this.tfProduct.TabIndex = 9;
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "Informe o produto";
             this.validator.SetValidationRule(this.tfProduct, conditionValidationRule4);
@@ -467,7 +467,7 @@ namespace TruckSystem.UI.Freights
             this.tfEnd.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfEnd.Size = new System.Drawing.Size(108, 20);
-            this.tfEnd.TabIndex = 7;
+            this.tfEnd.TabIndex = 5;
             conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule5.ErrorText = "Informe a data de término";
             this.validator.SetValidationRule(this.tfEnd, conditionValidationRule5);
@@ -483,7 +483,7 @@ namespace TruckSystem.UI.Freights
             this.tfStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfStart.Size = new System.Drawing.Size(100, 20);
-            this.tfStart.TabIndex = 6;
+            this.tfStart.TabIndex = 4;
             conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule6.ErrorText = "Informe o início";
             this.validator.SetValidationRule(this.tfStart, conditionValidationRule6);
@@ -503,7 +503,7 @@ namespace TruckSystem.UI.Freights
             this.cbCompanyDestination.Properties.ValueMember = "id";
             this.cbCompanyDestination.Properties.View = this.company_destinationSearchLookUpEditView;
             this.cbCompanyDestination.Size = new System.Drawing.Size(338, 20);
-            this.cbCompanyDestination.TabIndex = 5;
+            this.cbCompanyDestination.TabIndex = 7;
             conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule7.ErrorText = "Informe o destino da mercadoria";
             conditionValidationRule7.Value1 = ((long)(0));
@@ -575,7 +575,7 @@ namespace TruckSystem.UI.Freights
             this.cbCompanySource.Properties.ValueMember = "id";
             this.cbCompanySource.Properties.View = this.company_sourceSearchLookUpEditView;
             this.cbCompanySource.Size = new System.Drawing.Size(319, 20);
-            this.cbCompanySource.TabIndex = 4;
+            this.cbCompanySource.TabIndex = 6;
             conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule8.ErrorText = "Informe a origem da mercadoria";
             conditionValidationRule8.Value1 = ((long)(0));
@@ -779,7 +779,7 @@ namespace TruckSystem.UI.Freights
             this.cbCarrier.Properties.ValueMember = "id";
             this.cbCarrier.Properties.View = this.gridView1;
             this.cbCarrier.Size = new System.Drawing.Size(319, 20);
-            this.cbCarrier.TabIndex = 9;
+            this.cbCarrier.TabIndex = 8;
             conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule12.ErrorText = "Informe o Transportador";
             conditionValidationRule12.Value1 = ((long)(0));
@@ -884,7 +884,7 @@ namespace TruckSystem.UI.Freights
             this.btnStay.Location = new System.Drawing.Point(240, 253);
             this.btnStay.Name = "btnStay";
             this.btnStay.Size = new System.Drawing.Size(110, 23);
-            this.btnStay.TabIndex = 40;
+            this.btnStay.TabIndex = 14;
             this.btnStay.Text = "Estadia";
             this.btnStay.Visible = false;
             this.btnStay.Click += new System.EventHandler(this.btnStay_Click);
@@ -895,13 +895,14 @@ namespace TruckSystem.UI.Freights
             this.groupControl3.Location = new System.Drawing.Point(5, 281);
             this.groupControl3.Name = "groupControl3";
             this.groupControl3.Size = new System.Drawing.Size(790, 108);
-            this.groupControl3.TabIndex = 14;
+            this.groupControl3.TabIndex = 15;
             this.groupControl3.Text = "Observações";
             // 
             // tfObservations
             // 
             this.tfObservations.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgFreight, "observations", true));
             this.tfObservations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tfObservations.EditValue = "";
             this.tfObservations.Location = new System.Drawing.Point(2, 21);
             this.tfObservations.Name = "tfObservations";
             this.tfObservations.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -1064,8 +1065,8 @@ namespace TruckSystem.UI.Freights
             this.tfGross.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfGross.Properties.ReadOnly = true;
             this.tfGross.Size = new System.Drawing.Size(107, 20);
-            this.tfGross.TabIndex = 27;
-            this.tfGross.TabStop = false;
+            this.tfGross.TabIndex = 2;
+            this.tfGross.Enter += new System.EventHandler(this.tfGross_Enter);
             this.tfGross.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tfGross_KeyDown);
             // 
             // tfLiquidFreight

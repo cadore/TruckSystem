@@ -46,6 +46,12 @@ namespace TruckSystem.UI.Freights
             DateTime now = freight.Now();
             tfStart.Properties.MaxValue = now;
             tfEnd.Properties.MaxValue = now;
+
+            if (!IsNew)
+            {
+                //cbDriver.EditValue = f.driver_id;
+                //tfPercentComission.EditValue = f.taxe_comission;
+            }
         }
 
         private void loadValuesFueledsAndOutputs(freight f)
@@ -157,6 +163,7 @@ namespace TruckSystem.UI.Freights
                     }
                     scope.Complete();
                 }
+                tfId.EditValue = fre.id;
                 if(MessageToSave("Frete"))
                     desk.AddTabAndCloseCurrent(new FreightForm(null), "Novo Frete", false);
             }
@@ -180,8 +187,11 @@ namespace TruckSystem.UI.Freights
                     trailer t3 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", t.id, 3);
                     lbTrailers.Text = String.Format("Reboques: {0}{1}{2}",
                         (t1 != null ? t1.board : ""), (t2 != null ? "/" + t2.board : ""), (t3 != null ? "/" + t3.board : ""));
-                    cbDriver.EditValue = t.driver_id;
-                    ((freight)bdgFreight.Current).driver_id = t.driver_id;
+                    if (IsNew)
+                    {
+                        cbDriver.EditValue = t.driver_id;
+                        ((freight)bdgFreight.Current).driver_id = t.driver_id;
+                    }
                 }
                 else
                 {
@@ -236,9 +246,12 @@ namespace TruckSystem.UI.Freights
                 SplashScreenManager.ShowForm(desk, typeof(PleaseWaitForm), false, false, false);
                 if (cbDriver.EditValue != DBNull.Value && Convert.ToInt64(cbDriver.EditValue) > 0)
                 {
-                    driver d = driver.SingleOrDefault(cbDriver.EditValue);
-                    tfPercentComission.EditValue = d.comission;
-                    ((freight)bdgFreight.Current).taxe_comission = d.comission;
+                    if (IsNew)
+                    {
+                        driver d = driver.SingleOrDefault(cbDriver.EditValue);
+                        tfPercentComission.EditValue = d.comission;
+                        ((freight)bdgFreight.Current).taxe_comission = d.comission;
+                    }
                 }
                 else
                 {
@@ -352,6 +365,15 @@ namespace TruckSystem.UI.Freights
                     calcValues(sender, e);
                 }                
             }
+        }
+
+        private void tfGross_Enter(object sender, EventArgs e)
+        {
+            /*
+            decimal b = ToDecimal(tfGross.EditValue);
+            if (b > 0)
+                tfPercentComission.Focus();
+             */
         }
     }
 }

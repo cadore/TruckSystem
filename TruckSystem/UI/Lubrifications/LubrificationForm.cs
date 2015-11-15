@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 
-namespace TruckSystem.UI.AccountsToPay
+namespace TruckSystem.UI.Lubrifications
 {
-    public partial class SearchAccontsToPayForm : TruckSystem.UI.Utils.UserControlUtil
+    public partial class LubrificationForm : DevExpress.XtraEditors.XtraUserControl
     {
-        public SearchAccontsToPayForm()
+        public LubrificationForm()
         {
             InitializeComponent();
-            ControlsUtil.SetBackColor(this.Controls);
         }
     }
 }

@@ -20,6 +20,8 @@ namespace TruckSystem.UI.SearchCNPJ
         {
             InitializeComponent();
             bdgStates.DataSource = state.Fetch("ORDER BY symbol");
+            tfCNPJ.Focus();
+            tfCNPJ.SelectAll();
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -216,6 +216,18 @@
     <Compile Include="UI\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Lubrifications\LubrificationForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Lubrifications\LubrificationForm.Designer.cs">
+      <DependentUpon>LubrificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Lubrifications\ViewLubrificationsForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Lubrifications\ViewLubrificationsForm.Designer.cs">
+      <DependentUpon>ViewLubrificationsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Payments\PaymentForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -358,6 +370,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Lubrifications\LubrificationForm.resx">
+      <DependentUpon>LubrificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Lubrifications\ViewLubrificationsForm.resx">
+      <DependentUpon>ViewLubrificationsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Payments\PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>

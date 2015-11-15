@@ -76,7 +76,6 @@ namespace TruckSystem.UI.Freights
                     f.truck_board = truck.SingleOrDefault(f.truck_id).board;
                     f.driver_name = driver.SingleOrDefault(f.driver_id).full_name;
 
-
                     decimal gross = ((f.weight * f.value_ton) + totalStays(f.id));
                     decimal fueleds = totalFueleds(f.id);
                     decimal outputs = totalOutputs(f.id);
