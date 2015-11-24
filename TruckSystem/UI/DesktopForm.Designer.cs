@@ -52,6 +52,8 @@
             this.btnEmitterReceipt = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewPayment = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchPayments = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFeesDrivers = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFreightOfTrucks = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -61,6 +63,9 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -101,13 +106,16 @@
             this.btnSearchCNPJ,
             this.btnEmitterReceipt,
             this.btnNewPayment,
-            this.btnSearchPayments});
+            this.btnSearchPayments,
+            this.btnFeesDrivers,
+            this.btnFreightOfTrucks});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 30;
+            this.ribbon.MaxItemId = 32;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage3,
+            this.ribbonPage6,
             this.ribbonPage5,
             this.ribbonPage2,
             this.ribbonPage4});
@@ -289,6 +297,22 @@
             this.btnSearchPayments.Name = "btnSearchPayments";
             this.btnSearchPayments.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
+            // btnFeesDrivers
+            // 
+            this.btnFeesDrivers.Caption = "Honorários Mensais";
+            this.btnFeesDrivers.Id = 30;
+            this.btnFeesDrivers.Name = "btnFeesDrivers";
+            this.btnFeesDrivers.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnFeesDrivers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeesDrivers_ItemClick);
+            // 
+            // btnFreightOfTrucks
+            // 
+            this.btnFreightOfTrucks.Caption = "Movimentações de Fretes";
+            this.btnFreightOfTrucks.Id = 31;
+            this.btnFreightOfTrucks.Name = "btnFreightOfTrucks";
+            this.btnFreightOfTrucks.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnFreightOfTrucks.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFreightOfTrucks_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -370,6 +394,30 @@
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Contas Bancarias";
+            // 
+            // ribbonPage6
+            // 
+            this.ribbonPage6.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup13,
+            this.ribbonPageGroup12});
+            this.ribbonPage6.Name = "ribbonPage6";
+            this.ribbonPage6.Text = "Relatórios";
+            // 
+            // ribbonPageGroup13
+            // 
+            this.ribbonPageGroup13.AllowTextClipping = false;
+            this.ribbonPageGroup13.ItemLinks.Add(this.btnFreightOfTrucks);
+            this.ribbonPageGroup13.Name = "ribbonPageGroup13";
+            this.ribbonPageGroup13.ShowCaptionButton = false;
+            this.ribbonPageGroup13.Text = "Fretes";
+            // 
+            // ribbonPageGroup12
+            // 
+            this.ribbonPageGroup12.AllowTextClipping = false;
+            this.ribbonPageGroup12.ItemLinks.Add(this.btnFeesDrivers);
+            this.ribbonPageGroup12.Name = "ribbonPageGroup12";
+            this.ribbonPageGroup12.ShowCaptionButton = false;
+            this.ribbonPageGroup12.Text = "Motoristas";
             // 
             // ribbonPage5
             // 
@@ -517,5 +565,10 @@
         private DevExpress.XtraBars.BarButtonItem btnNewPayment;
         private DevExpress.XtraBars.BarButtonItem btnSearchPayments;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup11;
+        private DevExpress.XtraBars.BarButtonItem btnFeesDrivers;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
+        private DevExpress.XtraBars.BarButtonItem btnFreightOfTrucks;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
     }
 }

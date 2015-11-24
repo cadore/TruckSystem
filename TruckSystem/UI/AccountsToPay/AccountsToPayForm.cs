@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using TruckSystem.Utils;
 using Receipt;
 using TruckSystem.UI.Category;
+using DevExpress.XtraSplashScreen;
+using TruckSystem.UI.SplashScreens;
 
 namespace TruckSystem.UI.AccountsToPay
 {
@@ -103,6 +105,7 @@ namespace TruckSystem.UI.AccountsToPay
             }
             try
             {
+                SplashScreenManager.ShowForm(desk, typeof(PleaseWaitForm), false, false, false);
                 using (var scope = accounts_to_pay.repo.GetTransaction())
                 {
                     accounts_to_pay acp = (accounts_to_pay)bdgAccountToPay.Current;
@@ -127,6 +130,7 @@ namespace TruckSystem.UI.AccountsToPay
                         p.Save();
                     }
                     scope.Complete();
+                    SplashScreenManager.CloseForm(false);
                     if (MessageToSave("Conta a Pagar"))
                         desk.AddTabAndCloseCurrent(new AccountsToPayForm(null), "Nova Conta a Pagar", false);
                 }
@@ -134,6 +138,7 @@ namespace TruckSystem.UI.AccountsToPay
             catch (Exception ex)
             {
                 accounts_to_pay.repo.AbortTransaction();
+                SplashScreenManager.CloseForm(false);
                 XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
             }
         }

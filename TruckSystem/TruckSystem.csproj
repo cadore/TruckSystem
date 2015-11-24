@@ -38,24 +38,32 @@
     <Reference Include="DevExpress.BonusSkins.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Charts.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Office.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.RichEdit.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Utils.v14.1.UI, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Xpo.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraCharts.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraGauges.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraGrid.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -65,6 +73,10 @@
     <Reference Include="DevExpress.XtraPrinting.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraReports.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v14.1.Extensions, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v14.1.Core, Version=14.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="MobiDLL">
       <HintPath>..\..\MobiDLL\MobiDLL\bin\Debug\MobiDLL.dll</HintPath>
     </Reference>
@@ -105,6 +117,8 @@
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\Reports\FeesDriverModel.cs" />
+    <Compile Include="Models\Reports\FreightsByTruckModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Singletons\Singleton.cs" />
@@ -161,6 +175,12 @@
     </Compile>
     <Compile Include="UI\Drivers\DriverForm.Designer.cs">
       <DependentUpon>DriverForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Drivers\Reports\ChooseDriverFeesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Drivers\Reports\ChooseDriverFeesReport.Designer.cs">
+      <DependentUpon>ChooseDriverFeesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Drivers\SearchDriversForm.cs">
       <SubType>UserControl</SubType>
@@ -251,6 +271,18 @@
     </Compile>
     <Compile Include="UI\Receipts\SingleReceipt.Designer.cs">
       <DependentUpon>SingleReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\Drivers\FeesDriverReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\Drivers\FeesDriverReport.Designer.cs">
+      <DependentUpon>FeesDriverReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reports\Freights\FreightsByTruckReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reports\Freights\FreightsByTruckReport.Designer.cs">
+      <DependentUpon>FreightsByTruckReport.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\SearchCNPJ\SearchCNPJForm.cs">
       <SubType>UserControl</SubType>
@@ -344,6 +376,9 @@
     <EmbeddedResource Include="UI\Drivers\DriverForm.resx">
       <DependentUpon>DriverForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Drivers\Reports\ChooseDriverFeesReport.resx">
+      <DependentUpon>ChooseDriverFeesReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Drivers\SearchDriversForm.resx">
       <DependentUpon>SearchDriversForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Receipts\SingleReceipt.resx">
       <DependentUpon>SingleReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\Drivers\FeesDriverReport.resx">
+      <DependentUpon>FeesDriverReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\Freights\FreightsByTruckReport.resx">
+      <DependentUpon>FreightsByTruckReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\SearchCNPJ\SearchCNPJForm.resx">
       <DependentUpon>SearchCNPJForm.cs</DependentUpon>
@@ -440,6 +481,9 @@
     <None Include="Properties\DataSources\stay.datasource" />
     <None Include="Properties\DataSources\trailer.datasource" />
     <None Include="Properties\DataSources\truck.datasource" />
+    <None Include="Properties\DataSources\TruckSystem.Models.Reports.FeesDriverModel.datasource" />
+    <None Include="Properties\DataSources\TruckSystem.Models.Reports.FreightsByTruckModel.datasource" />
+    <None Include="Properties\DataSources\TruckSystem.UI.Reports.Drivers.FeesDriverReport.datasource" />
     <None Include="Properties\DataSources\TruckSystemRepo.datasource" />
     <None Include="Properties\DataSources\TruckSystemRepo.IFactory.datasource" />
     <None Include="Properties\DataSources\TruckSystemRepo.Record`1.datasource" />
