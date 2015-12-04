@@ -71,7 +71,16 @@ namespace TruckSystem
                 }
                 else
                 {
-                    new ConnectionUtil();
+                    try
+                    {
+                        new ConnectionUtil();
+                        user.Fetch("WHERE id=0");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(String.Format("Não foi posssivel conectar ao servidor!\n\n{0}\n{1}", ex.Message, ex.InnerException));
+                        Exit(-1);
+                    }
                 }
             }
             catch (Exception ex)

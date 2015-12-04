@@ -32,6 +32,7 @@ using TruckSystem.UI.Drivers.Reports;
 using DevExpress.XtraReports.UI;
 using TruckSystem.UI.Reports.Freights;
 using TruckSystem.Models.Reports;
+using TruckSystem.UI.Truck.Reports;
 
 namespace TruckSystem.UI
 {
@@ -261,69 +262,12 @@ namespace TruckSystem.UI
 
         private void btnFreightOfTrucks_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SplashScreenManager.ShowForm(this, typeof(PleaseWaitForm), false, false, false);
-            truck t = truck.SingleOrDefault(2);
-            FreightsByTruckModel fm = new FreightsByTruckModel() 
-            {
-                emission_at = String.Format("Emitido em {0:dd/MM/yyyy HH:mm}", freight.Now()), 
-                reference = "Período de 00/00/0000 à 00/00/0000", 
-                signature = "Emitido por CadoreTecnologia",
-                truck = t.board,
-                driver = driver.SingleOrDefault(t.driver_id).full_name
-            };
-            List<ListFreights> lf = new List<ListFreights>();
-            List<freight> llf = freight.Fetch("WHERE truck_id=@0", t.id);
-            foreach (freight f in llf)
-            {
-                List<ListFueleds> lfueled = new List<ListFueleds>();
-                List<fueled> llfueled = fueled.Fetch("WHERE freight_id = @0", f.id);
-                foreach(fueled fu in llfueled)
-                {
-                    lfueled.Add(new ListFueleds() 
-                    { 
-                        date = Convert.ToDateTime(fu.date), 
-                        liters = fu.liters, 
-                        discont = fu.discount,
-                        value_liters = fu.value_liters, 
-                        value_total = fu.total,
-                        gas_station = customer.SingleOrDefault(fu.gas_station_id).corporate_name
-                    });
-                }
+            ChooseTruckFreightsReportForm ctf = new ChooseTruckFreightsReportForm();
+            ctf.ShowDialog();
+        }
 
-                List<ListOutputs> loutputs = new List<ListOutputs>();
-                List<output> lloutputs = output.Fetch("WHERE freight_id = @0", f.id);
-                foreach (output o in lloutputs)
-                {
-                    loutputs.Add(new ListOutputs() 
-                    {
-                        date = Convert.ToDateTime(o.date),
-                        description = o.description,
-                        value = o.value,
-                        customer = customer.SingleOrDefault(o.customer_id).corporate_name
-                    });
-                }
-
-                lf.Add(new ListFreights() 
-                { 
-                    comission = f.value_comission,
-                    date = Convert.ToDateTime(f.start), 
-                    id = f.id, 
-                    listFueleds = lfueled, 
-                    listOutputs = loutputs, 
-                    driver = driver.SingleOrDefault(f.driver_id).full_name
-                });
-            }
-            
-
-
-            fm.listFreights = lf;            
-            FreightsByTruckReport report = new FreightsByTruckReport();
-            report.bdgFreigths.DataSource = fm;
-            ReportPrintTool tool = new ReportPrintTool(report);
-
-            SplashScreenManager.CloseForm(false);
-
-            tool.ShowRibbonPreviewDialog();
+        private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
+        {
         }        
     }
 }

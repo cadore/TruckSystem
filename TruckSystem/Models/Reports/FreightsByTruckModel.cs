@@ -13,6 +13,7 @@ namespace TruckSystem.Models.Reports
         public string truck { get; set; }
         public string driver { get; set; }
         public string emission_at { get; set; }
+        public decimal gross { get; set; }
         public List<ListFreights> listFreights { get; set; }
     }
 

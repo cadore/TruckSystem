@@ -53,7 +53,7 @@
             this.btnNewPayment = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchPayments = new DevExpress.XtraBars.BarButtonItem();
             this.btnFeesDrivers = new DevExpress.XtraBars.BarButtonItem();
-            this.btnFreightOfTrucks = new DevExpress.XtraBars.BarButtonItem();
+            this.z = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -108,7 +108,7 @@
             this.btnNewPayment,
             this.btnSearchPayments,
             this.btnFeesDrivers,
-            this.btnFreightOfTrucks});
+            this.z});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 32;
             this.ribbon.Name = "ribbon";
@@ -296,6 +296,7 @@
             this.btnSearchPayments.Id = 28;
             this.btnSearchPayments.Name = "btnSearchPayments";
             this.btnSearchPayments.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSearchPayments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchPayments_ItemClick);
             // 
             // btnFeesDrivers
             // 
@@ -305,13 +306,13 @@
             this.btnFeesDrivers.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnFeesDrivers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeesDrivers_ItemClick);
             // 
-            // btnFreightOfTrucks
+            // z
             // 
-            this.btnFreightOfTrucks.Caption = "Movimentações de Fretes";
-            this.btnFreightOfTrucks.Id = 31;
-            this.btnFreightOfTrucks.Name = "btnFreightOfTrucks";
-            this.btnFreightOfTrucks.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnFreightOfTrucks.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFreightOfTrucks_ItemClick);
+            this.z.Caption = "Movimentações de Fretes";
+            this.z.Id = 31;
+            this.z.Name = "z";
+            this.z.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.z.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFreightOfTrucks_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -406,7 +407,7 @@
             // ribbonPageGroup13
             // 
             this.ribbonPageGroup13.AllowTextClipping = false;
-            this.ribbonPageGroup13.ItemLinks.Add(this.btnFreightOfTrucks);
+            this.ribbonPageGroup13.ItemLinks.Add(this.z);
             this.ribbonPageGroup13.Name = "ribbonPageGroup13";
             this.ribbonPageGroup13.ShowCaptionButton = false;
             this.ribbonPageGroup13.Text = "Fretes";
@@ -568,7 +569,7 @@
         private DevExpress.XtraBars.BarButtonItem btnFeesDrivers;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage6;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup12;
-        private DevExpress.XtraBars.BarButtonItem btnFreightOfTrucks;
+        private DevExpress.XtraBars.BarButtonItem z;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
     }
 }

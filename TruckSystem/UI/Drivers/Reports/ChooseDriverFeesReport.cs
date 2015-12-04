@@ -47,7 +47,7 @@ namespace TruckSystem.UI.Drivers.Reports
                 List<FeesDriverList> fdl = new List<FeesDriverList>();
                 string sql = String.Format("WHERE driver_id = {0} AND start::date BETWEEN '{1:yyyy-MM-dd}' AND '{2:yyyy-MM-dd}' ORDER BY start",
                     d.id, first, last);
-                List<freight> fre = freight.Fetch("WHERE driver_id=2 ORDER BY start");
+                List<freight> fre = freight.Fetch(sql);
                 if (fre.Count <= 0)
                 {
                     SplashScreenManager.CloseForm(false);
@@ -70,7 +70,7 @@ namespace TruckSystem.UI.Drivers.Reports
                 f.document_driver = d.cpf;
                 f.driver = d.full_name;
                 f.emission_at = String.Format("Emitido em {0:dd/MM/yyyy HH:mm}", driver.Now());
-                f.reference = "_|_";
+                f.reference = String.Format("Referente à {0} de {1}", cbMonth.Text, cbYear.EditValue);
                 f.signature = "Emitido por CadoreTecnologia";
 
 

@@ -129,6 +129,22 @@ namespace TruckSystem.Utils
         {
             DateTime dateEnd = date.AddDays(p - date.DayOfWeek.GetHashCode());
             return dateEnd;
-        }        
+        }
+
+        /*
+        public static String GetMonthOfNumber(int month)
+        {
+            string month_ext = "";
+
+            switch (month)
+            {
+                case 1 | 01:
+                    month_ext = "Janeiro";
+                    break;
+            }
+
+            return month_ext;
+        }
+        */
     }
 }

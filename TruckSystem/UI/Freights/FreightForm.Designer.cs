@@ -129,6 +129,7 @@ namespace TruckSystem.UI.Freights
             this.btnUpdateData = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
+            this.btnDeposits = new DevExpress.XtraEditors.SimpleButton();
             labelControl12 = new DevExpress.XtraEditors.LabelControl();
             labelControl16 = new DevExpress.XtraEditors.LabelControl();
             labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -839,6 +840,7 @@ namespace TruckSystem.UI.Freights
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnDeposits);
             this.panelControl2.Controls.Add(this.btnStay);
             this.panelControl2.Controls.Add(this.groupControl3);
             this.panelControl2.Controls.Add(this.lbTrailers);
@@ -881,7 +883,7 @@ namespace TruckSystem.UI.Freights
             this.btnStay.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnStay.Appearance.Options.UseFont = true;
             this.btnStay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnStay.Location = new System.Drawing.Point(240, 253);
+            this.btnStay.Location = new System.Drawing.Point(353, 253);
             this.btnStay.Name = "btnStay";
             this.btnStay.Size = new System.Drawing.Size(110, 23);
             this.btnStay.TabIndex = 14;
@@ -923,7 +925,7 @@ namespace TruckSystem.UI.Freights
             this.btnFueled.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFueled.Appearance.Options.UseFont = true;
             this.btnFueled.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnFueled.Location = new System.Drawing.Point(124, 253);
+            this.btnFueled.Location = new System.Drawing.Point(121, 253);
             this.btnFueled.Name = "btnFueled";
             this.btnFueled.Size = new System.Drawing.Size(110, 23);
             this.btnFueled.TabIndex = 13;
@@ -1160,6 +1162,15 @@ namespace TruckSystem.UI.Freights
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnDeposits
+            // 
+            this.btnDeposits.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnDeposits.Location = new System.Drawing.Point(237, 253);
+            this.btnDeposits.Name = "btnDeposits";
+            this.btnDeposits.Size = new System.Drawing.Size(110, 23);
+            this.btnDeposits.TabIndex = 40;
+            this.btnDeposits.Text = "Depósitos";
+            // 
             // FreightForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1288,5 +1299,6 @@ namespace TruckSystem.UI.Freights
         private System.Windows.Forms.BindingSource bdgCarrier;
         private DevExpress.XtraEditors.TextEdit tfStay;
         private DevExpress.XtraEditors.SimpleButton btnStay;
+        private DevExpress.XtraEditors.SimpleButton btnDeposits;
     }
 }
