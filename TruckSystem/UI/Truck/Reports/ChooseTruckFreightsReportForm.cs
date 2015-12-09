@@ -22,6 +22,7 @@ namespace TruckSystem.UI.Truck.Reports
         {
             InitializeComponent();
             bdgTruck.DataSource = truck.Fetch("");
+            cbTruck.Focus();
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)

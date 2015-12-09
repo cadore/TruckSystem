@@ -151,7 +151,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(600, 219);
+            this.panelControl1.Size = new System.Drawing.Size(609, 227);
             this.panelControl1.TabIndex = 0;
             // 
             // tfObservation
@@ -302,9 +302,9 @@
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 176);
+            this.panelControl2.Location = new System.Drawing.Point(0, 184);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(600, 43);
+            this.panelControl2.Size = new System.Drawing.Size(609, 43);
             this.panelControl2.TabIndex = 1;
             // 
             // btnSave
@@ -316,7 +316,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(369, 5);
+            this.btnSave.Location = new System.Drawing.Point(378, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 33);
             this.btnSave.TabIndex = 0;
@@ -334,7 +334,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(485, 5);
+            this.btnCancel.Location = new System.Drawing.Point(494, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 33);
             this.btnCancel.TabIndex = 0;
@@ -347,11 +347,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 219);
+            this.ClientSize = new System.Drawing.Size(609, 227);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "OutputsFreightForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;

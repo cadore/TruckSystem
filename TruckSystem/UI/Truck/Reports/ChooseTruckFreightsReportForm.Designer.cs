@@ -29,14 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseTruckFreightsReportForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseTruckFreightsReportForm));
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.btnGenerate = new WCButtons.Black.ButtonSettingsBlack();
+            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.dtEnd = new DevExpress.XtraEditors.DateEdit();
             this.dtStart = new DevExpress.XtraEditors.DateEdit();
             this.cbTruck = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colboard = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -44,9 +47,6 @@
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.btnGenerate = new WCButtons.Black.ButtonSettingsBlack();
-            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtEnd.Properties.CalendarTimeProperties)).BeginInit();
@@ -54,9 +54,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtStart.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
             this.SuspendLayout();
             // 
             // groupControl1
@@ -75,6 +75,40 @@
             this.groupControl1.Size = new System.Drawing.Size(386, 142);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Relatorio de Fretes por Veículo";
+            // 
+            // btnGenerate
+            // 
+            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnGenerate.ForeColor = System.Drawing.Color.White;
+            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
+            this.btnGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerate.Location = new System.Drawing.Point(102, 98);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(155, 33);
+            this.btnGenerate.TabIndex = 3;
+            this.btnGenerate.Text = "Gerar Relatório";
+            this.btnGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerate.UseVisualStyleBackColor = false;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(263, 98);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 33);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // dtEnd
             // 
@@ -100,6 +134,7 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtStart.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtStart.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dtStart.Size = new System.Drawing.Size(138, 20);
             this.dtStart.TabIndex = 1;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -123,6 +158,10 @@
             conditionValidationRule3.ErrorText = "Informe o Veículo";
             conditionValidationRule3.Value1 = ((long)(0));
             this.validator.SetValidationRule(this.cbTruck, conditionValidationRule3);
+            // 
+            // bdgTruck
+            // 
+            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
             // 
             // searchLookUpEdit1View
             // 
@@ -178,44 +217,6 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Veículo:";
             // 
-            // btnGenerate
-            // 
-            this.btnGenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGenerate.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnGenerate.ForeColor = System.Drawing.Color.White;
-            this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
-            this.btnGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerate.Location = new System.Drawing.Point(102, 98);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(155, 33);
-            this.btnGenerate.TabIndex = 3;
-            this.btnGenerate.Text = "Gerar Relatório";
-            this.btnGenerate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGenerate.UseVisualStyleBackColor = false;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(263, 98);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 33);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // bdgTruck
-            // 
-            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
-            // 
             // ChooseTruckFreightsReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,9 +237,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtStart.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
             this.ResumeLayout(false);
 
         }
