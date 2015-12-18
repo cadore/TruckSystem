@@ -85,9 +85,9 @@
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 164);
+            this.panelControl1.Location = new System.Drawing.Point(0, 178);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(601, 44);
+            this.panelControl1.Size = new System.Drawing.Size(597, 44);
             this.panelControl1.TabIndex = 0;
             // 
             // btnCancel
@@ -131,7 +131,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(601, 164);
+            this.panelControl2.Size = new System.Drawing.Size(597, 178);
             this.panelControl2.TabIndex = 1;
             // 
             // groupControl2
@@ -332,7 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 208);
+            this.ClientSize = new System.Drawing.Size(597, 222);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

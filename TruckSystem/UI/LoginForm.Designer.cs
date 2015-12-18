@@ -143,6 +143,7 @@
             this.ClientSize = new System.Drawing.Size(322, 135);
             this.ControlBox = false;
             this.Controls.Add(this.pnLogin);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(338, 174);
             this.MinimumSize = new System.Drawing.Size(338, 174);
