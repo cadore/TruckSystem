@@ -268,6 +268,20 @@ namespace TruckSystem.UI
 
         private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
         {
+        }
+
+        private void btnOpenReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            /*OpenFileDialog opd = new OpenFileDialog();
+            DialogResult rs = opd.ShowDialog();
+            if (rs == DialogResult.OK)
+            {
+                FileStream s = new FileStream(opd.FileName, FileMode.Open);
+                ReportPrintTool tool = new ReportPrintTool(XtraReport.FromStream(s, true));
+                SplashScreenManager.CloseForm(false);
+                tool.ShowRibbonPreviewDialog();
+            }
+            */
         }        
     }
 }

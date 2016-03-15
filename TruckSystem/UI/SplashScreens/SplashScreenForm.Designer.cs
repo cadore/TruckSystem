@@ -44,6 +44,8 @@
             this.marqueeProgressBarControl1.EditValue = 0;
             this.marqueeProgressBarControl1.Location = new System.Drawing.Point(23, 231);
             this.marqueeProgressBarControl1.Name = "marqueeProgressBarControl1";
+            this.marqueeProgressBarControl1.Properties.MarqueeAnimationSpeed = 75;
+            this.marqueeProgressBarControl1.Properties.ProgressAnimationMode = DevExpress.Utils.Drawing.ProgressAnimationMode.Cycle;
             this.marqueeProgressBarControl1.Size = new System.Drawing.Size(404, 12);
             this.marqueeProgressBarControl1.TabIndex = 5;
             // 
@@ -54,15 +56,15 @@
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(115, 13);
             this.labelControl1.TabIndex = 6;
-            this.labelControl1.Text = "Copyright © 2013-2015";
+            this.labelControl1.Text = "Copyright © 2013-2016";
             // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(23, 206);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(69, 13);
+            this.labelControl2.Size = new System.Drawing.Size(111, 13);
             this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Carregando...";
+            this.labelControl2.Text = "Carregando Modulos...";
             // 
             // pictureEdit2
             // 
@@ -102,6 +104,7 @@
             this.Controls.Add(this.marqueeProgressBarControl1);
             this.Name = "SplashScreenForm";
             this.Text = "Form1";
+            this.Shown += new System.EventHandler(this.SplashScreenForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();

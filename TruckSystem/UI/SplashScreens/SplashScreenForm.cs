@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraSplashScreen;
+using System.Threading;
 
 namespace TruckSystem.UI.SplashScreens
 {
@@ -13,7 +14,7 @@ namespace TruckSystem.UI.SplashScreens
     {
         public SplashScreenForm()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         #region Overrides
@@ -26,6 +27,10 @@ namespace TruckSystem.UI.SplashScreens
         #endregion
 
         public enum SplashScreenCommand
+        {
+        }
+
+        private void SplashScreenForm_Shown(object sender, EventArgs e)
         {
         }
     }

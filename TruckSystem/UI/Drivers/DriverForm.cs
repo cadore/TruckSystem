@@ -38,7 +38,10 @@ namespace TruckSystem.UI.Drivers
                 tfNumberCnh.Properties.ReadOnly = true;
 
                 if (d.inactive)
+                {
                     pnGeneral.Enabled = false;
+                    btnSave.Visible = false;
+                }
             }
             bdgAddress.DataSource = ad;
             bdgDriver.DataSource = d;
@@ -100,7 +103,7 @@ namespace TruckSystem.UI.Drivers
                             tfNumberCnh.SelectAll();
                             return;
                         }
-
+                         
                     }
                     DateTime min = DateTime.MinValue;
                     if (DateTime.TryParse(dr.dismissed_at.ToString(), out min))
