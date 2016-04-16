@@ -55,6 +55,7 @@
             this.btnSearchPayments = new DevExpress.XtraBars.BarButtonItem();
             this.btnFeesDrivers = new DevExpress.XtraBars.BarButtonItem();
             this.z = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOpenReport = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -67,6 +68,7 @@
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage5 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -76,8 +78,9 @@
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnOpenReport = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnManagerTrailers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -112,9 +115,11 @@
             this.btnSearchPayments,
             this.btnFeesDrivers,
             this.z,
-            this.btnOpenReport});
+            this.btnOpenReport,
+            this.btnManagerTrailers,
+            this.barButtonItem4});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 33;
+            this.ribbon.MaxItemId = 35;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -318,6 +323,14 @@
             this.z.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.z.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFreightOfTrucks_ItemClick);
             // 
+            // btnOpenReport
+            // 
+            this.btnOpenReport.Caption = "Abrir Relatório .prnx";
+            this.btnOpenReport.Id = 32;
+            this.btnOpenReport.Name = "btnOpenReport";
+            this.btnOpenReport.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnOpenReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenReport_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -360,6 +373,7 @@
             this.ribbonPageGroup4,
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
+            this.ribbonPageGroup15,
             this.ribbonPageGroup5});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Cadastros";
@@ -424,6 +438,14 @@
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
             this.ribbonPageGroup12.ShowCaptionButton = false;
             this.ribbonPageGroup12.Text = "Motoristas";
+            // 
+            // ribbonPageGroup14
+            // 
+            this.ribbonPageGroup14.AllowTextClipping = false;
+            this.ribbonPageGroup14.ItemLinks.Add(this.btnOpenReport);
+            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
+            this.ribbonPageGroup14.ShowCaptionButton = false;
+            this.ribbonPageGroup14.Text = "Abrir";
             // 
             // ribbonPage5
             // 
@@ -503,21 +525,28 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // ribbonPageGroup14
+            // ribbonPageGroup15
             // 
-            this.ribbonPageGroup14.AllowTextClipping = false;
-            this.ribbonPageGroup14.ItemLinks.Add(this.btnOpenReport);
-            this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.ShowCaptionButton = false;
-            this.ribbonPageGroup14.Text = "Abrir";
+            this.ribbonPageGroup15.AllowTextClipping = false;
+            this.ribbonPageGroup15.ItemLinks.Add(this.btnManagerTrailers);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.ShowCaptionButton = false;
+            this.ribbonPageGroup15.Text = "Reboques";
             // 
-            // btnOpenReport
+            // btnManagerTrailers
             // 
-            this.btnOpenReport.Caption = "Abrir Relatório .prnx";
-            this.btnOpenReport.Id = 32;
-            this.btnOpenReport.Name = "btnOpenReport";
-            this.btnOpenReport.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnOpenReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenReport_ItemClick);
+            this.btnManagerTrailers.Caption = "Gerenciar Reboques";
+            this.btnManagerTrailers.Id = 33;
+            this.btnManagerTrailers.Name = "btnManagerTrailers";
+            this.btnManagerTrailers.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnManagerTrailers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnManagerTrailers_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 34;
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // DesktopForm
             // 
@@ -595,5 +624,8 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
         private DevExpress.XtraBars.BarButtonItem btnOpenReport;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
+        private DevExpress.XtraBars.BarButtonItem btnManagerTrailers;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
     }
 }

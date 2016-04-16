@@ -65,12 +65,7 @@ namespace TruckSystem.UI.SearchCNPJ
                     try
                     {
                         state st = state.SingleOrDefault("WHERE symbol=@0", cc.UF);
-                        d.state_id = st != null ? st.id : 0;
-                        string sql_remove = (@"CREATE OR REPLACE FUNCTION remove_character(character varying)
-                                RETURNS character varying  AS
-                                'SELECT translate($1,''áàâãäéèêëíìïóòôõöúùûüÁÀÂÃÄÉÈÊËÍÌÏÓÒÔÕÖÚÙÛÜçÇ'', 
-                                ''aaaaaeeeeiiiooooouuuuAAAAAEEEEIIIOOOOOUUUUcC'');' LANGUAGE SQL;");
-                        TruckSystemRepo.GetInstance().Execute(sql_remove);
+                        d.state_id = st != null ? st.id : 0;                        
                         List<city> lci = city.Fetch("WHERE remove_character(name) ILIKE @0 AND state_id=@1",
                             city.Concat(cc.CIDADE), st.id);
                         d.city_id = lci != null ? lci[0].id : 0;

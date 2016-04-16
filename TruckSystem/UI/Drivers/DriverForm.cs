@@ -35,7 +35,7 @@ namespace TruckSystem.UI.Drivers
             {
                 ad = address.SingleOrDefault(d.address);
                 tfCpf.Properties.ReadOnly = true;
-                tfNumberCnh.Properties.ReadOnly = true;
+                //tfNumberCnh.Properties.ReadOnly = true;
 
                 if (d.inactive)
                 {
@@ -64,7 +64,7 @@ namespace TruckSystem.UI.Drivers
         private void tfBirthday_EditValueChanged(object sender, EventArgs e)
         {
             int year = Dates.CalculateAge(driver.Now(), tfBirthday.DateTime);
-            if (year < 0)
+            if (year < 0 || year > 100)
                 year = 0;
             lbBirthday.Text = String.Format("{0:d} Anos", year);
         }
@@ -96,13 +96,13 @@ namespace TruckSystem.UI.Drivers
                             tfCpf.SelectAll();
                             return;
                         }
-                        if (!Validations.Unique.CNHDriverIsUnique(dr))
+                        /*if (!Validations.Unique.CNHDriverIsUnique(dr))
                         {
                             XtraMessageBox.Show(String.Format("A CNH informada ja consta cadastrada, verifique!"));
                             tfNumberCnh.Focus();
                             tfNumberCnh.SelectAll();
                             return;
-                        }
+                        }*/
                          
                     }
                     DateTime min = DateTime.MinValue;

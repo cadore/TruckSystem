@@ -33,6 +33,7 @@ using DevExpress.XtraReports.UI;
 using TruckSystem.UI.Reports.Freights;
 using TruckSystem.Models.Reports;
 using TruckSystem.UI.Truck.Reports;
+using TruckSystem.UI.Trailer;
 
 namespace TruckSystem.UI
 {
@@ -282,6 +283,11 @@ namespace TruckSystem.UI
                 tool.ShowRibbonPreviewDialog();
             }
             */
+        }
+
+        private void btnManagerTrailers_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new TrailerForm(null), "Gerenciar Reboques", false);
         }        
     }
 }

@@ -120,10 +120,16 @@ namespace TruckSystem.UI.Freights
                         fre.registred_at = freight.Now();
                         fre.registred_by = Singleton.getUser().id;
                     }
+
+                    trailer tr1 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 1);
+                    trailer tr2 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 2);
+                    trailer tr3 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 3);
                     
-                    Console.WriteLine(fre.id);
+                    fre.trailers = String.Format("{0},{1},{2}",
+                        (tr1 != null ? tr1.id.ToString() : "0"),
+                        (tr2 != null ? tr2.id.ToString() : "0"), 
+                        (tr3 != null ? tr3.id.ToString() : "0"));
                     fre.Save();
-                    Console.WriteLine(fre.id);
 
                     if (ListFueleds != null)
                     {

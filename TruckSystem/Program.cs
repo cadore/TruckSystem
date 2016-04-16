@@ -33,6 +33,7 @@ namespace TruckSystem
             SplashScreenManager.ShowForm(null, typeof(SplashScreenForm), false, false, false);
             //Application.Run(new DesktopForm());
             startConnection();
+            TrigersDB();
             login();
         }
 
@@ -93,6 +94,15 @@ namespace TruckSystem
         static void Exit(int exit)
         {
             Environment.Exit(exit);
+        }
+
+        static void TrigersDB()
+        {
+            string sql_remove = (@"CREATE OR REPLACE FUNCTION remove_character(character varying)
+                                RETURNS character varying  AS
+                                'SELECT translate($1,''áàâãäéèêëíìïóòôõöúùûüÁÀÂÃÄÉÈÊËÍÌÏÓÒÔÕÖÚÙÛÜçÇ'', 
+                                ''aaaaaeeeeiiiooooouuuuAAAAAEEEEIIIOOOOOUUUUcC'');' LANGUAGE SQL;");
+            TruckSystemRepo.GetInstance().Execute(sql_remove);
         }
     }
 }

@@ -338,6 +338,12 @@
     <Compile Include="UI\System\ChooseColorFocusedForm.Designer.cs">
       <DependentUpon>ChooseColorFocusedForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Trailer\TrailerForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Trailer\TrailerForm.Designer.cs">
+      <DependentUpon>TrailerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Truck\Reports\ChooseTruckFreightsReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\System\ChooseColorFocusedForm.resx">
       <DependentUpon>ChooseColorFocusedForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Trailer\TrailerForm.resx">
+      <DependentUpon>TrailerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Truck\Reports\ChooseTruckFreightsReportForm.resx">
       <DependentUpon>ChooseTruckFreightsReportForm.cs</DependentUpon>

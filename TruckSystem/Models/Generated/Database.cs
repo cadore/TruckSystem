@@ -779,24 +779,9 @@ namespace TruckSystem
 
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
-        [Column]
-        public string color { get; set; }
-
-
-
-
-
-        [Column]
-        public long driver_id { get; set; }
-
-        [Column]
-        public int? antt { get; set; }
-
+        [Column] public string color { get; set; }
+        [Column] public long driver_id { get; set; }
+        [Column] public int? antt { get; set; }
 
         public string driver_name { get; set; }
 
@@ -1020,6 +1005,9 @@ namespace TruckSystem
 
 
 		[Column] public DateTime? dismissed_at { get; set; }
+        [Column] public string naturalness { get; set; }
+        [Column] public string register_cnh { get; set; }
+        [Column] public string mother_name { get; set; }
 
 
 
@@ -1139,6 +1127,7 @@ namespace TruckSystem
 		[Column] public decimal discounts_comission { get; set; }
 		[Column] public decimal extra_comission { get; set; }
 		[Column] public string observations { get; set; }
+        [Column] public string trailers { get; set; }
         
         public string company_source_name { get; set; }
         public string company_destination_name { get; set; }

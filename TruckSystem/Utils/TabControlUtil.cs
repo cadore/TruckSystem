@@ -77,7 +77,7 @@ namespace TruckSystem.Utils
                 desk.tabControl.SelectedTabPage = sysTabPage1;
             }
 
-            // se existir e nao deseja vincular nova apenas da foco
+            // se existir e nao deseja vincular nova, apenas da foco
             else
                 desk.tabControl.SelectedTabPage = sysTabPage2;            
             SplashScreenManager.CloseForm(false);
