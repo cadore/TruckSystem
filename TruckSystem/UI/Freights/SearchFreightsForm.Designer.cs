@@ -59,6 +59,7 @@
             this.colcompany_source_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstart = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colweight = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalue_gross = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltruck_board = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldriver_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -337,6 +338,7 @@
             this.colcompany_source_name,
             this.colstart,
             this.colweight,
+            this.colvalue_gross,
             this.coltotal,
             this.coltruck_board,
             this.coldriver_name});
@@ -352,7 +354,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 45;
+            this.colid.Width = 41;
             // 
             // colnumber_note
             // 
@@ -362,7 +364,7 @@
             this.colnumber_note.OptionsColumn.AllowEdit = false;
             this.colnumber_note.Visible = true;
             this.colnumber_note.VisibleIndex = 2;
-            this.colnumber_note.Width = 69;
+            this.colnumber_note.Width = 57;
             // 
             // colcompany_destination_name
             // 
@@ -372,7 +374,7 @@
             this.colcompany_destination_name.OptionsColumn.AllowEdit = false;
             this.colcompany_destination_name.Visible = true;
             this.colcompany_destination_name.VisibleIndex = 4;
-            this.colcompany_destination_name.Width = 226;
+            this.colcompany_destination_name.Width = 168;
             // 
             // colcompany_source_name
             // 
@@ -382,7 +384,7 @@
             this.colcompany_source_name.OptionsColumn.AllowEdit = false;
             this.colcompany_source_name.Visible = true;
             this.colcompany_source_name.VisibleIndex = 3;
-            this.colcompany_source_name.Width = 210;
+            this.colcompany_source_name.Width = 168;
             // 
             // colstart
             // 
@@ -394,7 +396,7 @@
             this.colstart.OptionsColumn.AllowEdit = false;
             this.colstart.Visible = true;
             this.colstart.VisibleIndex = 5;
-            this.colstart.Width = 72;
+            this.colstart.Width = 70;
             // 
             // colweight
             // 
@@ -404,15 +406,25 @@
             this.colweight.FieldName = "weight";
             this.colweight.Name = "colweight";
             this.colweight.OptionsColumn.AllowEdit = false;
-            this.colweight.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "weight", "{0:n2}")});
             this.colweight.Visible = true;
             this.colweight.VisibleIndex = 6;
             this.colweight.Width = 65;
             // 
+            // colvalue_gross
+            // 
+            this.colvalue_gross.Caption = "Bruto R$";
+            this.colvalue_gross.DisplayFormat.FormatString = "{0:c2}";
+            this.colvalue_gross.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.colvalue_gross.FieldName = "value_gross";
+            this.colvalue_gross.Name = "colvalue_gross";
+            this.colvalue_gross.OptionsColumn.AllowEdit = false;
+            this.colvalue_gross.Visible = true;
+            this.colvalue_gross.VisibleIndex = 7;
+            this.colvalue_gross.Width = 85;
+            // 
             // coltotal
             // 
-            this.coltotal.Caption = "Liquido Frete";
+            this.coltotal.Caption = "Liquido R$";
             this.coltotal.DisplayFormat.FormatString = "c2";
             this.coltotal.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.coltotal.FieldName = "total";
@@ -421,8 +433,8 @@
             this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0:c2}")});
             this.coltotal.Visible = true;
-            this.coltotal.VisibleIndex = 7;
-            this.coltotal.Width = 80;
+            this.coltotal.VisibleIndex = 8;
+            this.coltotal.Width = 83;
             // 
             // coltruck_board
             // 
@@ -432,7 +444,7 @@
             this.coltruck_board.OptionsColumn.AllowEdit = false;
             this.coltruck_board.Visible = true;
             this.coltruck_board.VisibleIndex = 1;
-            this.coltruck_board.Width = 71;
+            this.coltruck_board.Width = 64;
             // 
             // coldriver_name
             // 
@@ -441,8 +453,8 @@
             this.coldriver_name.Name = "coldriver_name";
             this.coldriver_name.OptionsColumn.AllowEdit = false;
             this.coldriver_name.Visible = true;
-            this.coldriver_name.VisibleIndex = 8;
-            this.coldriver_name.Width = 153;
+            this.coldriver_name.VisibleIndex = 9;
+            this.coldriver_name.Width = 190;
             // 
             // SearchFreightsForm
             // 
@@ -510,5 +522,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
         private DevExpress.XtraGrid.Columns.GridColumn colboard;
         private DevExpress.XtraGrid.Columns.GridColumn coldriver_name;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalue_gross;
     }
 }

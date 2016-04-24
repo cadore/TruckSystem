@@ -107,6 +107,7 @@ namespace TruckSystem.UI.Freights
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnDeposits = new DevExpress.XtraEditors.SimpleButton();
             this.btnStay = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.tfObservations = new DevExpress.XtraEditors.MemoEdit();
@@ -129,7 +130,6 @@ namespace TruckSystem.UI.Freights
             this.btnUpdateData = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.btnDeposits = new DevExpress.XtraEditors.SimpleButton();
             labelControl12 = new DevExpress.XtraEditors.LabelControl();
             labelControl16 = new DevExpress.XtraEditors.LabelControl();
             labelControl15 = new DevExpress.XtraEditors.LabelControl();
@@ -245,7 +245,7 @@ namespace TruckSystem.UI.Freights
             // 
             // labelControl11
             // 
-            labelControl11.Location = new System.Drawing.Point(9, 106);
+            labelControl11.Location = new System.Drawing.Point(8, 106);
             labelControl11.Name = "labelControl11";
             labelControl11.Size = new System.Drawing.Size(50, 13);
             labelControl11.TabIndex = 34;
@@ -262,7 +262,7 @@ namespace TruckSystem.UI.Freights
             // labelControl9
             // 
             labelControl9.Appearance.ForeColor = System.Drawing.Color.Blue;
-            labelControl9.Location = new System.Drawing.Point(9, 53);
+            labelControl9.Location = new System.Drawing.Point(28, 53);
             labelControl9.Name = "labelControl9";
             labelControl9.Size = new System.Drawing.Size(30, 13);
             labelControl9.TabIndex = 30;
@@ -270,7 +270,7 @@ namespace TruckSystem.UI.Freights
             // 
             // labelControl8
             // 
-            labelControl8.Location = new System.Drawing.Point(190, 27);
+            labelControl8.Location = new System.Drawing.Point(199, 27);
             labelControl8.Name = "labelControl8";
             labelControl8.Size = new System.Drawing.Size(66, 13);
             labelControl8.TabIndex = 28;
@@ -278,7 +278,7 @@ namespace TruckSystem.UI.Freights
             // 
             // labelControl7
             // 
-            labelControl7.Location = new System.Drawing.Point(9, 27);
+            labelControl7.Location = new System.Drawing.Point(31, 27);
             labelControl7.Name = "labelControl7";
             labelControl7.Size = new System.Drawing.Size(27, 13);
             labelControl7.TabIndex = 26;
@@ -374,7 +374,7 @@ namespace TruckSystem.UI.Freights
             // 
             // labelControl18
             // 
-            labelControl18.Location = new System.Drawing.Point(9, 79);
+            labelControl18.Location = new System.Drawing.Point(19, 80);
             labelControl18.Name = "labelControl18";
             labelControl18.Size = new System.Drawing.Size(39, 13);
             labelControl18.TabIndex = 32;
@@ -428,7 +428,7 @@ namespace TruckSystem.UI.Freights
             // tfWeight
             // 
             this.tfWeight.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgFreight, "weight", true));
-            this.tfWeight.Location = new System.Drawing.Point(61, 24);
+            this.tfWeight.Location = new System.Drawing.Point(64, 24);
             this.tfWeight.Name = "tfWeight";
             this.tfWeight.Properties.Mask.EditMask = "n2";
             this.tfWeight.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -878,6 +878,16 @@ namespace TruckSystem.UI.Freights
             this.panelControl2.Size = new System.Drawing.Size(800, 396);
             this.panelControl2.TabIndex = 0;
             // 
+            // btnDeposits
+            // 
+            this.btnDeposits.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnDeposits.Location = new System.Drawing.Point(237, 253);
+            this.btnDeposits.Name = "btnDeposits";
+            this.btnDeposits.Size = new System.Drawing.Size(110, 23);
+            this.btnDeposits.TabIndex = 40;
+            this.btnDeposits.Text = "Depósitos";
+            this.btnDeposits.Click += new System.EventHandler(this.btnDeposits_Click);
+            // 
             // btnStay
             // 
             this.btnStay.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1022,7 +1032,7 @@ namespace TruckSystem.UI.Freights
             // 
             // tfOutputs
             // 
-            this.tfOutputs.Location = new System.Drawing.Point(61, 103);
+            this.tfOutputs.Location = new System.Drawing.Point(64, 103);
             this.tfOutputs.Name = "tfOutputs";
             this.tfOutputs.Properties.Mask.EditMask = "c2";
             this.tfOutputs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1034,7 +1044,7 @@ namespace TruckSystem.UI.Freights
             // 
             // tfStay
             // 
-            this.tfStay.Location = new System.Drawing.Point(61, 76);
+            this.tfStay.Location = new System.Drawing.Point(64, 77);
             this.tfStay.Name = "tfStay";
             this.tfStay.Properties.Mask.EditMask = "c2";
             this.tfStay.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1058,7 +1068,7 @@ namespace TruckSystem.UI.Freights
             // 
             // tfGross
             // 
-            this.tfGross.Location = new System.Drawing.Point(61, 50);
+            this.tfGross.Location = new System.Drawing.Point(64, 50);
             this.tfGross.Name = "tfGross";
             this.tfGross.Properties.Appearance.ForeColor = System.Drawing.Color.Blue;
             this.tfGross.Properties.Appearance.Options.UseForeColor = true;
@@ -1161,15 +1171,6 @@ namespace TruckSystem.UI.Freights
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnDeposits
-            // 
-            this.btnDeposits.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnDeposits.Location = new System.Drawing.Point(237, 253);
-            this.btnDeposits.Name = "btnDeposits";
-            this.btnDeposits.Size = new System.Drawing.Size(110, 23);
-            this.btnDeposits.TabIndex = 40;
-            this.btnDeposits.Text = "Depósitos";
             // 
             // FreightForm
             // 

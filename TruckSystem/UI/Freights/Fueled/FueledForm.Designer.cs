@@ -57,13 +57,13 @@
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcorporate_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfantasy_name = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colcnpj = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfFreightId = new DevExpress.XtraEditors.TextEdit();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.tfLiters = new DevExpress.XtraEditors.TextEdit();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.colcnpj = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
@@ -89,10 +89,10 @@
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 57);
+            this.panelControl1.Location = new System.Drawing.Point(0, 53);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(650, 46);
-            this.panelControl1.TabIndex = 0;
+            this.panelControl1.Size = new System.Drawing.Size(646, 46);
+            this.panelControl1.TabIndex = 1;
             // 
             // btnSave
             // 
@@ -152,8 +152,8 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(650, 57);
-            this.panelControl2.TabIndex = 1;
+            this.panelControl2.Size = new System.Drawing.Size(646, 53);
+            this.panelControl2.TabIndex = 0;
             // 
             // labelControl9
             // 
@@ -174,7 +174,7 @@
             this.tfTotal.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfTotal.Properties.ReadOnly = true;
             this.tfTotal.Size = new System.Drawing.Size(92, 20);
-            this.tfTotal.TabIndex = 18;
+            this.tfTotal.TabIndex = 6;
             this.tfTotal.TabStop = false;
             // 
             // bdgFueled
@@ -349,15 +349,6 @@
             this.colfantasy_name.VisibleIndex = 2;
             this.colfantasy_name.Width = 373;
             // 
-            // colcnpj
-            // 
-            this.colcnpj.Caption = "CNPJ";
-            this.colcnpj.FieldName = "cnpj";
-            this.colcnpj.Name = "colcnpj";
-            this.colcnpj.Visible = true;
-            this.colcnpj.VisibleIndex = 3;
-            this.colcnpj.Width = 267;
-            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(557, 8);
@@ -414,11 +405,20 @@
             this.validator.SetValidationRule(this.tfLiters, conditionValidationRule4);
             this.tfLiters.EditValueChanged += new System.EventHandler(this.calcValues);
             // 
+            // colcnpj
+            // 
+            this.colcnpj.Caption = "CNPJ";
+            this.colcnpj.FieldName = "cnpj";
+            this.colcnpj.Name = "colcnpj";
+            this.colcnpj.Visible = true;
+            this.colcnpj.VisibleIndex = 3;
+            this.colcnpj.Width = 267;
+            // 
             // FueledForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(650, 103);
+            this.ClientSize = new System.Drawing.Size(646, 99);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

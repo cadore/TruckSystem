@@ -60,9 +60,9 @@
             this.panelControl1.Controls.Add(this.btnDelete);
             this.panelControl1.Controls.Add(this.btnConfirm);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 289);
+            this.panelControl1.Location = new System.Drawing.Point(0, 277);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(766, 39);
+            this.panelControl1.Size = new System.Drawing.Size(774, 39);
             this.panelControl1.TabIndex = 0;
             // 
             // btnAdd
@@ -122,7 +122,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(766, 289);
+            this.panelControl2.Size = new System.Drawing.Size(774, 277);
             this.panelControl2.TabIndex = 1;
             // 
             // outputGridControl
@@ -132,7 +132,7 @@
             this.outputGridControl.Location = new System.Drawing.Point(2, 2);
             this.outputGridControl.MainView = this.gridView1;
             this.outputGridControl.Name = "outputGridControl";
-            this.outputGridControl.Size = new System.Drawing.Size(762, 285);
+            this.outputGridControl.Size = new System.Drawing.Size(770, 273);
             this.outputGridControl.TabIndex = 0;
             this.outputGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -164,7 +164,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 50;
+            this.colid.Width = 48;
             // 
             // coldescription
             // 
@@ -174,7 +174,7 @@
             this.coldescription.OptionsColumn.AllowEdit = false;
             this.coldescription.Visible = true;
             this.coldescription.VisibleIndex = 2;
-            this.coldescription.Width = 198;
+            this.coldescription.Width = 189;
             // 
             // colcustomer_name
             // 
@@ -184,7 +184,7 @@
             this.colcustomer_name.OptionsColumn.AllowEdit = false;
             this.colcustomer_name.Visible = true;
             this.colcustomer_name.VisibleIndex = 3;
-            this.colcustomer_name.Width = 204;
+            this.colcustomer_name.Width = 195;
             // 
             // coltruck_id
             // 
@@ -194,7 +194,7 @@
             this.coltruck_id.OptionsColumn.AllowEdit = false;
             this.coltruck_id.Visible = true;
             this.coltruck_id.VisibleIndex = 4;
-            this.coltruck_id.Width = 60;
+            this.coltruck_id.Width = 55;
             // 
             // colfreight_id
             // 
@@ -204,7 +204,7 @@
             this.colfreight_id.OptionsColumn.AllowEdit = false;
             this.colfreight_id.Visible = true;
             this.colfreight_id.VisibleIndex = 5;
-            this.colfreight_id.Width = 56;
+            this.colfreight_id.Width = 51;
             // 
             // coldate
             // 
@@ -216,7 +216,7 @@
             this.coldate.OptionsColumn.AllowEdit = false;
             this.coldate.Visible = true;
             this.coldate.VisibleIndex = 1;
-            this.coldate.Width = 65;
+            this.coldate.Width = 68;
             // 
             // colvalue
             // 
@@ -230,13 +230,13 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value", "{0:c2}")});
             this.colvalue.Visible = true;
             this.colvalue.VisibleIndex = 6;
-            this.colvalue.Width = 119;
+            this.colvalue.Width = 130;
             // 
             // ViewOutputsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 328);
+            this.ClientSize = new System.Drawing.Size(774, 316);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

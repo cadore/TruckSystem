@@ -1136,6 +1136,7 @@ namespace TruckSystem
         public string truck_board { get; set; }
         public string viewStay { get; set; }
         public string driver_name { get; set; }
+        public decimal value_gross { get; set; }
 	}
 
     [TableName("accounts_to_pay")]

@@ -194,6 +194,12 @@
     <Compile Include="UI\Customer\SearchCustomersForm.Designer.cs">
       <DependentUpon>SearchCustomersForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Deposits\ViewDepositsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Deposits\ViewDepositsForm.Designer.cs">
+      <DependentUpon>ViewDepositsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\DesktopForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -411,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Customer\SearchCustomersForm.resx">
       <DependentUpon>SearchCustomersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Deposits\ViewDepositsForm.resx">
+      <DependentUpon>ViewDepositsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\DesktopForm.resx">
       <DependentUpon>DesktopForm.cs</DependentUpon>

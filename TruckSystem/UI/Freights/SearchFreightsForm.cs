@@ -61,7 +61,7 @@ namespace TruckSystem.UI.Freights
                     st += String.Format(" start BETWEEN to_date('{0:yyyy-MM-dd}', 'yyyy-MM-dd') AND to_date('{1:yyyy-MM-dd}', 'yyyy-MM-dd')",
                         tfStart.DateTime, tfEnd.DateTime);
                 }
-                st += " ORDER BY start DESC";
+                st += " ORDER BY start, id";
                 listF = freight.Fetch(st);
                 
                 for (int i = 0; i < listF.Count; i++)
@@ -76,10 +76,11 @@ namespace TruckSystem.UI.Freights
                     f.truck_board = truck.SingleOrDefault(f.truck_id).board;
                     f.driver_name = driver.SingleOrDefault(f.driver_id).full_name;
 
-                    decimal gross = ((f.weight * f.value_ton) + totalStays(f.id));
+                    decimal vgross = ((f.weight * f.value_ton) + totalStays(f.id));
                     decimal fueleds = totalFueleds(f.id);
                     decimal outputs = totalOutputs(f.id);
-                    f.total = (gross - f.value_comission) - (fueleds + outputs);
+                    f.value_gross = vgross;
+                    f.total = (vgross - f.value_comission) - (fueleds + outputs);
                     listF[i] = f;
                 }
                 bdgFreights.DataSource = listF;

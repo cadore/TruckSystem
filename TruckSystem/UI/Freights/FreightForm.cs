@@ -381,5 +381,10 @@ namespace TruckSystem.UI.Freights
                 tfPercentComission.Focus();
              */
         }
+
+        private void btnDeposits_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
