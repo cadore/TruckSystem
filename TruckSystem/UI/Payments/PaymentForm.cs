@@ -81,49 +81,11 @@ namespace TruckSystem.UI.Payments
             bool valid = true;
             if (!validator.Validate())
                 valid = false;
-            if (ckPaid.Checked && !validatorPaid.Validate())
-                valid = false;
             return valid;
         }
         private void btnUpdateData_Click(object sender, EventArgs e)
         {
             loadData();
-        }
-
-        private void ckPaid_CheckedChanged(object sender, EventArgs e)
-        {
-            tfDatePayment.Enabled = ckPaid.Checked;
-            tfValuePaid.Enabled = ckPaid.Checked;
-            tfDatePayment.EditValue = null;
-            ((payment)bdgPayment.Current).paid_date = null;
-            tfValuePaid.EditValue = null;
-            ((payment)bdgPayment.Current).value_paid = 0;
-            validatorPaid.RemoveControlError(tfDatePayment);
-            validatorPaid.RemoveControlError(tfValuePaid);
-        }
-
-        private void isExpired(object sender, EventArgs e)
-        {
-            ConditionValidationRule vreason = new ConditionValidationRule();
-            vreason.ConditionOperator = ConditionOperator.IsNotBlank;
-            vreason.ErrorText = "Informe o motivo do vencimento";
-
-            DateTime payment = tfDatePayment.DateTime;
-            DateTime expiration = tfDateExpiration.DateTime;
-
-            if (payment > expiration)
-            {
-                tfReasonExpiration.Enabled = true;
-                validatorPaid.SetValidationRule(tfReasonExpiration, vreason);
-            }                
-            else
-            {
-                tfReasonExpiration.Enabled = false;
-                tfReasonExpiration.EditValue = null;
-                ((payment)bdgPayment.Current).reason_expiration = null;
-                validatorPaid.SetValidationRule(tfReasonExpiration, null);
-                validatorPaid.RemoveControlError(tfReasonExpiration);
-            }                
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

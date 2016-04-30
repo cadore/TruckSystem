@@ -254,6 +254,10 @@ namespace TruckSystem.UI
         {
             AddTab(new PaymentForm(null), "Novo Pagamento", false);
         }
+        private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new SearchPaymentsForm(), "Pesquisar Pagamentos", false);
+        }
 
         private void btnFeesDrivers_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -265,11 +269,7 @@ namespace TruckSystem.UI
         {
             ChooseTruckFreightsReportForm ctf = new ChooseTruckFreightsReportForm();
             ctf.ShowDialog();
-        }
-
-        private void btnSearchPayments_ItemClick(object sender, ItemClickEventArgs e)
-        {
-        }
+        }       
 
         private void btnOpenReport_ItemClick(object sender, ItemClickEventArgs e)
         {

@@ -120,13 +120,12 @@ namespace TruckSystem.UI.AccountsToPay
                     {
                         p.customer_id = acp.customer_id;
                         p.truck_id = acp.truck_id;
-                        p.paid = false;
-                        p.value_paid = 0;
                         p.registred_at = acp.registred_at;
                         p.registred_by = acp.registred_by;
                         p.account_id = acp.id;
                         p.guid = acp.guid_payment;
                         p.category_id = acp.category_id;
+                        p.paid = false;
                         p.Save();
                     }
                     scope.Complete();

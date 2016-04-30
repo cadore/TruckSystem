@@ -15,15 +15,20 @@ using TruckSystem.UI.Freights.Outputs;
 using TruckSystem.Utils;
 using TruckSystem.UI.Utils;
 using TruckSystem.UI.Freights.Stays;
+using TruckSystem.UI.Deposits;
 
 namespace TruckSystem.UI.Freights
 {
     public partial class FreightForm : TruckSystem.UI.Utils.UserControlUtil
     {
+        //fueleds
         List<fueled> ListFueleds = null;
         decimal ValueFueled = 0;
+        //outputs
         List<output> ListOutputs = null;
         decimal ValueOutputs = 0;
+        //deposits
+        List<deposits> ListDeposits = null;
         public FreightForm(freight f)
         {
             InitializeComponent();
@@ -36,6 +41,7 @@ namespace TruckSystem.UI.Freights
             {
                 ListFueleds = fueled.Fetch("WHERE freight_id=@0", f.id);
                 ListOutputs = output.Fetch("WHERE freight_id=@0", f.id);
+                ListDeposits = deposits.Fetch("WHERE freight_id=@0", f.id);
                 loadValuesFueledsAndOutputs(f);
                 tfNumberNote.Properties.ReadOnly = true;
                 cbTruck.Properties.ReadOnly = true;
@@ -384,7 +390,11 @@ namespace TruckSystem.UI.Freights
 
         private void btnDeposits_Click(object sender, EventArgs e)
         {
+            /*ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits);
+            if (vdf.ShowDialog() == DialogResult.OK)
+            {
 
+            }*/
         }
     }
 }

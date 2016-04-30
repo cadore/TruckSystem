@@ -35,9 +35,7 @@
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.rgPaid = new DevExpress.XtraEditors.RadioGroup();
-            this.tfEndDatePaid = new DevExpress.XtraEditors.DateEdit();
             this.tfEndDateExpiration = new DevExpress.XtraEditors.DateEdit();
-            this.tfStartDatePaid = new DevExpress.XtraEditors.DateEdit();
             this.tfStartDateExpiration = new DevExpress.XtraEditors.DateEdit();
             this.cbTruck = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgTrucks = new System.Windows.Forms.BindingSource(this.components);
@@ -53,9 +51,7 @@
             this.coldocument = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.tfDescription = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -68,22 +64,17 @@
             this.coldescription = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcustomer_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colexpiration_date = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colpaid_date = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colvalue = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colvalue_paid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colpaid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltruck_board = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rgPaid.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfEndDatePaid.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfEndDatePaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndDateExpiration.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndDateExpiration.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfStartDatePaid.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfStartDatePaid.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStartDateExpiration.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStartDateExpiration.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
@@ -149,18 +140,15 @@
             // panelControl2
             // 
             this.panelControl2.Controls.Add(this.rgPaid);
-            this.panelControl2.Controls.Add(this.tfEndDatePaid);
             this.panelControl2.Controls.Add(this.tfEndDateExpiration);
-            this.panelControl2.Controls.Add(this.tfStartDatePaid);
             this.panelControl2.Controls.Add(this.tfStartDateExpiration);
             this.panelControl2.Controls.Add(this.cbTruck);
             this.panelControl2.Controls.Add(this.cbCustomer);
             this.panelControl2.Controls.Add(this.labelControl3);
             this.panelControl2.Controls.Add(this.tfDescription);
-            this.panelControl2.Controls.Add(this.labelControl7);
             this.panelControl2.Controls.Add(this.labelControl2);
-            this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.labelControl5);
+            this.panelControl2.Controls.Add(this.labelControl6);
             this.panelControl2.Controls.Add(this.labelControl4);
             this.panelControl2.Controls.Add(this.labelControl1);
             this.panelControl2.Controls.Add(this.btnSearch);
@@ -172,31 +160,19 @@
             // 
             // rgPaid
             // 
-            this.rgPaid.Location = new System.Drawing.Point(621, 37);
+            this.rgPaid.Location = new System.Drawing.Point(634, 37);
             this.rgPaid.Name = "rgPaid";
             this.rgPaid.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Não Pago"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "Pago"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Todos")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Não Pago"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pago"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Todos")});
             this.rgPaid.Size = new System.Drawing.Size(210, 26);
             this.rgPaid.TabIndex = 5;
-            // 
-            // tfEndDatePaid
-            // 
-            this.tfEndDatePaid.EditValue = null;
-            this.tfEndDatePaid.Location = new System.Drawing.Point(515, 39);
-            this.tfEndDatePaid.Name = "tfEndDatePaid";
-            this.tfEndDatePaid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfEndDatePaid.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfEndDatePaid.Size = new System.Drawing.Size(100, 20);
-            this.tfEndDatePaid.TabIndex = 4;
             // 
             // tfEndDateExpiration
             // 
             this.tfEndDateExpiration.EditValue = null;
-            this.tfEndDateExpiration.Location = new System.Drawing.Point(207, 39);
+            this.tfEndDateExpiration.Location = new System.Drawing.Point(515, 40);
             this.tfEndDateExpiration.Name = "tfEndDateExpiration";
             this.tfEndDateExpiration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -205,22 +181,10 @@
             this.tfEndDateExpiration.Size = new System.Drawing.Size(100, 20);
             this.tfEndDateExpiration.TabIndex = 4;
             // 
-            // tfStartDatePaid
-            // 
-            this.tfStartDatePaid.EditValue = null;
-            this.tfStartDatePaid.Location = new System.Drawing.Point(397, 40);
-            this.tfStartDatePaid.Name = "tfStartDatePaid";
-            this.tfStartDatePaid.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfStartDatePaid.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfStartDatePaid.Size = new System.Drawing.Size(100, 20);
-            this.tfStartDatePaid.TabIndex = 4;
-            // 
             // tfStartDateExpiration
             // 
             this.tfStartDateExpiration.EditValue = null;
-            this.tfStartDateExpiration.Location = new System.Drawing.Point(89, 40);
+            this.tfStartDateExpiration.Location = new System.Drawing.Point(397, 41);
             this.tfStartDateExpiration.Name = "tfStartDateExpiration";
             this.tfStartDateExpiration.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -231,7 +195,7 @@
             // 
             // cbTruck
             // 
-            this.cbTruck.Location = new System.Drawing.Point(680, 13);
+            this.cbTruck.Location = new System.Drawing.Point(89, 39);
             this.cbTruck.Name = "cbTruck";
             this.cbTruck.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -349,7 +313,7 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(623, 16);
+            this.labelControl3.Location = new System.Drawing.Point(9, 42);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(51, 13);
             this.labelControl3.TabIndex = 1;
@@ -362,14 +326,6 @@
             this.tfDescription.Size = new System.Drawing.Size(243, 20);
             this.tfDescription.TabIndex = 2;
             // 
-            // labelControl7
-            // 
-            this.labelControl7.Location = new System.Drawing.Point(503, 42);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(6, 13);
-            this.labelControl7.TabIndex = 1;
-            this.labelControl7.Text = "à";
-            // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(354, 16);
@@ -378,17 +334,9 @@
             this.labelControl2.TabIndex = 1;
             this.labelControl2.Text = "Cliente:";
             // 
-            // labelControl6
-            // 
-            this.labelControl6.Location = new System.Drawing.Point(318, 42);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(73, 13);
-            this.labelControl6.TabIndex = 1;
-            this.labelControl6.Text = "Pagamento de:";
-            // 
             // labelControl5
             // 
-            this.labelControl5.Location = new System.Drawing.Point(195, 42);
+            this.labelControl5.Location = new System.Drawing.Point(503, 43);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(6, 13);
             this.labelControl5.TabIndex = 1;
@@ -396,7 +344,7 @@
             // 
             // labelControl4
             // 
-            this.labelControl4.Location = new System.Drawing.Point(9, 42);
+            this.labelControl4.Location = new System.Drawing.Point(317, 44);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(74, 13);
             this.labelControl4.TabIndex = 1;
@@ -461,9 +409,7 @@
             this.coldescription,
             this.colcustomer_name,
             this.colexpiration_date,
-            this.colpaid_date,
             this.colvalue,
-            this.colvalue_paid,
             this.colpaid,
             this.coltruck_board});
             this.gridView1.GridControl = this.gridControl1;
@@ -478,7 +424,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 43;
+            this.colid.Width = 52;
             // 
             // coldescription
             // 
@@ -488,7 +434,7 @@
             this.coldescription.OptionsColumn.AllowEdit = false;
             this.coldescription.Visible = true;
             this.coldescription.VisibleIndex = 1;
-            this.coldescription.Width = 252;
+            this.coldescription.Width = 271;
             // 
             // colcustomer_name
             // 
@@ -498,7 +444,7 @@
             this.colcustomer_name.OptionsColumn.AllowEdit = false;
             this.colcustomer_name.Visible = true;
             this.colcustomer_name.VisibleIndex = 2;
-            this.colcustomer_name.Width = 173;
+            this.colcustomer_name.Width = 289;
             // 
             // colexpiration_date
             // 
@@ -512,18 +458,6 @@
             this.colexpiration_date.VisibleIndex = 5;
             this.colexpiration_date.Width = 83;
             // 
-            // colpaid_date
-            // 
-            this.colpaid_date.Caption = "Pagamento";
-            this.colpaid_date.DisplayFormat.FormatString = "dd/MM/yyyy";
-            this.colpaid_date.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.colpaid_date.FieldName = "paid_date";
-            this.colpaid_date.Name = "colpaid_date";
-            this.colpaid_date.OptionsColumn.AllowEdit = false;
-            this.colpaid_date.Visible = true;
-            this.colpaid_date.VisibleIndex = 8;
-            this.colpaid_date.Width = 92;
-            // 
             // colvalue
             // 
             this.colvalue.Caption = "Valor R$";
@@ -536,21 +470,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value", "{0:c2}")});
             this.colvalue.Visible = true;
             this.colvalue.VisibleIndex = 4;
-            this.colvalue.Width = 95;
-            // 
-            // colvalue_paid
-            // 
-            this.colvalue_paid.Caption = "Valor Pago R$";
-            this.colvalue_paid.DisplayFormat.FormatString = "c2";
-            this.colvalue_paid.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.colvalue_paid.FieldName = "value_paid";
-            this.colvalue_paid.Name = "colvalue_paid";
-            this.colvalue_paid.OptionsColumn.AllowEdit = false;
-            this.colvalue_paid.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value_paid", "{0:c2}")});
-            this.colvalue_paid.Visible = true;
-            this.colvalue_paid.VisibleIndex = 7;
-            this.colvalue_paid.Width = 85;
+            this.colvalue.Width = 110;
             // 
             // colpaid
             // 
@@ -560,7 +480,7 @@
             this.colpaid.OptionsColumn.AllowEdit = false;
             this.colpaid.Visible = true;
             this.colpaid.VisibleIndex = 6;
-            this.colpaid.Width = 44;
+            this.colpaid.Width = 58;
             // 
             // coltruck_board
             // 
@@ -570,7 +490,15 @@
             this.coltruck_board.OptionsColumn.AllowEdit = false;
             this.coltruck_board.Visible = true;
             this.coltruck_board.VisibleIndex = 3;
-            this.coltruck_board.Width = 76;
+            this.coltruck_board.Width = 80;
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(634, 20);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(92, 13);
+            this.labelControl6.TabIndex = 1;
+            this.labelControl6.Text = "Status Pagamento:";
             // 
             // SearchPaymentsForm
             // 
@@ -587,12 +515,8 @@
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rgPaid.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfEndDatePaid.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfEndDatePaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndDateExpiration.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfEndDateExpiration.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfStartDatePaid.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfStartDatePaid.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStartDateExpiration.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStartDateExpiration.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).EndInit();
@@ -625,9 +549,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn colid;
         private DevExpress.XtraGrid.Columns.GridColumn coldescription;
         private DevExpress.XtraGrid.Columns.GridColumn colexpiration_date;
-        private DevExpress.XtraGrid.Columns.GridColumn colpaid_date;
         private DevExpress.XtraGrid.Columns.GridColumn colvalue;
-        private DevExpress.XtraGrid.Columns.GridColumn colvalue_paid;
         private DevExpress.XtraGrid.Columns.GridColumn colpaid;
         private DevExpress.XtraGrid.Columns.GridColumn colcustomer_name;
         private DevExpress.XtraGrid.Columns.GridColumn coltruck_board;
@@ -643,10 +565,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.DateEdit tfEndDateExpiration;
-        private DevExpress.XtraEditors.DateEdit tfEndDatePaid;
-        private DevExpress.XtraEditors.DateEdit tfStartDatePaid;
-        private DevExpress.XtraEditors.LabelControl labelControl7;
-        private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.RadioGroup rgPaid;
         private System.Windows.Forms.BindingSource bdgTrucks;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -656,5 +574,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcorporate_name;
         private DevExpress.XtraGrid.Columns.GridColumn colfantasy_name;
         private DevExpress.XtraGrid.Columns.GridColumn coldocument;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
     }
 }

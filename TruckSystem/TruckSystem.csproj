@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TruckSystem</RootNamespace>
-    <AssemblyName>TruckSystem</AssemblyName>
+    <AssemblyName>TruckSystem2.0</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -33,6 +33,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>TruckSystem.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CadoreFTP">
@@ -396,6 +399,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UI\AccountsToPay\AccountsToPayForm.resx">
       <DependentUpon>AccountsToPayForm.cs</DependentUpon>
@@ -478,6 +482,9 @@
     <EmbeddedResource Include="UI\Reports\Drivers\FeesDriverReport.resx">
       <DependentUpon>FeesDriverReport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reports\Freights\FreightsByTruckReport.en.resx">
+      <DependentUpon>FreightsByTruckReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reports\Freights\FreightsByTruckReport.resx">
       <DependentUpon>FreightsByTruckReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,6 +532,7 @@
     <None Include="Properties\DataSources\category.datasource" />
     <None Include="Properties\DataSources\city.datasource" />
     <None Include="Properties\DataSources\customer.datasource" />
+    <None Include="Properties\DataSources\deposits.datasource" />
     <None Include="Properties\DataSources\driver.datasource" />
     <None Include="Properties\DataSources\freight.datasource" />
     <None Include="Properties\DataSources\fueled.datasource" />

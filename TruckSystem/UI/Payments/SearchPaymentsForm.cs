@@ -21,6 +21,7 @@ namespace TruckSystem.UI.Payments
             ControlsUtil.SetBackColor(this.Controls);
             bdgCustomers.DataSource = customer.Fetch("");
             bdgTrucks.DataSource = truck.Fetch("");
+            rgPaid.EditValue = 2;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -30,21 +31,58 @@ namespace TruckSystem.UI.Payments
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 SplashScreenManager.ShowForm(desk, typeof(PleaseWaitForm), false, false, false);
 
+                int rg = Convert.ToInt32(rgPaid.EditValue);
                 string sql = "";
                 if (!String.IsNullOrEmpty(tfDescription.Text) 
                     || Convert.ToInt64(cbCustomer.EditValue) > 0 
                     || Convert.ToInt64(cbTruck.EditValue) > 0 
                     || (tfStartDateExpiration.EditValue != null && tfEndDateExpiration.EditValue != null)
-                    || (tfStartDatePaid.EditValue != null && tfEndDatePaid.EditValue != null)
-                    || rgPaid.EditValue != null)
+                    || rg < 2)
                     sql = "WHERE";
 
-                sql += " ORDER BY expiration_date, paid_date, paid";
+                if (!String.IsNullOrEmpty(tfDescription.Text))
+                    sql += String.Format(" description ILIKE '{0}'", payment.Concat(tfDescription.Text));
 
+                if (Convert.ToInt64(cbCustomer.EditValue) > 0)
+                {
+                    if (!String.IsNullOrEmpty(tfDescription.Text))
+                        sql += " AND";
+                    sql += String.Format(" customer_id={0}", cbCustomer.EditValue);
+                }
+
+                if (Convert.ToInt64(cbTruck.EditValue) > 0)
+                {
+                    if (!String.IsNullOrEmpty(tfDescription.Text) || Convert.ToInt64(cbCustomer.EditValue) > 0)
+                        sql += " AND";
+                    sql += String.Format(" truck_id={0}", cbTruck.EditValue);
+                }
+
+                if (tfStartDateExpiration.EditValue != null && tfEndDateExpiration.EditValue != null)
+                {
+                    if (!String.IsNullOrEmpty(tfDescription.Text) || Convert.ToInt64(cbCustomer.EditValue) > 0 
+                        || Convert.ToInt64(cbTruck.EditValue) > 0)
+                        sql += " AND";
+                    sql += String.Format(" expiration_date BETWEEN '{0:yyyy-MM-dd}' AND '{1:yyyy-MM-dd}'",
+                        tfStartDateExpiration.DateTime, tfEndDateExpiration.DateTime);
+                }
+
+                if (rg < 2)
+                {
+                    if (!String.IsNullOrEmpty(tfDescription.Text) 
+                    || Convert.ToInt64(cbCustomer.EditValue) > 0 
+                    || Convert.ToInt64(cbTruck.EditValue) > 0 
+                    || (tfStartDateExpiration.EditValue != null && tfEndDateExpiration.EditValue != null))
+                        sql += " AND";
+                    sql += String.Format(" paid={0}", rg == 0 ? false : true);
+                }                    
+
+                sql += " ORDER BY expiration_date, paid";
+
+                Console.WriteLine(sql);
                 List<payment> listP = payment.Fetch(sql);
                 for (int i = 0; i < listP.Count; i++)
                 {
@@ -56,15 +94,15 @@ namespace TruckSystem.UI.Payments
                     listP[i] = p;
                 }
                 bdgPayments.DataSource = listP;
-            //}
-            //catch (Exception ex)
-            //{
-            //    XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
-            //}
-            //finally
-            //{
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
+            }
+            finally
+            {
                 SplashScreenManager.CloseForm(false);
-           // }
+            }
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)

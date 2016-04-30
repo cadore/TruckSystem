@@ -22,7 +22,7 @@ namespace TruckSystem.Models.Reports
         public long id { get; set; }
         public DateTime date { get; set; }
         public string product { get; set; }
-        public decimal weight { get; set; }
+        public decimal gross { get; set; }
         public decimal value_ton { get; set; }
         public decimal outputs { get; set; }
         public decimal fueleds { get; set; }
