@@ -1075,7 +1075,6 @@
         private System.Windows.Forms.BindingSource bdgState;
         private System.Windows.Forms.BindingSource bdgCity;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
-        private TruckSystem.Utils.Validations.ValidatorCPFCNPJ validatorCPFCNPJ;
         private DevExpress.XtraEditors.TextEdit tfNaturalness;
         private DevExpress.XtraEditors.LabelControl labelControl21;
         private DevExpress.XtraEditors.TextEdit tfNumberRegister;

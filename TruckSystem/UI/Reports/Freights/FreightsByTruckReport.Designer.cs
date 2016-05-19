@@ -118,6 +118,8 @@
             this.xrLabel30 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel29 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lb_value_ton = new DevExpress.XtraReports.UI.XRLabel();
+            this.lb_gross = new DevExpress.XtraReports.UI.XRLabel();
             this.bdgFreigths = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -209,6 +211,8 @@
             // Detail1
             // 
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lb_gross,
+            this.lb_value_ton,
             this.xrTable1,
             this.xrLabel4,
             this.xrLabel3,
@@ -860,6 +864,22 @@
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.StylePriority.UseTextAlignment = false;
             // 
+            // lb_value_ton
+            // 
+            resources.ApplyResources(this.lb_value_ton, "lb_value_ton");
+            this.lb_value_ton.Name = "lb_value_ton";
+            this.lb_value_ton.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lb_value_ton.StylePriority.UseFont = false;
+            this.lb_value_ton.StylePriority.UseTextAlignment = false;
+            // 
+            // lb_gross
+            // 
+            resources.ApplyResources(this.lb_gross, "lb_gross");
+            this.lb_gross.Name = "lb_gross";
+            this.lb_gross.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lb_gross.StylePriority.UseFont = false;
+            this.lb_gross.StylePriority.UseTextAlignment = false;
+            // 
             // bdgFreigths
             // 
             this.bdgFreigths.DataSource = typeof(TruckSystem.Models.Reports.FreightsByTruckModel);
@@ -975,5 +995,7 @@
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         public DevExpress.XtraReports.Parameters.Parameter list;
         public DevExpress.XtraReports.Parameters.Parameter start_page;
+        private DevExpress.XtraReports.UI.XRLabel lb_gross;
+        private DevExpress.XtraReports.UI.XRLabel lb_value_ton;
     }
 }

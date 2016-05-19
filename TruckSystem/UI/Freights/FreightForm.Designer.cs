@@ -52,7 +52,6 @@ namespace TruckSystem.UI.Freights
             DevExpress.XtraEditors.LabelControl idLabel;
             DevExpress.XtraEditors.LabelControl labelControl17;
             DevExpress.XtraEditors.LabelControl labelControl18;
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule13 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -64,6 +63,7 @@ namespace TruckSystem.UI.Freights
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule11 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule12 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FreightForm));
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tfPercentComission = new DevExpress.XtraEditors.TextEdit();
@@ -390,14 +390,14 @@ namespace TruckSystem.UI.Freights
             this.tfPercentComission.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfPercentComission.Size = new System.Drawing.Size(100, 20);
             this.tfPercentComission.TabIndex = 0;
-            conditionValidationRule13.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule13.ErrorText = "Informe a porcentagem de comissão";
-            conditionValidationRule13.Value1 = new decimal(new int[] {
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule1.ErrorText = "Informe a porcentagem de comissão";
+            conditionValidationRule1.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfPercentComission, conditionValidationRule13);
+            this.validator.SetValidationRule(this.tfPercentComission, conditionValidationRule1);
             this.tfPercentComission.EditValueChanged += new System.EventHandler(this.calcValues);
             // 
             // bdgFreight
@@ -415,14 +415,14 @@ namespace TruckSystem.UI.Freights
             this.tfValueTon.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValueTon.Size = new System.Drawing.Size(107, 20);
             this.tfValueTon.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule1.ErrorText = "Informe o valor por tonelada";
-            conditionValidationRule1.Value1 = new decimal(new int[] {
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule2.ErrorText = "Informe o valor por tonelada";
+            conditionValidationRule2.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfValueTon, conditionValidationRule1);
+            this.validator.SetValidationRule(this.tfValueTon, conditionValidationRule2);
             this.tfValueTon.EditValueChanged += new System.EventHandler(this.calcValues);
             // 
             // tfWeight
@@ -435,14 +435,14 @@ namespace TruckSystem.UI.Freights
             this.tfWeight.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfWeight.Size = new System.Drawing.Size(107, 20);
             this.tfWeight.TabIndex = 0;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Informe o peso da mercadoria";
-            conditionValidationRule2.Value1 = new decimal(new int[] {
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Informe o peso da mercadoria";
+            conditionValidationRule3.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfWeight, conditionValidationRule2);
+            this.validator.SetValidationRule(this.tfWeight, conditionValidationRule3);
             this.tfWeight.EditValueChanged += new System.EventHandler(this.calcValues);
             // 
             // tfProduct
@@ -453,9 +453,9 @@ namespace TruckSystem.UI.Freights
             this.tfProduct.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfProduct.Size = new System.Drawing.Size(338, 20);
             this.tfProduct.TabIndex = 9;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o produto";
-            this.validator.SetValidationRule(this.tfProduct, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe o produto";
+            this.validator.SetValidationRule(this.tfProduct, conditionValidationRule4);
             // 
             // tfEnd
             // 
@@ -469,9 +469,9 @@ namespace TruckSystem.UI.Freights
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfEnd.Size = new System.Drawing.Size(108, 20);
             this.tfEnd.TabIndex = 5;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe a data de término";
-            this.validator.SetValidationRule(this.tfEnd, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe a data de término";
+            this.validator.SetValidationRule(this.tfEnd, conditionValidationRule5);
             // 
             // tfStart
             // 
@@ -485,9 +485,9 @@ namespace TruckSystem.UI.Freights
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfStart.Size = new System.Drawing.Size(100, 20);
             this.tfStart.TabIndex = 4;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe o início";
-            this.validator.SetValidationRule(this.tfStart, conditionValidationRule5);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe o início";
+            this.validator.SetValidationRule(this.tfStart, conditionValidationRule6);
             this.tfStart.EditValueChanged += new System.EventHandler(this.tfStart_EditValueChanged);
             // 
             // cbCompanyDestination
@@ -505,10 +505,10 @@ namespace TruckSystem.UI.Freights
             this.cbCompanyDestination.Properties.View = this.company_destinationSearchLookUpEditView;
             this.cbCompanyDestination.Size = new System.Drawing.Size(338, 20);
             this.cbCompanyDestination.TabIndex = 7;
-            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule6.ErrorText = "Informe o destino da mercadoria";
-            conditionValidationRule6.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCompanyDestination, conditionValidationRule6);
+            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule7.ErrorText = "Informe o destino da mercadoria";
+            conditionValidationRule7.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCompanyDestination, conditionValidationRule7);
             // 
             // bdgCompanyDestination
             // 
@@ -577,10 +577,10 @@ namespace TruckSystem.UI.Freights
             this.cbCompanySource.Properties.View = this.company_sourceSearchLookUpEditView;
             this.cbCompanySource.Size = new System.Drawing.Size(319, 20);
             this.cbCompanySource.TabIndex = 6;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule7.ErrorText = "Informe a origem da mercadoria";
-            conditionValidationRule7.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCompanySource, conditionValidationRule7);
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule8.ErrorText = "Informe a origem da mercadoria";
+            conditionValidationRule8.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCompanySource, conditionValidationRule8);
             // 
             // bdgCompanySource
             // 
@@ -643,10 +643,10 @@ namespace TruckSystem.UI.Freights
             this.tfNumberNote.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.tfNumberNote.Size = new System.Drawing.Size(97, 20);
             this.tfNumberNote.TabIndex = 2;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule8.ErrorText = "Informe o numero da nota";
-            conditionValidationRule8.Value1 = 0;
-            this.validator.SetValidationRule(this.tfNumberNote, conditionValidationRule8);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule9.ErrorText = "Informe o numero da nota";
+            conditionValidationRule9.Value1 = 0;
+            this.validator.SetValidationRule(this.tfNumberNote, conditionValidationRule9);
             // 
             // cbDriver
             // 
@@ -663,10 +663,10 @@ namespace TruckSystem.UI.Freights
             this.cbDriver.Properties.View = this.driver_idSearchLookUpEditView;
             this.cbDriver.Size = new System.Drawing.Size(240, 20);
             this.cbDriver.TabIndex = 1;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule9.ErrorText = "Informe o motorista";
-            conditionValidationRule9.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbDriver, conditionValidationRule9);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule10.ErrorText = "Informe o motorista";
+            conditionValidationRule10.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbDriver, conditionValidationRule10);
             this.cbDriver.EditValueChanged += new System.EventHandler(this.cbDriver_EditValueChanged);
             // 
             // bdgDrivers
@@ -728,10 +728,10 @@ namespace TruckSystem.UI.Freights
             this.cbTruck.Properties.View = this.truck_idSearchLookUpEditView;
             this.cbTruck.Size = new System.Drawing.Size(97, 20);
             this.cbTruck.TabIndex = 0;
-            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule10.ErrorText = "Informe o Caminhão";
-            conditionValidationRule10.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbTruck, conditionValidationRule10);
+            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule11.ErrorText = "Informe o Caminhão";
+            conditionValidationRule11.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbTruck, conditionValidationRule11);
             this.cbTruck.EditValueChanged += new System.EventHandler(this.cbTruck_EditValueChanged);
             // 
             // bdgTrucks
@@ -781,10 +781,10 @@ namespace TruckSystem.UI.Freights
             this.cbCarrier.Properties.View = this.gridView1;
             this.cbCarrier.Size = new System.Drawing.Size(319, 20);
             this.cbCarrier.TabIndex = 8;
-            conditionValidationRule11.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule11.ErrorText = "Informe o Transportador";
-            conditionValidationRule11.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCarrier, conditionValidationRule11);
+            conditionValidationRule12.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule12.ErrorText = "Informe o Transportador";
+            conditionValidationRule12.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCarrier, conditionValidationRule12);
             // 
             // bdgCarrier
             // 
@@ -880,13 +880,14 @@ namespace TruckSystem.UI.Freights
             // 
             // btnDeposits
             // 
+            this.btnDeposits.Appearance.Font = new System.Drawing.Font("Tahoma", 9F);
+            this.btnDeposits.Appearance.Options.UseFont = true;
             this.btnDeposits.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
             this.btnDeposits.Location = new System.Drawing.Point(237, 253);
             this.btnDeposits.Name = "btnDeposits";
             this.btnDeposits.Size = new System.Drawing.Size(110, 23);
             this.btnDeposits.TabIndex = 40;
             this.btnDeposits.Text = "Depósitos";
-            this.btnDeposits.Visible = false;
             this.btnDeposits.Click += new System.EventHandler(this.btnDeposits_Click);
             // 
             // btnStay

@@ -167,8 +167,7 @@ namespace TruckSystem.UI.Trailer
             vTrailer1 = new DXValidationProvider(this.components);
             vTrailer2 = new DXValidationProvider(this.components);
             vTrailer3 = new DXValidationProvider(this.components);
-
-            ConditionValidatonRule cvDriver = new ConditionValidatonRule() { ConditionOperator = ConditionOperator.Greater, Value1 = (long)0, ErrorText = "Informe o Motorista" };
+            
             ConditionValidationRule cvBoard = new ConditionValidationRule() { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe a Placa" };
             ConditionValidationRule cvRenavam = new ConditionValidationRule() { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe o Renavam" };
             ConditionValidationRule cvChassi = new ConditionValidationRule() { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe o Chassi" };

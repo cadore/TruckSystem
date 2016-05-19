@@ -590,14 +590,7 @@ namespace TruckSystem
 
 
         [Column]
-        public long number_bank { get; set; }
-
-
-
-
-
-        [Column]
-        public string name_bank { get; set; }
+        public long bank_id { get; set; }
 
 
 
@@ -640,6 +633,10 @@ namespace TruckSystem
 
         [Column]
         public long registred_by { get; set; }
+
+
+        public string bank_number { get; set; }
+        public string bank_name { get; set; }
 
 
 
@@ -1364,5 +1361,36 @@ namespace TruckSystem
     [ExplicitColumns]
     public partial class deposits : TruckSystemRepo.Record<deposits>
     {
+        [Column] public long id { get; set; }
+        [Column] public long account_id { get; set; }
+        [Column] public DateTime date { get; set; }
+        [Column] public long customer_id { get; set; }
+        [Column] public decimal value { get; set; }
+        [Column] public string description { get; set; }
+        [Column] public int type { get; set; }
+        [Column] public long truck_id { get; set; }
+        [Column] public long freight_id { get; set; }
+
+        public string account { get; set; }
+        public string customer_name { get; set; }
+        public string type_name { get; set; }
+        public string truck_board { get; set; }
+    }
+
+    [TableName("banks")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class banks : TruckSystemRepo.Record<banks>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public string code { get; set; }
+        [Column]
+        public string cnpj { get; set; }
+        [Column]
+        public string name { get; set; }
+        [Column]
+        public string site { get; set; }
     }
 }

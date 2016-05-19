@@ -22,7 +22,14 @@ namespace TruckSystem.UI.BankAccounts
 
         private void SearchAll()
         {
-            bdgBankAccounts.DataSource = bank_account.Fetch("");
+            List<bank_account> ba = bank_account.Fetch("");
+            for (int i = 0; i < ba.Count; i++)
+            {
+                banks b = banks.SingleOrDefault(ba[i].bank_id);
+                ba[i].bank_name = b.name;
+                ba[i].bank_number = b.code;
+            }
+            bdgBankAccounts.DataSource = ba;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -48,6 +55,15 @@ namespace TruckSystem.UI.BankAccounts
             DialogResult rs = baf.ShowDialog();
             if (rs == DialogResult.OK)
                 SearchAll();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            bank_account b = (bank_account)bdgBankAccounts.Current;
+            if (b.id > 0)
+                bank_account.Delete(b.id);
+
+            bdgBankAccounts.RemoveCurrent();
         }
     }
 }

@@ -98,14 +98,28 @@ namespace TruckSystem.UI.Freights
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (!validator.Validate())
+            if (validator.Validate())
                 return;
             freight fre = (freight)bdgFreight.Current;
             if (IsNew)
             {
                 if (!Validations.Unique.NumberNoteFreightUnique(fre))
                 {
-                    XtraMessageBox.Show("Numero da nota já existe, verifique!");
+                    freight nf = freight.SingleOrDefault("SELECT id FROM freights WHERE number_note=@0", fre.number_note);
+                    if (nf != null)
+                    {
+                        XtraMessageBox.Show("Numero da nota já existe, verifique!\nFrete ID: " + nf.id);
+                    }                    
+                    return;
+                }
+
+                if (!Validations.Unique.NumberCteFreightUnique(fre))
+                {
+                    freight nf = freight.SingleOrDefault("SELECT id FROM freights WHERE number_cte=@0", fre.number_cte);
+                    if (nf != null)
+                    {
+                        XtraMessageBox.Show("Numero do CT-e já existe, verifique!\nFrete ID: " + nf.id);
+                    }
                     return;
                 }
 
@@ -390,11 +404,21 @@ namespace TruckSystem.UI.Freights
 
         private void btnDeposits_Click(object sender, EventArgs e)
         {
-            /*ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits);
+            ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits);
             if (vdf.ShowDialog() == DialogResult.OK)
             {
+                if (ListDeposits == null)
+                {
+                    ListDeposits = new List<deposits>();
+                    ListDeposits.Clear();
+                }
 
-            }*/
+                foreach (deposits d in ((List<deposits>)vdf.bdgDeposits.DataSource))
+                    if (!ListDeposits.Contains(d))
+                        ListDeposits.Add(d);
+
+
+            }
         }
     }
 }

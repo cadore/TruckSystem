@@ -127,9 +127,6 @@
   <data name="xrLabel24.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>1007, 23</value>
   </data>
-  <data name="xrLabel22.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9.75pt</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="xrTableCell2.Weight" type="System.Double, mscorlib">
     <value>15.172364874450278</value>
@@ -147,8 +144,14 @@
   <data name="xrTableCell11.Weight" type="System.Double, mscorlib">
     <value>0.19842673020610563</value>
   </data>
+  <data name="xrLabel17.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1007, 23</value>
+  </data>
   <data name="xrLabel30.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>140.1749, 23</value>
+  </data>
+  <data name="lb_value_ton.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>319.000122, 0</value>
   </data>
   <data name="xrLabel21.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
@@ -156,8 +159,8 @@
   <data name="xrLabel38.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
-  <data name="xrLabel40.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
-    <value>744.375, 46.00003</value>
+  <data name="xrTableRow4.Weight" type="System.Double, mscorlib">
+    <value>11.5</value>
   </data>
   <data name="xrLabel19.Text" xml:space="preserve">
     <value>Posto</value>
@@ -179,6 +182,9 @@
   </data>
   <data name="xrLabel37.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
+  </data>
+  <data name="xrTableCell25.Weight" type="System.Double, mscorlib">
+    <value>65.828472456199464</value>
   </data>
   <data name="xrLabel27.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>381.500031, 19.4583282</value>
@@ -240,8 +246,8 @@
   <data name="xrLabel3.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
-  <data name="xrSummary2.FormatString" xml:space="preserve">
-    <value>{0:c2}</value>
+  <data name="xrLabel25.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt</value>
   </data>
   <data name="xrTable1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>8.742014E-05, 22.99999</value>
@@ -252,14 +258,14 @@
   <data name="xrLabel29.Text" xml:space="preserve">
     <value>Peso</value>
   </data>
+  <data name="lb_value_ton.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>68.82495, 23</value>
+  </data>
   <data name="xrLabel35.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="xrLabel37.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>109.608246, 23</value>
-  </data>
-  <data name="xrLabel27.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel21.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>148.041626, 19.4583225</value>
@@ -306,9 +312,6 @@
   <data name="xrLabel3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="xrTableCell20.Weight" type="System.Double, mscorlib">
-    <value>0.089379859287090857</value>
-  </data>
   <data name="xrTableCell11.Text" xml:space="preserve">
     <value>xrTableCell11</value>
   </data>
@@ -326,9 +329,6 @@
   </data>
   <data name="xrPageInfo1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe Print, 9pt</value>
-  </data>
-  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>47.575, 23</value>
   </data>
   <data name="xrLabel13.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>9.999998, 68.70833</value>
@@ -354,8 +354,8 @@
   <data name="xrLabel32.Text" xml:space="preserve">
     <value>Comissões</value>
   </data>
-  <data name="xrLabel28.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleCenter</value>
+  <data name="$this.Margins" type="System.Drawing.Printing.Margins, System.Drawing">
+    <value>46, 47, 11, 11</value>
   </data>
   <data name="xrLabel19.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>135.5417, 26.79167</value>
@@ -363,14 +363,17 @@
   <data name="xrLabel7.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
+  <data name="xrTableCell15.Text" xml:space="preserve">
+    <value>xrTableCell15</value>
+  </data>
   <data name="xrLabel4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
   <data name="xrLabel40.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9pt</value>
   </data>
-  <data name="xrLabel25.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9.75pt</value>
+  <data name="xrLabel27.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel3.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>3.178914E-05, 0</value>
@@ -407,6 +410,9 @@
   </data>
   <data name="xrLabel16.Text" xml:space="preserve">
     <value>xrLabel16</value>
+  </data>
+  <data name="xrTableCell10.Weight" type="System.Double, mscorlib">
+    <value>8.63716340873373</value>
   </data>
   <data name="xrTableCell8.Weight" type="System.Double, mscorlib">
     <value>28.357443591012466</value>
@@ -447,8 +453,8 @@
   <data name="xrLabel7.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="$this.Margins" type="System.Drawing.Printing.Margins, System.Drawing">
-    <value>46, 47, 11, 11</value>
+  <data name="xrLabel9.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel40.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>142.133423, 23</value>
@@ -459,8 +465,8 @@
   <data name="xrLabel22.Text" xml:space="preserve">
     <value>Desconto</value>
   </data>
-  <data name="xrLabel2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleCenter</value>
+  <data name="xrTableCell20.Weight" type="System.Double, mscorlib">
+    <value>0.089379859287090857</value>
   </data>
   <data name="xrLabel23.Text" xml:space="preserve">
     <value>Valor Total</value>
@@ -507,8 +513,8 @@
   <data name="xrTable1.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
-  <data name="xrLabel9.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleCenter</value>
+  <data name="xrLabel26.Text" xml:space="preserve">
+    <value>Prestador</value>
   </data>
   <data name="xrTableCell13.Weight" type="System.Double, mscorlib">
     <value>0.39362045075166024</value>
@@ -522,8 +528,8 @@
   <data name="xrLabel25.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>135.5416, 19.4583282</value>
   </data>
-  <data name="xrLabel2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 11.25pt</value>
+  <data name="xrTableCell30.Weight" type="System.Double, mscorlib">
+    <value>77.0286704009434</value>
   </data>
   <data name="xrLabel39.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
@@ -539,6 +545,9 @@
   </data>
   <data name="xrLabel13.Text" xml:space="preserve">
     <value>xrLabel13</value>
+  </data>
+  <data name="xrTableCell9.Text" xml:space="preserve">
+    <value>xrTableCell9</value>
   </data>
   <data name="xrLabel13.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>986.9999, 23</value>
@@ -561,6 +570,9 @@
   <data name="BottomMargin.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>TopLeft</value>
   </data>
+  <data name="xrTable1.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9pt</value>
+  </data>
   <data name="xrLabel6.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
@@ -570,8 +582,8 @@
   <data name="xrTableCell6.Weight" type="System.Double, mscorlib">
     <value>14.285705627017132</value>
   </data>
-  <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
-    <value>0, 0</value>
+  <data name="xrLabel3.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>47.575, 23</value>
   </data>
   <data name="xrTableCell20.Text" xml:space="preserve">
     <value>xrTableCell20</value>
@@ -582,8 +594,8 @@
   <data name="xrLabel17.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>0, 3.79168224</value>
   </data>
-  <data name="xrLabel36.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
-    <value>101.6167, 45.99997</value>
+  <data name="xrTableCell19.Weight" type="System.Double, mscorlib">
+    <value>0.24965274019747882</value>
   </data>
   <data name="xrLabel34.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>252.7999, 23</value>
@@ -624,14 +636,17 @@
   <data name="GroupHeader1.HeightF" type="System.Single, mscorlib">
     <value>47</value>
   </data>
-  <data name="xrLabel12.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>100.700073, 23</value>
+  <data name="xrLabel36.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>101.6167, 45.99997</value>
   </data>
   <data name="xrTableCell9.Weight" type="System.Double, mscorlib">
     <value>12.512415272916593</value>
   </data>
   <data name="xrLabel4.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>106.95, 23</value>
+  </data>
+  <data name="$this.PageHeight" type="System.Int32, mscorlib">
+    <value>850</value>
   </data>
   <data name="xrLabel17.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
@@ -657,8 +672,8 @@
   <data name="xrLabel39.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>604.1998, 46.00003</value>
   </data>
-  <data name="xrLabel5.Text" xml:space="preserve">
-    <value>Produto</value>
+  <data name="xrLabel22.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 9.75pt</value>
   </data>
   <data name="xrLabel6.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
@@ -669,8 +684,8 @@
   <data name="xrTableCell19.Text" xml:space="preserve">
     <value>xrTableCell19</value>
   </data>
-  <data name="xrLabel15.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleCenter</value>
+  <data name="xrLabel40.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>744.375, 46.00003</value>
   </data>
   <data name="Detail2.HeightF" type="System.Single, mscorlib">
     <value>21</value>
@@ -684,8 +699,8 @@
   <data name="GroupHeader3.HeightF" type="System.Single, mscorlib">
     <value>47</value>
   </data>
-  <data name="$this.PageHeight" type="System.Int32, mscorlib">
-    <value>850</value>
+  <data name="xrLabel16.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleRight</value>
   </data>
   <data name="xrTableCell4.Weight" type="System.Double, mscorlib">
     <value>14.285714285714287</value>
@@ -704,6 +719,9 @@
   </data>
   <data name="xrLabel3.Text" xml:space="preserve">
     <value>Cod.</value>
+  </data>
+  <data name="xrLabel28.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel32.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>744.375, 22.99999</value>
@@ -725,6 +743,9 @@
   </data>
   <data name="xrLabel26.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>353.375, 19.4583282</value>
+  </data>
+  <data name="xrLabel35.Text" xml:space="preserve">
+    <value>Totais</value>
   </data>
   <data name="xrLabel1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>0, 0</value>
@@ -765,8 +786,8 @@
   <data name="xrLabel14.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>986.9999, 22.9999847</value>
   </data>
-  <data name="xrTableCell19.Weight" type="System.Double, mscorlib">
-    <value>0.24965274019747882</value>
+  <data name="xrPageInfo1.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>0, 0</value>
   </data>
   <data name="xrLabel37.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>354.4167, 46.00003</value>
@@ -780,14 +801,14 @@
   <data name="xrTableCell1.Weight" type="System.Double, mscorlib">
     <value>11.444901817993909</value>
   </data>
-  <data name="xrLabel7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
-    <value>415.3, 0</value>
+  <data name="xrLabel12.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>100.700073, 23</value>
   </data>
   <data name="xrLabel24.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="xrLabel16.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>745.1666, 26.04167</value>
+  <data name="lb_gross.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>129.216675, 23</value>
   </data>
   <data name="xrLabel21.Text" xml:space="preserve">
     <value>R$ p/ litro</value>
@@ -825,8 +846,8 @@
   <data name="xrTableCell18.Weight" type="System.Double, mscorlib">
     <value>0.088698181599785847</value>
   </data>
-  <data name="xrLabel17.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>1007, 23</value>
+  <data name="xrLabel5.Text" xml:space="preserve">
+    <value>Produto</value>
   </data>
   <data name="xrLabel2.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>1007, 24.0416718</value>
@@ -842,6 +863,9 @@
   </data>
   <data name="xrPageInfo1.Format" xml:space="preserve">
     <value>Página {0} de {1}</value>
+  </data>
+  <data name="xrLabel2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Tahoma, 11.25pt</value>
   </data>
   <data name="xrTableCell3.Weight" type="System.Double, mscorlib">
     <value>19.195373076245303</value>
@@ -864,8 +888,8 @@
   <data name="xrLabel4.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>47.57503, 0</value>
   </data>
-  <data name="xrTableCell10.Weight" type="System.Double, mscorlib">
-    <value>8.63716340873373</value>
+  <data name="xrLabel15.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel18.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>135.5416, 19.4583225</value>
@@ -873,23 +897,20 @@
   <data name="xrLabel1.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>1007, 34.45834</value>
   </data>
-  <data name="xrLabel26.Text" xml:space="preserve">
-    <value>Prestador</value>
-  </data>
   <data name="xrTableCell4.Text" xml:space="preserve">
     <value>xrTableCell4</value>
   </data>
   <data name="xrLabel31.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="xrLabel33.SizeF" type="System.Drawing.SizeF, System.Drawing">
-    <value>120.4917, 23</value>
+  <data name="xrLabel7.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>415.3, 0</value>
   </data>
   <data name="xrLabel20.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
   </data>
-  <data name="xrTableCell9.Text" xml:space="preserve">
-    <value>xrTableCell9</value>
+  <data name="xrLabel16.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>745.1666, 26.04167</value>
   </data>
   <data name="xrLabel10.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
@@ -900,8 +921,8 @@
   <data name="xrLabel30.Text" xml:space="preserve">
     <value>Abastecimentos</value>
   </data>
-  <data name="xrLabel16.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
-    <value>MiddleRight</value>
+  <data name="xrSummary2.FormatString" xml:space="preserve">
+    <value>{0:c2}</value>
   </data>
   <data name="xrLabel41.SizeF" type="System.Drawing.SizeF, System.Drawing">
     <value>120.491577, 23</value>
@@ -912,8 +933,8 @@
   <data name="xrLabel5.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="xrLabel35.Text" xml:space="preserve">
-    <value>Totais</value>
+  <data name="lb_gross.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>387.825073, 0</value>
   </data>
   <data name="xrLabel5.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
     <value>154.525, 0</value>
@@ -921,8 +942,11 @@
   <data name="xrLabel28.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
-  <data name="xrTableCell15.Text" xml:space="preserve">
-    <value>xrTableCell15</value>
+  <data name="xrTable4.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>1007, 25</value>
+  </data>
+  <data name="xrTable4.LocationFloat" type="DevExpress.Utils.PointFloat, DevExpress.Data.v14.1">
+    <value>0, 61.04167</value>
   </data>
   <data name="xrTable2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>
@@ -939,11 +963,14 @@
   <data name="xrLabel26.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9.75pt</value>
   </data>
+  <data name="xrLabel33.SizeF" type="System.Drawing.SizeF, System.Drawing">
+    <value>120.4917, 23</value>
+  </data>
   <data name="xrLabel39.Font" type="System.Drawing.Font, System.Drawing">
     <value>Tahoma, 9pt</value>
   </data>
-  <data name="xrTable1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Tahoma, 9pt</value>
+  <data name="xrLabel2.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
+    <value>MiddleCenter</value>
   </data>
   <data name="xrLabel21.TextAlignment" type="DevExpress.XtraPrinting.TextAlignment, DevExpress.Data.v14.1">
     <value>MiddleCenter</value>

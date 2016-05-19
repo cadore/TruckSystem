@@ -47,6 +47,7 @@
             this.btnNew = new WCButtons.Black.ButtonAddBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnDelete = new WCButtons.Black.ButtonDeleteBlack();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgBankAccounts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
@@ -63,7 +64,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(901, 300);
+            this.gridControl1.Size = new System.Drawing.Size(893, 292);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -101,7 +102,7 @@
             // colnumber_bank
             // 
             this.colnumber_bank.Caption = "Numero";
-            this.colnumber_bank.FieldName = "number_bank";
+            this.colnumber_bank.FieldName = "bank_number";
             this.colnumber_bank.Name = "colnumber_bank";
             this.colnumber_bank.OptionsColumn.AllowEdit = false;
             this.colnumber_bank.Visible = true;
@@ -111,7 +112,7 @@
             // colname_bank
             // 
             this.colname_bank.Caption = "Nome";
-            this.colname_bank.FieldName = "name_bank";
+            this.colname_bank.FieldName = "bank_name";
             this.colname_bank.Name = "colname_bank";
             this.colname_bank.OptionsColumn.AllowEdit = false;
             this.colname_bank.Visible = true;
@@ -174,13 +175,14 @@
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.btnDelete);
             this.panelControl1.Controls.Add(this.btnSelect);
             this.panelControl1.Controls.Add(this.btnNew);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 304);
+            this.panelControl1.Location = new System.Drawing.Point(0, 296);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(905, 44);
+            this.panelControl1.Size = new System.Drawing.Size(897, 44);
             this.panelControl1.TabIndex = 1;
             // 
             // btnSelect
@@ -240,14 +242,31 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(905, 304);
+            this.panelControl2.Size = new System.Drawing.Size(897, 296);
             this.panelControl2.TabIndex = 2;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnDelete.ForeColor = System.Drawing.Color.White;
+            this.btnDelete.Image = ((System.Drawing.Image)(resources.GetObject("btnDelete.Image")));
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDelete.Location = new System.Drawing.Point(121, 5);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(110, 33);
+            this.btnDelete.TabIndex = 3;
+            this.btnDelete.Text = "Excluir";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // ManagerBankAccountsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 348);
+            this.ClientSize = new System.Drawing.Size(897, 340);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -287,5 +306,6 @@
         private WCButtons.Black.ButtonCancelBlack btnCancel;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private WCButtons.Black.ButtonConfirmBlack btnSelect;
+        private WCButtons.Black.ButtonDeleteBlack btnDelete;
     }
 }

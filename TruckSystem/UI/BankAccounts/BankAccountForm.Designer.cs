@@ -35,7 +35,6 @@
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
@@ -55,10 +54,13 @@
             this.tfAgency = new DevExpress.XtraEditors.TextEdit();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.tfNameBank = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.tfNumber = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.cbBanks = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgBanks = new System.Windows.Forms.BindingSource(this.components);
+            this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcode = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcnpj = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -75,8 +77,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfAgency.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfNameBank.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBanks.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBanks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,9 +88,9 @@
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 178);
+            this.panelControl1.Location = new System.Drawing.Point(0, 166);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(597, 44);
+            this.panelControl1.Size = new System.Drawing.Size(600, 44);
             this.panelControl1.TabIndex = 0;
             // 
             // btnCancel
@@ -131,7 +134,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(597, 178);
+            this.panelControl2.Size = new System.Drawing.Size(600, 166);
             this.panelControl2.TabIndex = 1;
             // 
             // groupControl2
@@ -278,61 +281,93 @@
             // 
             // groupControl1
             // 
-            this.groupControl1.Controls.Add(this.tfNameBank);
-            this.groupControl1.Controls.Add(this.labelControl3);
-            this.groupControl1.Controls.Add(this.tfNumber);
-            this.groupControl1.Controls.Add(this.labelControl2);
+            this.groupControl1.Controls.Add(this.cbBanks);
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(604, 56);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Banco";
             // 
-            // tfNameBank
+            // cbBanks
             // 
-            this.tfNameBank.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBankAccount, "name_bank", true));
-            this.tfNameBank.Location = new System.Drawing.Point(168, 24);
-            this.tfNameBank.Name = "tfNameBank";
-            this.tfNameBank.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfNameBank.Size = new System.Drawing.Size(429, 20);
-            this.tfNameBank.TabIndex = 1;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe o nome do Banco";
-            this.validator.SetValidationRule(this.tfNameBank, conditionValidationRule4);
+            this.cbBanks.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBankAccount, "bank_id", true));
+            this.cbBanks.Location = new System.Drawing.Point(12, 27);
+            this.cbBanks.Name = "cbBanks";
+            this.cbBanks.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbBanks.Properties.DataSource = this.bdgBanks;
+            this.cbBanks.Properties.DisplayMember = "name";
+            this.cbBanks.Properties.NullText = "";
+            this.cbBanks.Properties.ValueMember = "id";
+            this.cbBanks.Properties.View = this.searchLookUpEdit1View;
+            this.cbBanks.Size = new System.Drawing.Size(580, 20);
+            this.cbBanks.TabIndex = 0;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Informe o Banco";
+            conditionValidationRule4.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbBanks, conditionValidationRule4);
             // 
-            // labelControl3
+            // bdgBanks
             // 
-            this.labelControl3.Location = new System.Drawing.Point(134, 27);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(31, 13);
-            this.labelControl3.TabIndex = 3;
-            this.labelControl3.Text = "Nome:";
+            this.bdgBanks.DataSource = typeof(TruckSystem.banks);
             // 
-            // tfNumber
+            // searchLookUpEdit1View
             // 
-            this.tfNumber.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBankAccount, "number_bank", true));
-            this.tfNumber.Location = new System.Drawing.Point(54, 24);
-            this.tfNumber.Name = "tfNumber";
-            this.tfNumber.Size = new System.Drawing.Size(70, 20);
-            this.tfNumber.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule5.ErrorText = "Informe o Numero do Banco";
-            conditionValidationRule5.Value1 = 0;
-            this.validator.SetValidationRule(this.tfNumber, conditionValidationRule5);
+            this.searchLookUpEdit1View.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colid,
+            this.colcode,
+            this.colcnpj,
+            this.colname});
+            this.searchLookUpEdit1View.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.searchLookUpEdit1View.Name = "searchLookUpEdit1View";
+            this.searchLookUpEdit1View.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.searchLookUpEdit1View.OptionsView.ShowGroupPanel = false;
             // 
-            // labelControl2
+            // colid
             // 
-            this.labelControl2.Location = new System.Drawing.Point(10, 27);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(41, 13);
-            this.labelControl2.TabIndex = 3;
-            this.labelControl2.Text = "Numero:";
+            this.colid.Caption = "Cod.";
+            this.colid.FieldName = "id";
+            this.colid.Name = "colid";
+            this.colid.OptionsColumn.AllowEdit = false;
+            this.colid.Visible = true;
+            this.colid.VisibleIndex = 0;
+            this.colid.Width = 42;
+            // 
+            // colcode
+            // 
+            this.colcode.Caption = "Cod Banco";
+            this.colcode.FieldName = "code";
+            this.colcode.Name = "colcode";
+            this.colcode.OptionsColumn.AllowEdit = false;
+            this.colcode.Visible = true;
+            this.colcode.VisibleIndex = 1;
+            this.colcode.Width = 130;
+            // 
+            // colcnpj
+            // 
+            this.colcnpj.Caption = "CNPJ";
+            this.colcnpj.FieldName = "cnpj";
+            this.colcnpj.Name = "colcnpj";
+            this.colcnpj.OptionsColumn.AllowEdit = false;
+            this.colcnpj.Visible = true;
+            this.colcnpj.VisibleIndex = 3;
+            this.colcnpj.Width = 208;
+            // 
+            // colname
+            // 
+            this.colname.Caption = "Nome";
+            this.colname.FieldName = "name";
+            this.colname.Name = "colname";
+            this.colname.OptionsColumn.AllowEdit = false;
+            this.colname.Visible = true;
+            this.colname.VisibleIndex = 2;
+            this.colname.Width = 316;
             // 
             // BankAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 222);
+            this.ClientSize = new System.Drawing.Size(600, 210);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -341,7 +376,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Conta Bacária";
+            this.Text = "Conta Bancária";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
@@ -358,9 +393,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfAgency.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            this.groupControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfNameBank.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbBanks.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBanks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             this.ResumeLayout(false);
 
@@ -372,10 +407,6 @@
         private WCButtons.Black.ButtonSaveBlack btnSave;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private WCButtons.Black.ButtonCancelBlack btnCancel;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.TextEdit tfNameBank;
-        private DevExpress.XtraEditors.TextEdit tfNumber;
         private DevExpress.XtraEditors.TextEdit tfId;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.GroupControl groupControl2;
@@ -392,6 +423,12 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private System.Windows.Forms.BindingSource bdgBankAccount;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
-        private TruckSystem.Utils.Validations.ValidatorCPFCNPJ validatorCPFCNPJ;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbBanks;
+        private System.Windows.Forms.BindingSource bdgBanks;
+        private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
+        private DevExpress.XtraGrid.Columns.GridColumn colid;
+        private DevExpress.XtraGrid.Columns.GridColumn colcode;
+        private DevExpress.XtraGrid.Columns.GridColumn colcnpj;
+        private DevExpress.XtraGrid.Columns.GridColumn colname;
     }
 }

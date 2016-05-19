@@ -18,6 +18,7 @@ namespace TruckSystem.UI.BankAccounts
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
+            bdgBanks.DataSource = banks.Fetch("");
             if (bc == null)
             {
                 bc = new bank_account();
@@ -32,8 +33,6 @@ namespace TruckSystem.UI.BankAccounts
                 rgType_SelectedIndexChanged(null, null);
             }
             bdgBankAccount.DataSource = bc;
-            tfNumber.Focus();
-            tfNumber.SelectAll();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

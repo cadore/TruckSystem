@@ -174,7 +174,7 @@
             this.btnGenerate.ForeColor = System.Drawing.Color.White;
             this.btnGenerate.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerate.Image")));
             this.btnGenerate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerate.Location = new System.Drawing.Point(254, 110);
+            this.btnGenerate.Location = new System.Drawing.Point(255, 110);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(155, 33);
             this.btnGenerate.TabIndex = 3;
