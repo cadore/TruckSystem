@@ -249,6 +249,11 @@ INSERT INTO banks(id, code, cnpj, name, site) VALUES (215, '230', '61.071.387/00
 INSERT INTO banks(id, code, cnpj, name, site) VALUES (216, '', '01.634.601/0001-19', 'Unicred Central do Rio Grande do Sul', 'www.unicred-rs.com.br');
 INSERT INTO banks(id, code, cnpj, name, site) VALUES (217, '84', '02.398.976/0001-90', 'Unicred Norte do Paraná', '');
 
-ALTER TABLE public.bank_accounts
-  DROP COLUMN name_bank;
+ALTER TABLE public.bank_accounts DROP COLUMN name_bank;
+  
 ALTER TABLE public.bank_accounts RENAME number_bank  TO bank_id;
+
+ALTER TABLE public.bank_accounts
+  ADD COLUMN type integer;
+COMMENT ON COLUMN public.bank_accounts.type IS '0 - corrente
+1 - poupança';

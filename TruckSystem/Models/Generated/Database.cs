@@ -633,13 +633,14 @@ namespace TruckSystem
 
         [Column]
         public long registred_by { get; set; }
+        [Column]
+        public int type { get; set; }
 
 
         public string bank_number { get; set; }
         public string bank_name { get; set; }
 
-
-
+        public string account_name { get; set; }
     }
 
 
@@ -1363,7 +1364,7 @@ namespace TruckSystem
     {
         [Column] public long id { get; set; }
         [Column] public long account_id { get; set; }
-        [Column] public DateTime date { get; set; }
+        [Column] public DateTime? date { get; set; }
         [Column] public long customer_id { get; set; }
         [Column] public decimal value { get; set; }
         [Column] public string description { get; set; }

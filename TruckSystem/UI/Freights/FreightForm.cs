@@ -404,7 +404,7 @@ namespace TruckSystem.UI.Freights
 
         private void btnDeposits_Click(object sender, EventArgs e)
         {
-            ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits);
+            ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits, (freight)bdgFreight.Current);
             if (vdf.ShowDialog() == DialogResult.OK)
             {
                 if (ListDeposits == null)

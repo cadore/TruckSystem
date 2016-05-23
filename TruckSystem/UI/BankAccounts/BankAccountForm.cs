@@ -21,15 +21,15 @@ namespace TruckSystem.UI.BankAccounts
             bdgBanks.DataSource = banks.Fetch("");
             if (bc == null)
             {
-                bc = new bank_account();
-                rgType.EditValue = "cnpj";   
+                bc = new bank_account() { type = -1 };
+                rgTypeHolder.EditValue = "cnpj";   
             }
             else
             {                
                 if (Util.RemoveSpecialCharacters(bc.document).Length == 11)
-                    rgType.EditValue = "cpf";
+                    rgTypeHolder.EditValue = "cpf";
                 else
-                    rgType.EditValue = "cnpj";
+                    rgTypeHolder.EditValue = "cnpj";
                 rgType_SelectedIndexChanged(null, null);
             }
             bdgBankAccount.DataSource = bc;
@@ -44,7 +44,7 @@ namespace TruckSystem.UI.BankAccounts
         private void rgType_SelectedIndexChanged(object sender, EventArgs e)
         {
             tfDocument.EditValue = null;
-            string st = rgType.EditValue.ToString();
+            string st = rgTypeHolder.EditValue.ToString();
             if (st.Equals("cnpj"))
             {
                 tfDocument.Properties.Mask.EditMask = "00.000.000/0000-00";

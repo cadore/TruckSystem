@@ -13,10 +13,12 @@ namespace TruckSystem.UI.Deposits
 {
     public partial class ViewDepositsForm : DevExpress.XtraEditors.XtraForm
     {
-        public ViewDepositsForm(List<deposits> ld)
+        freight fre;
+        public ViewDepositsForm(List<deposits> ld, freight _fre)
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
+            fre = _fre;
 
             if (ld == null)
             {
@@ -54,10 +56,16 @@ namespace TruckSystem.UI.Deposits
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            NewDepositForm ndf = new NewDepositForm(null);
+            NewDepositForm ndf = new NewDepositForm(null, fre);
             if(ndf.ShowDialog() == DialogResult.OK)
             {
-
+                deposits dp = ndf.NewDeposit;
+                bank_account ba = bank_account.SingleOrDefault(dp.account_id);
+                dp.account = String.Format("{0} - {1}", ba.agency, ba.account);
+                dp.customer_name = customer.SingleOrDefault(dp.customer_id).corporate_name;
+                dp.type_name = dp.type == 0 ? "Dinheiro" : "Cheque";
+                dp.truck_board = truck.SingleOrDefault(dp.truck_id).board;
+                bdgDeposits.Add(dp);
             }
         }
     }
