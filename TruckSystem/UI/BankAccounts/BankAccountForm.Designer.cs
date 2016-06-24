@@ -30,20 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BankAccountForm));
-            TruckSystem.Utils.Validations.ValidatorCPFCNPJ validatorCPFCNPJ1 = new TruckSystem.Utils.Validations.ValidatorCPFCNPJ();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            TruckSystem.Utils.Validations.ValidatorCPFCNPJ validatorCPFCNPJ2 = new TruckSystem.Utils.Validations.ValidatorCPFCNPJ();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.rgTypeAccount = new DevExpress.XtraEditors.RadioGroup();
+            this.bdgBankAccount = new System.Windows.Forms.BindingSource(this.components);
             this.rgTypeHolder = new DevExpress.XtraEditors.RadioGroup();
             this.tfId = new DevExpress.XtraEditors.TextEdit();
-            this.bdgBankAccount = new System.Windows.Forms.BindingSource(this.components);
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfDocument = new DevExpress.XtraEditors.TextEdit();
             this.lbDocument = new DevExpress.XtraEditors.LabelControl();
@@ -63,16 +64,16 @@
             this.colcnpj = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.rgTypeAccount = new DevExpress.XtraEditors.RadioGroup();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgTypeAccount.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBankAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTypeHolder.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBankAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDocument.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfAccount.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfHolder.Properties)).BeginInit();
@@ -83,7 +84,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgBanks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgTypeAccount.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -91,9 +91,9 @@
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 168);
+            this.panelControl1.Location = new System.Drawing.Point(0, 174);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(604, 44);
+            this.panelControl1.Size = new System.Drawing.Size(600, 44);
             this.panelControl1.TabIndex = 0;
             // 
             // btnCancel
@@ -137,7 +137,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(604, 168);
+            this.panelControl2.Size = new System.Drawing.Size(600, 174);
             this.panelControl2.TabIndex = 1;
             // 
             // groupControl2
@@ -160,6 +160,29 @@
             this.groupControl2.Size = new System.Drawing.Size(604, 108);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Conta Bancária";
+            // 
+            // rgTypeAccount
+            // 
+            this.rgTypeAccount.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBankAccount, "type", true));
+            this.rgTypeAccount.Location = new System.Drawing.Point(326, 23);
+            this.rgTypeAccount.Name = "rgTypeAccount";
+            this.rgTypeAccount.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rgTypeAccount.Properties.Appearance.Options.UseBackColor = true;
+            this.rgTypeAccount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.rgTypeAccount.Properties.Columns = 2;
+            this.rgTypeAccount.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Corrente"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Poupança")});
+            this.rgTypeAccount.Size = new System.Drawing.Size(156, 23);
+            this.rgTypeAccount.TabIndex = 5;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule6.ErrorText = "Informe o tipo de Conta";
+            conditionValidationRule6.Value1 = 0;
+            this.validator.SetValidationRule(this.rgTypeAccount, conditionValidationRule6);
+            // 
+            // bdgBankAccount
+            // 
+            this.bdgBankAccount.DataSource = typeof(TruckSystem.bank_account);
             // 
             // rgTypeHolder
             // 
@@ -185,10 +208,6 @@
             this.tfId.TabIndex = 1;
             this.tfId.TabStop = false;
             // 
-            // bdgBankAccount
-            // 
-            this.bdgBankAccount.DataSource = typeof(TruckSystem.bank_account);
-            // 
             // labelControl1
             // 
             this.labelControl1.Location = new System.Drawing.Point(504, 27);
@@ -206,8 +225,8 @@
             this.tfDocument.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfDocument.Size = new System.Drawing.Size(376, 20);
             this.tfDocument.TabIndex = 4;
-            validatorCPFCNPJ1.ErrorText = "O CNPJ/CPF é inválido";
-            this.validator.SetValidationRule(this.tfDocument, validatorCPFCNPJ1);
+            validatorCPFCNPJ2.ErrorText = "O CNPJ/CPF é inválido";
+            this.validator.SetValidationRule(this.tfDocument, validatorCPFCNPJ2);
             // 
             // lbDocument
             // 
@@ -224,9 +243,9 @@
             this.tfAccount.Name = "tfAccount";
             this.tfAccount.Size = new System.Drawing.Size(133, 20);
             this.tfAccount.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe a Conta Bancária";
-            this.validator.SetValidationRule(this.tfAccount, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe a Conta Bancária";
+            this.validator.SetValidationRule(this.tfAccount, conditionValidationRule1);
             // 
             // tfHolder
             // 
@@ -236,9 +255,9 @@
             this.tfHolder.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfHolder.Size = new System.Drawing.Size(539, 20);
             this.tfHolder.TabIndex = 2;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Informe o Titular";
-            this.validator.SetValidationRule(this.tfHolder, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe o Titular";
+            this.validator.SetValidationRule(this.tfHolder, conditionValidationRule2);
             // 
             // labelControl5
             // 
@@ -271,9 +290,9 @@
             this.tfAgency.Name = "tfAgency";
             this.tfAgency.Size = new System.Drawing.Size(70, 20);
             this.tfAgency.TabIndex = 0;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe a Agência";
-            this.validator.SetValidationRule(this.tfAgency, conditionValidationRule4);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe a Agência";
+            this.validator.SetValidationRule(this.tfAgency, conditionValidationRule3);
             // 
             // labelControl4
             // 
@@ -306,10 +325,10 @@
             this.cbBanks.Properties.View = this.searchLookUpEdit1View;
             this.cbBanks.Size = new System.Drawing.Size(580, 20);
             this.cbBanks.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule5.ErrorText = "Informe o Banco";
-            conditionValidationRule5.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbBanks, conditionValidationRule5);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Informe o Banco";
+            conditionValidationRule4.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbBanks, conditionValidationRule4);
             // 
             // bdgBanks
             // 
@@ -367,30 +386,11 @@
             this.colname.VisibleIndex = 2;
             this.colname.Width = 316;
             // 
-            // rgTypeAccount
-            // 
-            this.rgTypeAccount.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgBankAccount, "type", true));
-            this.rgTypeAccount.Location = new System.Drawing.Point(342, 22);
-            this.rgTypeAccount.Name = "rgTypeAccount";
-            this.rgTypeAccount.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.rgTypeAccount.Properties.Appearance.Options.UseBackColor = true;
-            this.rgTypeAccount.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.rgTypeAccount.Properties.Columns = 2;
-            this.rgTypeAccount.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Corrente"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Poupança")});
-            this.rgTypeAccount.Size = new System.Drawing.Size(156, 23);
-            this.rgTypeAccount.TabIndex = 5;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule1.ErrorText = "Informe o tipo de Conta";
-            conditionValidationRule1.Value1 = 0;
-            this.validator.SetValidationRule(this.rgTypeAccount, conditionValidationRule1);
-            // 
             // BankAccountForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 212);
+            this.ClientSize = new System.Drawing.Size(600, 218);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -408,9 +408,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgTypeAccount.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgBankAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rgTypeHolder.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgBankAccount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDocument.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfAccount.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfHolder.Properties)).EndInit();
@@ -421,7 +422,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdgBanks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgTypeAccount.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

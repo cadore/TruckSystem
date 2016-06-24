@@ -98,7 +98,7 @@ namespace TruckSystem.UI.Freights
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (validator.Validate())
+            if (!validator.Validate())
                 return;
             freight fre = (freight)bdgFreight.Current;
             if (IsNew)
@@ -153,10 +153,8 @@ namespace TruckSystem.UI.Freights
 
                     if (ListFueleds != null)
                     {
-                        //Console.WriteLine("Fueleds not null");
                         foreach (fueled fue in ListFueleds)
                         {
-                            //Console.WriteLine("single fueled");
                             fue.registred_at = fueled.Now();
                             fue.registred_by = Singleton.getUser().id;
                             fue.freight_id = fre.id;
@@ -164,7 +162,6 @@ namespace TruckSystem.UI.Freights
                             fue.truck_id = fre.truck_id;
                             if (fue.IsNew())
                             {
-                                //Console.WriteLine("fueled saved");
                                 fue.Save();
                             }
                         }
@@ -172,19 +169,37 @@ namespace TruckSystem.UI.Freights
 
                     if (ListOutputs != null)
                     {
-                        //Console.WriteLine("Outputs not null");
                         foreach (output o in ListOutputs)
                         {
-                            //Console.WriteLine("single output");
                             o.registred_at = output.Now();
                             o.registred_by = Singleton.getUser().id;
                             o.freight_id = fre.id;
                             o.truck_id = fre.truck_id;
                             if (o.IsNew())
                             {
-                                //Console.WriteLine("output saved");
                                 o.Save();
                             }
+                        }
+                    }
+
+                    if (ListDeposits != null)
+                    {
+                        Console.WriteLine("Deposit not null");
+                        foreach (deposits d in ListDeposits)
+                        {
+                            Console.WriteLine("single deposit");
+                            d.freight_id = fre.id;
+                            d.truck_id = fre.truck_id;
+                            if (d.IsNew())
+                            {
+                                Console.WriteLine("deposit saved");
+                                d.Save();
+                            }
+                            else
+                            {
+                                Console.WriteLine("deposit updated");
+                                d.Update();
+                            }                                
                         }
                     }
                     scope.Complete();
@@ -412,12 +427,14 @@ namespace TruckSystem.UI.Freights
                     ListDeposits = new List<deposits>();
                     ListDeposits.Clear();
                 }
-
+                Console.WriteLine(((List<deposits>)vdf.bdgDeposits.DataSource).Count);
+                ListDeposits.Clear();                
                 foreach (deposits d in ((List<deposits>)vdf.bdgDeposits.DataSource))
-                    if (!ListDeposits.Contains(d))
-                        ListDeposits.Add(d);
-
-
+                {
+                    Console.WriteLine("LISTA");
+                    Console.WriteLine(d);
+                    ListDeposits.Add(d);
+                }
             }
         }
     }

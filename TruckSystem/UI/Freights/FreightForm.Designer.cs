@@ -52,6 +52,7 @@ namespace TruckSystem.UI.Freights
             DevExpress.XtraEditors.LabelControl idLabel;
             DevExpress.XtraEditors.LabelControl labelControl17;
             DevExpress.XtraEditors.LabelControl labelControl18;
+            DevExpress.XtraEditors.LabelControl labelControl19;
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
@@ -119,6 +120,7 @@ namespace TruckSystem.UI.Freights
             this.tfExtraComission = new DevExpress.XtraEditors.CalcEdit();
             this.tfDiscountComission = new DevExpress.XtraEditors.CalcEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.tfDeposits = new DevExpress.XtraEditors.TextEdit();
             this.tfOutputs = new DevExpress.XtraEditors.TextEdit();
             this.tfStay = new DevExpress.XtraEditors.TextEdit();
             this.tfFueled = new DevExpress.XtraEditors.TextEdit();
@@ -152,6 +154,7 @@ namespace TruckSystem.UI.Freights
             idLabel = new DevExpress.XtraEditors.LabelControl();
             labelControl17 = new DevExpress.XtraEditors.LabelControl();
             labelControl18 = new DevExpress.XtraEditors.LabelControl();
+            labelControl19 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPercentComission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgFreight)).BeginInit();
@@ -190,6 +193,7 @@ namespace TruckSystem.UI.Freights
             ((System.ComponentModel.ISupportInitialize)(this.tfDiscountComission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDeposits.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfOutputs.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFueled.Properties)).BeginInit();
@@ -245,7 +249,7 @@ namespace TruckSystem.UI.Freights
             // 
             // labelControl11
             // 
-            labelControl11.Location = new System.Drawing.Point(8, 106);
+            labelControl11.Location = new System.Drawing.Point(215, 80);
             labelControl11.Name = "labelControl11";
             labelControl11.Size = new System.Drawing.Size(50, 13);
             labelControl11.TabIndex = 34;
@@ -379,6 +383,14 @@ namespace TruckSystem.UI.Freights
             labelControl18.Size = new System.Drawing.Size(39, 13);
             labelControl18.TabIndex = 32;
             labelControl18.Text = "Estádia:";
+            // 
+            // labelControl19
+            // 
+            labelControl19.Location = new System.Drawing.Point(214, 53);
+            labelControl19.Name = "labelControl19";
+            labelControl19.Size = new System.Drawing.Size(51, 13);
+            labelControl19.TabIndex = 34;
+            labelControl19.Text = "Depósitos:";
             // 
             // tfPercentComission
             // 
@@ -1014,6 +1026,8 @@ namespace TruckSystem.UI.Freights
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.tfDeposits);
+            this.groupControl1.Controls.Add(labelControl19);
             this.groupControl1.Controls.Add(labelControl11);
             this.groupControl1.Controls.Add(this.tfOutputs);
             this.groupControl1.Controls.Add(labelControl18);
@@ -1032,9 +1046,19 @@ namespace TruckSystem.UI.Freights
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Peso e Valores";
             // 
+            // tfDeposits
+            // 
+            this.tfDeposits.Location = new System.Drawing.Point(271, 50);
+            this.tfDeposits.Name = "tfDeposits";
+            this.tfDeposits.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tfDeposits.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfDeposits.Properties.ReadOnly = true;
+            this.tfDeposits.Size = new System.Drawing.Size(107, 20);
+            this.tfDeposits.TabIndex = 35;
+            // 
             // tfOutputs
             // 
-            this.tfOutputs.Location = new System.Drawing.Point(64, 103);
+            this.tfOutputs.Location = new System.Drawing.Point(271, 77);
             this.tfOutputs.Name = "tfOutputs";
             this.tfOutputs.Properties.Mask.EditMask = "c2";
             this.tfOutputs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -1223,6 +1247,7 @@ namespace TruckSystem.UI.Freights
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
             this.groupControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDeposits.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfOutputs.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfStay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFueled.Properties)).EndInit();
@@ -1303,5 +1328,6 @@ namespace TruckSystem.UI.Freights
         private DevExpress.XtraEditors.TextEdit tfStay;
         private DevExpress.XtraEditors.SimpleButton btnStay;
         private DevExpress.XtraEditors.SimpleButton btnDeposits;
+        private DevExpress.XtraEditors.TextEdit tfDeposits;
     }
 }

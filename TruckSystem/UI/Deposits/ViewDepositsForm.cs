@@ -14,8 +14,13 @@ namespace TruckSystem.UI.Deposits
     public partial class ViewDepositsForm : DevExpress.XtraEditors.XtraForm
     {
         freight fre;
-        public ViewDepositsForm(List<deposits> ld, freight _fre)
+        public ViewDepositsForm(List<deposits> _ld, freight _fre)
         {
+            List<deposits> ld = new List<deposits>();
+            ld.Clear();
+            foreach (deposits d in _ld)
+                ld.Add(d);
+
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
             fre = _fre;
@@ -48,9 +53,8 @@ namespace TruckSystem.UI.Deposits
         private void btnDelete_Click(object sender, EventArgs e)
         {
             deposits d = (deposits)bdgDeposits.Current;
-            if (d.id > 0)
+            if (bdgDeposits.Current != null && d.id > 0)
                 deposits.Delete(d.id);
-
             bdgDeposits.RemoveCurrent();
         }
 
@@ -65,6 +69,23 @@ namespace TruckSystem.UI.Deposits
                 dp.customer_name = customer.SingleOrDefault(dp.customer_id).corporate_name;
                 dp.type_name = dp.type == 0 ? "Dinheiro" : "Cheque";
                 dp.truck_board = truck.SingleOrDefault(dp.truck_id).board;
+                bdgDeposits.Add(dp);
+            }
+        }
+
+        private void gridControl_DoubleClick(object sender, EventArgs e)
+        {
+            deposits d = (deposits)bdgDeposits.Current;
+            NewDepositForm ndf = new NewDepositForm(d, fre);
+            if (ndf.ShowDialog() == DialogResult.OK)
+            {
+                deposits dp = ndf.NewDeposit;
+                bank_account ba = bank_account.SingleOrDefault(dp.account_id);
+                dp.account = String.Format("{0} - {1}", ba.agency, ba.account);
+                dp.customer_name = customer.SingleOrDefault(dp.customer_id).corporate_name;
+                dp.type_name = dp.type == 0 ? "Dinheiro" : "Cheque";
+                dp.truck_board = truck.SingleOrDefault(dp.truck_id).board;
+                bdgDeposits.Remove(d);
                 bdgDeposits.Add(dp);
             }
         }

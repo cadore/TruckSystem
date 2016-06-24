@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewDepositForm));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
@@ -96,9 +96,9 @@
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 117);
+            this.panelControl2.Location = new System.Drawing.Point(0, 113);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(541, 46);
+            this.panelControl2.Size = new System.Drawing.Size(537, 46);
             this.panelControl2.TabIndex = 1;
             // 
             // btnSave
@@ -154,7 +154,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(541, 117);
+            this.panelControl1.Size = new System.Drawing.Size(537, 113);
             this.panelControl1.TabIndex = 0;
             // 
             // rgType
@@ -171,10 +171,10 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Cheque")});
             this.rgType.Size = new System.Drawing.Size(134, 23);
             this.rgType.TabIndex = 4;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule7.ErrorText = "Informe o Tipo";
-            conditionValidationRule7.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.rgType, conditionValidationRule7);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule1.ErrorText = "Informe o Tipo";
+            conditionValidationRule1.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.rgType, conditionValidationRule1);
             // 
             // bdgDeposit
             // 
@@ -188,9 +188,9 @@
             this.tfDescription.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfDescription.Size = new System.Drawing.Size(441, 20);
             this.tfDescription.TabIndex = 5;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Informe a Descrição";
-            this.validator.SetValidationRule(this.tfDescription, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Informe a Descrição";
+            this.validator.SetValidationRule(this.tfDescription, conditionValidationRule2);
             // 
             // tfValue
             // 
@@ -201,16 +201,17 @@
             this.tfValue.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.tfValue.Properties.Mask.EditMask = "c2";
             this.tfValue.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.tfValue.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfValue.Size = new System.Drawing.Size(113, 20);
             this.tfValue.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule2.ErrorText = "Informe o Valor";
-            conditionValidationRule2.Value1 = new decimal(new int[] {
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule3.ErrorText = "Informe o Valor";
+            conditionValidationRule3.Value1 = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.validator.SetValidationRule(this.tfValue, conditionValidationRule2);
+            this.validator.SetValidationRule(this.tfValue, conditionValidationRule3);
             // 
             // cbCustomer
             // 
@@ -226,10 +227,10 @@
             this.cbCustomer.Properties.View = this.gridView1;
             this.cbCustomer.Size = new System.Drawing.Size(287, 20);
             this.cbCustomer.TabIndex = 2;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule3.ErrorText = "Informe o Local de Depósito";
-            conditionValidationRule3.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbCustomer, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule4.ErrorText = "Informe o Local de Depósito";
+            conditionValidationRule4.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbCustomer, conditionValidationRule4);
             // 
             // bdgCustomer
             // 
@@ -295,9 +296,9 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.tfDate.Size = new System.Drawing.Size(113, 20);
             this.tfDate.TabIndex = 1;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe a Data";
-            this.validator.SetValidationRule(this.tfDate, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe a Data";
+            this.validator.SetValidationRule(this.tfDate, conditionValidationRule5);
             // 
             // cbBankAccount
             // 
@@ -313,10 +314,10 @@
             this.cbBankAccount.Properties.View = this.searchLookUpEdit1View;
             this.cbBankAccount.Size = new System.Drawing.Size(331, 20);
             this.cbBankAccount.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
-            conditionValidationRule5.ErrorText = "Informe a Conta Bancária";
-            conditionValidationRule5.Value1 = ((long)(0));
-            this.validator.SetValidationRule(this.cbBankAccount, conditionValidationRule5);
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
+            conditionValidationRule6.ErrorText = "Informe a Conta Bancária";
+            conditionValidationRule6.Value1 = ((long)(0));
+            this.validator.SetValidationRule(this.cbBankAccount, conditionValidationRule6);
             // 
             // bdgBankAccounts
             // 
@@ -470,7 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 163);
+            this.ClientSize = new System.Drawing.Size(537, 159);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.panelControl2);
