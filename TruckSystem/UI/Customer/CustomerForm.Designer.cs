@@ -35,12 +35,12 @@ namespace TruckSystem.UI.Customer
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule6 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.pnAddress = new DevExpress.XtraEditors.GroupControl();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
+            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.cbCity = new DevExpress.XtraEditors.SearchLookUpEdit();
             this.bdgAddress = new System.Windows.Forms.BindingSource(this.components);
             this.bdgCity = new System.Windows.Forms.BindingSource(this.components);
@@ -60,9 +60,19 @@ namespace TruckSystem.UI.Customer
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colname = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colsymbol = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.tfCep = new DevExpress.XtraEditors.TextEdit();
             this.tfDistrict = new DevExpress.XtraEditors.TextEdit();
+            this.tfAddress = new DevExpress.XtraEditors.TextEdit();
+            this.tfEmail = new DevExpress.XtraEditors.TextEdit();
+            this.bdgCustomer = new System.Windows.Forms.BindingSource(this.components);
+            this.tfPhoneFixed = new DevExpress.XtraEditors.TextEdit();
+            this.tfCorporateName = new DevExpress.XtraEditors.TextEdit();
+            this.rgType = new DevExpress.XtraEditors.RadioGroup();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
+            this.tfObservations = new DevExpress.XtraEditors.MemoEdit();
+            this.pnAddress = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -70,34 +80,32 @@ namespace TruckSystem.UI.Customer
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.tfNumber = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
-            this.tfAddress = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.pnData = new DevExpress.XtraEditors.GroupControl();
             this.subPnData = new DevExpress.XtraEditors.GroupControl();
+            this.tfDocumentManager = new DevExpress.XtraEditors.TextEdit();
+            this.tfPhoneManager = new DevExpress.XtraEditors.TextEdit();
+            this.tfManager = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.tfCnpj = new DevExpress.XtraEditors.TextEdit();
-            this.bdgCustomer = new System.Windows.Forms.BindingSource(this.components);
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.tfIE = new DevExpress.XtraEditors.TextEdit();
             this.lbIE = new DevExpress.XtraEditors.LabelControl();
             this.tfPhoneMobile = new DevExpress.XtraEditors.TextEdit();
-            this.tfPhoneFixed = new DevExpress.XtraEditors.TextEdit();
             this.tfFantasyName = new DevExpress.XtraEditors.TextEdit();
-            this.tfCorporateName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.lbFantasyName = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.lbCNPJ = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lbCorporateName = new DevExpress.XtraEditors.LabelControl();
-            this.rgType = new DevExpress.XtraEditors.RadioGroup();
-            this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
-            this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pnAddress)).BeginInit();
-            this.pnAddress.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCity)).BeginInit();
@@ -107,63 +115,36 @@ namespace TruckSystem.UI.Customer
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDistrict.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfAddress.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneFixed.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfCorporateName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
+            this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfObservations.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnAddress)).BeginInit();
+            this.pnAddress.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfComplement.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnData)).BeginInit();
             this.pnData.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subPnData)).BeginInit();
             this.subPnData.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDocumentManager.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneManager.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfManager.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCnpj.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPhoneMobile.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneFixed.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFantasyName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfCorporateName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             this.SuspendLayout();
-            // 
-            // panelControl1
-            // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
-            this.panelControl1.Appearance.Options.UseBackColor = true;
-            this.panelControl1.Controls.Add(this.pnAddress);
-            this.panelControl1.Controls.Add(this.panelControl2);
-            this.panelControl1.Controls.Add(this.pnData);
-            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(907, 276);
-            this.panelControl1.TabIndex = 0;
-            // 
-            // pnAddress
-            // 
-            this.pnAddress.Controls.Add(this.cbCity);
-            this.pnAddress.Controls.Add(this.cbStateAddress);
-            this.pnAddress.Controls.Add(this.labelControl13);
-            this.pnAddress.Controls.Add(this.tfCep);
-            this.pnAddress.Controls.Add(this.tfDistrict);
-            this.pnAddress.Controls.Add(this.labelControl14);
-            this.pnAddress.Controls.Add(this.labelControl12);
-            this.pnAddress.Controls.Add(this.labelControl11);
-            this.pnAddress.Controls.Add(this.tfComplement);
-            this.pnAddress.Controls.Add(this.labelControl10);
-            this.pnAddress.Controls.Add(this.tfNumber);
-            this.pnAddress.Controls.Add(this.labelControl9);
-            this.pnAddress.Controls.Add(this.tfAddress);
-            this.pnAddress.Controls.Add(this.labelControl15);
-            this.pnAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnAddress.Enabled = false;
-            this.pnAddress.Location = new System.Drawing.Point(2, 152);
-            this.pnAddress.Name = "pnAddress";
-            this.pnAddress.Size = new System.Drawing.Size(903, 79);
-            this.pnAddress.TabIndex = 1;
-            this.pnAddress.Text = "Endereço";
             // 
             // cbCity
             // 
@@ -342,14 +323,6 @@ namespace TruckSystem.UI.Customer
             this.colsymbol.VisibleIndex = 2;
             this.colsymbol.Width = 483;
             // 
-            // labelControl13
-            // 
-            this.labelControl13.Location = new System.Drawing.Point(431, 53);
-            this.labelControl13.Name = "labelControl13";
-            this.labelControl13.Size = new System.Drawing.Size(37, 13);
-            this.labelControl13.TabIndex = 0;
-            this.labelControl13.Text = "Cidade:";
-            // 
             // tfCep
             // 
             this.tfCep.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "cep", true));
@@ -374,6 +347,144 @@ namespace TruckSystem.UI.Customer
             conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule4.ErrorText = "Informe o bairro";
             this.validator.SetValidationRule(this.tfDistrict, conditionValidationRule4);
+            // 
+            // tfAddress
+            // 
+            this.tfAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "name", true));
+            this.tfAddress.Location = new System.Drawing.Point(60, 24);
+            this.tfAddress.Name = "tfAddress";
+            this.tfAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tfAddress.Size = new System.Drawing.Size(296, 20);
+            this.tfAddress.TabIndex = 0;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe o endereço";
+            this.validator.SetValidationRule(this.tfAddress, conditionValidationRule5);
+            // 
+            // tfEmail
+            // 
+            this.tfEmail.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "email", true));
+            this.tfEmail.Location = new System.Drawing.Point(80, 99);
+            this.tfEmail.Name = "tfEmail";
+            this.tfEmail.Properties.Mask.EditMask = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}";
+            this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfEmail.Size = new System.Drawing.Size(365, 20);
+            this.tfEmail.TabIndex = 7;
+            conditionValidationRule6.ErrorText = "This value is not valid";
+            this.validator.SetValidationRule(this.tfEmail, conditionValidationRule6);
+            // 
+            // bdgCustomer
+            // 
+            this.bdgCustomer.DataSource = typeof(TruckSystem.customer);
+            // 
+            // tfPhoneFixed
+            // 
+            this.tfPhoneFixed.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "phone_fixed", true));
+            this.tfPhoneFixed.Location = new System.Drawing.Point(80, 73);
+            this.tfPhoneFixed.Name = "tfPhoneFixed";
+            this.tfPhoneFixed.Properties.Mask.EditMask = "(00) 0000-0000";
+            this.tfPhoneFixed.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.tfPhoneFixed.Size = new System.Drawing.Size(365, 20);
+            this.tfPhoneFixed.TabIndex = 4;
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            this.validator.SetValidationRule(this.tfPhoneFixed, conditionValidationRule7);
+            // 
+            // tfCorporateName
+            // 
+            this.tfCorporateName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "corporate_name", true));
+            this.tfCorporateName.Location = new System.Drawing.Point(80, 39);
+            this.tfCorporateName.Name = "tfCorporateName";
+            this.tfCorporateName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tfCorporateName.Properties.Mask.EditMask = "[A-Z0-9 /-]+";
+            this.tfCorporateName.Size = new System.Drawing.Size(365, 20);
+            this.tfCorporateName.TabIndex = 2;
+            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule8.ErrorText = "Informe a Razão Social/Nome";
+            this.validator.SetValidationRule(this.tfCorporateName, conditionValidationRule8);
+            // 
+            // rgType
+            // 
+            this.rgType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "type", true));
+            this.rgType.Location = new System.Drawing.Point(341, 24);
+            this.rgType.Name = "rgType";
+            this.rgType.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.rgType.Properties.Appearance.Options.UseBackColor = true;
+            this.rgType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Pessoa Jurídica"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pessoa Física")});
+            this.rgType.Size = new System.Drawing.Size(209, 22);
+            this.rgType.TabIndex = 0;
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule9.ErrorText = "Informe o Tipo de Pessoa";
+            conditionValidationRule9.Value1 = 0;
+            this.validator.SetValidationRule(this.rgType, conditionValidationRule9);
+            this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(236)))), ((int)(((byte)(239)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.Controls.Add(this.groupControl1);
+            this.panelControl1.Controls.Add(this.pnAddress);
+            this.panelControl1.Controls.Add(this.panelControl2);
+            this.panelControl1.Controls.Add(this.pnData);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(907, 448);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // groupControl1
+            // 
+            this.groupControl1.Controls.Add(this.tfObservations);
+            this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupControl1.Location = new System.Drawing.Point(2, 327);
+            this.groupControl1.Name = "groupControl1";
+            this.groupControl1.Size = new System.Drawing.Size(903, 76);
+            this.groupControl1.TabIndex = 2;
+            this.groupControl1.Text = "Observações";
+            // 
+            // tfObservations
+            // 
+            this.tfObservations.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "observations", true));
+            this.tfObservations.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tfObservations.Location = new System.Drawing.Point(2, 21);
+            this.tfObservations.Name = "tfObservations";
+            this.tfObservations.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tfObservations.Size = new System.Drawing.Size(899, 53);
+            this.tfObservations.TabIndex = 0;
+            this.tfObservations.UseOptimizedRendering = true;
+            // 
+            // pnAddress
+            // 
+            this.pnAddress.Controls.Add(this.cbCity);
+            this.pnAddress.Controls.Add(this.cbStateAddress);
+            this.pnAddress.Controls.Add(this.labelControl13);
+            this.pnAddress.Controls.Add(this.tfCep);
+            this.pnAddress.Controls.Add(this.tfDistrict);
+            this.pnAddress.Controls.Add(this.labelControl14);
+            this.pnAddress.Controls.Add(this.labelControl12);
+            this.pnAddress.Controls.Add(this.labelControl11);
+            this.pnAddress.Controls.Add(this.tfComplement);
+            this.pnAddress.Controls.Add(this.labelControl10);
+            this.pnAddress.Controls.Add(this.tfNumber);
+            this.pnAddress.Controls.Add(this.labelControl9);
+            this.pnAddress.Controls.Add(this.tfAddress);
+            this.pnAddress.Controls.Add(this.labelControl15);
+            this.pnAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnAddress.Enabled = false;
+            this.pnAddress.Location = new System.Drawing.Point(2, 251);
+            this.pnAddress.Name = "pnAddress";
+            this.pnAddress.Size = new System.Drawing.Size(903, 152);
+            this.pnAddress.TabIndex = 1;
+            this.pnAddress.Text = "Endereço";
+            // 
+            // labelControl13
+            // 
+            this.labelControl13.Location = new System.Drawing.Point(431, 53);
+            this.labelControl13.Name = "labelControl13";
+            this.labelControl13.Size = new System.Drawing.Size(37, 13);
+            this.labelControl13.TabIndex = 0;
+            this.labelControl13.Text = "Cidade:";
             // 
             // labelControl14
             // 
@@ -433,18 +544,6 @@ namespace TruckSystem.UI.Customer
             this.labelControl9.TabIndex = 0;
             this.labelControl9.Text = "Numero:";
             // 
-            // tfAddress
-            // 
-            this.tfAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "name", true));
-            this.tfAddress.Location = new System.Drawing.Point(60, 24);
-            this.tfAddress.Name = "tfAddress";
-            this.tfAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfAddress.Size = new System.Drawing.Size(296, 20);
-            this.tfAddress.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe o endereço";
-            this.validator.SetValidationRule(this.tfAddress, conditionValidationRule5);
-            // 
             // labelControl15
             // 
             this.labelControl15.Location = new System.Drawing.Point(5, 27);
@@ -458,7 +557,7 @@ namespace TruckSystem.UI.Customer
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 231);
+            this.panelControl2.Location = new System.Drawing.Point(2, 403);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(903, 43);
             this.panelControl2.TabIndex = 1;
@@ -504,13 +603,18 @@ namespace TruckSystem.UI.Customer
             this.pnData.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnData.Location = new System.Drawing.Point(2, 2);
             this.pnData.Name = "pnData";
-            this.pnData.Size = new System.Drawing.Size(903, 150);
+            this.pnData.Size = new System.Drawing.Size(903, 249);
             this.pnData.TabIndex = 0;
             this.pnData.Text = "Informações Gerais";
             // 
             // subPnData
             // 
             this.subPnData.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.subPnData.Controls.Add(this.tfDocumentManager);
+            this.subPnData.Controls.Add(this.tfPhoneManager);
+            this.subPnData.Controls.Add(this.tfManager);
+            this.subPnData.Controls.Add(this.tfEmail);
+            this.subPnData.Controls.Add(this.labelControl4);
             this.subPnData.Controls.Add(this.tfCnpj);
             this.subPnData.Controls.Add(this.tfId);
             this.subPnData.Controls.Add(this.labelControl3);
@@ -523,14 +627,55 @@ namespace TruckSystem.UI.Customer
             this.subPnData.Controls.Add(this.labelControl2);
             this.subPnData.Controls.Add(this.lbFantasyName);
             this.subPnData.Controls.Add(this.labelControl1);
+            this.subPnData.Controls.Add(this.labelControl6);
+            this.subPnData.Controls.Add(this.labelControl7);
             this.subPnData.Controls.Add(this.lbCNPJ);
+            this.subPnData.Controls.Add(this.labelControl5);
             this.subPnData.Controls.Add(this.lbCorporateName);
             this.subPnData.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.subPnData.Enabled = false;
-            this.subPnData.Location = new System.Drawing.Point(2, 49);
+            this.subPnData.Location = new System.Drawing.Point(2, 55);
             this.subPnData.Name = "subPnData";
-            this.subPnData.Size = new System.Drawing.Size(899, 99);
+            this.subPnData.Size = new System.Drawing.Size(899, 192);
             this.subPnData.TabIndex = 1;
+            // 
+            // tfDocumentManager
+            // 
+            this.tfDocumentManager.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "document_manager", true));
+            this.tfDocumentManager.Location = new System.Drawing.Point(530, 135);
+            this.tfDocumentManager.Name = "tfDocumentManager";
+            this.tfDocumentManager.Properties.Mask.EditMask = "000.000.000-00";
+            this.tfDocumentManager.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.tfDocumentManager.Size = new System.Drawing.Size(361, 20);
+            this.tfDocumentManager.TabIndex = 8;
+            // 
+            // tfPhoneManager
+            // 
+            this.tfPhoneManager.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "contact_manager", true));
+            this.tfPhoneManager.Location = new System.Drawing.Point(80, 161);
+            this.tfPhoneManager.Name = "tfPhoneManager";
+            this.tfPhoneManager.Properties.Mask.EditMask = "\\(([1][1-9]|[2][1-2]|[2][4]|[2][7-8]|[9][1-9]|[8][1-9]|[3][1-8]|[7][1]|[7][3-5]|[" +
+    "7][7]|[7][9]|[6][1-9])\\)(\\d{5}-\\d{4})|\\((\\d{2})\\)(\\d{4}-\\d{4})";
+            this.tfPhoneManager.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.tfPhoneManager.Size = new System.Drawing.Size(365, 20);
+            this.tfPhoneManager.TabIndex = 8;
+            // 
+            // tfManager
+            // 
+            this.tfManager.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "manager", true));
+            this.tfManager.Location = new System.Drawing.Point(80, 135);
+            this.tfManager.Name = "tfManager";
+            this.tfManager.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tfManager.Size = new System.Drawing.Size(365, 20);
+            this.tfManager.TabIndex = 8;
+            // 
+            // labelControl4
+            // 
+            this.labelControl4.Location = new System.Drawing.Point(12, 102);
+            this.labelControl4.Name = "labelControl4";
+            this.labelControl4.Size = new System.Drawing.Size(28, 13);
+            this.labelControl4.TabIndex = 6;
+            this.labelControl4.Text = "Email:";
             // 
             // tfCnpj
             // 
@@ -539,10 +684,6 @@ namespace TruckSystem.UI.Customer
             this.tfCnpj.Name = "tfCnpj";
             this.tfCnpj.Size = new System.Drawing.Size(166, 20);
             this.tfCnpj.TabIndex = 0;
-            // 
-            // bdgCustomer
-            // 
-            this.bdgCustomer.DataSource = typeof(TruckSystem.customer);
             // 
             // tfId
             // 
@@ -583,22 +724,11 @@ namespace TruckSystem.UI.Customer
             this.tfPhoneMobile.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "phone_mobile", true));
             this.tfPhoneMobile.Location = new System.Drawing.Point(530, 73);
             this.tfPhoneMobile.Name = "tfPhoneMobile";
-            this.tfPhoneMobile.Properties.Mask.EditMask = "(00) 0000-0000";
-            this.tfPhoneMobile.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.tfPhoneMobile.Properties.Mask.EditMask = "\\(([1][1-9]|[2][1-2]|[2][4]|[2][7-8]|[9][1-9]|[8][1-9]|[3][1-8]|[7][1]|[7][3-5]|[" +
+    "7][7]|[7][9]|[6][1-9])\\)(\\d{5}-\\d{4})|\\((\\d{2})\\)(\\d{4}-\\d{4})";
+            this.tfPhoneMobile.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfPhoneMobile.Size = new System.Drawing.Size(361, 20);
             this.tfPhoneMobile.TabIndex = 5;
-            // 
-            // tfPhoneFixed
-            // 
-            this.tfPhoneFixed.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "phone_fixed", true));
-            this.tfPhoneFixed.Location = new System.Drawing.Point(80, 73);
-            this.tfPhoneFixed.Name = "tfPhoneFixed";
-            this.tfPhoneFixed.Properties.Mask.EditMask = "(00) 0000-0000";
-            this.tfPhoneFixed.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.tfPhoneFixed.Size = new System.Drawing.Size(365, 20);
-            this.tfPhoneFixed.TabIndex = 4;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            this.validator.SetValidationRule(this.tfPhoneFixed, conditionValidationRule6);
             // 
             // tfFantasyName
             // 
@@ -608,19 +738,6 @@ namespace TruckSystem.UI.Customer
             this.tfFantasyName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfFantasyName.Size = new System.Drawing.Size(361, 20);
             this.tfFantasyName.TabIndex = 3;
-            // 
-            // tfCorporateName
-            // 
-            this.tfCorporateName.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "corporate_name", true));
-            this.tfCorporateName.Location = new System.Drawing.Point(80, 39);
-            this.tfCorporateName.Name = "tfCorporateName";
-            this.tfCorporateName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfCorporateName.Properties.Mask.EditMask = "[A-Z0-9 /-]+";
-            this.tfCorporateName.Size = new System.Drawing.Size(365, 20);
-            this.tfCorporateName.TabIndex = 2;
-            conditionValidationRule7.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule7.ErrorText = "Informe a Razão Social/Nome";
-            this.validator.SetValidationRule(this.tfCorporateName, conditionValidationRule7);
             // 
             // labelControl2
             // 
@@ -640,11 +757,27 @@ namespace TruckSystem.UI.Customer
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(10, 76);
+            this.labelControl1.Location = new System.Drawing.Point(12, 76);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(46, 13);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "Telefone:";
+            // 
+            // labelControl6
+            // 
+            this.labelControl6.Location = new System.Drawing.Point(453, 138);
+            this.labelControl6.Name = "labelControl6";
+            this.labelControl6.Size = new System.Drawing.Size(23, 13);
+            this.labelControl6.TabIndex = 0;
+            this.labelControl6.Text = "CPF:";
+            // 
+            // labelControl7
+            // 
+            this.labelControl7.Location = new System.Drawing.Point(12, 164);
+            this.labelControl7.Name = "labelControl7";
+            this.labelControl7.Size = new System.Drawing.Size(37, 13);
+            this.labelControl7.TabIndex = 0;
+            this.labelControl7.Text = "Celular:";
             // 
             // lbCNPJ
             // 
@@ -654,31 +787,21 @@ namespace TruckSystem.UI.Customer
             this.lbCNPJ.TabIndex = 1;
             this.lbCNPJ.Text = "CNPJ:";
             // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(12, 138);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(43, 13);
+            this.labelControl5.TabIndex = 0;
+            this.labelControl5.Text = "Gerente:";
+            // 
             // lbCorporateName
             // 
-            this.lbCorporateName.Location = new System.Drawing.Point(10, 42);
+            this.lbCorporateName.Location = new System.Drawing.Point(12, 42);
             this.lbCorporateName.Name = "lbCorporateName";
             this.lbCorporateName.Size = new System.Drawing.Size(64, 13);
             this.lbCorporateName.TabIndex = 0;
             this.lbCorporateName.Text = "Razão Social:";
-            // 
-            // rgType
-            // 
-            this.rgType.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "type", true));
-            this.rgType.Location = new System.Drawing.Point(341, 24);
-            this.rgType.Name = "rgType";
-            this.rgType.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.rgType.Properties.Appearance.Options.UseBackColor = true;
-            this.rgType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(0, "Pessoa Jurídica"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pessoa Física")});
-            this.rgType.Size = new System.Drawing.Size(209, 22);
-            this.rgType.TabIndex = 0;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule8.ErrorText = "Informe o Tipo de Pessoa";
-            conditionValidationRule8.Value1 = 0;
-            this.validator.SetValidationRule(this.rgType, conditionValidationRule8);
-            this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
             // 
             // CustomerForm
             // 
@@ -686,12 +809,8 @@ namespace TruckSystem.UI.Customer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "CustomerForm";
-            this.Size = new System.Drawing.Size(907, 276);
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
-            this.panelControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pnAddress)).EndInit();
-            this.pnAddress.ResumeLayout(false);
-            this.pnAddress.PerformLayout();
+            this.Size = new System.Drawing.Size(907, 448);
+            ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgCity)).EndInit();
@@ -701,9 +820,22 @@ namespace TruckSystem.UI.Customer
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCep.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDistrict.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfAddress.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneFixed.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfCorporateName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
+            this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.tfObservations.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnAddress)).EndInit();
+            this.pnAddress.ResumeLayout(false);
+            this.pnAddress.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfComplement.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pnData)).EndInit();
@@ -711,16 +843,14 @@ namespace TruckSystem.UI.Customer
             ((System.ComponentModel.ISupportInitialize)(this.subPnData)).EndInit();
             this.subPnData.ResumeLayout(false);
             this.subPnData.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfDocumentManager.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneManager.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfManager.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfCnpj.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgCustomer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPhoneMobile.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPhoneFixed.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFantasyName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfCorporateName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rgType.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -782,6 +912,16 @@ namespace TruckSystem.UI.Customer
         private System.Windows.Forms.BindingSource bdgCity;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validator;
         private DevExpress.XtraEditors.TextEdit tfCnpj;
+        private DevExpress.XtraEditors.TextEdit tfEmail;
+        private DevExpress.XtraEditors.LabelControl labelControl4;
+        private DevExpress.XtraEditors.TextEdit tfDocumentManager;
+        private DevExpress.XtraEditors.TextEdit tfManager;
+        private DevExpress.XtraEditors.LabelControl labelControl6;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
+        private DevExpress.XtraEditors.TextEdit tfPhoneManager;
+        private DevExpress.XtraEditors.LabelControl labelControl7;
+        private DevExpress.XtraEditors.GroupControl groupControl1;
+        private DevExpress.XtraEditors.MemoEdit tfObservations;
 
     }
 }

@@ -12,6 +12,9 @@ using TruckSystem.Utils;
 using DevExpress.XtraSplashScreen;
 using TruckSystem.UI.SplashScreens;
 using System.Text.RegularExpressions;
+using System.IO;
+using PetaPoco;
+using TruckSystem.FileManager.UI;
 
 namespace TruckSystem.UI.Drivers
 {
@@ -30,6 +33,7 @@ namespace TruckSystem.UI.Drivers
             {
                 d = new driver() { birthday = null, admitted_at = null, dismissed_at = null, genre = -1 };
                 ad = new address();
+                btnFiles.Enabled = false;
             }
             else
             {
@@ -119,11 +123,13 @@ namespace TruckSystem.UI.Drivers
                         dr.inactive = false;
                     }
                     ad.Save();
-                    dr.address = ad.id;
+                    dr.address = ad.id;                    
                     dr.Save();
-                    scope.Complete();                    
-                    if (this.MessageToSave("Motorista"))
-                        desk.AddTabAndCloseCurrent(new DriverForm(null), "Novo motorista", false);
+                    scope.Complete();
+                    XtraMessageBox.Show(String.Format("Motorista {0} salvo com sucesso.", dr.full_name));
+                    desk.AddTabAndCloseCurrent(new DriverForm(driver.SingleOrDefault(dr.id)), "Editar motorista", false);
+                    //if (this.MessageToSave("Motorista"))
+                      //  desk.AddTabAndCloseCurrent(new DriverForm(null), "Novo motorista", false);
                 }                
             }
             catch (Exception ex)
@@ -135,6 +141,26 @@ namespace TruckSystem.UI.Drivers
             {
                 SplashScreenManager.CloseForm(false);
             }
+        }
+
+        void transferfile(string file)
+        {
+            string raiz = @"\\Ct-server\hdcadore\teste_trucksystem\";
+
+            FileInfo finfo = new FileInfo(file);
+
+            File.Copy(file, raiz + "" + finfo.Name);
+        }
+
+        private void btnFiles_Click(object sender, EventArgs e)
+        {
+            FileManagerForm fmf = new FileManagerForm(Enums.TypePath.drivers, ((driver)bdgDriver.Current).id);
+            fmf.ShowDialog();
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            desk.AddTabAndCloseCurrent(new DriverForm(null), "Novo motorista", false);
         }
     }
 }

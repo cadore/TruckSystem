@@ -34,6 +34,7 @@ using TruckSystem.UI.Reports.Freights;
 using TruckSystem.Models.Reports;
 using TruckSystem.UI.Truck.Reports;
 using TruckSystem.UI.Trailer;
+using TruckSystem.UI.Business;
 
 namespace TruckSystem.UI
 {
@@ -288,6 +289,31 @@ namespace TruckSystem.UI
         private void btnManagerTrailers_ItemClick(object sender, ItemClickEventArgs e)
         {
             AddTab(new TrailerForm(null), "Gerenciar Reboques", false);
+        }
+
+        private void btnConfigurePathFiles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                FolderBrowserDialog fbd = new FolderBrowserDialog();
+                fbd.SelectedPath = INI.ReadValue("FILES", "CurrentPathFiles");
+                DialogResult rs = fbd.ShowDialog();
+                if (rs == DialogResult.OK)
+                {
+                    INI.WriteValue("FILES", "CurrentPathFiles", fbd.SelectedPath);
+                    XtraMessageBox.Show("Path configurado com sucesso!", "Arquivos");
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show("Ocorreu um erro.\n" + ex.Message, "Erro");
+            }
+        }
+
+        private void btnViewEditBusiness_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            SearchBusinessForm sbf = new SearchBusinessForm();
+            sbf.ShowDialog();
         }        
     }
 }

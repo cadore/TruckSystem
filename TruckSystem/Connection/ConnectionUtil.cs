@@ -22,7 +22,7 @@ namespace TruckSystem.Connection
         {
             try
             {
-                Host = "192.168.1.100";//Util.Decrypt(INI.ReadValue("CONNECTION", "host"));
+                Host = Util.Decrypt(INI.ReadValue("CONNECTION", "host"));
                 Port = Util.Decrypt(INI.ReadValue("CONNECTION", "port"));
                 DataBase = Util.Decrypt(INI.ReadValue("CONNECTION", "db"));
                 User = Util.Decrypt(INI.ReadValue("CONNECTION", "user"));

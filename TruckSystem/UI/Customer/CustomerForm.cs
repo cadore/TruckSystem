@@ -73,6 +73,10 @@ namespace TruckSystem.UI.Customer
                 tfCnpj.Properties.Mask.EditMask = "00.000.000/0000-00";
                 if (validatorCPFCNPJ1 != null)
                     validatorCPFCNPJ1.ErrorText = "O CNPJ informado é inválido.";
+
+                tfManager.Enabled = true;
+                tfDocumentManager.Enabled = true;
+                tfPhoneManager.Enabled = true;
             }
             else if (t == 1)
             {
@@ -84,6 +88,10 @@ namespace TruckSystem.UI.Customer
                 if (validatorCPFCNPJ1 != null)
                     validatorCPFCNPJ1.ErrorText = "O CPF informado é inválido.";
                 tfCnpj.Properties.Mask.EditMask = "000.000.000-00";
+
+                tfManager.Enabled = false;
+                tfDocumentManager.Enabled = false;
+                tfPhoneManager.Enabled = false;
             }
 
             tfCnpj.EditValue = null;
@@ -96,6 +104,12 @@ namespace TruckSystem.UI.Customer
             pnAddress.Enabled = true;
 
             this.validator.SetValidationRule(this.tfCnpj, validatorCPFCNPJ1);
+
+            customer c = ((customer)bdgCustomer.Current);
+            c.manager = "";
+            c.document_manager = "";
+            c.contact_manager = "";
+            bdgCustomer.DataSource = c;
 
             tfCnpj.Focus();
             tfCnpj.SelectAll();
@@ -155,6 +169,6 @@ namespace TruckSystem.UI.Customer
                     desk.AddTabAndCloseCurrent(new CustomerForm(null), "Novo cliente", false);
             }      
             
-        }        
+        }
     }
 }

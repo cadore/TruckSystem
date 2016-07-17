@@ -59,5 +59,47 @@ namespace TruckSystem.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///    &lt;head&gt;
+        ///        &lt;/br&gt;
+        ///        &lt;/br&gt;
+        ///        &lt;/br&gt;
+        ///        &lt;center&gt;
+        ///            &lt;h4&gt;
+        ///                Arquivo inválido para visualização, utilize o &apos;Abrir/Editar&apos; para usar um software externo.
+        ///            &lt;/h4&gt;
+        ///        &lt;/center&gt;
+        ///    &lt;/head&gt;
+        ///&lt;/html&gt;
+        ///.
+        /// </summary>
+        internal static string ErrorFile {
+            get {
+                return ResourceManager.GetString("ErrorFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;/br&gt;
+        ///    &lt;/br&gt;
+        ///    &lt;/br&gt;
+        ///    &lt;center&gt;
+        ///        &lt;p&gt;
+        ///            Selecione um arquivo para visualizar.
+        ///        &lt;/p&gt;
+        ///    &lt;/center&gt;
+        ///&lt;/head&gt;
+        ///&lt;/html&gt;
+        ///.
+        /// </summary>
+        internal static string SelectOneFile {
+            get {
+                return ResourceManager.GetString("SelectOneFile", resourceCulture);
+            }
+        }
     }
 }

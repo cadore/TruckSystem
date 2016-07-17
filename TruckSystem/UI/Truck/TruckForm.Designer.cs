@@ -32,6 +32,8 @@ namespace TruckSystem.UI.Truck
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TruckForm));
             this.pnButtons = new DevExpress.XtraEditors.PanelControl();
+            this.btnFiles = new WCButtons.Black.ButtonFolderBlack();
+            this.btnNew = new WCButtons.Black.ButtonAddBlack();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.pnGeneral = new DevExpress.XtraEditors.PanelControl();
@@ -89,6 +91,8 @@ namespace TruckSystem.UI.Truck
             // 
             // pnButtons
             // 
+            this.pnButtons.Controls.Add(this.btnFiles);
+            this.pnButtons.Controls.Add(this.btnNew);
             this.pnButtons.Controls.Add(this.btnSave);
             this.pnButtons.Controls.Add(this.btnCancel);
             this.pnButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -96,6 +100,40 @@ namespace TruckSystem.UI.Truck
             this.pnButtons.Name = "pnButtons";
             this.pnButtons.Size = new System.Drawing.Size(585, 43);
             this.pnButtons.TabIndex = 0;
+            // 
+            // btnFiles
+            // 
+            this.btnFiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnFiles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiles.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnFiles.ForeColor = System.Drawing.Color.White;
+            this.btnFiles.Image = ((System.Drawing.Image)(resources.GetObject("btnFiles.Image")));
+            this.btnFiles.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFiles.Location = new System.Drawing.Point(123, 5);
+            this.btnFiles.Name = "btnFiles";
+            this.btnFiles.Size = new System.Drawing.Size(110, 33);
+            this.btnFiles.TabIndex = 3;
+            this.btnFiles.Text = "Arquivos";
+            this.btnFiles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFiles.UseVisualStyleBackColor = false;
+            this.btnFiles.Click += new System.EventHandler(this.btnFiles_Click);
+            // 
+            // btnNew
+            // 
+            this.btnNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNew.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnNew.ForeColor = System.Drawing.Color.White;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNew.Location = new System.Drawing.Point(7, 5);
+            this.btnNew.Name = "btnNew";
+            this.btnNew.Size = new System.Drawing.Size(110, 33);
+            this.btnNew.TabIndex = 2;
+            this.btnNew.Text = "Novo";
+            this.btnNew.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnNew.UseVisualStyleBackColor = false;
+            this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
@@ -519,5 +557,7 @@ namespace TruckSystem.UI.Truck
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.LabelControl labelControl1;
+        private WCButtons.Black.ButtonFolderBlack btnFiles;
+        private WCButtons.Black.ButtonAddBlack btnNew;
     }
 }

@@ -1,27 +1,3 @@
-CREATE TABLE public.mechanics
-(
-  id bigint NOT NULL DEFAULT nextval('mechanics_id_seq'::regclass),
-  login character varying,
-  password character varying,
-  full_name character varying,
-  comission numeric(19,2),
-  CONSTRAINT "PK_mechanic_id" PRIMARY KEY (id)
-);
-
-
-CREATE TABLE public.services
-(
-   id bigserial NOT NULL, 
-   description character varying, 
-   value numeric(19,2), 
-   editable boolean NOT NULL DEFAULT false, 
-   CONSTRAINT "PK_services_id" PRIMARY KEY (id)
-) 
-WITH (
-  OIDS = FALSE
-);
-
-
 CREATE TABLE IF NOT EXISTS public.banks(
 	id bigserial NOT NULL,
 	code character varying(255),
@@ -30,6 +6,50 @@ CREATE TABLE IF NOT EXISTS public.banks(
 	site character varying(255),
 	CONSTRAINT "PK_banks_id" PRIMARY KEY (id)
 );
+
+ALTER TABLE public.customers
+  ADD COLUMN email character varying;
+
+CREATE TABLE public.business
+(
+  id bigint NOT NULL DEFAULT nextval('business_id_seq'::regclass),
+  corporate_name character varying,
+  fantasy_name character varying,
+  document character varying,
+  address_id bigint,
+  registred_at date,
+  registred_by bigint,
+  inactive boolean,
+  ie_rg character varying,
+  phone_fixed character varying,
+  phone_mobile character varying,
+  type integer,
+  email character varying,
+  manager character varying,
+  document_manager character varying,
+  contact_manager character varying,
+  CONSTRAINT "PK_business_id" PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE public.business
+  OWNER TO postgres;
+
+
+ALTER TABLE public.customers
+  ADD COLUMN manager character varying;
+ALTER TABLE public.customers
+  ADD COLUMN document_manager character varying;
+ALTER TABLE public.customers
+  ADD COLUMN contact_manager character varying;
+ALTER TABLE public.customers
+  ADD COLUMN observations text;
+
+  
+  
+
+------------------------------------------------------------------------------------------------------------------------------------------------------//
 
 INSERT INTO banks(id, code, cnpj, name, site) VALUES (1, '654', '92.874.270', 'Banco A.J.Renner S.A.', 'www.bancorenner.com.br');
 INSERT INTO banks(id, code, cnpj, name, site) VALUES (2, '246', '28.195.667/0001-06', 'Banco ABC Brasil S.A.', 'www.abcbrasil.com.br');
@@ -257,3 +277,5 @@ ALTER TABLE public.bank_accounts
   ADD COLUMN type integer;
 COMMENT ON COLUMN public.bank_accounts.type IS '0 - corrente
 1 - poupança';
+
+

@@ -12,6 +12,7 @@ using DevExpress.XtraEditors.DXErrorProvider;
 using DevExpress.XtraSplashScreen;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.Utils;
+using TruckSystem.FileManager.UI;
 
 namespace TruckSystem.UI.Truck
 {
@@ -79,8 +80,10 @@ namespace TruckSystem.UI.Truck
                     tr.Save();
                     tfIdTruck.EditValue = tr.id;
                     scope.Complete();
-                    if (this.MessageToSave("Caminhão"))
-                        desk.AddTabAndCloseCurrent(new TruckForm(null), "Novo caminhão", false);
+                    XtraMessageBox.Show(String.Format("Veículo {0} salvo com sucesso.", tr.board));
+                    desk.AddTabAndCloseCurrent(new TruckForm(truck.SingleOrDefault(tr.id)), "Editar caminhão", false);
+                    //if (this.MessageToSave("Caminhão"))
+                      //  desk.AddTabAndCloseCurrent(new TruckForm(null), "Novo caminhão", false);
 
                 }
             }
@@ -130,5 +133,16 @@ namespace TruckSystem.UI.Truck
             this.vTruck.SetValidationRule(tfYearModelTruck, cvYearModel);
         }
         #endregion        
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            desk.AddTabAndCloseCurrent(new TruckForm(null), "Novo caminhão", false);
+        }
+
+        private void btnFiles_Click(object sender, EventArgs e)
+        {
+            FileManagerForm fmf = new FileManagerForm(Enums.TypePath.trucks, ((truck)bdgTruck.Current).id);
+            fmf.ShowDialog();
+        }
     }
 }

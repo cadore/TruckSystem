@@ -76,20 +76,24 @@
             this.pictureEdit2.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit2.Properties.ShowMenu = false;
+            this.pictureEdit2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit2.Properties.ZoomPercent = 99;
             this.pictureEdit2.Size = new System.Drawing.Size(426, 180);
             this.pictureEdit2.TabIndex = 9;
             // 
             // pictureEdit1
             // 
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
-            this.pictureEdit1.Location = new System.Drawing.Point(278, 266);
+            this.pictureEdit1.Location = new System.Drawing.Point(289, 249);
             this.pictureEdit1.Name = "pictureEdit1";
             this.pictureEdit1.Properties.AllowFocused = false;
             this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pictureEdit1.Properties.ShowMenu = false;
-            this.pictureEdit1.Size = new System.Drawing.Size(160, 48);
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Properties.ZoomPercent = 70;
+            this.pictureEdit1.Size = new System.Drawing.Size(163, 69);
             this.pictureEdit1.TabIndex = 8;
             // 
             // SplashScreenForm

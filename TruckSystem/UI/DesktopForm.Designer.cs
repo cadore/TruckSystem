@@ -56,6 +56,9 @@
             this.btnFeesDrivers = new DevExpress.XtraBars.BarButtonItem();
             this.z = new DevExpress.XtraBars.BarButtonItem();
             this.btnOpenReport = new DevExpress.XtraBars.BarButtonItem();
+            this.btnManagerTrailers = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfigurePathFiles = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -64,6 +67,7 @@
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,11 +80,11 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnManagerTrailers = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnViewEditBusiness = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -117,9 +121,11 @@
             this.z,
             this.btnOpenReport,
             this.btnManagerTrailers,
-            this.barButtonItem4});
+            this.barButtonItem4,
+            this.btnConfigurePathFiles,
+            this.btnViewEditBusiness});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 35;
+            this.ribbon.MaxItemId = 37;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -331,6 +337,29 @@
             this.btnOpenReport.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnOpenReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOpenReport_ItemClick);
             // 
+            // btnManagerTrailers
+            // 
+            this.btnManagerTrailers.Caption = "Gerenciar Reboques";
+            this.btnManagerTrailers.Id = 33;
+            this.btnManagerTrailers.Name = "btnManagerTrailers";
+            this.btnManagerTrailers.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnManagerTrailers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnManagerTrailers_ItemClick);
+            // 
+            // barButtonItem4
+            // 
+            this.barButtonItem4.Caption = "barButtonItem4";
+            this.barButtonItem4.Id = 34;
+            this.barButtonItem4.Name = "barButtonItem4";
+            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            // 
+            // btnConfigurePathFiles
+            // 
+            this.btnConfigurePathFiles.Caption = "Configurar Path Raiz";
+            this.btnConfigurePathFiles.Id = 35;
+            this.btnConfigurePathFiles.Name = "btnConfigurePathFiles";
+            this.btnConfigurePathFiles.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigurePathFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigurePathFiles_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -406,6 +435,14 @@
             this.ribbonPageGroup7.ShowCaptionButton = false;
             this.ribbonPageGroup7.Text = "Caminhões";
             // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.AllowTextClipping = false;
+            this.ribbonPageGroup15.ItemLinks.Add(this.btnManagerTrailers);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            this.ribbonPageGroup15.ShowCaptionButton = false;
+            this.ribbonPageGroup15.Text = "Reboques";
+            // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.AllowTextClipping = false;
@@ -465,7 +502,8 @@
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup3});
+            this.ribbonPageGroup3,
+            this.ribbonPageGroup17});
             this.ribbonPage2.Name = "ribbonPage2";
             this.ribbonPage2.Text = "Administração";
             // 
@@ -482,7 +520,8 @@
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup9,
-            this.ribbonPageGroup10});
+            this.ribbonPageGroup10,
+            this.ribbonPageGroup16});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Sistema";
             // 
@@ -501,6 +540,14 @@
             this.ribbonPageGroup10.Name = "ribbonPageGroup10";
             this.ribbonPageGroup10.ShowCaptionButton = false;
             this.ribbonPageGroup10.Text = "Personalização";
+            // 
+            // ribbonPageGroup16
+            // 
+            this.ribbonPageGroup16.AllowTextClipping = false;
+            this.ribbonPageGroup16.ItemLinks.Add(this.btnConfigurePathFiles);
+            this.ribbonPageGroup16.Name = "ribbonPageGroup16";
+            this.ribbonPageGroup16.ShowCaptionButton = false;
+            this.ribbonPageGroup16.Text = "Arquivos";
             // 
             // ribbonStatusBar
             // 
@@ -525,28 +572,21 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // ribbonPageGroup15
+            // ribbonPageGroup17
             // 
-            this.ribbonPageGroup15.AllowTextClipping = false;
-            this.ribbonPageGroup15.ItemLinks.Add(this.btnManagerTrailers);
-            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-            this.ribbonPageGroup15.ShowCaptionButton = false;
-            this.ribbonPageGroup15.Text = "Reboques";
+            this.ribbonPageGroup17.AllowTextClipping = false;
+            this.ribbonPageGroup17.ItemLinks.Add(this.btnViewEditBusiness);
+            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
+            this.ribbonPageGroup17.ShowCaptionButton = false;
+            this.ribbonPageGroup17.Text = "Empresas/Proprietários";
             // 
-            // btnManagerTrailers
+            // btnViewEditBusiness
             // 
-            this.btnManagerTrailers.Caption = "Gerenciar Reboques";
-            this.btnManagerTrailers.Id = 33;
-            this.btnManagerTrailers.Name = "btnManagerTrailers";
-            this.btnManagerTrailers.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnManagerTrailers.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnManagerTrailers_ItemClick);
-            // 
-            // barButtonItem4
-            // 
-            this.barButtonItem4.Caption = "barButtonItem4";
-            this.barButtonItem4.Id = 34;
-            this.barButtonItem4.Name = "barButtonItem4";
-            this.barButtonItem4.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnViewEditBusiness.Caption = "Ver/Editar Empresas";
+            this.btnViewEditBusiness.Id = 36;
+            this.btnViewEditBusiness.Name = "btnViewEditBusiness";
+            this.btnViewEditBusiness.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnViewEditBusiness.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewEditBusiness_ItemClick);
             // 
             // DesktopForm
             // 
@@ -627,5 +667,9 @@
         private DevExpress.XtraBars.BarButtonItem btnManagerTrailers;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
+        private DevExpress.XtraBars.BarButtonItem btnConfigurePathFiles;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
+        private DevExpress.XtraBars.BarButtonItem btnViewEditBusiness;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
     }
 }

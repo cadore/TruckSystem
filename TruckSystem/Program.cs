@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TruckSystem.Connection;
+using TruckSystem.FileManager;
 using TruckSystem.UI;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.Utils;
@@ -32,6 +33,7 @@ namespace TruckSystem
             verefyProcesses();
             SplashScreenManager.ShowForm(null, typeof(SplashScreenForm), false, false, false);
             //Application.Run(new DesktopForm());
+            configureFiles();
             startConnection();
             TrigersDB();
             login();
@@ -48,6 +50,20 @@ namespace TruckSystem
             else
             {
                 Exit(1);
+            }
+        }
+
+        static void configureFiles()
+        {
+            try
+            {
+                Paths.raiz = INI.ReadValue("FILES", "CurrentPathFiles");
+                Paths.buildPaths();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Ocorreu um erro ao tentar configurar os arquivos!\n\n{0}\n{1}", ex.Message, ex.InnerException));
+                Exit(-1);
             }
         }
 

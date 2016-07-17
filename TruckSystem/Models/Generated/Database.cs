@@ -127,6 +127,36 @@ namespace TruckSystem
     {
         [Column]
         public long id { get; set; }
+        [Column]
+        public string corporate_name { get; set; }
+        [Column]
+        public string fantasy_name { get; set; }
+        [Column]
+        public string document { get; set; }
+        [Column]
+        public int type { get; set; }
+        [Column]
+        public long address_id { get; set; }
+        [Column]
+        public DateTime? registred_at { get; set; }
+        [Column]
+        public long registred_by { get; set; }
+        [Column]
+        public bool inactive { get; set; }
+        [Column]
+        public string ie_rg { get; set; }
+        [Column]
+        public string phone_fixed { get; set; }
+        [Column]
+        public string phone_mobile { get; set; }
+        [Column]
+        public string email { get; set; }
+        [Column]
+        public string manager { get; set; }
+        [Column]
+        public string document_manager { get; set; }
+        [Column]
+        public string contact_manager { get; set; }
     }
 
 
@@ -137,509 +167,189 @@ namespace TruckSystem
     {
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string full_name { get; set; }
-
-
-
-
-
         [Column]
         public string password { get; set; }
-
-
-
-
-
         [Column]
         public string cpf { get; set; }
-
-
-
-
-
         [Column]
         public bool inactive { get; set; }
-
-
-
-
-
         [Column]
         public bool admin { get; set; }
-
-
-
-
-
         [Column]
         public bool money { get; set; }
-
-
-
     }
 
 
     [TableName("address")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class address : TruckSystemRepo.Record<address>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string name { get; set; }
-
-
-
-
-
         [Column]
         public string district { get; set; }
-
-
-
-
-
         [Column]
         public long city_id { get; set; }
-
-
-
-
-
         [Column]
         public long state_id { get; set; }
-
-
-
-
-
         [Column]
         public string number { get; set; }
-
-
-
-
-
         [Column]
         public string complement { get; set; }
-
-
-
-
-
         [Column]
         public string cep { get; set; }
-
-
-
     }
 
 
     [TableName("city")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class city : TruckSystemRepo.Record<city>
     {
-
-
-
         [Column]
         public int id { get; set; }
-
-
-
-
-
         [Column]
         public string name { get; set; }
-
-
-
-
-
         [Column]
         public int cod_ibge { get; set; }
-
-
-
-
-
         [Column]
         public int state_id { get; set; }
-
-
-
-
-
         [Column]
         public int population { get; set; }
-
-
-
-
-
         [Column]
         public decimal demographic { get; set; }
-
-
-
-
-
         [Column]
         public string gentilic { get; set; }
-
-
-
-
-
         [Column]
         public decimal area { get; set; }
-
-
-
-
-
         [Column]
         public string zip_code { get; set; }
-
-
-
     }
 
 
     [TableName("states")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class state : TruckSystemRepo.Record<state>
     {
-
-
-
         [Column]
         public int id { get; set; }
-
-
-
-
-
         [Column]
         public string name { get; set; }
-
-
-
-
-
         [Column]
         public string symbol { get; set; }
-
-
-
     }
 
 
     [TableName("trailers")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class trailer : TruckSystemRepo.Record<trailer>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string board { get; set; }
-
-
-
-
-
         [Column]
         public string renavam { get; set; }
-
-
-
-
-
         [Column]
         public string chassi { get; set; }
-
-
-
-
-
         [Column]
         public string mark { get; set; }
-
-
-
-
-
         [Column]
         public string model { get; set; }
-
-
-
-
-
         [Column]
         public int? year_fabrication { get; set; }
-
-
-
-
-
         [Column]
         public int? year_model { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public string color { get; set; }
-
-
-
-
-
         [Column]
         public long truck_id { get; set; }
-
-
-
-
-
         [Column]
         public long index { get; set; }
-
         [Column]
         public int? antt { get; set; }
-
-
-
     }
 
 
     [TableName("customers")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class customer : TruckSystemRepo.Record<customer>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string corporate_name { get; set; }
-
-
-
-
-
         [Column]
         public string fantasy_name { get; set; }
-
-
-
-
-
         [Column]
         public string document { get; set; }
-
-
-
         [Column]
         public int type { get; set; }
-
-
-
         [Column]
         public long address_id { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public bool inactive { get; set; }
-
-
-
-
-
         [Column]
         public string ie_rg { get; set; }
-
-
-
-
-
         [Column]
         public string phone_fixed { get; set; }
-
-
-
-
-
         [Column]
         public string phone_mobile { get; set; }
-
-
-
+        [Column]
+        public string email { get; set; }
+        [Column]
+        public string manager { get; set; }
+        [Column]
+        public string document_manager { get; set; }
+        [Column]
+        public string contact_manager { get; set; }
+        [Column]
+        public string observations { get; set; }
     }
 
 
     [TableName("bank_accounts")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class bank_account : TruckSystemRepo.Record<bank_account>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public long bank_id { get; set; }
-
-
-
-
-
         [Column]
         public string agency { get; set; }
-
-
-
-
-
         [Column]
         public string account { get; set; }
-
-
-
-
-
         [Column]
         public string holder { get; set; }
-
-
-
-
-
         [Column]
         public string document { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
         [Column]
         public int type { get; set; }
 
-
         public string bank_number { get; set; }
         public string bank_name { get; set; }
-
         public string account_name { get; set; }
     }
 
@@ -649,212 +359,72 @@ namespace TruckSystem
     [ExplicitColumns]
     public partial class logins : TruckSystemRepo.Record<logins>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public long user_id { get; set; }
-
-
-
-
-
         [Column]
         public string host { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? date { get; set; }
-
-
-
-
-
         [Column]
         public string local_ip { get; set; }
-
-
-
-
-
         [Column]
         public string external_ip { get; set; }
-
-
-
     }
 
-
     [TableName("outputs")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class output : TruckSystemRepo.Record<output>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string description { get; set; }
-
-
-
-
-
         [Column]
         public string observation { get; set; }
-
-
-
-
-
         [Column]
         public long customer_id { get; set; }
-
-
         public string customer_name { get; set; }
-
-
         [Column]
         public long truck_id { get; set; }
-
-
-
-
-
         [Column]
         public long freight_id { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? date { get; set; }
-
-
-
-
-
         [Column]
         public decimal value { get; set; }
-
-
-
     }
 
 
     [TableName("trucks")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class truck : TruckSystemRepo.Record<truck>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string board { get; set; }
-
-
-
-
-
         [Column]
         public string renavam { get; set; }
-
-
-
-
-
         [Column]
         public string chassi { get; set; }
-
-
-
-
-
         [Column]
         public string mark { get; set; }
-
-
-
-
-
         [Column]
         public string model { get; set; }
-
-
-
-
-
         [Column]
         public int? year_fabrication { get; set; }
-
-
-
-
-
         [Column]
         public int? year_model { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
         [Column]
@@ -865,105 +435,42 @@ namespace TruckSystem
         public int? antt { get; set; }
 
         public string driver_name { get; set; }
-
-
-
     }
 
     [TableName("stays")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class stay : TruckSystemRepo.Record<stay>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public long freight_id { get; set; }
-
-
-
-
-
         [Column]
         public long truck_id { get; set; }
-
-
-
-
-
         [Column]
         public long driver_id { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? start { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? end { get; set; }
-
-
-
-
-
         [Column]
         public decimal value_hor { get; set; }
-
-
         [Column]
         public decimal total { get; set; }
-
-
         [Column]
         public decimal taxe_comission { get; set; }
-
-
         [Column]
         public decimal total_comission { get; set; }
-
     }
 
 
     [TableName("payments")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class payment : TruckSystemRepo.Record<payment>
     {
@@ -1002,126 +509,42 @@ namespace TruckSystem
 
 
     [TableName("drivers")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class driver : TruckSystemRepo.Record<driver>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public string full_name { get; set; }
-
-
-
-
-
         [Column]
         public string cpf { get; set; }
-
-
-
-
-
         [Column]
         public long address { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? birthday { get; set; }
-
-
-
         [Column]
         public DateTime? expiration_cnh { get; set; }
-
-
-
         [Column]
         public string number_cnh { get; set; }
-
-
-
-
-
         [Column]
         public string category_cnh { get; set; }
-
-
-
-
-
         [Column]
         public int genre { get; set; }
-
-
-
-
-
         [Column]
         public string phone_fixed { get; set; }
-
-
-
-
-
         [Column]
         public string phone_mobile { get; set; }
-
-
-
-
-
         [Column]
         public bool inactive { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
-
-
-
-
         [Column]
         public decimal comission { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? admitted_at { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? dismissed_at { get; set; }
         [Column]
@@ -1130,106 +553,42 @@ namespace TruckSystem
         public string register_cnh { get; set; }
         [Column]
         public string mother_name { get; set; }
-
-
-
+        [Column]
+        public byte[] cnh_pdf { get; set; }
     }
 
 
     [TableName("fueleds")]
-
-
     [PrimaryKey("id")]
-
-
-
     [ExplicitColumns]
     public partial class fueled : TruckSystemRepo.Record<fueled>
     {
-
-
-
         [Column]
         public long id { get; set; }
-
-
-
-
-
         [Column]
         public long freight_id { get; set; }
-
-
-
-
-
         [Column]
         public long truck_id { get; set; }
-
-
-
-
-
         [Column]
         public long driver_id { get; set; }
-
-
-
-
-
         [Column]
         public DateTime? date { get; set; }
-
-
-
-
-
         [Column]
         public string km { get; set; }
-
-
-
-
-
         [Column]
         public long gas_station_id { get; set; }
-
-
-
-
-
         [Column]
         public decimal liters { get; set; }
-
-
-
-
-
         [Column]
         public decimal value_liters { get; set; }
-
-
-
-
-
         [Column]
         public decimal discount { get; set; }
-
-
-
         [Column]
         public decimal total { get; set; }
-
         [Column]
         public DateTime? registred_at { get; set; }
-
-
-
-
-
         [Column]
         public long registred_by { get; set; }
-
 
         public string gas_station_name { get; set; }
 
