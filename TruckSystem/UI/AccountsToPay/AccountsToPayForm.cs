@@ -21,7 +21,8 @@ namespace TruckSystem.UI.AccountsToPay
         public AccountsToPayForm(accounts_to_pay atp)
         {
             InitializeComponent();
-            ControlsUtil.SetBackColor(this.Controls);
+            ControlsUtil.SetBackColor(this.tabGeneral.Controls);
+            ControlsUtil.SetBackColor(this.tabPayment.Controls);
             if (atp == null)
             {
                 atp = new accounts_to_pay() { emission_at = null };

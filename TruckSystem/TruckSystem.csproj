@@ -190,11 +190,11 @@
     <Compile Include="UI\BankAccounts\ManagerBankAccountsForm.Designer.cs">
       <DependentUpon>ManagerBankAccountsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Business\BusinessForm.cs">
+    <Compile Include="UI\Business\NewBusinessForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Business\BusinessForm.Designer.cs">
-      <DependentUpon>BusinessForm.cs</DependentUpon>
+    <Compile Include="UI\Business\NewBusinessForm.Designer.cs">
+      <DependentUpon>NewBusinessForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Business\SearchBusinessForm.cs">
       <SubType>Form</SubType>
@@ -400,6 +400,12 @@
     <Compile Include="UI\Truck\TruckForm.Designer.cs">
       <DependentUpon>TruckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Utils\AuthenticateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\AuthenticateForm.Designer.cs">
+      <DependentUpon>AuthenticateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Utils\ControlsUtil.cs" />
     <Compile Include="UI\Utils\InputMessageForm.cs">
       <SubType>Form</SubType>
@@ -445,8 +451,8 @@
     <EmbeddedResource Include="UI\BankAccounts\ManagerBankAccountsForm.resx">
       <DependentUpon>ManagerBankAccountsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Business\BusinessForm.resx">
-      <DependentUpon>BusinessForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Business\NewBusinessForm.resx">
+      <DependentUpon>NewBusinessForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Business\SearchBusinessForm.resx">
       <DependentUpon>SearchBusinessForm.cs</DependentUpon>
@@ -553,6 +559,9 @@
     <EmbeddedResource Include="UI\Truck\TruckForm.resx">
       <DependentUpon>TruckForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Utils\AuthenticateForm.resx">
+      <DependentUpon>AuthenticateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Utils\InputMessageForm.resx">
       <DependentUpon>InputMessageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -574,6 +583,7 @@
     <None Include="Properties\DataSources\category.datasource" />
     <None Include="Properties\DataSources\city.datasource" />
     <None Include="Properties\DataSources\customer.datasource" />
+    <None Include="Properties\DataSources\customer1.datasource" />
     <None Include="Properties\DataSources\deposits.datasource" />
     <None Include="Properties\DataSources\driver.datasource" />
     <None Include="Properties\DataSources\freight.datasource" />

@@ -301,6 +301,7 @@ namespace TruckSystem.UI
                 if (rs == DialogResult.OK)
                 {
                     INI.WriteValue("FILES", "CurrentPathFiles", fbd.SelectedPath);
+                    Program.configureFiles();
                     XtraMessageBox.Show("Path configurado com sucesso!", "Arquivos");
                 }
             }

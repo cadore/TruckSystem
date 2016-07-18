@@ -38,7 +38,6 @@
             this.colcorporate_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colfantasy_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldocument = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colinactive = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphone_fixed = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colphone_mobile = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colemail = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -47,7 +46,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfSearch = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnSelect = new WCButtons.Black.ButtonConfirmBlack();
+            this.btnAdd = new WCButtons.Black.ButtonAddBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
@@ -85,7 +84,7 @@
             // 
             // bdgBusiness
             // 
-            this.bdgBusiness.DataSource = typeof(TruckSystem.business);
+            this.bdgBusiness.DataSource = typeof(TruckSystem.customer);
             // 
             // gridView1
             // 
@@ -94,7 +93,6 @@
             this.colcorporate_name,
             this.colfantasy_name,
             this.coldocument,
-            this.colinactive,
             this.colphone_fixed,
             this.colphone_mobile,
             this.colemail,
@@ -111,7 +109,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 80;
+            this.colid.Width = 91;
             // 
             // colcorporate_name
             // 
@@ -121,7 +119,7 @@
             this.colcorporate_name.OptionsColumn.AllowEdit = false;
             this.colcorporate_name.Visible = true;
             this.colcorporate_name.VisibleIndex = 1;
-            this.colcorporate_name.Width = 290;
+            this.colcorporate_name.Width = 311;
             // 
             // colfantasy_name
             // 
@@ -131,7 +129,7 @@
             this.colfantasy_name.OptionsColumn.AllowEdit = false;
             this.colfantasy_name.Visible = true;
             this.colfantasy_name.VisibleIndex = 2;
-            this.colfantasy_name.Width = 221;
+            this.colfantasy_name.Width = 263;
             // 
             // coldocument
             // 
@@ -141,17 +139,7 @@
             this.coldocument.OptionsColumn.AllowEdit = false;
             this.coldocument.Visible = true;
             this.coldocument.VisibleIndex = 3;
-            this.coldocument.Width = 152;
-            // 
-            // colinactive
-            // 
-            this.colinactive.Caption = "Inativo";
-            this.colinactive.FieldName = "inactive";
-            this.colinactive.Name = "colinactive";
-            this.colinactive.OptionsColumn.AllowEdit = false;
-            this.colinactive.Visible = true;
-            this.colinactive.VisibleIndex = 4;
-            this.colinactive.Width = 114;
+            this.coldocument.Width = 184;
             // 
             // colphone_fixed
             // 
@@ -209,30 +197,30 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.btnSelect);
+            this.panelControl2.Controls.Add(this.btnAdd);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 317);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(879, 46);
+            this.panelControl2.Size = new System.Drawing.Size(879, 47);
             this.panelControl2.TabIndex = 1;
             // 
-            // btnSelect
+            // btnAdd
             // 
-            this.btnSelect.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnSelect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSelect.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnSelect.ForeColor = System.Drawing.Color.White;
-            this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
-            this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSelect.Location = new System.Drawing.Point(637, 6);
-            this.btnSelect.Name = "btnSelect";
-            this.btnSelect.Size = new System.Drawing.Size(114, 33);
-            this.btnSelect.TabIndex = 1;
-            this.btnSelect.Text = "Selecionar";
-            this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSelect.UseVisualStyleBackColor = false;
-            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.Location = new System.Drawing.Point(11, 6);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(110, 33);
+            this.btnAdd.TabIndex = 1;
+            this.btnAdd.Text = "Adicionar";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnCancel
             // 
@@ -255,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 363);
+            this.ClientSize = new System.Drawing.Size(879, 364);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -284,7 +272,6 @@
         private DevExpress.XtraEditors.PanelControl panelControl1;
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private WCButtons.Black.ButtonCancelBlack btnCancel;
-        private WCButtons.Black.ButtonConfirmBlack btnSelect;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.TextEdit tfSearch;
         private DevExpress.XtraGrid.GridControl gridControl1;
@@ -294,11 +281,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colcorporate_name;
         private DevExpress.XtraGrid.Columns.GridColumn colfantasy_name;
         private DevExpress.XtraGrid.Columns.GridColumn coldocument;
-        private DevExpress.XtraGrid.Columns.GridColumn colinactive;
         private DevExpress.XtraGrid.Columns.GridColumn colphone_fixed;
         private DevExpress.XtraGrid.Columns.GridColumn colphone_mobile;
         private DevExpress.XtraGrid.Columns.GridColumn colemail;
         private DevExpress.XtraGrid.Columns.GridColumn colmanager;
         private DevExpress.XtraGrid.Columns.GridColumn colcontact_manager;
+        private WCButtons.Black.ButtonAddBlack btnAdd;
     }
 }

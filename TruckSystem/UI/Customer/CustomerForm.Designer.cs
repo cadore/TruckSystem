@@ -680,7 +680,7 @@ namespace TruckSystem.UI.Customer
             // tfCnpj
             // 
             this.tfCnpj.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "document", true));
-            this.tfCnpj.Location = new System.Drawing.Point(80, 4);
+            this.tfCnpj.Location = new System.Drawing.Point(80, 7);
             this.tfCnpj.Name = "tfCnpj";
             this.tfCnpj.Size = new System.Drawing.Size(166, 20);
             this.tfCnpj.TabIndex = 0;
@@ -705,7 +705,7 @@ namespace TruckSystem.UI.Customer
             // tfIE
             // 
             this.tfIE.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "ie_rg", true));
-            this.tfIE.Location = new System.Drawing.Point(285, 4);
+            this.tfIE.Location = new System.Drawing.Point(285, 7);
             this.tfIE.Name = "tfIE";
             this.tfIE.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfIE.Size = new System.Drawing.Size(160, 20);
@@ -713,7 +713,7 @@ namespace TruckSystem.UI.Customer
             // 
             // lbIE
             // 
-            this.lbIE.Location = new System.Drawing.Point(252, 6);
+            this.lbIE.Location = new System.Drawing.Point(252, 9);
             this.lbIE.Name = "lbIE";
             this.lbIE.Size = new System.Drawing.Size(14, 13);
             this.lbIE.TabIndex = 1;

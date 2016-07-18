@@ -23,15 +23,19 @@ namespace TruckSystem.FileManager
 
         public static void buildPaths()
         {
+            if (String.IsNullOrEmpty(raiz))
+                throw new Exception("Path raiz esta vazio!");
+
+            if (!Directory.Exists(raiz))
+                throw new Exception("Não foi possivel acessar o diretório raiz do sistema.");
+
             business = raiz + files + @"\business";
             drivers = raiz + files + @"\drivers";
             trucks = raiz + files + @"\trucks";
             trailers = raiz + files + @"\trailers";
             customers = raiz + files + @"\customers";
             bank_accounts = raiz + files + @"\bank_accounts";
-
-            if (String.IsNullOrEmpty(raiz))
-                throw new Exception("Path raiz esta vazio!");
+            
             try
             {
                 string[] directories = { business, drivers, trucks, trailers, customers, bank_accounts };

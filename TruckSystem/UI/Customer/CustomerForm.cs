@@ -37,7 +37,7 @@ namespace TruckSystem.UI.Customer
                 tfCnpj.Properties.ReadOnly = true;
                 tfIE.Properties.ReadOnly = true;
                 rgType.Properties.ReadOnly = true;
-                if (c.inactive)
+                if (c.inactive || c.is_business)
                 {
                     pnData.Enabled = false;
                     pnAddress.Enabled = false;

@@ -53,7 +53,7 @@ namespace TruckSystem
             }
         }
 
-        static void configureFiles()
+        public static void configureFiles()
         {
             try
             {

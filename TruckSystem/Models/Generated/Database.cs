@@ -119,7 +119,7 @@ namespace TruckSystem
 
     }
 
-
+    /*
     [TableName("business")]
     [PrimaryKey("id")]
     [ExplicitColumns]
@@ -158,7 +158,7 @@ namespace TruckSystem
         [Column]
         public string contact_manager { get; set; }
     }
-
+    */
 
     [TableName("users")]
     [PrimaryKey("id")]
@@ -321,6 +321,8 @@ namespace TruckSystem
         public string contact_manager { get; set; }
         [Column]
         public string observations { get; set; }
+        [Column]
+        public bool is_business { get; set; }
     }
 
 

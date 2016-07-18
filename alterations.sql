@@ -9,34 +9,6 @@ CREATE TABLE IF NOT EXISTS public.banks(
 
 ALTER TABLE public.customers
   ADD COLUMN email character varying;
-
-CREATE TABLE public.business
-(
-  id bigint NOT NULL DEFAULT nextval('business_id_seq'::regclass),
-  corporate_name character varying,
-  fantasy_name character varying,
-  document character varying,
-  address_id bigint,
-  registred_at date,
-  registred_by bigint,
-  inactive boolean,
-  ie_rg character varying,
-  phone_fixed character varying,
-  phone_mobile character varying,
-  type integer,
-  email character varying,
-  manager character varying,
-  document_manager character varying,
-  contact_manager character varying,
-  CONSTRAINT "PK_business_id" PRIMARY KEY (id)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public.business
-  OWNER TO postgres;
-
-
 ALTER TABLE public.customers
   ADD COLUMN manager character varying;
 ALTER TABLE public.customers
@@ -45,6 +17,9 @@ ALTER TABLE public.customers
   ADD COLUMN contact_manager character varying;
 ALTER TABLE public.customers
   ADD COLUMN observations text;
+ALTER TABLE public.customers
+  ADD COLUMN is_business boolean;
+
 
   
   

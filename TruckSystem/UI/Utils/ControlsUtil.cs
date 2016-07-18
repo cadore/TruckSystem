@@ -51,6 +51,7 @@ namespace TruckSystem.UI
                 case "DevExpress.XtraEditors.SearchLookUpEdit": ((SearchLookUpEdit)item).Properties.AppearanceFocused.BackColor = col; break;
                 case "DevExpress.XtraEditors.TextEdit": ((TextEdit)item).Properties.AppearanceFocused.BackColor = col; break;
                 case "DevExpress.XtraEditors.MemoEdit": ((MemoEdit)item).Properties.AppearanceFocused.BackColor = col; break;
+                case "DevExpress.XtraEditors.SpinEdit": ((SpinEdit)item).Properties.AppearanceFocused.BackColor = col; break;
             }
         }
     }
