@@ -16,6 +16,7 @@ namespace TruckSystem
             trailers = 3,
             customers = 4,
             bank_accounts = 5,
+            mail = 6
         }
     }
 }

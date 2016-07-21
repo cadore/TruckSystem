@@ -66,7 +66,7 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(879, 317);
+            this.panelControl1.Size = new System.Drawing.Size(875, 317);
             this.panelControl1.TabIndex = 0;
             // 
             // gridControl1
@@ -76,7 +76,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 35);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(875, 280);
+            this.gridControl1.Size = new System.Drawing.Size(871, 280);
             this.gridControl1.TabIndex = 2;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -202,7 +202,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 317);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(879, 47);
+            this.panelControl2.Size = new System.Drawing.Size(875, 43);
             this.panelControl2.TabIndex = 1;
             // 
             // btnAdd
@@ -243,7 +243,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 364);
+            this.ClientSize = new System.Drawing.Size(875, 360);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

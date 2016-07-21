@@ -107,6 +107,9 @@ namespace TruckSystem.FileManager.UI
                 case Enums.TypePath.bank_accounts:
                     r = Path.Combine(Paths.bank_accounts, id.ToString());
                     break;
+                case Enums.TypePath.mail:
+                    r = Path.Combine(Paths.mail, id.ToString());
+                    break;
             }
             Paths.verifyPath(r);
             return r;

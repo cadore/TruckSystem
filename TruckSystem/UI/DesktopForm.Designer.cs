@@ -59,6 +59,7 @@
             this.btnManagerTrailers = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigurePathFiles = new DevExpress.XtraBars.BarButtonItem();
+            this.btnViewEditBusiness = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -77,14 +78,15 @@
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnViewEditBusiness = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.btnConfigureSMTP = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -123,9 +125,10 @@
             this.btnManagerTrailers,
             this.barButtonItem4,
             this.btnConfigurePathFiles,
-            this.btnViewEditBusiness});
+            this.btnViewEditBusiness,
+            this.btnConfigureSMTP});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 37;
+            this.ribbon.MaxItemId = 38;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -360,6 +363,14 @@
             this.btnConfigurePathFiles.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnConfigurePathFiles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigurePathFiles_ItemClick);
             // 
+            // btnViewEditBusiness
+            // 
+            this.btnViewEditBusiness.Caption = "Ver/Editar Empresas";
+            this.btnViewEditBusiness.Id = 36;
+            this.btnViewEditBusiness.Name = "btnViewEditBusiness";
+            this.btnViewEditBusiness.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnViewEditBusiness.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewEditBusiness_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -516,12 +527,21 @@
             this.ribbonPageGroup3.ShowCaptionButton = false;
             this.ribbonPageGroup3.Text = "Usuários";
             // 
+            // ribbonPageGroup17
+            // 
+            this.ribbonPageGroup17.AllowTextClipping = false;
+            this.ribbonPageGroup17.ItemLinks.Add(this.btnViewEditBusiness);
+            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
+            this.ribbonPageGroup17.ShowCaptionButton = false;
+            this.ribbonPageGroup17.Text = "Empresas/Proprietários";
+            // 
             // ribbonPage4
             // 
             this.ribbonPage4.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup9,
             this.ribbonPageGroup10,
-            this.ribbonPageGroup16});
+            this.ribbonPageGroup16,
+            this.ribbonPageGroup18});
             this.ribbonPage4.Name = "ribbonPage4";
             this.ribbonPage4.Text = "Sistema";
             // 
@@ -572,21 +592,21 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // ribbonPageGroup17
+            // ribbonPageGroup18
             // 
-            this.ribbonPageGroup17.AllowTextClipping = false;
-            this.ribbonPageGroup17.ItemLinks.Add(this.btnViewEditBusiness);
-            this.ribbonPageGroup17.Name = "ribbonPageGroup17";
-            this.ribbonPageGroup17.ShowCaptionButton = false;
-            this.ribbonPageGroup17.Text = "Empresas/Proprietários";
+            this.ribbonPageGroup18.AllowTextClipping = false;
+            this.ribbonPageGroup18.ItemLinks.Add(this.btnConfigureSMTP);
+            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
+            this.ribbonPageGroup18.ShowCaptionButton = false;
+            this.ribbonPageGroup18.Text = "Servidor SMTP";
             // 
-            // btnViewEditBusiness
+            // btnConfigureSMTP
             // 
-            this.btnViewEditBusiness.Caption = "Ver/Editar Empresas";
-            this.btnViewEditBusiness.Id = 36;
-            this.btnViewEditBusiness.Name = "btnViewEditBusiness";
-            this.btnViewEditBusiness.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnViewEditBusiness.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewEditBusiness_ItemClick);
+            this.btnConfigureSMTP.Caption = "Configurar SMTP";
+            this.btnConfigureSMTP.Id = 37;
+            this.btnConfigureSMTP.Name = "btnConfigureSMTP";
+            this.btnConfigureSMTP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigureSMTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigureSMTP_ItemClick);
             // 
             // DesktopForm
             // 
@@ -671,5 +691,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
         private DevExpress.XtraBars.BarButtonItem btnViewEditBusiness;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
+        private DevExpress.XtraBars.BarButtonItem btnConfigureSMTP;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
     }
 }

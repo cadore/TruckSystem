@@ -20,6 +20,7 @@ namespace TruckSystem.FileManager
         public static string trailers;
         public static string customers;
         public static string bank_accounts;
+        public static string mail;
 
         public static void buildPaths()
         {
@@ -35,6 +36,7 @@ namespace TruckSystem.FileManager
             trailers = raiz + files + @"\trailers";
             customers = raiz + files + @"\customers";
             bank_accounts = raiz + files + @"\bank_accounts";
+            mail = raiz + files + @"\mail";
             
             try
             {

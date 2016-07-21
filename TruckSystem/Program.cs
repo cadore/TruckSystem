@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TruckSystem.Connection;
 using TruckSystem.FileManager;
+using TruckSystem.Mail;
 using TruckSystem.UI;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.Utils;
@@ -33,10 +34,16 @@ namespace TruckSystem
             verefyProcesses();
             SplashScreenManager.ShowForm(null, typeof(SplashScreenForm), false, false, false);
             //Application.Run(new DesktopForm());
+            initializeCfg();
+            login();
+        }
+
+        private static void initializeCfg()
+        {
             configureFiles();
+            configureSmtpMail();
             startConnection();
             TrigersDB();
-            login();
         }
 
         private static void login()
@@ -63,6 +70,19 @@ namespace TruckSystem
             catch (Exception ex)
             {
                 MessageBox.Show(String.Format("Ocorreu um erro ao tentar configurar os arquivos!\n\n{0}\n{1}", ex.Message, ex.InnerException));
+                Exit(-1);
+            }
+        }
+
+        public static void configureSmtpMail()
+        {
+            try
+            {
+                SmtpEmail.LoadCfg();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(String.Format("Ocorreu um erro ao tentar configurar o servidor SMTP!\n\n{0}\n{1}", ex.Message, ex.InnerException));
                 Exit(-1);
             }
         }

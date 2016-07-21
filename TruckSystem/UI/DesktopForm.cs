@@ -35,6 +35,7 @@ using TruckSystem.Models.Reports;
 using TruckSystem.UI.Truck.Reports;
 using TruckSystem.UI.Trailer;
 using TruckSystem.UI.Business;
+using TruckSystem.Mail;
 
 namespace TruckSystem.UI
 {
@@ -313,8 +314,30 @@ namespace TruckSystem.UI
 
         private void btnViewEditBusiness_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SearchBusinessForm sbf = new SearchBusinessForm();
-            sbf.ShowDialog();
+            try
+            {
+                SmtpEmail smtp = new SmtpEmail();
+                smtp.receipts.Add("cadore.william@gmail.com");
+                smtp.receipts.Add("cadore.servicos@gmail.com");
+                smtp.subject = "Teste";
+                smtp.body_is_html = true;
+                smtp.body = "<html><H1>TESTE</H1></html>";
+                smtp.SendMail();
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+
+
+
+            //SearchBusinessForm sbf = new SearchBusinessForm();
+            //sbf.ShowDialog();
+        }
+
+        private void btnConfigureSMTP_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }        
     }
 }
