@@ -162,5 +162,10 @@ namespace TruckSystem.UI.Drivers
         {
             desk.AddTabAndCloseCurrent(new DriverForm(null), "Novo motorista", false);
         }
+
+        private void btnFileCNH_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

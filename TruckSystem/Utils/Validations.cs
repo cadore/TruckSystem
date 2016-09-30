@@ -247,6 +247,28 @@ namespace TruckSystem.Utils
                     throw new Exception(ex.Message, ex.InnerException);
                 }
             }
+
+            internal static bool NumberRntrcUnique(antts an)
+            {
+                try
+                {
+                    int count;
+                    var s = TruckSystemRepo.GetInstance().ExecuteScalar<string>
+                        ("SELECT COUNT(id) FROM antts WHERE rntrc=@0", an.rntrc);
+                    if (s.Equals(DBNull.Value) || String.IsNullOrEmpty(s))
+                        count = 0;
+                    else
+                        count = Convert.ToInt32(s);
+                    if (count == 0)
+                        return true;
+                    else
+                        return false;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message, ex.InnerException);
+                }
+            }
         }
     }
 }

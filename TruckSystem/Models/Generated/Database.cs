@@ -181,7 +181,6 @@ namespace TruckSystem
         public bool money { get; set; }
     }
 
-
     [TableName("address")]
     [PrimaryKey("id")]
     [ExplicitColumns]
@@ -279,6 +278,9 @@ namespace TruckSystem
         public long index { get; set; }
         [Column]
         public int? antt { get; set; }
+        [Column]
+        public long antt_id { get; set; }
+        public bool checkedState { get; set; }
     }
 
 
@@ -434,9 +436,12 @@ namespace TruckSystem
         [Column]
         public long driver_id { get; set; }
         [Column]
-        public int? antt { get; set; }
+        public long antt_id { get; set; }
 
         public string driver_name { get; set; }
+
+        public bool checkedState { get; set; }
+        public int antt { get; set; }
     }
 
     [TableName("stays")]
@@ -754,5 +759,52 @@ namespace TruckSystem
         public string name { get; set; }
         [Column]
         public string site { get; set; }
+    }
+
+    [TableName("mails")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class mails : TruckSystemRepo.Record<mails>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public string smtp_server { get; set; }
+        [Column]
+        public string user { get; set; }
+        [Column]
+        public string password { get; set; }
+        [Column]
+        public int port { get; set; }
+        [Column]
+        public bool ssl { get; set; }
+        [Column]
+        public string signature { get; set; }
+    }
+
+    [TableName("antts")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class antts : TruckSystemRepo.Record<antts>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public string rntrc { get; set; }
+        [Column]
+        public string status_rntrc { get; set; }
+        [Column]
+        public DateTime? registration_date { get; set; }
+        [Column]
+        public DateTime? validation_date { get; set; }
+        [Column]
+        public long state_id { get; set; }
+        [Column]
+        public long city_id { get; set; }
+        [Column]
+        public long customer_id { get; set; }
+
+        public string customer_name { get; set; }
+        public string customer_cnpj { get; set; }
     }
 }

@@ -40,10 +40,11 @@ namespace TruckSystem
 
         private static void initializeCfg()
         {
-            configureFiles();
-            configureSmtpMail();
             startConnection();
             TrigersDB();
+            configurePathBackup();
+            configureFiles();
+            configureSmtpMail();
         }
 
         private static void login()
@@ -60,11 +61,17 @@ namespace TruckSystem
             }
         }
 
+        public static void configurePathBackup()
+        {
+            Paths.PathPG = INI.ReadValue("BACKUP", "PathPG");
+            Paths.PathBackupFile = INI.ReadValue("BACKUP", "PathBackupFile");
+        }
+
         public static void configureFiles()
         {
             try
             {
-                Paths.raiz = INI.ReadValue("FILES", "CurrentPathFiles");
+                Paths.raiz = INI.ReadValue("FILES", "CurrentPathFiles");                
                 Paths.buildPaths();
             }
             catch (Exception ex)
@@ -78,7 +85,7 @@ namespace TruckSystem
         {
             try
             {
-                SmtpEmail.LoadCfg();
+                SmtpMailUtil.LoadCfg();
             }
             catch (Exception ex)
             {

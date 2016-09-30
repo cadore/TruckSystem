@@ -21,7 +21,22 @@ ALTER TABLE public.customers
   ADD COLUMN is_business boolean;
 
 
-  
+  CREATE TABLE public.mails
+(
+   id bigserial NOT NULL, 
+   smtp_server character varying, 
+   "user" character varying, 
+   password character varying, 
+   port integer, 
+   ssl boolean, 
+   signature text, 
+   CONSTRAINT "PK_mails_id" PRIMARY KEY (id)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+
   
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -252,5 +267,38 @@ ALTER TABLE public.bank_accounts
   ADD COLUMN type integer;
 COMMENT ON COLUMN public.bank_accounts.type IS '0 - corrente
 1 - poupança';
+ALTER TABLE drivers
+  ADD COLUMN cnh_pdf character varying;
+  
+  CREATE TABLE public.antts
+(
+   id bigserial NOT NULL, 
+   rntrc character varying, 
+   status_rntrc character varying, 
+   registration_date timestamp without time zone, 
+   validation_date timestamp without time zone, 
+   state_id bigint, 
+   city_id bigint, 
+   customer_id bigint, 
+   CONSTRAINT "PK_antts_id" PRIMARY KEY (id)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+COMMENT ON COLUMN public.antts.customer_id IS '';
 
+ALTER TABLE trucks
+  ADD COLUMN antt_id bigint;
+  
+  ALTER TABLE trailers
+  ADD COLUMN antt_id bigint;
 
+UPDATE customers SET is_business=FALSE;
+
+ALTER TABLE antts
+   ALTER COLUMN registration_date TYPE date;
+ALTER TABLE antts
+   ALTER COLUMN validation_date TYPE date;
+ALTER TABLE trucks
+  DROP COLUMN antt;

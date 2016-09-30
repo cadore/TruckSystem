@@ -15,7 +15,7 @@ namespace TruckSystem.Utils
             try
             {
                 //default Windows time server
-                const string ntpServer = "c.ntp.br";
+                const string ntpServer = "a.ntp.br";
 
                 // NTP message size - 16 bytes of the digest (RFC 2030)
                 var ntpData = new byte[48];

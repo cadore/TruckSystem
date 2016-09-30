@@ -595,8 +595,9 @@
             this.textEdit7.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgCustomer, "phone_mobile", true));
             this.textEdit7.Location = new System.Drawing.Point(305, 84);
             this.textEdit7.Name = "textEdit7";
-            this.textEdit7.Properties.Mask.EditMask = "(00)0000-0000";
-            this.textEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
+            this.textEdit7.Properties.Mask.EditMask = "\\(([1][1-9]|[2][1-2]|[2][4]|[2][7-8]|[9][1-9]|[8][1-9]|[3][1-8]|[7][1]|[7][3-5]|[" +
+    "7][7]|[7][9]|[6][1-9])\\)(\\d{5}-\\d{4})|\\((\\d{2})\\)(\\d{4}-\\d{4})";
+            this.textEdit7.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.textEdit7.Properties.ReadOnly = true;
             this.textEdit7.Size = new System.Drawing.Size(155, 20);
             this.textEdit7.TabIndex = 1;

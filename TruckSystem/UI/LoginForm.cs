@@ -92,7 +92,7 @@ namespace TruckSystem.UI
                     date = user.Now(),
                     host = Environment.MachineName,
                     local_ip = Util.getInternalIp(),
-                    external_ip = Util.getExternalIp()
+                    external_ip = ""//Util.getExternalIp()
                 };
                 l.Save();
             }

@@ -368,7 +368,7 @@ namespace TruckSystem.UI.Customer
             this.tfEmail.Properties.Mask.EditMask = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}";
             this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmail.Size = new System.Drawing.Size(365, 20);
-            this.tfEmail.TabIndex = 7;
+            this.tfEmail.TabIndex = 6;
             conditionValidationRule6.ErrorText = "This value is not valid";
             this.validator.SetValidationRule(this.tfEmail, conditionValidationRule6);
             // 
@@ -560,7 +560,7 @@ namespace TruckSystem.UI.Customer
             this.panelControl2.Location = new System.Drawing.Point(2, 403);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(903, 43);
-            this.panelControl2.TabIndex = 1;
+            this.panelControl2.TabIndex = 3;
             // 
             // btnSave
             // 
@@ -658,7 +658,7 @@ namespace TruckSystem.UI.Customer
     "7][7]|[7][9]|[6][1-9])\\)(\\d{5}-\\d{4})|\\((\\d{2})\\)(\\d{4}-\\d{4})";
             this.tfPhoneManager.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfPhoneManager.Size = new System.Drawing.Size(365, 20);
-            this.tfPhoneManager.TabIndex = 8;
+            this.tfPhoneManager.TabIndex = 9;
             // 
             // tfManager
             // 
@@ -667,7 +667,7 @@ namespace TruckSystem.UI.Customer
             this.tfManager.Name = "tfManager";
             this.tfManager.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfManager.Size = new System.Drawing.Size(365, 20);
-            this.tfManager.TabIndex = 8;
+            this.tfManager.TabIndex = 7;
             // 
             // labelControl4
             // 

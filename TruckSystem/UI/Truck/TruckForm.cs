@@ -13,6 +13,7 @@ using DevExpress.XtraSplashScreen;
 using TruckSystem.UI.SplashScreens;
 using TruckSystem.Utils;
 using TruckSystem.FileManager.UI;
+using PetaPoco;
 
 namespace TruckSystem.UI.Truck
 {
@@ -23,7 +24,7 @@ namespace TruckSystem.UI.Truck
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
             setValidations();
-            loadDrivers(null, null);
+            loadData(null, null);
             if (t == null)
             {
                 t = new truck();                
@@ -36,9 +37,18 @@ namespace TruckSystem.UI.Truck
             bdgTruck.DataSource = t;            
         }
 
-        private void loadDrivers(object sender, EventArgs e)
+        private void loadData(object sender, EventArgs e)
         {
             bdgDriver.DataSource = driver.Fetch("WHERE inactive=FALSE");
+
+            List<antts> listAntt = antts.Fetch("WHERE status_rntrc='ATIVO' AND validation_date >= @0", antts.Now());
+            for (int i = 0; i < listAntt.Count; i++)
+            {
+                customer c = customer.SingleOrDefault(listAntt[i].customer_id);
+                listAntt[i].customer_name = c.corporate_name;
+                listAntt[i].customer_cnpj = c.document;
+            }
+            bdgAntt.DataSource = listAntt;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -112,7 +122,7 @@ namespace TruckSystem.UI.Truck
             ConditionValidationRule cvChassi = new ConditionValidationRule() 
             { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe o Chassi" };
             ConditionValidationRule cvAntt = new ConditionValidationRule() 
-            { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe a Antt" };
+            { ConditionOperator = ConditionOperator.Greater, ErrorText = "Informe a Antt", Value1 = (long)0 };
             ConditionValidationRule cvMark = new ConditionValidationRule() 
             { ConditionOperator = ConditionOperator.IsNotBlank, ErrorText = "Informe a Marca" };
             ConditionValidationRule cvModel = new ConditionValidationRule() 
@@ -126,11 +136,11 @@ namespace TruckSystem.UI.Truck
             this.vTruck.SetValidationRule(tfBoardTruck, cvBoard);
             this.vTruck.SetValidationRule(tfRenavamTruck, cvRenavam);
             this.vTruck.SetValidationRule(tfChassiTruck, cvChassi);
-            this.vTruck.SetValidationRule(tfAnttTruck, cvAntt);
             this.vTruck.SetValidationRule(tfMarkTruck, cvMark);
             this.vTruck.SetValidationRule(tfModelTruck, cvModel);
             this.vTruck.SetValidationRule(tfYearFabricationTruck, cvYearFabrication);
             this.vTruck.SetValidationRule(tfYearModelTruck, cvYearModel);
+            this.vTruck.SetValidationRule(cbAntt, cvAntt);
         }
         #endregion        
 

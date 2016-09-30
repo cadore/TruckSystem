@@ -36,6 +36,13 @@ using TruckSystem.UI.Truck.Reports;
 using TruckSystem.UI.Trailer;
 using TruckSystem.UI.Business;
 using TruckSystem.Mail;
+using TruckSystem.Mail.UI;
+using TruckSystem.FileManager;
+using System.Diagnostics;
+using PostgresUtil;
+using System.Threading;
+using TruckSystem.UI.Backup;
+using TruckSystem.UI.ANTT;
 
 namespace TruckSystem.UI
 {
@@ -47,9 +54,7 @@ namespace TruckSystem.UI
             InitializeComponent();
             tabUtil = new TabControlUtil(this);
             UserControlUtil.desk = this;
-
             AddTab(new WaringsPaymentsDayForm(), "Pagamentos", true);
-
             SplashScreenManager.CloseForm(false);
         }
 
@@ -193,36 +198,51 @@ namespace TruckSystem.UI
                     XtraMessageBox.Show("Ultimo dia do mês, os CT-e's ja estão todos prontos?");
             }
             else
-                lbWarings.Caption = String.Format(@"Nenhum aviso para hoje! :\");           
+                lbWarings.Caption = String.Format(@"Nenhum aviso para hoje! :\");
         }
 
         private void btnBackup_ItemClick(object sender, ItemClickEventArgs e)
         {
-            SplashScreenManager.ShowForm(this, typeof(PleaseWaitForm), false, false, false);
-            ConnectionUtil conn = new ConnectionUtil();
-            string file = String.Format(@"{0}\Utils\CTPG\CTPG.exe", Directory.GetCurrentDirectory());
-            string args = String.Format("\"{0}\" \"{1}\" \"{2}\" \"{3}\" \"{4}\"", conn.Host, conn.Port, conn.User, conn.Password, conn.DataBase);
-            int exit = RunUtil.Run(file, args, true);
-            SplashScreenManager.CloseForm(false);
-            if (exit != 0)
-            {                
-                XtraMessageBox.Show("Ocorre um erro na tentativa de executar o backup, ou o mesmo foi cancelado pelo usuário!");
-            }
-            else
+            if(String.IsNullOrEmpty(Paths.PathBackupFile)
+                || String.IsNullOrEmpty(Paths.PathPG))
             {
-                XtraMessageBox.Show("Concluído com sucesso, verifique se o arquivo de backup foi criado!");
+                XtraMessageBox.Show("Existem configurações inclompetas, verifique!");
+                btnConfigBackup_ItemClick(sender, e);
+                return;
             }
+
+            DialogResult rs = XtraMessageBox.Show("Para realizar Backup todos os outros usuários serão desconectados!"
+                + "\nDeseja continuar?", "", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.No)
+                return;
+
+            SplashScreenManager.ShowForm(this, typeof(PleaseWaitForm), false, false, false);
+            
+            PostgresqlUtil pu = new PostgresqlUtil() 
+            { 
+                CurrentDateTime = user.Now(),
+                PrefixNameFile = "TruckSystem2.0",
+                Host = ConnectionUtil.Host,
+                Port = ConnectionUtil.Port,
+                User = ConnectionUtil.User,
+                Password = ConnectionUtil.Password,                
+                Database = ConnectionUtil.DataBase,
+                PathOutputSqlPrimary = Paths.backups, 
+                PathOutputSqlBackup = Paths.PathBackupFile,
+                PathPG = Paths.PathPG
+            };
+            Thread.Sleep(1800);
+            bool flag = pu.StartBackup();
+            Thread.Sleep(1500);
+            SplashScreenManager.CloseForm(false);
+            if (flag)
+                XtraMessageBox.Show("Backup realizado com sucesso!");
         }
 
         private void btnChooseColor_ItemClick(object sender, ItemClickEventArgs e)
         {
             ChooseColorFocusedForm ccff = new ChooseColorFocusedForm();
             ccff.ShowDialog();
-        }
-
-        private void tabControl_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSearchCNPJ_ItemClick(object sender, ItemClickEventArgs e)
@@ -314,30 +334,39 @@ namespace TruckSystem.UI
 
         private void btnViewEditBusiness_ItemClick(object sender, ItemClickEventArgs e)
         {
-            try
-            {
-                SmtpEmail smtp = new SmtpEmail();
-                smtp.receipts.Add("cadore.william@gmail.com");
-                smtp.receipts.Add("cadore.servicos@gmail.com");
-                smtp.subject = "Teste";
-                smtp.body_is_html = true;
-                smtp.body = "<html><H1>TESTE</H1></html>";
-                smtp.SendMail();
-            }
-            catch (Exception ex)
-            {
-                XtraMessageBox.Show(ex.Message);
-            }
-
-
-
-            //SearchBusinessForm sbf = new SearchBusinessForm();
-            //sbf.ShowDialog();
+            SearchBusinessForm sbf = new SearchBusinessForm();
+            sbf.ShowDialog();
         }
 
         private void btnConfigureSMTP_ItemClick(object sender, ItemClickEventArgs e)
         {
+            ConfigureMailForm cmf = new ConfigureMailForm();
+            cmf.ShowDialog();
+            SmtpMailUtil s = new SmtpMailUtil();
+            s.receipts = new List<string>() { "cadore.william@gmail.com" };
+            s.receipts_cc = new List<string>() { "cadore.servicos@gmail.com" };
+            s.subject = "teste";
+            s.body = "isso é um teste";
+            s.SendMail();
+        }
 
-        }        
+        private void btnSendRegisterMail_ItemClick(object sender, ItemClickEventArgs e)
+        {
+        }
+        private void btnConfigBackup_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            ConfigBackupForm cbf = new ConfigBackupForm();
+            cbf.ShowDialog();
+        }
+
+        private void btnSearchANTT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void btnNewANTT_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new AnttForm(), "Gerenciar ANTT", false);
+        }
     }
 }

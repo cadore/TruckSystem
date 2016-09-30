@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using TruckSystem.Utils.CPFCNPJ;
 using TruckSystem.UI.Customer;
 using PetaPoco;
+using TruckSystem.Utils;
 
 namespace TruckSystem.UI.SearchCNPJ
 {
@@ -31,6 +32,12 @@ namespace TruckSystem.UI.SearchCNPJ
           //try
            // {
                 //validações
+                if (!Validations.isCPFCNPJ(tfCNPJ.EditValue.ToString(), false))
+                {
+                    XtraMessageBox.Show("CNPJ incorreto, verifique!");
+                    return;
+                }
+
                 var countcnpj = customer.repo.ExecuteScalar<string>("SELECT COUNT(id) FROM customers WHERE document=@0",
                     tfCNPJ.EditValue);
                 if (!countcnpj.Equals(DBNull.Value) && !String.IsNullOrEmpty(countcnpj))

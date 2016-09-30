@@ -79,23 +79,24 @@ namespace TruckSystem.UI.Truck
             string st = rgType.EditValue.ToString();
             if (st.Equals("board"))
             {
-                listT = truck.Fetch("WHERE board=@0", tfType.EditValue);
+                listT = truck.Fetch("WHERE board=@0 ORDER BY id", tfType.EditValue);
             }
             else if (st.Equals("antt"))
             {
-                listT = truck.Fetch("WHERE antt=@0", tfType.EditValue);
+                listT = truck.Fetch("WHERE antt=@0 ORDER BY id", tfType.EditValue);
             }
             else if(st.Equals("driver"))
             {
-                listT = truck.Fetch("WHERE driver_id=@0", cbDriver.EditValue);
+                listT = truck.Fetch("WHERE driver_id=@0 ORDER BY id", cbDriver.EditValue);
             }
             else
             {
-                listT = truck.Fetch("");
+                listT = truck.Fetch("ORDER BY id");
             }
             for (int i = 0; i < listT.Count; i++)
             {
                 listT[i].driver_name = driver.SingleOrDefault(listT[i].driver_id).full_name;
+                listT[i].antt = Convert.ToInt32(antts.SingleOrDefault(listT[i].antt_id).rntrc);
             }
             bdgTrucks.DataSource = listT;
         }

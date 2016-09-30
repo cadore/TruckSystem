@@ -9,15 +9,15 @@ namespace TruckSystem.Connection
 {
     public class ConnectionUtil
     {
-        public string Host { get; private set; }
-        public string Port { get; private set; }
-        public string DataBase { get; private set; }
-        public string User { get; private set; }
-        public string Password { get; private set; }
+        public static string Host { get; private set; }
+        public static string Port { get; private set; }
+        public static string DataBase { get; private set; }
+        public static string User { get; private set; }
+        public static string Password { get; private set; }
 
         public static string InvariantName { get; private set; }
         public static string ConnectionString { get; private set; }
-
+        
         public ConnectionUtil()
         {
             try

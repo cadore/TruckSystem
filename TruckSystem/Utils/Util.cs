@@ -11,7 +11,7 @@ namespace TruckSystem.Utils
     {
         public static string Decrypt(String s)
         {
-            return new DTICrypto().Decifrar(s, "wjm");
+            return new DTICrypto().Decifrar(s, "wjm");            
         }
 
         public static string Encrypt(String s)

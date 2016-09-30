@@ -121,6 +121,7 @@
             this.btnFiles = new WCButtons.Black.ButtonFolderBlack();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
+            this.btnFileCNH = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).BeginInit();
@@ -670,6 +671,7 @@
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.btnFileCNH);
             this.groupControl2.Controls.Add(this.tfNumberRegister);
             this.groupControl2.Controls.Add(this.tfExpirated);
             this.groupControl2.Controls.Add(this.cbCategory);
@@ -950,6 +952,7 @@
             this.btnFiles.Text = "Arquivos";
             this.btnFiles.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFiles.UseVisualStyleBackColor = false;
+            this.btnFiles.Visible = false;
             this.btnFiles.Click += new System.EventHandler(this.btnFiles_Click);
             // 
             // btnSave
@@ -987,6 +990,16 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnFileCNH
+            // 
+            this.btnFileCNH.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnFileCNH.Location = new System.Drawing.Point(783, 24);
+            this.btnFileCNH.Name = "btnFileCNH";
+            this.btnFileCNH.Size = new System.Drawing.Size(75, 23);
+            this.btnFileCNH.TabIndex = 4;
+            this.btnFileCNH.Text = "Arquivo";
+            this.btnFileCNH.Click += new System.EventHandler(this.btnFileCNH_Click);
             // 
             // DriverForm
             // 
@@ -1124,5 +1137,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl23;
         private WCButtons.Black.ButtonFolderBlack btnFiles;
         private WCButtons.Black.ButtonAddBlack btnNew;
+        private DevExpress.XtraEditors.SimpleButton btnFileCNH;
     }
 }

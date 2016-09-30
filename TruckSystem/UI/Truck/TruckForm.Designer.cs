@@ -38,9 +38,17 @@ namespace TruckSystem.UI.Truck
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.pnGeneral = new DevExpress.XtraEditors.PanelControl();
             this.pnTruck = new DevExpress.XtraEditors.PanelControl();
+            this.cbAntt = new DevExpress.XtraEditors.SearchLookUpEdit();
+            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
+            this.bdgAntt = new System.Windows.Forms.BindingSource(this.components);
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colrntrc = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colvalidation_date = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcustomer_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colcustomer_cnpj = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnUpdateDrivers = new DevExpress.XtraEditors.SimpleButton();
             this.cbDriver = new DevExpress.XtraEditors.SearchLookUpEdit();
-            this.bdgTruck = new System.Windows.Forms.BindingSource(this.components);
             this.bdgDriver = new System.Windows.Forms.BindingSource(this.components);
             this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -53,7 +61,6 @@ namespace TruckSystem.UI.Truck
             this.tfModelTruck = new DevExpress.XtraEditors.TextEdit();
             this.tfYearModelTruck = new DevExpress.XtraEditors.TextEdit();
             this.tfYearFabricationTruck = new DevExpress.XtraEditors.TextEdit();
-            this.tfAnttTruck = new DevExpress.XtraEditors.TextEdit();
             this.tfMarkTruck = new DevExpress.XtraEditors.TextEdit();
             this.tfChassiTruck = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -73,8 +80,11 @@ namespace TruckSystem.UI.Truck
             this.pnGeneral.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pnTruck)).BeginInit();
             this.pnTruck.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbDriver.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAntt.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAntt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgDriver)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIdTruck.Properties)).BeginInit();
@@ -83,7 +93,6 @@ namespace TruckSystem.UI.Truck
             ((System.ComponentModel.ISupportInitialize)(this.tfModelTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfYearModelTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfYearFabricationTruck.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfAnttTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfMarkTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChassiTruck.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfBoardTruck.Properties)).BeginInit();
@@ -182,6 +191,7 @@ namespace TruckSystem.UI.Truck
             // 
             // pnTruck
             // 
+            this.pnTruck.Controls.Add(this.cbAntt);
             this.pnTruck.Controls.Add(this.btnUpdateDrivers);
             this.pnTruck.Controls.Add(this.cbDriver);
             this.pnTruck.Controls.Add(this.tfIdTruck);
@@ -191,7 +201,6 @@ namespace TruckSystem.UI.Truck
             this.pnTruck.Controls.Add(this.tfModelTruck);
             this.pnTruck.Controls.Add(this.tfYearModelTruck);
             this.pnTruck.Controls.Add(this.tfYearFabricationTruck);
-            this.pnTruck.Controls.Add(this.tfAnttTruck);
             this.pnTruck.Controls.Add(this.tfMarkTruck);
             this.pnTruck.Controls.Add(this.tfChassiTruck);
             this.pnTruck.Controls.Add(this.labelControl3);
@@ -210,6 +219,92 @@ namespace TruckSystem.UI.Truck
             this.pnTruck.Name = "pnTruck";
             this.pnTruck.Size = new System.Drawing.Size(581, 173);
             this.pnTruck.TabIndex = 1;
+            // 
+            // cbAntt
+            // 
+            this.cbAntt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTruck, "antt_id", true));
+            this.cbAntt.Location = new System.Drawing.Point(301, 32);
+            this.cbAntt.Name = "cbAntt";
+            this.cbAntt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cbAntt.Properties.DataSource = this.bdgAntt;
+            this.cbAntt.Properties.DisplayMember = "rntrc";
+            this.cbAntt.Properties.NullText = "";
+            this.cbAntt.Properties.ValueMember = "id";
+            this.cbAntt.Properties.View = this.gridView1;
+            this.cbAntt.Size = new System.Drawing.Size(270, 20);
+            this.cbAntt.TabIndex = 10;
+            // 
+            // bdgTruck
+            // 
+            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
+            // 
+            // bdgAntt
+            // 
+            this.bdgAntt.DataSource = typeof(TruckSystem.antts);
+            // 
+            // gridView1
+            // 
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn1,
+            this.colrntrc,
+            this.colvalidation_date,
+            this.colcustomer_name,
+            this.colcustomer_cnpj});
+            this.gridView1.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            // 
+            // gridColumn1
+            // 
+            this.gridColumn1.Caption = "Cod.";
+            this.gridColumn1.FieldName = "id";
+            this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.Visible = true;
+            this.gridColumn1.VisibleIndex = 0;
+            this.gridColumn1.Width = 61;
+            // 
+            // colrntrc
+            // 
+            this.colrntrc.Caption = "RNTRC";
+            this.colrntrc.FieldName = "rntrc";
+            this.colrntrc.Name = "colrntrc";
+            this.colrntrc.OptionsColumn.AllowEdit = false;
+            this.colrntrc.Visible = true;
+            this.colrntrc.VisibleIndex = 1;
+            this.colrntrc.Width = 106;
+            // 
+            // colvalidation_date
+            // 
+            this.colvalidation_date.Caption = "Validade";
+            this.colvalidation_date.FieldName = "validation_date";
+            this.colvalidation_date.Name = "colvalidation_date";
+            this.colvalidation_date.OptionsColumn.AllowEdit = false;
+            this.colvalidation_date.Visible = true;
+            this.colvalidation_date.VisibleIndex = 2;
+            this.colvalidation_date.Width = 105;
+            // 
+            // colcustomer_name
+            // 
+            this.colcustomer_name.Caption = "Cliente";
+            this.colcustomer_name.FieldName = "customer_name";
+            this.colcustomer_name.Name = "colcustomer_name";
+            this.colcustomer_name.OptionsColumn.AllowEdit = false;
+            this.colcustomer_name.Visible = true;
+            this.colcustomer_name.VisibleIndex = 3;
+            this.colcustomer_name.Width = 266;
+            // 
+            // colcustomer_cnpj
+            // 
+            this.colcustomer_cnpj.Caption = "Documento";
+            this.colcustomer_cnpj.FieldName = "customer_cnpj";
+            this.colcustomer_cnpj.Name = "colcustomer_cnpj";
+            this.colcustomer_cnpj.OptionsColumn.AllowEdit = false;
+            this.colcustomer_cnpj.Visible = true;
+            this.colcustomer_cnpj.VisibleIndex = 4;
+            this.colcustomer_cnpj.Width = 158;
             // 
             // btnUpdateDrivers
             // 
@@ -236,10 +331,6 @@ namespace TruckSystem.UI.Truck
             this.cbDriver.Properties.View = this.searchLookUpEdit1View;
             this.cbDriver.Size = new System.Drawing.Size(467, 20);
             this.cbDriver.TabIndex = 9;
-            // 
-            // bdgTruck
-            // 
-            this.bdgTruck.DataSource = typeof(TruckSystem.truck);
             // 
             // bdgDriver
             // 
@@ -340,7 +431,7 @@ namespace TruckSystem.UI.Truck
             // tfYearModelTruck
             // 
             this.tfYearModelTruck.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTruck, "year_model", true));
-            this.tfYearModelTruck.Location = new System.Drawing.Point(216, 112);
+            this.tfYearModelTruck.Location = new System.Drawing.Point(301, 112);
             this.tfYearModelTruck.Name = "tfYearModelTruck";
             this.tfYearModelTruck.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfYearModelTruck.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
@@ -358,20 +449,8 @@ namespace TruckSystem.UI.Truck
             this.tfYearFabricationTruck.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.tfYearFabricationTruck.Properties.Mask.EditMask = "[0-9]{4}";
             this.tfYearFabricationTruck.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfYearFabricationTruck.Size = new System.Drawing.Size(96, 20);
+            this.tfYearFabricationTruck.Size = new System.Drawing.Size(181, 20);
             this.tfYearFabricationTruck.TabIndex = 7;
-            // 
-            // tfAnttTruck
-            // 
-            this.tfAnttTruck.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTruck, "antt", true));
-            this.tfAnttTruck.Location = new System.Drawing.Point(301, 32);
-            this.tfAnttTruck.Name = "tfAnttTruck";
-            this.tfAnttTruck.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfAnttTruck.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
-            this.tfAnttTruck.Properties.Mask.EditMask = "[0-9]+";
-            this.tfAnttTruck.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfAnttTruck.Size = new System.Drawing.Size(270, 20);
-            this.tfAnttTruck.TabIndex = 3;
             // 
             // tfMarkTruck
             // 
@@ -426,7 +505,7 @@ namespace TruckSystem.UI.Truck
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(172, 115);
+            this.labelControl9.Location = new System.Drawing.Point(257, 115);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(38, 13);
             this.labelControl9.TabIndex = 0;
@@ -503,8 +582,11 @@ namespace TruckSystem.UI.Truck
             ((System.ComponentModel.ISupportInitialize)(this.pnTruck)).EndInit();
             this.pnTruck.ResumeLayout(false);
             this.pnTruck.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cbDriver.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAntt.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgTruck)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgAntt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgDriver)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIdTruck.Properties)).EndInit();
@@ -513,7 +595,6 @@ namespace TruckSystem.UI.Truck
             ((System.ComponentModel.ISupportInitialize)(this.tfModelTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfYearModelTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfYearFabricationTruck.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfAnttTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfMarkTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfChassiTruck.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfBoardTruck.Properties)).EndInit();
@@ -543,7 +624,6 @@ namespace TruckSystem.UI.Truck
         private DevExpress.XtraEditors.TextEdit tfModelTruck;
         private DevExpress.XtraEditors.TextEdit tfYearModelTruck;
         private DevExpress.XtraEditors.TextEdit tfYearFabricationTruck;
-        private DevExpress.XtraEditors.TextEdit tfAnttTruck;
         private DevExpress.XtraEditors.TextEdit tfMarkTruck;
         private DevExpress.XtraEditors.TextEdit tfChassiTruck;
         private DevExpress.XtraEditors.LabelControl labelControl3;
@@ -559,5 +639,13 @@ namespace TruckSystem.UI.Truck
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private WCButtons.Black.ButtonFolderBlack btnFiles;
         private WCButtons.Black.ButtonAddBlack btnNew;
+        private DevExpress.XtraEditors.SearchLookUpEdit cbAntt;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private System.Windows.Forms.BindingSource bdgAntt;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+        private DevExpress.XtraGrid.Columns.GridColumn colrntrc;
+        private DevExpress.XtraGrid.Columns.GridColumn colvalidation_date;
+        private DevExpress.XtraGrid.Columns.GridColumn colcustomer_name;
+        private DevExpress.XtraGrid.Columns.GridColumn colcustomer_cnpj;
     }
 }

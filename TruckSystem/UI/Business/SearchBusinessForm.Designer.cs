@@ -46,6 +46,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfSearch = new DevExpress.XtraEditors.TextEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRemove = new WCButtons.Black.ButtonRemoveBlack();
             this.btnAdd = new WCButtons.Black.ButtonAddBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -181,7 +182,7 @@
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(12, 12);
+            this.labelControl1.Location = new System.Drawing.Point(12, 11);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(95, 13);
             this.labelControl1.TabIndex = 1;
@@ -189,7 +190,7 @@
             // 
             // tfSearch
             // 
-            this.tfSearch.Location = new System.Drawing.Point(113, 9);
+            this.tfSearch.Location = new System.Drawing.Point(113, 8);
             this.tfSearch.Name = "tfSearch";
             this.tfSearch.Size = new System.Drawing.Size(754, 20);
             this.tfSearch.TabIndex = 0;
@@ -197,13 +198,31 @@
             // 
             // panelControl2
             // 
+            this.panelControl2.Controls.Add(this.btnRemove);
             this.panelControl2.Controls.Add(this.btnAdd);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 317);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(875, 43);
+            this.panelControl2.Size = new System.Drawing.Size(875, 47);
             this.panelControl2.TabIndex = 1;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnRemove.ForeColor = System.Drawing.Color.White;
+            this.btnRemove.Image = ((System.Drawing.Image)(resources.GetObject("btnRemove.Image")));
+            this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemove.Location = new System.Drawing.Point(127, 6);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(110, 33);
+            this.btnRemove.TabIndex = 2;
+            this.btnRemove.Text = "Remover";
+            this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRemove.UseVisualStyleBackColor = false;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnAdd
             // 
@@ -243,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(875, 360);
+            this.ClientSize = new System.Drawing.Size(875, 364);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -287,5 +306,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colmanager;
         private DevExpress.XtraGrid.Columns.GridColumn colcontact_manager;
         private WCButtons.Black.ButtonAddBlack btnAdd;
+        private WCButtons.Black.ButtonRemoveBlack btnRemove;
     }
 }

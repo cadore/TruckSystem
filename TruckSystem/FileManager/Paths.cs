@@ -21,6 +21,10 @@ namespace TruckSystem.FileManager
         public static string customers;
         public static string bank_accounts;
         public static string mail;
+        public static string backups;
+
+        public static string PathPG;
+        public static string PathBackupFile;
 
         public static void buildPaths()
         {
@@ -30,17 +34,18 @@ namespace TruckSystem.FileManager
             if (!Directory.Exists(raiz))
                 throw new Exception("Não foi possivel acessar o diretório raiz do sistema.");
 
+            mail = raiz + files + @"\mail";
             business = raiz + files + @"\business";
             drivers = raiz + files + @"\drivers";
             trucks = raiz + files + @"\trucks";
             trailers = raiz + files + @"\trailers";
             customers = raiz + files + @"\customers";
             bank_accounts = raiz + files + @"\bank_accounts";
-            mail = raiz + files + @"\mail";
+            backups = raiz + files + @"\backups";
             
             try
             {
-                string[] directories = { business, drivers, trucks, trailers, customers, bank_accounts };
+                string[] directories = { business, drivers, trucks, trailers, customers, bank_accounts, backups };
                 for (int i = 0; i < directories.Length; i++)
                 {
                     if (!Directory.Exists(directories[i]))

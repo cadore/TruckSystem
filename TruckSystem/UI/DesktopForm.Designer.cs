@@ -60,6 +60,11 @@
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigurePathFiles = new DevExpress.XtraBars.BarButtonItem();
             this.btnViewEditBusiness = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfigureSMTP = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSendRegisterMail = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNewANTT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSearchANTT = new DevExpress.XtraBars.BarButtonItem();
+            this.btnConfigBackup = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -69,7 +74,9 @@
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup12 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -83,10 +90,9 @@
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.btnConfigureSMTP = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -126,9 +132,13 @@
             this.barButtonItem4,
             this.btnConfigurePathFiles,
             this.btnViewEditBusiness,
-            this.btnConfigureSMTP});
+            this.btnConfigureSMTP,
+            this.btnSendRegisterMail,
+            this.btnNewANTT,
+            this.btnSearchANTT,
+            this.btnConfigBackup});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 38;
+            this.ribbon.MaxItemId = 42;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -270,10 +280,9 @@
             // 
             // btnBackup
             // 
-            this.btnBackup.Caption = "Backup";
+            this.btnBackup.Caption = "Realizar Backup Agora";
             this.btnBackup.Id = 20;
             this.btnBackup.Name = "btnBackup";
-            this.btnBackup.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBackup_ItemClick);
             // 
             // btnChooseColor
@@ -371,6 +380,45 @@
             this.btnViewEditBusiness.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnViewEditBusiness.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnViewEditBusiness_ItemClick);
             // 
+            // btnConfigureSMTP
+            // 
+            this.btnConfigureSMTP.Caption = "Configurar SMTP";
+            this.btnConfigureSMTP.Id = 37;
+            this.btnConfigureSMTP.Name = "btnConfigureSMTP";
+            this.btnConfigureSMTP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnConfigureSMTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigureSMTP_ItemClick);
+            // 
+            // btnSendRegisterMail
+            // 
+            this.btnSendRegisterMail.Caption = "Enviar Cadastro por Email";
+            this.btnSendRegisterMail.Id = 38;
+            this.btnSendRegisterMail.Name = "btnSendRegisterMail";
+            this.btnSendRegisterMail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSendRegisterMail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSendRegisterMail_ItemClick);
+            // 
+            // btnNewANTT
+            // 
+            this.btnNewANTT.Caption = "Gerenciar ANTT";
+            this.btnNewANTT.Id = 39;
+            this.btnNewANTT.Name = "btnNewANTT";
+            this.btnNewANTT.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnNewANTT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewANTT_ItemClick);
+            // 
+            // btnSearchANTT
+            // 
+            this.btnSearchANTT.Caption = "Buscar ANTT";
+            this.btnSearchANTT.Id = 40;
+            this.btnSearchANTT.Name = "btnSearchANTT";
+            this.btnSearchANTT.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnSearchANTT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchANTT_ItemClick);
+            // 
+            // btnConfigBackup
+            // 
+            this.btnConfigBackup.Caption = "Configuração de Backup";
+            this.btnConfigBackup.Id = 41;
+            this.btnConfigBackup.Name = "btnConfigBackup";
+            this.btnConfigBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigBackup_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -414,7 +462,9 @@
             this.ribbonPageGroup6,
             this.ribbonPageGroup7,
             this.ribbonPageGroup15,
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup20,
+            this.ribbonPageGroup5,
+            this.ribbonPageGroup19});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Cadastros";
             // 
@@ -454,6 +504,14 @@
             this.ribbonPageGroup15.ShowCaptionButton = false;
             this.ribbonPageGroup15.Text = "Reboques";
             // 
+            // ribbonPageGroup20
+            // 
+            this.ribbonPageGroup20.AllowTextClipping = false;
+            this.ribbonPageGroup20.ItemLinks.Add(this.btnNewANTT);
+            this.ribbonPageGroup20.Name = "ribbonPageGroup20";
+            this.ribbonPageGroup20.ShowCaptionButton = false;
+            this.ribbonPageGroup20.Text = "ANTT";
+            // 
             // ribbonPageGroup5
             // 
             this.ribbonPageGroup5.AllowTextClipping = false;
@@ -461,6 +519,14 @@
             this.ribbonPageGroup5.Name = "ribbonPageGroup5";
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Contas Bancarias";
+            // 
+            // ribbonPageGroup19
+            // 
+            this.ribbonPageGroup19.AllowTextClipping = false;
+            this.ribbonPageGroup19.ItemLinks.Add(this.btnSendRegisterMail);
+            this.ribbonPageGroup19.Name = "ribbonPageGroup19";
+            this.ribbonPageGroup19.ShowCaptionButton = false;
+            this.ribbonPageGroup19.Text = "Email";
             // 
             // ribbonPage6
             // 
@@ -549,6 +615,7 @@
             // 
             this.ribbonPageGroup9.AllowTextClipping = false;
             this.ribbonPageGroup9.ItemLinks.Add(this.btnBackup);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnConfigBackup);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.ShowCaptionButton = false;
             this.ribbonPageGroup9.Text = "Banco de Dados";
@@ -569,6 +636,14 @@
             this.ribbonPageGroup16.ShowCaptionButton = false;
             this.ribbonPageGroup16.Text = "Arquivos";
             // 
+            // ribbonPageGroup18
+            // 
+            this.ribbonPageGroup18.AllowTextClipping = false;
+            this.ribbonPageGroup18.ItemLinks.Add(this.btnConfigureSMTP);
+            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
+            this.ribbonPageGroup18.ShowCaptionButton = false;
+            this.ribbonPageGroup18.Text = "Servidor SMTP";
+            // 
             // ribbonStatusBar
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.lbStatusUser);
@@ -588,25 +663,8 @@
             this.tabControl.TabIndex = 2;
             this.tabControl.CloseButtonClick += new System.EventHandler(this.tabControl_CloseButtonClick);
             this.tabControl.CustomHeaderButtonClick += new DevExpress.XtraTab.ViewInfo.CustomHeaderButtonEventHandler(this.tabControl_CustomHeaderButtonClick);
-            this.tabControl.Click += new System.EventHandler(this.tabControl_Click);
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
-            // 
-            // ribbonPageGroup18
-            // 
-            this.ribbonPageGroup18.AllowTextClipping = false;
-            this.ribbonPageGroup18.ItemLinks.Add(this.btnConfigureSMTP);
-            this.ribbonPageGroup18.Name = "ribbonPageGroup18";
-            this.ribbonPageGroup18.ShowCaptionButton = false;
-            this.ribbonPageGroup18.Text = "Servidor SMTP";
-            // 
-            // btnConfigureSMTP
-            // 
-            this.btnConfigureSMTP.Caption = "Configurar SMTP";
-            this.btnConfigureSMTP.Id = 37;
-            this.btnConfigureSMTP.Name = "btnConfigureSMTP";
-            this.btnConfigureSMTP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnConfigureSMTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigureSMTP_ItemClick);
             // 
             // DesktopForm
             // 
@@ -693,5 +751,11 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
         private DevExpress.XtraBars.BarButtonItem btnConfigureSMTP;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
+        private DevExpress.XtraBars.BarButtonItem btnSendRegisterMail;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup19;
+        private DevExpress.XtraBars.BarButtonItem btnNewANTT;
+        private DevExpress.XtraBars.BarButtonItem btnSearchANTT;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
+        private DevExpress.XtraBars.BarButtonItem btnConfigBackup;
     }
 }

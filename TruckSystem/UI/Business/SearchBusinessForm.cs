@@ -17,9 +17,15 @@ namespace TruckSystem.UI.Business
         public SearchBusinessForm()
         {
             InitializeComponent();
+            search();
         }
 
         private void tfSearch_EditValueChanged(object sender, EventArgs e)
+        {
+            search();
+        }
+
+        private void search()
         {
             if (tfSearch.Text.Trim().Length >= 3)
             {
@@ -52,11 +58,20 @@ namespace TruckSystem.UI.Business
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            AuthenticateForm af = new AuthenticateForm(true);
-            DialogResult rs = af.ShowDialog();
-            if (rs != DialogResult.OK && !af.Authenticate)
+            if (!Singleton.autenticateAdmin())
                 return;
 
+            FindNewBusiness fnb = new FindNewBusiness();
+            DialogResult fnb_rs = fnb.ShowDialog();
+            if (fnb_rs == DialogResult.OK)
+            {
+                search();
+            }
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            XtraMessageBox.Show("Para executar esta ação entre em contato com a equipe técnica.", "Atenção");
         }
     }
 }
