@@ -165,6 +165,7 @@ namespace TruckSystem.UI.Customer
             conditionValidationRule1.ErrorText = "Informe a cidade";
             conditionValidationRule1.Value1 = ((long)(0));
             this.validator.SetValidationRule(this.cbCity, conditionValidationRule1);
+            this.cbCity.EditValueChanged += new System.EventHandler(this.cbCity_EditValueChanged);
             // 
             // bdgAddress
             // 
@@ -190,6 +191,8 @@ namespace TruckSystem.UI.Customer
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn2, DevExpress.Data.ColumnSortOrder.Descending)});
             // 
             // gridColumn1
             // 

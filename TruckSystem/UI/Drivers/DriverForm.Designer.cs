@@ -93,6 +93,7 @@
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.btnFileCNH = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl19 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl22 = new DevExpress.XtraEditors.LabelControl();
@@ -121,7 +122,6 @@
             this.btnFiles = new WCButtons.Black.ButtonFolderBlack();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.btnFileCNH = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).BeginInit();
@@ -187,6 +187,7 @@
             conditionValidationRule1.ErrorText = "Informe a Cidade";
             conditionValidationRule1.Value1 = ((long)(0));
             this.validator.SetValidationRule(this.cbCity, conditionValidationRule1);
+            this.cbCity.EditValueChanged += new System.EventHandler(this.cbCity_EditValueChanged);
             // 
             // bdgAddress
             // 
@@ -687,6 +688,16 @@
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "CNH - Carteira Nacional de Habilitação";
             // 
+            // btnFileCNH
+            // 
+            this.btnFileCNH.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnFileCNH.Location = new System.Drawing.Point(783, 24);
+            this.btnFileCNH.Name = "btnFileCNH";
+            this.btnFileCNH.Size = new System.Drawing.Size(75, 23);
+            this.btnFileCNH.TabIndex = 4;
+            this.btnFileCNH.Text = "Arquivo";
+            this.btnFileCNH.Click += new System.EventHandler(this.btnFileCNH_Click);
+            // 
             // labelControl20
             // 
             this.labelControl20.Location = new System.Drawing.Point(547, 29);
@@ -990,16 +1001,6 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnFileCNH
-            // 
-            this.btnFileCNH.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnFileCNH.Location = new System.Drawing.Point(783, 24);
-            this.btnFileCNH.Name = "btnFileCNH";
-            this.btnFileCNH.Size = new System.Drawing.Size(75, 23);
-            this.btnFileCNH.TabIndex = 4;
-            this.btnFileCNH.Text = "Arquivo";
-            this.btnFileCNH.Click += new System.EventHandler(this.btnFileCNH_Click);
             // 
             // DriverForm
             // 

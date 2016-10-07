@@ -158,6 +158,8 @@
             this.colphone_mobile});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colphone_mobile, DevExpress.Data.ColumnSortOrder.Ascending)});
             // 
             // colid
             // 

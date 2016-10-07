@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TruckSystem.Utils;
 
 namespace TruckSystem
 {
@@ -15,19 +16,23 @@ namespace TruckSystem
         public form()
         {
             InitializeComponent();
-            webBrowser1.ScriptErrorsSuppressed = false;
+            textEdit1.SelectAll();
+            textEdit1.Focus();
         }
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            //webBrowser1.Navigate(@"http://consultapublicarntrc.antt.gov.br/consultapublica");
+            WebCEP wp = new WebCEP(textEdit1.EditValue.ToString(), WebCEP.TypeCase.Lower);
+            Console.WriteLine(wp.UF);
+            Console.WriteLine(wp.CIDADE);
+            Console.WriteLine(wp.BAIRRO);
+            Console.WriteLine(wp.TIPOLAGRADOURO);
+            Console.WriteLine(wp.LAGRADOURO);
+            Console.WriteLine(wp.RESULTADO);
+            Console.WriteLine(wp.RESULTADO_TXT);
 
-            string theURI = "http://consultapublicarntrc.antt.gov.br/consultapublica";
-            string theFrame = "";
-            System.Text.ASCIIEncoding anEncoder = new ASCIIEncoding();
-            byte[] HTTPPostData = anEncoder.GetBytes("");
-            string additionalHeaders = "Content-Type: application/x-www-form-urlencoded\n\r";
-            webBrowser1.Navigate(theURI, theFrame, HTTPPostData, additionalHeaders);
+            textEdit1.SelectAll();
+            textEdit1.Focus();
         }
     }
 }

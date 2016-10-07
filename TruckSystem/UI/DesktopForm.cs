@@ -368,5 +368,11 @@ namespace TruckSystem.UI
         {
             AddTab(new AnttForm(), "Gerenciar ANTT", false);
         }
+
+        private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            form f = new form();
+            f.Show();
+        }
     }
 }

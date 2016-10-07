@@ -170,5 +170,26 @@ namespace TruckSystem.UI.Customer
             }      
             
         }
+
+        private void cbCity_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cbCity.EditValue != null && Convert.ToInt64(cbCity.EditValue) > 0)
+            {
+                city c = city.SingleOrDefault(cbCity.EditValue);
+                if (!String.IsNullOrEmpty(c.zip_code))
+                {
+                    tfCep.EditValue = c.zip_code;
+                    ((address)bdgAddress.Current).cep = c.zip_code;
+                }
+                else
+                {
+                    if (IsNew)
+                    {
+                        tfCep.EditValue = "";
+                        ((address)bdgAddress.Current).cep = "";
+                    }
+                }
+            }
+        }
     }
 }

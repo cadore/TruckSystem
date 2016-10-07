@@ -167,5 +167,10 @@ namespace TruckSystem.UI.Drivers
         {
 
         }
+
+        private void cbCity_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
