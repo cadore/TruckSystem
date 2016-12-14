@@ -23,6 +23,7 @@ namespace TruckSystem.UI.Utils
         public AuthenticateForm(bool _AdminIsRequired)
         {            
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             AdminIsRequired = _AdminIsRequired;
         }
 

@@ -13,7 +13,7 @@ namespace TruckSystem.Utils
         public string BAIRRO { get; set; }
         public string TIPOLAGRADOURO { get; set; }
         public string LAGRADOURO { get; set; }
-        public string RESULTADO { get; set; }
+        public int RESULTADO { get; set; }
         public string RESULTADO_TXT { get; set; }
 
         public enum TypeCase
@@ -32,7 +32,7 @@ namespace TruckSystem.Utils
             BAIRRO = "";
             TIPOLAGRADOURO = "";
             LAGRADOURO = "";
-            RESULTADO = "0";
+            RESULTADO = 0;
             RESULTADO_TXT = "CEP não encontrado";
 
             try
@@ -45,10 +45,10 @@ namespace TruckSystem.Utils
                 {
                     if (ds.Tables[0].Rows.Count > 0)
                     {
-                        RESULTADO = ds.Tables[0].Rows[0]["resultado"].ToString();
+                        RESULTADO = Convert.ToInt32(ds.Tables[0].Rows[0]["resultado"].ToString());
                         switch (RESULTADO)
                         {
-                            case "1":
+                            case 1:
                                 UF = ds.Tables[0].Rows[0]["uf"].ToString().Trim();
                                 CIDADE = ds.Tables[0].Rows[0]["cidade"].ToString().Trim();
                                 BAIRRO = ds.Tables[0].Rows[0]["bairro"].ToString().Trim();
@@ -56,7 +56,7 @@ namespace TruckSystem.Utils
                                 LAGRADOURO = ds.Tables[0].Rows[0]["logradouro"].ToString().Trim();
                                 RESULTADO_TXT = "CEP completo";
                                 break;
-                            case "2":
+                            case 2:
                                 UF = ds.Tables[0].Rows[0]["uf"].ToString().Trim();
                                 CIDADE = ds.Tables[0].Rows[0]["cidade"].ToString().Trim();
                                 BAIRRO = "";

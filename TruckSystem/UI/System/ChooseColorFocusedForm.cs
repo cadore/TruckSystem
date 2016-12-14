@@ -17,6 +17,7 @@ namespace TruckSystem.UI
         public ChooseColorFocusedForm()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             string c = INI.ReadValue("SYSTEM", "AppearanceFocused");
             string[] color;
             if (String.IsNullOrEmpty(c))

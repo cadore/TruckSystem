@@ -12,6 +12,7 @@ using TruckSystem.FileManager.UI;
 using TruckSystem.FileManager;
 using System.IO;
 using TruckSystem.Utils;
+using TruckSystem.UI;
 
 namespace TruckSystem.Mail.UI
 {
@@ -20,6 +21,7 @@ namespace TruckSystem.Mail.UI
         public ConfigureMailForm()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             btnViewSignature.Visible = false;
             mails smt = mails.SingleOrDefault(1);
             if (smt == null)
@@ -58,6 +60,11 @@ namespace TruckSystem.Mail.UI
         private void btnViewSignature_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void tfSignature_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,6 +16,7 @@ namespace TruckSystem.UI.Lubrifications
         public LubrificationForm()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
         }
     }
 }

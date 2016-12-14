@@ -17,6 +17,7 @@ namespace TruckSystem.UI.Business
         public SearchBusinessForm()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             search();
         }
 

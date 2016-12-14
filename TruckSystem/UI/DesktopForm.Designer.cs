@@ -93,7 +93,6 @@
             this.ribbonPageGroup18 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.tabControl = new DevExpress.XtraTab.XtraTabControl();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
             this.SuspendLayout();
@@ -137,8 +136,7 @@
             this.btnSendRegisterMail,
             this.btnNewANTT,
             this.btnSearchANTT,
-            this.btnConfigBackup,
-            this.barButtonItem3});
+            this.btnConfigBackup});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 43;
             this.ribbon.Name = "ribbon";
@@ -453,7 +451,6 @@
             this.ribbonPageGroup11.AllowTextClipping = false;
             this.ribbonPageGroup11.ItemLinks.Add(this.btnNewPayment);
             this.ribbonPageGroup11.ItemLinks.Add(this.btnSearchPayments);
-            this.ribbonPageGroup11.ItemLinks.Add(this.barButtonItem3);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.ShowCaptionButton = false;
             this.ribbonPageGroup11.Text = "Pagamentos";
@@ -669,13 +666,6 @@
             this.tabControl.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tabControl_ControlAdded);
             this.tabControl.Resize += new System.EventHandler(this.tabControl_Resize);
             // 
-            // barButtonItem3
-            // 
-            this.barButtonItem3.Caption = "barButtonItem3";
-            this.barButtonItem3.Id = 42;
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
-            // 
             // DesktopForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -767,6 +757,5 @@
         private DevExpress.XtraBars.BarButtonItem btnSearchANTT;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
         private DevExpress.XtraBars.BarButtonItem btnConfigBackup;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
     }
 }

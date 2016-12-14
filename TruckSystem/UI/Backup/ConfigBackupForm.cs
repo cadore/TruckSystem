@@ -21,6 +21,7 @@ namespace TruckSystem.UI.Backup
         public ConfigBackupForm()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             PathBackup = Paths.PathBackupFile;
             PathPG = Paths.PathPG;
             tfPathBackup.EditValue = PathBackup;

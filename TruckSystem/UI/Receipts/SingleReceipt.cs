@@ -17,6 +17,7 @@ namespace TruckSystem.UI.Receipts
         public SingleReceipt()
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             bdgState.DataSource = state.Fetch("ORDER BY symbol");
         }
 

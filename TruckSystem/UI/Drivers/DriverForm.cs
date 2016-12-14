@@ -172,5 +172,82 @@ namespace TruckSystem.UI.Drivers
         {
 
         }
+
+        private void btnSearchCEP_Click(object sender, EventArgs e)
+        {
+            if (!validatorSearchCEP.Validate())
+                return;
+
+            tfCep.SelectAll();
+
+            try
+            {
+                if (Util.isConnectedWeb() && (tfCep.EditValue != null && !String.IsNullOrEmpty(tfCep.EditValue.ToString())))
+                {
+                    SplashScreenManager.ShowForm(desk, typeof(PleaseWaitForm), false, false, false);
+                    WebCEP wcep = new WebCEP(tfCep.EditValue.ToString(), WebCEP.TypeCase.Upper);
+
+                    ((address)bdgAddress.Current).state_id = 0;
+                    cbStateAddress.EditValue = 0;
+                    ((address)bdgAddress.Current).city_id = 0;
+                    cbCity.EditValue = 0;
+                    ((address)bdgAddress.Current).district = "";
+                    tfDistrict.EditValue = "";
+                    ((address)bdgAddress.Current).name = "";
+                    tfAddress.EditValue = "";
+
+                    if (wcep.RESULTADO == 0)
+                    {
+                        ((address)bdgAddress.Current).cep = "";
+                        tfCep.EditValue = "";
+
+                        SplashScreenManager.CloseForm(false);
+                        XtraMessageBox.Show("O CEP informado não foi encontrado!\n"
+                            + "Verifique e tente novamente ou informe manualmente.", "CADORE TECNOLOGIA");
+                        return;
+                    }
+                    else
+                    {
+                        state s = state.SingleOrDefault("WHERE symbol ILIKE @0", state.Concat(wcep.UF));
+                        if (s != null)
+                        {
+                            ((address)bdgAddress.Current).state_id = s.id;
+                            cbStateAddress.EditValue = s.id;
+                        }
+
+                        Console.WriteLine(wcep.CIDADE);
+                        city c = city.SingleOrDefault("WHERE remove_character(name) ILIKE remove_character(@0)", city.Concat(wcep.CIDADE));
+                        if (c != null)
+                        {
+                            ((address)bdgAddress.Current).city_id = c.id;
+                            cbCity.EditValue = c.id;
+                        }
+
+                        if (wcep.RESULTADO == 1)
+                        {
+                            ((address)bdgAddress.Current).district = wcep.BAIRRO;
+                            tfDistrict.EditValue = wcep.BAIRRO;
+
+                            string street = String.Format("{0} {1}", wcep.TIPOLAGRADOURO, wcep.LAGRADOURO);
+                            ((address)bdgAddress.Current).name = street;
+                            tfAddress.EditValue = street;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show(String.Format("Ocorreu um erro\n\n{0}\n{1}", ex.Message, ex.InnerException));
+            }
+            finally
+            {
+                SplashScreenManager.CloseForm(false);
+            }
+        }
+
+        private void tfCep_KeyDown(object sender, KeyEventArgs e)
+        {
+            btnSearchCEP_Click(sender, e);
+        }
     }
 }

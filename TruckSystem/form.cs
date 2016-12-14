@@ -23,6 +23,7 @@ namespace TruckSystem
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             WebCEP wp = new WebCEP(textEdit1.EditValue.ToString(), WebCEP.TypeCase.Lower);
+
             Console.WriteLine(wp.UF);
             Console.WriteLine(wp.CIDADE);
             Console.WriteLine(wp.BAIRRO);

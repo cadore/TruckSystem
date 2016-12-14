@@ -17,6 +17,7 @@ namespace TruckSystem.UI.Category
         public NewCategoryForm(category.Categorys ct)
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             CategoryT = ct;
         }
 

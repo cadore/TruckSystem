@@ -18,6 +18,7 @@ namespace TruckSystem.UI.Utils
         public InputMessageForm(string caption, FormatValue fv)
         {
             InitializeComponent();
+            ControlsUtil.SetBackColor(this.Controls);
             this.pnPrincipal.Text = caption;
 
             if (fv == FormatValue.Decimal)

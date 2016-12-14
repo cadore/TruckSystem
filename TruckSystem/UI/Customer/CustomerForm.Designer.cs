@@ -39,6 +39,7 @@ namespace TruckSystem.UI.Customer
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule7 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule8 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule9 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule10 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.cbCity = new DevExpress.XtraEditors.SearchLookUpEdit();
@@ -72,6 +73,7 @@ namespace TruckSystem.UI.Customer
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.tfObservations = new DevExpress.XtraEditors.MemoEdit();
             this.pnAddress = new DevExpress.XtraEditors.GroupControl();
+            this.btnSearchCEP = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl13 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
@@ -105,6 +107,7 @@ namespace TruckSystem.UI.Customer
             this.lbCNPJ = new DevExpress.XtraEditors.LabelControl();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.lbCorporateName = new DevExpress.XtraEditors.LabelControl();
+            this.validatorSearchCEP = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).BeginInit();
@@ -144,12 +147,13 @@ namespace TruckSystem.UI.Customer
             ((System.ComponentModel.ISupportInitialize)(this.tfIE.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPhoneMobile.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFantasyName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validatorSearchCEP)).BeginInit();
             this.SuspendLayout();
             // 
             // cbCity
             // 
             this.cbCity.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "city_id", true));
-            this.cbCity.Location = new System.Drawing.Point(474, 50);
+            this.cbCity.Location = new System.Drawing.Point(474, 76);
             this.cbCity.Name = "cbCity";
             this.cbCity.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -159,8 +163,8 @@ namespace TruckSystem.UI.Customer
             this.cbCity.Properties.NullText = "";
             this.cbCity.Properties.ValueMember = "id";
             this.cbCity.Properties.View = this.gridView1;
-            this.cbCity.Size = new System.Drawing.Size(274, 20);
-            this.cbCity.TabIndex = 5;
+            this.cbCity.Size = new System.Drawing.Size(423, 20);
+            this.cbCity.TabIndex = 6;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule1.ErrorText = "Informe a cidade";
             conditionValidationRule1.Value1 = ((long)(0));
@@ -263,7 +267,7 @@ namespace TruckSystem.UI.Customer
             // cbStateAddress
             // 
             this.cbStateAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "state_id", true));
-            this.cbStateAddress.Location = new System.Drawing.Point(331, 50);
+            this.cbStateAddress.Location = new System.Drawing.Point(331, 76);
             this.cbStateAddress.Name = "cbStateAddress";
             this.cbStateAddress.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -274,7 +278,7 @@ namespace TruckSystem.UI.Customer
             this.cbStateAddress.Properties.ValueMember = "id";
             this.cbStateAddress.Properties.View = this.searchLookUpEdit1View;
             this.cbStateAddress.Size = new System.Drawing.Size(94, 20);
-            this.cbStateAddress.TabIndex = 4;
+            this.cbStateAddress.TabIndex = 5;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.Greater;
             conditionValidationRule2.ErrorText = "Informe o Estado";
             conditionValidationRule2.Value1 = ((long)(0));
@@ -329,39 +333,43 @@ namespace TruckSystem.UI.Customer
             // tfCep
             // 
             this.tfCep.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "cep", true));
-            this.tfCep.Location = new System.Drawing.Point(783, 50);
+            this.tfCep.Location = new System.Drawing.Point(60, 24);
             this.tfCep.Name = "tfCep";
             this.tfCep.Properties.Mask.EditMask = "00000-000";
             this.tfCep.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfCep.Size = new System.Drawing.Size(114, 20);
-            this.tfCep.TabIndex = 6;
+            this.tfCep.TabIndex = 0;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "Informe o CEP";
-            this.validator.SetValidationRule(this.tfCep, conditionValidationRule3);
+            this.validatorSearchCEP.SetValidationRule(this.tfCep, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Informe o CEP";
+            this.validator.SetValidationRule(this.tfCep, conditionValidationRule4);
+            this.tfCep.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tfCep_KeyDown);
             // 
             // tfDistrict
             // 
             this.tfDistrict.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "district", true));
-            this.tfDistrict.Location = new System.Drawing.Point(60, 50);
+            this.tfDistrict.Location = new System.Drawing.Point(60, 76);
             this.tfDistrict.Name = "tfDistrict";
             this.tfDistrict.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfDistrict.Size = new System.Drawing.Size(242, 20);
-            this.tfDistrict.TabIndex = 3;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Informe o bairro";
-            this.validator.SetValidationRule(this.tfDistrict, conditionValidationRule4);
+            this.tfDistrict.TabIndex = 4;
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Informe o bairro";
+            this.validator.SetValidationRule(this.tfDistrict, conditionValidationRule5);
             // 
             // tfAddress
             // 
             this.tfAddress.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "name", true));
-            this.tfAddress.Location = new System.Drawing.Point(60, 24);
+            this.tfAddress.Location = new System.Drawing.Point(60, 50);
             this.tfAddress.Name = "tfAddress";
             this.tfAddress.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfAddress.Size = new System.Drawing.Size(296, 20);
-            this.tfAddress.TabIndex = 0;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Informe o endereço";
-            this.validator.SetValidationRule(this.tfAddress, conditionValidationRule5);
+            this.tfAddress.TabIndex = 1;
+            conditionValidationRule6.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule6.ErrorText = "Informe o endereço";
+            this.validator.SetValidationRule(this.tfAddress, conditionValidationRule6);
             // 
             // tfEmail
             // 
@@ -372,8 +380,8 @@ namespace TruckSystem.UI.Customer
             this.tfEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.tfEmail.Size = new System.Drawing.Size(365, 20);
             this.tfEmail.TabIndex = 6;
-            conditionValidationRule6.ErrorText = "This value is not valid";
-            this.validator.SetValidationRule(this.tfEmail, conditionValidationRule6);
+            conditionValidationRule7.ErrorText = "This value is not valid";
+            this.validator.SetValidationRule(this.tfEmail, conditionValidationRule7);
             // 
             // bdgCustomer
             // 
@@ -388,8 +396,8 @@ namespace TruckSystem.UI.Customer
             this.tfPhoneFixed.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
             this.tfPhoneFixed.Size = new System.Drawing.Size(365, 20);
             this.tfPhoneFixed.TabIndex = 4;
-            conditionValidationRule7.ErrorText = "This value is not valid";
-            this.validator.SetValidationRule(this.tfPhoneFixed, conditionValidationRule7);
+            conditionValidationRule8.ErrorText = "This value is not valid";
+            this.validator.SetValidationRule(this.tfPhoneFixed, conditionValidationRule8);
             // 
             // tfCorporateName
             // 
@@ -400,9 +408,9 @@ namespace TruckSystem.UI.Customer
             this.tfCorporateName.Properties.Mask.EditMask = "[A-Z0-9 /-]+";
             this.tfCorporateName.Size = new System.Drawing.Size(365, 20);
             this.tfCorporateName.TabIndex = 2;
-            conditionValidationRule8.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule8.ErrorText = "Informe a Razão Social/Nome";
-            this.validator.SetValidationRule(this.tfCorporateName, conditionValidationRule8);
+            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule9.ErrorText = "Informe a Razão Social/Nome";
+            this.validator.SetValidationRule(this.tfCorporateName, conditionValidationRule9);
             // 
             // rgType
             // 
@@ -416,10 +424,10 @@ namespace TruckSystem.UI.Customer
             new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Pessoa Física")});
             this.rgType.Size = new System.Drawing.Size(209, 22);
             this.rgType.TabIndex = 0;
-            conditionValidationRule9.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
-            conditionValidationRule9.ErrorText = "Informe o Tipo de Pessoa";
-            conditionValidationRule9.Value1 = 0;
-            this.validator.SetValidationRule(this.rgType, conditionValidationRule9);
+            conditionValidationRule10.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.GreaterOrEqual;
+            conditionValidationRule10.ErrorText = "Informe o Tipo de Pessoa";
+            conditionValidationRule10.Value1 = 0;
+            this.validator.SetValidationRule(this.rgType, conditionValidationRule10);
             this.rgType.SelectedIndexChanged += new System.EventHandler(this.rgType_SelectedIndexChanged);
             // 
             // panelControl1
@@ -433,14 +441,14 @@ namespace TruckSystem.UI.Customer
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(907, 448);
+            this.panelControl1.Size = new System.Drawing.Size(907, 477);
             this.panelControl1.TabIndex = 0;
             // 
             // groupControl1
             // 
             this.groupControl1.Controls.Add(this.tfObservations);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupControl1.Location = new System.Drawing.Point(2, 327);
+            this.groupControl1.Location = new System.Drawing.Point(2, 356);
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(903, 76);
             this.groupControl1.TabIndex = 2;
@@ -459,6 +467,7 @@ namespace TruckSystem.UI.Customer
             // 
             // pnAddress
             // 
+            this.pnAddress.Controls.Add(this.btnSearchCEP);
             this.pnAddress.Controls.Add(this.cbCity);
             this.pnAddress.Controls.Add(this.cbStateAddress);
             this.pnAddress.Controls.Add(this.labelControl13);
@@ -477,13 +486,23 @@ namespace TruckSystem.UI.Customer
             this.pnAddress.Enabled = false;
             this.pnAddress.Location = new System.Drawing.Point(2, 251);
             this.pnAddress.Name = "pnAddress";
-            this.pnAddress.Size = new System.Drawing.Size(903, 152);
+            this.pnAddress.Size = new System.Drawing.Size(903, 181);
             this.pnAddress.TabIndex = 1;
             this.pnAddress.Text = "Endereço";
             // 
+            // btnSearchCEP
+            // 
+            this.btnSearchCEP.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnSearchCEP.Location = new System.Drawing.Point(180, 23);
+            this.btnSearchCEP.Name = "btnSearchCEP";
+            this.btnSearchCEP.Size = new System.Drawing.Size(145, 21);
+            this.btnSearchCEP.TabIndex = 10;
+            this.btnSearchCEP.Text = "Buscar endereço por CEP";
+            this.btnSearchCEP.Click += new System.EventHandler(this.btnSearchCEP_Click);
+            // 
             // labelControl13
             // 
-            this.labelControl13.Location = new System.Drawing.Point(431, 53);
+            this.labelControl13.Location = new System.Drawing.Point(431, 79);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(37, 13);
             this.labelControl13.TabIndex = 0;
@@ -491,7 +510,7 @@ namespace TruckSystem.UI.Customer
             // 
             // labelControl14
             // 
-            this.labelControl14.Location = new System.Drawing.Point(754, 53);
+            this.labelControl14.Location = new System.Drawing.Point(5, 27);
             this.labelControl14.Name = "labelControl14";
             this.labelControl14.Size = new System.Drawing.Size(23, 13);
             this.labelControl14.TabIndex = 0;
@@ -499,7 +518,7 @@ namespace TruckSystem.UI.Customer
             // 
             // labelControl12
             // 
-            this.labelControl12.Location = new System.Drawing.Point(308, 53);
+            this.labelControl12.Location = new System.Drawing.Point(308, 79);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(17, 13);
             this.labelControl12.TabIndex = 0;
@@ -507,7 +526,7 @@ namespace TruckSystem.UI.Customer
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(4, 53);
+            this.labelControl11.Location = new System.Drawing.Point(5, 79);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(32, 13);
             this.labelControl11.TabIndex = 0;
@@ -516,15 +535,15 @@ namespace TruckSystem.UI.Customer
             // tfComplement
             // 
             this.tfComplement.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "complement", true));
-            this.tfComplement.Location = new System.Drawing.Point(594, 24);
+            this.tfComplement.Location = new System.Drawing.Point(594, 50);
             this.tfComplement.Name = "tfComplement";
             this.tfComplement.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfComplement.Size = new System.Drawing.Size(303, 20);
-            this.tfComplement.TabIndex = 2;
+            this.tfComplement.TabIndex = 3;
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(519, 27);
+            this.labelControl10.Location = new System.Drawing.Point(519, 53);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(69, 13);
             this.labelControl10.TabIndex = 0;
@@ -533,15 +552,15 @@ namespace TruckSystem.UI.Customer
             // tfNumber
             // 
             this.tfNumber.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgAddress, "number", true));
-            this.tfNumber.Location = new System.Drawing.Point(416, 24);
+            this.tfNumber.Location = new System.Drawing.Point(416, 50);
             this.tfNumber.Name = "tfNumber";
             this.tfNumber.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tfNumber.Size = new System.Drawing.Size(94, 20);
-            this.tfNumber.TabIndex = 1;
+            this.tfNumber.TabIndex = 2;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(369, 27);
+            this.labelControl9.Location = new System.Drawing.Point(369, 53);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(41, 13);
             this.labelControl9.TabIndex = 0;
@@ -549,7 +568,7 @@ namespace TruckSystem.UI.Customer
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(5, 27);
+            this.labelControl15.Location = new System.Drawing.Point(5, 53);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(49, 13);
             this.labelControl15.TabIndex = 0;
@@ -560,7 +579,7 @@ namespace TruckSystem.UI.Customer
             this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnCancel);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 403);
+            this.panelControl2.Location = new System.Drawing.Point(2, 432);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(903, 43);
             this.panelControl2.TabIndex = 3;
@@ -812,7 +831,7 @@ namespace TruckSystem.UI.Customer
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelControl1);
             this.Name = "CustomerForm";
-            this.Size = new System.Drawing.Size(907, 448);
+            this.Size = new System.Drawing.Size(907, 477);
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).EndInit();
@@ -854,6 +873,7 @@ namespace TruckSystem.UI.Customer
             ((System.ComponentModel.ISupportInitialize)(this.tfIE.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfPhoneMobile.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfFantasyName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.validatorSearchCEP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -925,6 +945,8 @@ namespace TruckSystem.UI.Customer
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraEditors.MemoEdit tfObservations;
+        private DevExpress.XtraEditors.SimpleButton btnSearchCEP;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validatorSearchCEP;
 
     }
 }
