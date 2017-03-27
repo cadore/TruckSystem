@@ -45,8 +45,11 @@ namespace TruckSystem.UI.Truck
             for (int i = 0; i < listAntt.Count; i++)
             {
                 customer c = customer.SingleOrDefault(listAntt[i].customer_id);
-                listAntt[i].customer_name = c.corporate_name;
-                listAntt[i].customer_cnpj = c.document;
+                if (c.is_business)
+                {
+                    listAntt[i].customer_name = c.corporate_name;
+                    listAntt[i].customer_cnpj = c.document;
+                }
             }
             bdgAntt.DataSource = listAntt;
         }

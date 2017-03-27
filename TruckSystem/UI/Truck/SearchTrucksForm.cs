@@ -93,11 +93,15 @@ namespace TruckSystem.UI.Truck
             {
                 listT = truck.Fetch("ORDER BY id");
             }
-            for (int i = 0; i < listT.Count; i++)
+            try
             {
-                listT[i].driver_name = driver.SingleOrDefault(listT[i].driver_id).full_name;
-                listT[i].antt = Convert.ToInt32(antts.SingleOrDefault(listT[i].antt_id).rntrc);
+                for (int i = 0; i < listT.Count; i++)
+                {
+                    listT[i].driver_name = driver.SingleOrDefault(listT[i].driver_id).full_name;
+                    listT[i].antt = Convert.ToInt32(antts.SingleOrDefault(listT[i].antt_id).rntrc);
+                }
             }
+            catch (Exception) { }
             bdgTrucks.DataSource = listT;
         }
 

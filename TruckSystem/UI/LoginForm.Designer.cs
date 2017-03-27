@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tfCPF = new DevExpress.XtraEditors.TextEdit();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnLogin = new DevExpress.XtraEditors.PanelControl();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.btnLogin = new WCButtons.Black.ButtonConfirmBlack();
+            this.btnExit = new WCButtons.Black.ButtonCancelBlack();
             this.tfPassword = new DevExpress.XtraEditors.TextEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.btnLogin = new WCButtons.Black.ButtonConfirmBlack();
-            this.btnExit = new WCButtons.Black.ButtonCancelBlack();
             ((System.ComponentModel.ISupportInitialize)(this.tfCPF.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnLogin)).BeginInit();
             this.pnLogin.SuspendLayout();
@@ -52,20 +52,20 @@
             // tfCPF
             // 
             this.tfCPF.EditValue = "";
-            this.tfCPF.Location = new System.Drawing.Point(60, 183);
+            this.tfCPF.Location = new System.Drawing.Point(12, 184);
             this.tfCPF.Name = "tfCPF";
             this.tfCPF.Properties.Mask.EditMask = "000.000.000-00";
             this.tfCPF.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            this.tfCPF.Size = new System.Drawing.Size(241, 20);
+            this.tfCPF.Size = new System.Drawing.Size(298, 20);
             this.tfCPF.TabIndex = 0;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Informe o CPF para prosseguir";
-            this.validator.SetValidationRule(this.tfCPF, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Informe o CPF para prosseguir";
+            this.validator.SetValidationRule(this.tfCPF, conditionValidationRule3);
             this.tfCPF.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tfCPF_KeyUp);
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(20, 186);
+            this.labelControl1.Location = new System.Drawing.Point(12, 165);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(23, 13);
             this.labelControl1.TabIndex = 2;
@@ -83,7 +83,7 @@
             this.pnLogin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnLogin.Location = new System.Drawing.Point(0, 0);
             this.pnLogin.Name = "pnLogin";
-            this.pnLogin.Size = new System.Drawing.Size(322, 303);
+            this.pnLogin.Size = new System.Drawing.Size(322, 317);
             this.pnLogin.TabIndex = 3;
             // 
             // pictureEdit1
@@ -95,25 +95,6 @@
             this.pictureEdit1.Size = new System.Drawing.Size(298, 152);
             this.pictureEdit1.TabIndex = 4;
             // 
-            // tfPassword
-            // 
-            this.tfPassword.Location = new System.Drawing.Point(60, 219);
-            this.tfPassword.Name = "tfPassword";
-            this.tfPassword.Properties.UseSystemPasswordChar = true;
-            this.tfPassword.Size = new System.Drawing.Size(241, 20);
-            this.tfPassword.TabIndex = 1;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Informe a Senha para prosseguir";
-            this.validator.SetValidationRule(this.tfPassword, conditionValidationRule2);
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(20, 222);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(34, 13);
-            this.labelControl2.TabIndex = 2;
-            this.labelControl2.Text = "Senha:";
-            // 
             // btnLogin
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
@@ -122,7 +103,7 @@
             this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
             this.btnLogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogin.Location = new System.Drawing.Point(20, 259);
+            this.btnLogin.Location = new System.Drawing.Point(20, 276);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(110, 33);
             this.btnLogin.TabIndex = 2;
@@ -139,7 +120,7 @@
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
             this.btnExit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExit.Location = new System.Drawing.Point(191, 259);
+            this.btnExit.Location = new System.Drawing.Point(191, 276);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(110, 33);
             this.btnExit.TabIndex = 3;
@@ -148,11 +129,30 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // tfPassword
+            // 
+            this.tfPassword.Location = new System.Drawing.Point(12, 239);
+            this.tfPassword.Name = "tfPassword";
+            this.tfPassword.Properties.UseSystemPasswordChar = true;
+            this.tfPassword.Size = new System.Drawing.Size(298, 20);
+            this.tfPassword.TabIndex = 1;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Informe a Senha para prosseguir";
+            this.validator.SetValidationRule(this.tfPassword, conditionValidationRule1);
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Location = new System.Drawing.Point(12, 220);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(34, 13);
+            this.labelControl2.TabIndex = 2;
+            this.labelControl2.Text = "Senha:";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(322, 303);
+            this.ClientSize = new System.Drawing.Size(322, 317);
             this.ControlBox = false;
             this.Controls.Add(this.pnLogin);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
