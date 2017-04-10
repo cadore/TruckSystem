@@ -26,8 +26,11 @@ namespace TruckSystem.UI.BankAccounts
             for (int i = 0; i < ba.Count; i++)
             {
                 banks b = banks.SingleOrDefault(ba[i].bank_id);
+                customer c = customer.SingleOrDefault(ba[i].customer_id);
                 ba[i].bank_name = b.name;
                 ba[i].bank_number = b.code;
+                ba[i].holder = c.corporate_name;
+                ba[i].document = c.document;
             }
             bdgBankAccounts.DataSource = ba;
         }

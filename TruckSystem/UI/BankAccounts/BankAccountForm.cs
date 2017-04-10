@@ -18,19 +18,20 @@ namespace TruckSystem.UI.BankAccounts
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
-            bdgBanks.DataSource = banks.Fetch("");
+            bdgBanks.DataSource = banks.Fetch("ORDER BY name");
+            bdgCustomers.DataSource = customer.Fetch("ORDER BY corporate_name");
+
             if (bc == null)
             {
                 bc = new bank_account() { type = -1 };
-                rgTypeHolder.EditValue = "cnpj";   
             }
             else
             {                
-                if (Util.RemoveSpecialCharacters(bc.document).Length == 11)
+                /*if (Util.RemoveSpecialCharacters(bc.document).Length == 11)
                     rgTypeHolder.EditValue = "cpf";
                 else
                     rgTypeHolder.EditValue = "cnpj";
-                rgType_SelectedIndexChanged(null, null);
+                rgType_SelectedIndexChanged(null, null);*/
             }
             bdgBankAccount.DataSource = bc;
         }
@@ -39,25 +40,6 @@ namespace TruckSystem.UI.BankAccounts
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void rgType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tfDocument.EditValue = null;
-            string st = rgTypeHolder.EditValue.ToString();
-            if (st.Equals("cnpj"))
-            {
-                tfDocument.Properties.Mask.EditMask = "00.000.000/0000-00";
-                lbDocument.Text = "CNPJ:";
-            }
-            else
-            {
-                tfDocument.Properties.Mask.EditMask = "000.000.000-00";
-                lbDocument.Text = "CPF:";
-            }
-            tfDocument.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-            tfDocument.Focus();
-            tfDocument.SelectAll();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -84,6 +66,16 @@ namespace TruckSystem.UI.BankAccounts
             finally
             {
                 this.Close();
+            }
+        }
+
+        private void cbCustomer_EditValueChanged(object sender, EventArgs e)
+        {
+            if (cbCustomer.EditValue != null && Convert.ToInt32(cbCustomer.EditValue) > 0)
+            {
+                customer c = customer.SingleOrDefault(cbCustomer.EditValue);
+                tfDocument.Text = c.document;
+                //((customer)bdgBankAccount.Current).document = c.document;
             }
         }
     }

@@ -221,7 +221,7 @@ namespace TruckSystem.UI.Customer
                         tfCep.EditValue = "";
 
                         SplashScreenManager.CloseForm(false);
-                        XtraMessageBox.Show("O CEP informado não foi encontrado!\nVerifique e tente novamente ou informe manualmente.",
+                        XtraMessageBox.Show("O CEP informado não foi encontrado!\nVerifique e tente novamente ou informe o endereço manualmente.",
                             "CADORE TECNOLOGIA");
                         return;
                     }

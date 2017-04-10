@@ -60,11 +60,11 @@ namespace TruckSystem.UI.Drivers
             string st = rgTypeSearch.EditValue.ToString();
             if (st.Equals("name"))
             {
-                listD = driver.Fetch("WHERE full_name ILIKE @0 ORDER BY full_name", driver.Concat(tfSearch.EditValue));
+                listD = driver.Fetch("WHERE full_name ILIKE @0 ORDER BY inactive, full_name", driver.Concat(tfSearch.EditValue));
             }
             else if (st.Equals("cpf"))
             {
-                listD = driver.Fetch("WHERE cpf=@0 ORDER BY full_name", tfSearch.EditValue);
+                listD = driver.Fetch("WHERE cpf=@0 ORDER BY inactive, full_name", tfSearch.EditValue);
             }
             bdgDrivers.DataSource = listD;
 

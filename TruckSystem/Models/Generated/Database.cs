@@ -342,9 +342,7 @@ namespace TruckSystem
         [Column]
         public string account { get; set; }
         [Column]
-        public string holder { get; set; }
-        [Column]
-        public string document { get; set; }
+        public long customer_id { get; set; }
         [Column]
         public DateTime? registred_at { get; set; }
         [Column]
@@ -352,9 +350,11 @@ namespace TruckSystem
         [Column]
         public int type { get; set; }
 
+        public string document { get; set; }
         public string bank_number { get; set; }
         public string bank_name { get; set; }
         public string account_name { get; set; }
+        public string holder { get; set; }
     }
 
 

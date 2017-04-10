@@ -54,7 +54,6 @@
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colnumber_note = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcompany_destination_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcompany_source_name = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colstart = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -63,6 +62,7 @@
             this.coltotal = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coltruck_board = new DevExpress.XtraGrid.Columns.GridColumn();
             this.coldriver_name = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colend = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdgFreights)).BeginInit();
@@ -88,9 +88,9 @@
             this.panelControl1.Controls.Add(this.btnSelect);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 411);
+            this.panelControl1.Location = new System.Drawing.Point(0, 448);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1013, 43);
+            this.panelControl1.Size = new System.Drawing.Size(1114, 43);
             this.panelControl1.TabIndex = 0;
             // 
             // btnSelect
@@ -102,7 +102,7 @@
             this.btnSelect.ForeColor = System.Drawing.Color.White;
             this.btnSelect.Image = ((System.Drawing.Image)(resources.GetObject("btnSelect.Image")));
             this.btnSelect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSelect.Location = new System.Drawing.Point(778, 5);
+            this.btnSelect.Location = new System.Drawing.Point(879, 5);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(114, 33);
             this.btnSelect.TabIndex = 1;
@@ -120,7 +120,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(898, 5);
+            this.btnCancel.Location = new System.Drawing.Point(999, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 33);
             this.btnCancel.TabIndex = 0;
@@ -149,7 +149,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl3.Location = new System.Drawing.Point(0, 0);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(1013, 42);
+            this.panelControl3.Size = new System.Drawing.Size(1114, 42);
             this.panelControl3.TabIndex = 2;
             // 
             // tfEnd
@@ -298,7 +298,7 @@
             this.btnSearch.ForeColor = System.Drawing.Color.White;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
             this.btnSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearch.Location = new System.Drawing.Point(898, 4);
+            this.btnSearch.Location = new System.Drawing.Point(999, 4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(110, 33);
             this.btnSearch.TabIndex = 0;
@@ -313,7 +313,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 42);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1013, 369);
+            this.panelControl2.Size = new System.Drawing.Size(1114, 406);
             this.panelControl2.TabIndex = 3;
             // 
             // gridControl1
@@ -323,7 +323,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1009, 365);
+            this.gridControl1.Size = new System.Drawing.Size(1110, 402);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -333,7 +333,6 @@
             // 
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colid,
-            this.colnumber_note,
             this.colcompany_destination_name,
             this.colcompany_source_name,
             this.colstart,
@@ -341,7 +340,8 @@
             this.colvalue_gross,
             this.coltotal,
             this.coltruck_board,
-            this.coldriver_name});
+            this.coldriver_name,
+            this.colend});
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
@@ -356,17 +356,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 45;
-            // 
-            // colnumber_note
-            // 
-            this.colnumber_note.Caption = "Nota";
-            this.colnumber_note.FieldName = "number_note";
-            this.colnumber_note.Name = "colnumber_note";
-            this.colnumber_note.OptionsColumn.AllowEdit = false;
-            this.colnumber_note.Visible = true;
-            this.colnumber_note.VisibleIndex = 2;
-            this.colnumber_note.Width = 56;
+            this.colid.Width = 41;
             // 
             // colcompany_destination_name
             // 
@@ -375,8 +365,8 @@
             this.colcompany_destination_name.Name = "colcompany_destination_name";
             this.colcompany_destination_name.OptionsColumn.AllowEdit = false;
             this.colcompany_destination_name.Visible = true;
-            this.colcompany_destination_name.VisibleIndex = 4;
-            this.colcompany_destination_name.Width = 167;
+            this.colcompany_destination_name.VisibleIndex = 3;
+            this.colcompany_destination_name.Width = 200;
             // 
             // colcompany_source_name
             // 
@@ -385,8 +375,8 @@
             this.colcompany_source_name.Name = "colcompany_source_name";
             this.colcompany_source_name.OptionsColumn.AllowEdit = false;
             this.colcompany_source_name.Visible = true;
-            this.colcompany_source_name.VisibleIndex = 3;
-            this.colcompany_source_name.Width = 167;
+            this.colcompany_source_name.VisibleIndex = 2;
+            this.colcompany_source_name.Width = 233;
             // 
             // colstart
             // 
@@ -397,8 +387,8 @@
             this.colstart.Name = "colstart";
             this.colstart.OptionsColumn.AllowEdit = false;
             this.colstart.Visible = true;
-            this.colstart.VisibleIndex = 5;
-            this.colstart.Width = 69;
+            this.colstart.VisibleIndex = 4;
+            this.colstart.Width = 73;
             // 
             // colweight
             // 
@@ -410,7 +400,7 @@
             this.colweight.OptionsColumn.AllowEdit = false;
             this.colweight.Visible = true;
             this.colweight.VisibleIndex = 6;
-            this.colweight.Width = 64;
+            this.colweight.Width = 48;
             // 
             // colvalue_gross
             // 
@@ -420,9 +410,11 @@
             this.colvalue_gross.FieldName = "value_gross";
             this.colvalue_gross.Name = "colvalue_gross";
             this.colvalue_gross.OptionsColumn.AllowEdit = false;
+            this.colvalue_gross.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value_gross", "{0}")});
             this.colvalue_gross.Visible = true;
             this.colvalue_gross.VisibleIndex = 7;
-            this.colvalue_gross.Width = 84;
+            this.colvalue_gross.Width = 102;
             // 
             // coltotal
             // 
@@ -433,10 +425,10 @@
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.AllowEdit = false;
             this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0:c2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0}")});
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 8;
-            this.coltotal.Width = 82;
+            this.coltotal.Width = 89;
             // 
             // coltruck_board
             // 
@@ -446,7 +438,7 @@
             this.coltruck_board.OptionsColumn.AllowEdit = false;
             this.coltruck_board.Visible = true;
             this.coltruck_board.VisibleIndex = 1;
-            this.coltruck_board.Width = 63;
+            this.coltruck_board.Width = 67;
             // 
             // coldriver_name
             // 
@@ -456,7 +448,18 @@
             this.coldriver_name.OptionsColumn.AllowEdit = false;
             this.coldriver_name.Visible = true;
             this.coldriver_name.VisibleIndex = 9;
-            this.coldriver_name.Width = 194;
+            this.coldriver_name.Width = 167;
+            // 
+            // colend
+            // 
+            this.colend.Caption = "Término";
+            this.colend.DisplayFormat.FormatString = "dd/MM/yyyy";
+            this.colend.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.colend.FieldName = "end";
+            this.colend.Name = "colend";
+            this.colend.Visible = true;
+            this.colend.VisibleIndex = 5;
+            this.colend.Width = 72;
             // 
             // SearchFreightsForm
             // 
@@ -466,7 +469,7 @@
             this.Controls.Add(this.panelControl3);
             this.Controls.Add(this.panelControl1);
             this.Name = "SearchFreightsForm";
-            this.Size = new System.Drawing.Size(1013, 454);
+            this.Size = new System.Drawing.Size(1114, 491);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdgFreights)).EndInit();
@@ -502,7 +505,6 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private WCButtons.Black.ButtonSearchBlack btnSearch;
         private DevExpress.XtraGrid.Columns.GridColumn colid;
-        private DevExpress.XtraGrid.Columns.GridColumn colnumber_note;
         private DevExpress.XtraGrid.Columns.GridColumn colstart;
         private DevExpress.XtraGrid.Columns.GridColumn colweight;
         private DevExpress.XtraGrid.Columns.GridColumn colcompany_destination_name;
@@ -525,5 +527,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colboard;
         private DevExpress.XtraGrid.Columns.GridColumn coldriver_name;
         private DevExpress.XtraGrid.Columns.GridColumn colvalue_gross;
+        private DevExpress.XtraGrid.Columns.GridColumn colend;
     }
 }
