@@ -40,31 +40,31 @@ namespace TruckSystem.UI.Business
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            customer c = (customer)bdgBusiness.Current;
-            DialogResult dr = XtraMessageBox.Show(String.Format("Confirma adicionar/alterar {0} para o tipo Empresa Administradora?",
-                c.corporate_name), "Confirmação", MessageBoxButtons.YesNo);
-            if (dr == DialogResult.No)
-                return;
-
-            DialogResult rs = XtraMessageBox.Show("Essa alteração não podera ser desfeita por nenhum administrador,"
-                + " \napenas pela equipe técnica após analise do banco de dados.\nPodendo gerar custos adicionais!\n Deseja continuar?", 
-                "Confirmação", MessageBoxButtons.YesNo);
-            if (rs == DialogResult.No)
-                return;
-
             if (!Singleton.autenticateAdmin())
                 return;
             try
             {
-                if (c == null)
-                    return;
-
+                customer c = (customer)bdgBusiness.Current;
                 antts a = antts.SingleOrDefault("WHERE customer_id = @0", c.id);
                 if (a == null)
                 {
                     XtraMessageBox.Show("CNPJ/CPF selecionado nao contem ANTT cadastrada, verifique!");
                     return;
                 }
+                
+                DialogResult dr = XtraMessageBox.Show(String.Format("Confirma adicionar/alterar {0} para o tipo Empresa Administradora?",
+                    c.corporate_name), "Confirmação", MessageBoxButtons.YesNo);
+                if (dr == DialogResult.No)
+                    return;
+
+                DialogResult rs = XtraMessageBox.Show("Essa alteração não podera ser desfeita por nenhum administrador,"
+                    + " \napenas pela equipe técnica após analise do banco de dados.\nPodendo gerar custos adicionais!\n Deseja continuar?",
+                    "Confirmação", MessageBoxButtons.YesNo);
+                if (rs == DialogResult.No)
+                    return;
+
+                if (c == null)
+                    return;
 
                 c.is_business = true;
                 c.Save();

@@ -277,9 +277,9 @@ namespace TruckSystem
         [Column]
         public long index { get; set; }
         [Column]
-        public int? antt { get; set; }
-        [Column]
         public long antt_id { get; set; }
+
+        public int antt_number { get; set; }
         public bool checkedState { get; set; }
     }
 
@@ -441,7 +441,7 @@ namespace TruckSystem
         public string driver_name { get; set; }
 
         public bool checkedState { get; set; }
-        public int antt { get; set; }
+        public int antt_number { get; set; }
     }
 
     [TableName("stays")]

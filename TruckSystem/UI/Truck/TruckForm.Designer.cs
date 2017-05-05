@@ -437,7 +437,7 @@ namespace TruckSystem.UI.Truck
             this.tfYearModelTruck.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.None;
             this.tfYearModelTruck.Properties.Mask.EditMask = "[0-9]{4}";
             this.tfYearModelTruck.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.tfYearModelTruck.Size = new System.Drawing.Size(96, 20);
+            this.tfYearModelTruck.Size = new System.Drawing.Size(270, 20);
             this.tfYearModelTruck.TabIndex = 8;
             // 
             // tfYearFabricationTruck

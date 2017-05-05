@@ -29,6 +29,7 @@ namespace TruckSystem.UI.Freights
         decimal ValueOutputs = 0;
         //deposits
         List<deposits> ListDeposits = null;
+        decimal ValueDeposits = 0;
         public FreightForm(freight f)
         {
             InitializeComponent();
@@ -419,6 +420,8 @@ namespace TruckSystem.UI.Freights
 
         private void btnDeposits_Click(object sender, EventArgs e)
         {
+            if (!validator.Validate())
+                return;
             ViewDepositsForm vdf = new ViewDepositsForm(ListDeposits, (freight)bdgFreight.Current);
             if (vdf.ShowDialog() == DialogResult.OK)
             {
@@ -426,15 +429,18 @@ namespace TruckSystem.UI.Freights
                 {
                     ListDeposits = new List<deposits>();
                     ListDeposits.Clear();
-                }
-                Console.WriteLine(((List<deposits>)vdf.bdgDeposits.DataSource).Count);
-                ListDeposits.Clear();                
+                }              
                 foreach (deposits d in ((List<deposits>)vdf.bdgDeposits.DataSource))
+                    if(!ListDeposits.Contains(d))
+                        ListDeposits.Add(d);
+
+                ValueDeposits = 0;
+                foreach (deposits o in ListDeposits)
                 {
-                    Console.WriteLine("LISTA");
-                    Console.WriteLine(d);
-                    ListDeposits.Add(d);
+                    ValueDeposits += o.value;
                 }
+                tfDeposits.EditValue = ValueDeposits;
+                calcValues(sender, e);
             }
         }
     }

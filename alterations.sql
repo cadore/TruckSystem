@@ -284,8 +284,7 @@ ALTER TABLE drivers
 ) 
 WITH (
   OIDS = FALSE
-)
-;
+);
 COMMENT ON COLUMN public.antts.customer_id IS '';
 
 ALTER TABLE trucks
@@ -300,8 +299,12 @@ ALTER TABLE antts
    ALTER COLUMN registration_date TYPE date;
 ALTER TABLE antts
    ALTER COLUMN validation_date TYPE date;
+   
 ALTER TABLE trucks
   DROP COLUMN antt;
+ALTER TABLE trailers
+  DROP COLUMN antt;
+
   
   ALTER TABLE bank_accounts
   DROP COLUMN holder;
@@ -309,3 +312,4 @@ ALTER TABLE bank_accounts
   ADD COLUMN customer_id bigserial;
 ALTER TABLE bank_accounts
   DROP COLUMN document;
+

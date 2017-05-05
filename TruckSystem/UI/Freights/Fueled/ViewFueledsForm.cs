@@ -23,7 +23,6 @@ namespace TruckSystem.UI.Freights.Fueled
             {
                 bdgFueleds.DataSource = new List<fueled>();
                 bdgFueleds.Clear();
-                btnAdd_Click(this, null);
             }
             else
             {
@@ -31,6 +30,7 @@ namespace TruckSystem.UI.Freights.Fueled
                     lf[i].gas_station_name = customer.SingleOrDefault(lf[i].gas_station_id).corporate_name;
                     bdgFueleds.DataSource = lf;
             }
+
             if (bdgFueleds.Count == 0)
                 btnAdd_Click(this, null);
         }

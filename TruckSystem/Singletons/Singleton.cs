@@ -31,7 +31,7 @@ namespace TruckSystem
         private static bool auth(bool p)
         {
             bool f = false;
-            AuthenticateForm af = new AuthenticateForm(true);
+            AuthenticateForm af = new AuthenticateForm(p);
             DialogResult rs = af.ShowDialog();
             if (rs != DialogResult.OK && !af.Authenticate)
                 f = false;

@@ -54,7 +54,6 @@ namespace TruckSystem.UI
             InitializeComponent();
             tabUtil = new TabControlUtil(this);
             UserControlUtil.desk = this;
-            AddTab(new WaringsPaymentsDayForm(), "Pagamentos", true);
             SplashScreenManager.CloseForm(false);
         }
 
@@ -91,13 +90,10 @@ namespace TruckSystem.UI
 
         private void DesktopForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (tabControl.TabPages.Count > 1)
-            {
-                DialogResult rs = XtraMessageBox.Show("Deseja realmente sair?", "Confirmação de Saída",
+            DialogResult rs = XtraMessageBox.Show("Deseja realmente sair?", "Confirmação de Saída",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-                if (rs == DialogResult.No)
-                    e.Cancel = true;
-            }
+            if (rs == DialogResult.No)
+                e.Cancel = true;
         }       
 
         private void tabControl_ControlAdded(object sender, ControlEventArgs e)
@@ -373,6 +369,16 @@ namespace TruckSystem.UI
         {
             form f = new form();
             f.Show();
+        }
+
+        private void btnGridPayments_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            AddTab(new WaringsPaymentsDayForm(), "Pagamentos", true);
+        }
+
+        private void btnChangeOils_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

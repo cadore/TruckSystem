@@ -16,10 +16,10 @@ namespace TruckSystem.UI.Deposits
         freight fre;
         public ViewDepositsForm(List<deposits> _ld, freight _fre)
         {
-            List<deposits> ld = new List<deposits>();
-            ld.Clear();
-            foreach (deposits d in _ld)
-                ld.Add(d);
+            List<deposits> ld = _ld;// new List<deposits>();
+            //ld.Clear();
+            //foreach (deposits d in _ld)
+               // ld.Add(d);
 
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
@@ -35,13 +35,16 @@ namespace TruckSystem.UI.Deposits
                 for (int i = 0; i < ld.Count; i++)
                 {
                     bank_account ba = bank_account.SingleOrDefault(ld[i].account_id);
-                    ld[i].account = String.Format("{0} - {1}", ba.agency, ba.account);
+                    banks b = banks.SingleOrDefault(ba.bank_id);
+                    ld[i].account = String.Format("{0}/{1} - {2}/{3}", ba.agency, ba.account, b.code, b.name);
                     ld[i].customer_name = customer.SingleOrDefault(ld[i].customer_id).corporate_name;
                     ld[i].type_name = ld[i].type == 0 ? "Dinheiro" : "Cheque";
                     ld[i].truck_board = truck.SingleOrDefault(ld[i].truck_id).board;
                 }
             }
             bdgDeposits.DataSource = ld;
+            if (bdgDeposits.Count == 0)
+                btnAdd_Click(this, null);
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -54,8 +57,10 @@ namespace TruckSystem.UI.Deposits
         {
             deposits d = (deposits)bdgDeposits.Current;
             if (bdgDeposits.Current != null && d.id > 0)
+            {
                 deposits.Delete(d.id);
-            bdgDeposits.RemoveCurrent();
+                bdgDeposits.RemoveCurrent();
+            }
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

@@ -51,7 +51,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnSearch = new WCButtons.Black.ButtonSearchBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colid = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colcompany_destination_name = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -79,7 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -271,7 +271,7 @@
             this.tfId.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.tfId.Size = new System.Drawing.Size(55, 20);
             this.tfId.TabIndex = 2;
-            this.tfId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Search_KeyDown);
+            this.tfId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tfId_KeyDown);
             // 
             // labelControl3
             // 
@@ -309,25 +309,25 @@
             // 
             // panelControl2
             // 
-            this.panelControl2.Controls.Add(this.gridControl1);
+            this.panelControl2.Controls.Add(this.gridControl);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 42);
             this.panelControl2.Name = "panelControl2";
             this.panelControl2.Size = new System.Drawing.Size(1114, 406);
             this.panelControl2.TabIndex = 3;
             // 
-            // gridControl1
+            // gridControl
             // 
-            this.gridControl1.DataSource = this.bdgFreights;
-            this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridControl1.Location = new System.Drawing.Point(2, 2);
-            this.gridControl1.MainView = this.gridView1;
-            this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(1110, 402);
-            this.gridControl1.TabIndex = 0;
-            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridControl.DataSource = this.bdgFreights;
+            this.gridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl.Location = new System.Drawing.Point(2, 2);
+            this.gridControl.MainView = this.gridView1;
+            this.gridControl.Name = "gridControl";
+            this.gridControl.Size = new System.Drawing.Size(1110, 402);
+            this.gridControl.TabIndex = 0;
+            this.gridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
-            this.gridControl1.DoubleClick += new System.EventHandler(this.btnSelect_Click);
+            this.gridControl.DoubleClick += new System.EventHandler(this.btnSelect_Click);
             // 
             // gridView1
             // 
@@ -342,7 +342,7 @@
             this.coltruck_board,
             this.coldriver_name,
             this.colend});
-            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GridControl = this.gridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowFooter = true;
             // 
@@ -411,7 +411,7 @@
             this.colvalue_gross.Name = "colvalue_gross";
             this.colvalue_gross.OptionsColumn.AllowEdit = false;
             this.colvalue_gross.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value_gross", "{0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "value_gross", "{0:c2}")});
             this.colvalue_gross.Visible = true;
             this.colvalue_gross.VisibleIndex = 7;
             this.colvalue_gross.Width = 102;
@@ -425,7 +425,7 @@
             this.coltotal.Name = "coltotal";
             this.coltotal.OptionsColumn.AllowEdit = false;
             this.coltotal.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "total", "{0:c2}")});
             this.coltotal.Visible = true;
             this.coltotal.VisibleIndex = 8;
             this.coltotal.Width = 89;
@@ -457,6 +457,7 @@
             this.colend.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.colend.FieldName = "end";
             this.colend.Name = "colend";
+            this.colend.OptionsColumn.AllowEdit = false;
             this.colend.Visible = true;
             this.colend.VisibleIndex = 5;
             this.colend.Width = 72;
@@ -487,7 +488,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -501,7 +502,7 @@
         private System.Windows.Forms.BindingSource bdgFreights;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraGrid.GridControl gridControl1;
+        private DevExpress.XtraGrid.GridControl gridControl;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private WCButtons.Black.ButtonSearchBlack btnSearch;
         private DevExpress.XtraGrid.Columns.GridColumn colid;

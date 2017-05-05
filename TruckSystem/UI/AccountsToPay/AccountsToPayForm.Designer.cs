@@ -111,11 +111,11 @@
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnRefreshData = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.validatorParcels = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.btnRefreshData = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl)).BeginInit();
@@ -352,7 +352,7 @@
             this.tfDescription.Location = new System.Drawing.Point(99, 24);
             this.tfDescription.Name = "tfDescription";
             this.tfDescription.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.tfDescription.Size = new System.Drawing.Size(309, 20);
+            this.tfDescription.Size = new System.Drawing.Size(442, 20);
             this.tfDescription.TabIndex = 0;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Informe a Descrição";
@@ -1003,6 +1003,17 @@
             this.panelControl2.Size = new System.Drawing.Size(663, 43);
             this.panelControl2.TabIndex = 0;
             // 
+            // btnRefreshData
+            // 
+            this.btnRefreshData.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.btnRefreshData.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshData.Image")));
+            this.btnRefreshData.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRefreshData.Location = new System.Drawing.Point(6, 5);
+            this.btnRefreshData.Name = "btnRefreshData";
+            this.btnRefreshData.Size = new System.Drawing.Size(33, 33);
+            this.btnRefreshData.TabIndex = 2;
+            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
+            // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
@@ -1011,7 +1022,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(420, 5);
+            this.btnSave.Location = new System.Drawing.Point(432, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 33);
             this.btnSave.TabIndex = 0;
@@ -1028,7 +1039,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
             this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(536, 5);
+            this.btnCancel.Location = new System.Drawing.Point(548, 5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 33);
             this.btnCancel.TabIndex = 1;
@@ -1036,17 +1047,6 @@
             this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnRefreshData
-            // 
-            this.btnRefreshData.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.btnRefreshData.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshData.Image")));
-            this.btnRefreshData.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnRefreshData.Location = new System.Drawing.Point(6, 5);
-            this.btnRefreshData.Name = "btnRefreshData";
-            this.btnRefreshData.Size = new System.Drawing.Size(33, 33);
-            this.btnRefreshData.TabIndex = 2;
-            this.btnRefreshData.Click += new System.EventHandler(this.btnRefreshData_Click);
             // 
             // AccountsToPayForm
             // 

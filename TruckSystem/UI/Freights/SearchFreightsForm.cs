@@ -116,6 +116,16 @@ namespace TruckSystem.UI.Freights
             if (e.KeyCode == Keys.Enter)
                 searchFreights();
         }
+        private void tfId_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                searchFreights();
+                gridControl.Focus();
+                this.gridControl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
+            }
+        }
+
         decimal totalFueleds(long freight_id)
         {
             try
@@ -167,6 +177,19 @@ namespace TruckSystem.UI.Freights
                 XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
             }
             return 0;
+        }
+
+        private void gridControl_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                if (bdgFreights.Current != null)
+                {
+                    FreightForm ff = new FreightForm((freight)bdgFreights.Current);
+                    desk.AddTab(ff, "Edição de Frete", true);
+                }
+                this.gridControl.KeyDown -= new System.Windows.Forms.KeyEventHandler(this.gridControl_KeyDown);
+            }
         }
     }
 }

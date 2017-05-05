@@ -61,10 +61,14 @@
             this.btnConfigurePathFiles = new DevExpress.XtraBars.BarButtonItem();
             this.btnViewEditBusiness = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigureSMTP = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSendRegisterMail = new DevExpress.XtraBars.BarButtonItem();
             this.btnNewANTT = new DevExpress.XtraBars.BarButtonItem();
             this.btnSearchANTT = new DevExpress.XtraBars.BarButtonItem();
             this.btnConfigBackup = new DevExpress.XtraBars.BarButtonItem();
+            this.barStaticItem1 = new DevExpress.XtraBars.BarStaticItem();
+            this.barListItem1 = new DevExpress.XtraBars.BarListItem();
+            this.btnGridPayments = new DevExpress.XtraBars.BarButtonItem();
+            this.btnChangeOils = new DevExpress.XtraBars.BarButtonItem();
+            this.btnLubrification = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -76,6 +80,7 @@
             this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage6 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -99,6 +104,7 @@
             // 
             // ribbon
             // 
+            this.ribbon.ExpandCollapseItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.True;
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
@@ -133,16 +139,21 @@
             this.btnConfigurePathFiles,
             this.btnViewEditBusiness,
             this.btnConfigureSMTP,
-            this.btnSendRegisterMail,
             this.btnNewANTT,
             this.btnSearchANTT,
-            this.btnConfigBackup});
+            this.btnConfigBackup,
+            this.barStaticItem1,
+            this.barListItem1,
+            this.btnGridPayments,
+            this.btnChangeOils,
+            this.btnLubrification});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 57;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
             this.ribbonPage3,
+            this.ribbonPage7,
             this.ribbonPage6,
             this.ribbonPage5,
             this.ribbonPage2,
@@ -388,14 +399,6 @@
             this.btnConfigureSMTP.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnConfigureSMTP.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigureSMTP_ItemClick);
             // 
-            // btnSendRegisterMail
-            // 
-            this.btnSendRegisterMail.Caption = "Enviar Cadastro por Email";
-            this.btnSendRegisterMail.Id = 38;
-            this.btnSendRegisterMail.Name = "btnSendRegisterMail";
-            this.btnSendRegisterMail.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSendRegisterMail.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSendRegisterMail_ItemClick);
-            // 
             // btnNewANTT
             // 
             this.btnNewANTT.Caption = "Gerenciar ANTT";
@@ -418,6 +421,40 @@
             this.btnConfigBackup.Id = 41;
             this.btnConfigBackup.Name = "btnConfigBackup";
             this.btnConfigBackup.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnConfigBackup_ItemClick);
+            // 
+            // barStaticItem1
+            // 
+            this.barStaticItem1.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right;
+            this.barStaticItem1.Caption = "barStaticItem1";
+            this.barStaticItem1.Id = 43;
+            this.barStaticItem1.Name = "barStaticItem1";
+            this.barStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near;
+            // 
+            // barListItem1
+            // 
+            this.barListItem1.Id = 45;
+            this.barListItem1.Name = "barListItem1";
+            // 
+            // btnGridPayments
+            // 
+            this.btnGridPayments.Caption = "Grade de Pagamentos";
+            this.btnGridPayments.Id = 46;
+            this.btnGridPayments.Name = "btnGridPayments";
+            this.btnGridPayments.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnGridPayments.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGridPayments_ItemClick);
+            // 
+            // btnChangeOils
+            // 
+            this.btnChangeOils.Caption = "Trocas de Óleo";
+            this.btnChangeOils.Id = 55;
+            this.btnChangeOils.Name = "btnChangeOils";
+            this.btnChangeOils.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangeOils_ItemClick);
+            // 
+            // btnLubrification
+            // 
+            this.btnLubrification.Caption = "Lubrificação(Graxa)";
+            this.btnLubrification.Id = 56;
+            this.btnLubrification.Name = "btnLubrification";
             // 
             // ribbonPage1
             // 
@@ -451,6 +488,7 @@
             this.ribbonPageGroup11.AllowTextClipping = false;
             this.ribbonPageGroup11.ItemLinks.Add(this.btnNewPayment);
             this.ribbonPageGroup11.ItemLinks.Add(this.btnSearchPayments);
+            this.ribbonPageGroup11.ItemLinks.Add(this.btnGridPayments);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.ShowCaptionButton = false;
             this.ribbonPageGroup11.Text = "Pagamentos";
@@ -463,8 +501,7 @@
             this.ribbonPageGroup7,
             this.ribbonPageGroup15,
             this.ribbonPageGroup20,
-            this.ribbonPageGroup5,
-            this.ribbonPageGroup19});
+            this.ribbonPageGroup5});
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "Cadastros";
             // 
@@ -520,13 +557,21 @@
             this.ribbonPageGroup5.ShowCaptionButton = false;
             this.ribbonPageGroup5.Text = "Contas Bancarias";
             // 
+            // ribbonPage7
+            // 
+            this.ribbonPage7.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup19});
+            this.ribbonPage7.Name = "ribbonPage7";
+            this.ribbonPage7.Text = "Manutenções";
+            // 
             // ribbonPageGroup19
             // 
             this.ribbonPageGroup19.AllowTextClipping = false;
-            this.ribbonPageGroup19.ItemLinks.Add(this.btnSendRegisterMail);
+            this.ribbonPageGroup19.ItemLinks.Add(this.btnChangeOils);
+            this.ribbonPageGroup19.ItemLinks.Add(this.btnLubrification);
             this.ribbonPageGroup19.Name = "ribbonPageGroup19";
             this.ribbonPageGroup19.ShowCaptionButton = false;
-            this.ribbonPageGroup19.Text = "Email";
+            this.ribbonPageGroup19.Text = "Mecânica/Elétrica";
             // 
             // ribbonPage6
             // 
@@ -648,6 +693,7 @@
             // 
             this.ribbonStatusBar.ItemLinks.Add(this.lbStatusUser);
             this.ribbonStatusBar.ItemLinks.Add(this.lbWarings);
+            this.ribbonStatusBar.ItemLinks.Add(this.barListItem1);
             this.ribbonStatusBar.Location = new System.Drawing.Point(0, 464);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
@@ -751,11 +797,16 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
         private DevExpress.XtraBars.BarButtonItem btnConfigureSMTP;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup18;
-        private DevExpress.XtraBars.BarButtonItem btnSendRegisterMail;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup19;
         private DevExpress.XtraBars.BarButtonItem btnNewANTT;
         private DevExpress.XtraBars.BarButtonItem btnSearchANTT;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
         private DevExpress.XtraBars.BarButtonItem btnConfigBackup;
+        private DevExpress.XtraBars.BarStaticItem barStaticItem1;
+        private DevExpress.XtraBars.BarListItem barListItem1;
+        private DevExpress.XtraBars.BarButtonItem btnGridPayments;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
+        private DevExpress.XtraBars.BarButtonItem btnChangeOils;
+        private DevExpress.XtraBars.BarButtonItem btnLubrification;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup19;
     }
 }

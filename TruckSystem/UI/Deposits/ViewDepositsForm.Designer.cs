@@ -61,9 +61,9 @@
             this.panelControl1.Controls.Add(this.btnAdd);
             this.panelControl1.Controls.Add(this.btnConfirm);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 280);
+            this.panelControl1.Location = new System.Drawing.Point(0, 276);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(899, 45);
+            this.panelControl1.Size = new System.Drawing.Size(895, 45);
             this.panelControl1.TabIndex = 0;
             // 
             // btnDelete
@@ -109,7 +109,7 @@
             this.btnConfirm.ForeColor = System.Drawing.Color.White;
             this.btnConfirm.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirm.Image")));
             this.btnConfirm.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConfirm.Location = new System.Drawing.Point(780, 6);
+            this.btnConfirm.Location = new System.Drawing.Point(776, 6);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(114, 33);
             this.btnConfirm.TabIndex = 0;
@@ -124,7 +124,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(899, 280);
+            this.panelControl2.Size = new System.Drawing.Size(895, 276);
             this.panelControl2.TabIndex = 1;
             // 
             // gridControl1
@@ -134,7 +134,7 @@
             this.gridControl1.Location = new System.Drawing.Point(2, 2);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(895, 276);
+            this.gridControl1.Size = new System.Drawing.Size(891, 272);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -168,7 +168,7 @@
             this.colid.OptionsColumn.AllowEdit = false;
             this.colid.Visible = true;
             this.colid.VisibleIndex = 0;
-            this.colid.Width = 39;
+            this.colid.Width = 38;
             // 
             // colaccount_id
             // 
@@ -178,7 +178,7 @@
             this.colaccount_id.OptionsColumn.AllowEdit = false;
             this.colaccount_id.Visible = true;
             this.colaccount_id.VisibleIndex = 1;
-            this.colaccount_id.Width = 127;
+            this.colaccount_id.Width = 129;
             // 
             // colcustomer_id
             // 
@@ -188,7 +188,7 @@
             this.colcustomer_id.OptionsColumn.AllowEdit = false;
             this.colcustomer_id.Visible = true;
             this.colcustomer_id.VisibleIndex = 2;
-            this.colcustomer_id.Width = 225;
+            this.colcustomer_id.Width = 220;
             // 
             // coldate
             // 
@@ -200,7 +200,7 @@
             this.coldate.OptionsColumn.AllowEdit = false;
             this.coldate.Visible = true;
             this.coldate.VisibleIndex = 3;
-            this.coldate.Width = 72;
+            this.coldate.Width = 70;
             // 
             // colvalue
             // 
@@ -212,7 +212,7 @@
             this.colvalue.OptionsColumn.AllowEdit = false;
             this.colvalue.Visible = true;
             this.colvalue.VisibleIndex = 4;
-            this.colvalue.Width = 79;
+            this.colvalue.Width = 77;
             // 
             // coldescription
             // 
@@ -222,7 +222,7 @@
             this.coldescription.OptionsColumn.AllowEdit = false;
             this.coldescription.Visible = true;
             this.coldescription.VisibleIndex = 5;
-            this.coldescription.Width = 174;
+            this.coldescription.Width = 171;
             // 
             // coltype
             // 
@@ -232,7 +232,7 @@
             this.coltype.OptionsColumn.AllowEdit = false;
             this.coltype.Visible = true;
             this.coltype.VisibleIndex = 6;
-            this.coltype.Width = 58;
+            this.coltype.Width = 56;
             // 
             // coltruck_id
             // 
@@ -242,13 +242,13 @@
             this.coltruck_id.OptionsColumn.AllowEdit = false;
             this.coltruck_id.Visible = true;
             this.coltruck_id.VisibleIndex = 7;
-            this.coltruck_id.Width = 107;
+            this.coltruck_id.Width = 112;
             // 
             // ViewDepositsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 325);
+            this.ClientSize = new System.Drawing.Size(895, 321);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

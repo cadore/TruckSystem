@@ -470,7 +470,7 @@
             // colantt
             // 
             this.colantt.Caption = "ANTT";
-            this.colantt.FieldName = "antt";
+            this.colantt.FieldName = "antt_number";
             this.colantt.Name = "colantt";
             this.colantt.OptionsColumn.AllowEdit = false;
             this.colantt.Visible = true;

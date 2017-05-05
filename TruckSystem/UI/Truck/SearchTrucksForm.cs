@@ -98,7 +98,7 @@ namespace TruckSystem.UI.Truck
                 for (int i = 0; i < listT.Count; i++)
                 {
                     listT[i].driver_name = driver.SingleOrDefault(listT[i].driver_id).full_name;
-                    listT[i].antt = Convert.ToInt32(antts.SingleOrDefault(listT[i].antt_id).rntrc);
+                    listT[i].antt_number = Convert.ToInt32(antts.SingleOrDefault(listT[i].antt_id).rntrc);
                 }
             }
             catch (Exception) { }
