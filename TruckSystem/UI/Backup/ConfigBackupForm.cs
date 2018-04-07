@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using System.IO;
 using TruckSystem.FileManager;
 using TruckSystem.Utils;
+using PostgresUtil;
 
 namespace TruckSystem.UI.Backup
 {
@@ -26,6 +27,21 @@ namespace TruckSystem.UI.Backup
             PathPG = Paths.PathPG;
             tfPathBackup.EditValue = PathBackup;
             tfPathPG.EditValue = PathPG;
+            GetLastBackup();
+        }
+
+        private void GetLastBackup()
+        {
+            try
+            {
+                PostgresqlUtil pg = new PostgresqlUtil() { PathOutputSqlPrimary = Paths.backups };
+                DateTime dt = pg.GetLastBackup();
+                tfDateLastBackup.EditValue = String.Format("{0:dd/MM/yyyy} ás {0:HH:mm:ss}", dt);
+            }
+            catch (Exception ex)
+            {
+                tfDateLastBackup.EditValue = "Não foi possivel obter o ultimo backup criado! / " + ex.Message;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

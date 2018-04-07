@@ -217,7 +217,7 @@ namespace TruckSystem.UI
             PostgresqlUtil pu = new PostgresqlUtil() 
             { 
                 CurrentDateTime = user.Now(),
-                PrefixNameFile = "TruckSystem2.0",
+                PrefixNameFile = "TruckSystem_2.0",
                 Host = ConnectionUtil.Host,
                 Port = ConnectionUtil.Port,
                 User = ConnectionUtil.User,
@@ -227,9 +227,9 @@ namespace TruckSystem.UI
                 PathOutputSqlBackup = Paths.PathBackupFile,
                 PathPG = Paths.PathPG
             };
-            Thread.Sleep(1800);
+            Thread.Sleep(200);
             bool flag = pu.StartBackup();
-            Thread.Sleep(1500);
+            Thread.Sleep(1000);
             SplashScreenManager.CloseForm(false);
             if (flag)
                 XtraMessageBox.Show("Backup realizado com sucesso!");
@@ -308,7 +308,7 @@ namespace TruckSystem.UI
             AddTab(new TrailerForm(null), "Gerenciar Reboques", false);
         }
 
-        private void btnConfigurePathFiles_ItemClick(object sender, ItemClickEventArgs e)
+        public void btnConfigurePathFiles_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
@@ -367,8 +367,7 @@ namespace TruckSystem.UI
 
         private void barButtonItem3_ItemClick(object sender, ItemClickEventArgs e)
         {
-            form f = new form();
-            f.Show();
+            
         }
 
         private void btnGridPayments_ItemClick(object sender, ItemClickEventArgs e)

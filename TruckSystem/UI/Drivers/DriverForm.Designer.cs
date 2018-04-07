@@ -109,7 +109,6 @@
             this.lbBirthday = new DevExpress.XtraEditors.LabelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl17 = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl16 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl21 = new DevExpress.XtraEditors.LabelControl();
@@ -124,6 +123,9 @@
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.validatorSearchCEP = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
+            this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbCity.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdgAddress)).BeginInit();
@@ -169,6 +171,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.validatorSearchCEP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
+            this.groupControl3.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbCity
@@ -527,7 +531,7 @@
             // tfComission
             // 
             this.tfComission.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgDriver, "comission", true));
-            this.tfComission.Location = new System.Drawing.Point(595, 104);
+            this.tfComission.Location = new System.Drawing.Point(41, 28);
             this.tfComission.Name = "tfComission";
             this.tfComission.Properties.Mask.EditMask = "c2";
             this.tfComission.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -747,6 +751,7 @@
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.groupControl3);
             this.groupControl1.Controls.Add(this.tfMotherName);
             this.groupControl1.Controls.Add(this.tfNaturalness);
             this.groupControl1.Controls.Add(this.tfPhoneMobile);
@@ -760,7 +765,6 @@
             this.groupControl1.Controls.Add(this.lbBirthday);
             this.groupControl1.Controls.Add(this.labelControl8);
             this.groupControl1.Controls.Add(this.labelControl17);
-            this.groupControl1.Controls.Add(this.labelControl5);
             this.groupControl1.Controls.Add(this.labelControl16);
             this.groupControl1.Controls.Add(this.labelControl7);
             this.groupControl1.Controls.Add(this.labelControl21);
@@ -768,7 +772,6 @@
             this.groupControl1.Controls.Add(this.labelControl4);
             this.groupControl1.Controls.Add(this.labelControl2);
             this.groupControl1.Controls.Add(this.tfCpf);
-            this.groupControl1.Controls.Add(this.tfComission);
             this.groupControl1.Controls.Add(this.tfFullName);
             this.groupControl1.Controls.Add(this.tfId);
             this.groupControl1.Controls.Add(this.labelControl1);
@@ -859,14 +862,6 @@
             this.labelControl17.Size = new System.Drawing.Size(37, 13);
             this.labelControl17.TabIndex = 3;
             this.labelControl17.Text = "Celular:";
-            // 
-            // labelControl5
-            // 
-            this.labelControl5.Location = new System.Drawing.Point(540, 107);
-            this.labelControl5.Name = "labelControl5";
-            this.labelControl5.Size = new System.Drawing.Size(49, 13);
-            this.labelControl5.TabIndex = 3;
-            this.labelControl5.Text = "Comissão:";
             // 
             // labelControl16
             // 
@@ -1017,6 +1012,33 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // groupControl3
+            // 
+            this.groupControl3.Controls.Add(this.tfComission);
+            this.groupControl3.Controls.Add(this.labelControl24);
+            this.groupControl3.Controls.Add(this.labelControl5);
+            this.groupControl3.Location = new System.Drawing.Point(547, 76);
+            this.groupControl3.Name = "groupControl3";
+            this.groupControl3.Size = new System.Drawing.Size(350, 73);
+            this.groupControl3.TabIndex = 11;
+            this.groupControl3.Text = "Comissão Frete (%)";
+            // 
+            // labelControl5
+            // 
+            this.labelControl5.Location = new System.Drawing.Point(5, 30);
+            this.labelControl5.Name = "labelControl5";
+            this.labelControl5.Size = new System.Drawing.Size(30, 13);
+            this.labelControl5.TabIndex = 3;
+            this.labelControl5.Text = "Bruto:";
+            // 
+            // labelControl24
+            // 
+            this.labelControl24.Location = new System.Drawing.Point(128, 30);
+            this.labelControl24.Name = "labelControl24";
+            this.labelControl24.Size = new System.Drawing.Size(37, 13);
+            this.labelControl24.TabIndex = 3;
+            this.labelControl24.Text = "Liquido:";
+            // 
             // DriverForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1073,6 +1095,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.validatorSearchCEP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
+            this.groupControl3.ResumeLayout(false);
+            this.groupControl3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1125,7 +1150,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl lbBirthday;
         private DevExpress.XtraEditors.RadioGroup rgGenrer;
-        private DevExpress.XtraEditors.LabelControl labelControl5;
         private DevExpress.XtraEditors.TextEdit tfComission;
         private DevExpress.XtraEditors.DateEdit tfDismissedAt;
         private DevExpress.XtraEditors.DateEdit tfAdmittedAt;
@@ -1157,5 +1181,8 @@
         private DevExpress.XtraEditors.SimpleButton btnFileCNH;
         private DevExpress.XtraEditors.SimpleButton btnSearchCEP;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider validatorSearchCEP;
+        private DevExpress.XtraEditors.GroupControl groupControl3;
+        private DevExpress.XtraEditors.LabelControl labelControl24;
+        private DevExpress.XtraEditors.LabelControl labelControl5;
     }
 }

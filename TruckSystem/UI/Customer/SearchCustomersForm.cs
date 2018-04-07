@@ -51,8 +51,8 @@ namespace TruckSystem.UI.Customer
             }
             else
             {
-                tfSearch.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple;
-                tfSearch.Properties.Mask.EditMask = "00.000.000/0000-00";
+                tfSearch.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                tfSearch.Properties.Mask.EditMask = @"(\d{2}\.\d{3}\.\d{3}/\d{4}\-\d{2})|(\d{3}\.\d{3}\.\d{3}\-\d{2})";
             }
             tfSearch.Focus();
             tfSearch.SelectAll();

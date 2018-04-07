@@ -6,6 +6,7 @@ using DevExpress.XtraSplashScreen;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -71,8 +72,16 @@ namespace TruckSystem
         {
             try
             {
-                Paths.raiz = INI.ReadValue("FILES", "CurrentPathFiles");                
+                Paths.raiz = INI.ReadValue("FILES", "CurrentPathFiles");
+
+                if (!Directory.Exists(Paths.raiz))
+                {
+                    XtraMessageBox.Show("Diretório de arquivos do sistema nao encontrado, informe o local para iniciar!", "Atenção");
+                    new DesktopForm().btnConfigurePathFiles_ItemClick(null, null);
+                }                    
+                                                    
                 Paths.buildPaths();
+                
             }
             catch (Exception ex)
             {

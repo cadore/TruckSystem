@@ -60,9 +60,9 @@
             this.panelControl1.Controls.Add(this.btnDelete);
             this.panelControl1.Controls.Add(this.btnConfirm);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 277);
+            this.panelControl1.Location = new System.Drawing.Point(0, 273);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(774, 39);
+            this.panelControl1.Size = new System.Drawing.Size(782, 39);
             this.panelControl1.TabIndex = 0;
             // 
             // btnAdd
@@ -101,6 +101,7 @@
             // 
             // btnConfirm
             // 
+            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
             this.btnConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirm.Font = new System.Drawing.Font("Segoe UI Light", 12F);
@@ -122,7 +123,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(774, 277);
+            this.panelControl2.Size = new System.Drawing.Size(782, 273);
             this.panelControl2.TabIndex = 1;
             // 
             // outputGridControl
@@ -132,7 +133,7 @@
             this.outputGridControl.Location = new System.Drawing.Point(2, 2);
             this.outputGridControl.MainView = this.gridView1;
             this.outputGridControl.Name = "outputGridControl";
-            this.outputGridControl.Size = new System.Drawing.Size(770, 273);
+            this.outputGridControl.Size = new System.Drawing.Size(778, 269);
             this.outputGridControl.TabIndex = 0;
             this.outputGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -236,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(774, 316);
+            this.ClientSize = new System.Drawing.Size(782, 312);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);

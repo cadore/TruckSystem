@@ -2,19 +2,22 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 9.3.14
--- Dumped by pg_dump version 9.3.14
--- Started on 2016-09-28 00:51:37
+-- Dumped from database version 10.1
+-- Dumped by pg_dump version 10.1
+
+-- Started on 2018-01-16 00:03:21
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
 SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
+SET row_security = off;
 
 --
--- TOC entry 1 (class 3079 OID 11750)
+-- TOC entry 1 (class 3079 OID 12924)
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
 --
 
@@ -22,7 +25,7 @@ CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- TOC entry 2181 (class 0 OID 0)
+-- TOC entry 3041 (class 0 OID 0)
 -- Dependencies: 1
 -- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
 --
@@ -33,7 +36,7 @@ COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 SET search_path = public, pg_catalog;
 
 --
--- TOC entry 218 (class 1255 OID 25273)
+-- TOC entry 244 (class 1255 OID 16415)
 -- Name: remove(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -46,7 +49,7 @@ CREATE FUNCTION remove(character varying) RETURNS character varying
 ALTER FUNCTION public.remove(character varying) OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1255 OID 25274)
+-- TOC entry 248 (class 1255 OID 16416)
 -- Name: remove_character(character varying); Type: FUNCTION; Schema: public; Owner: postgres
 --
 
@@ -63,8 +66,8 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 171 (class 1259 OID 25275)
--- Name: accounts_to_pay; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 196 (class 1259 OID 16417)
+-- Name: accounts_to_pay; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE accounts_to_pay (
@@ -89,10 +92,10 @@ CREATE TABLE accounts_to_pay (
 );
 
 
-ALTER TABLE public.accounts_to_pay OWNER TO postgres;
+ALTER TABLE accounts_to_pay OWNER TO postgres;
 
 --
--- TOC entry 172 (class 1259 OID 25281)
+-- TOC entry 197 (class 1259 OID 16423)
 -- Name: accounts_to_pay_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -104,11 +107,11 @@ CREATE SEQUENCE accounts_to_pay_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.accounts_to_pay_id_seq OWNER TO postgres;
+ALTER TABLE accounts_to_pay_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2182 (class 0 OID 0)
--- Dependencies: 172
+-- TOC entry 3042 (class 0 OID 0)
+-- Dependencies: 197
 -- Name: accounts_to_pay_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -116,8 +119,8 @@ ALTER SEQUENCE accounts_to_pay_id_seq OWNED BY accounts_to_pay.id;
 
 
 --
--- TOC entry 173 (class 1259 OID 25283)
--- Name: address; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 198 (class 1259 OID 16425)
+-- Name: address; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE address (
@@ -132,10 +135,10 @@ CREATE TABLE address (
 );
 
 
-ALTER TABLE public.address OWNER TO postgres;
+ALTER TABLE address OWNER TO postgres;
 
 --
--- TOC entry 174 (class 1259 OID 25289)
+-- TOC entry 199 (class 1259 OID 16431)
 -- Name: address_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -147,11 +150,11 @@ CREATE SEQUENCE address_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.address_id_seq OWNER TO postgres;
+ALTER TABLE address_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2183 (class 0 OID 0)
--- Dependencies: 174
+-- TOC entry 3043 (class 0 OID 0)
+-- Dependencies: 199
 -- Name: address_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -159,26 +162,26 @@ ALTER SEQUENCE address_id_seq OWNED BY address.id;
 
 
 --
--- TOC entry 175 (class 1259 OID 25291)
--- Name: antts; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 200 (class 1259 OID 16433)
+-- Name: antts; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE antts (
     id bigint NOT NULL,
     rntrc character varying,
     status_rntrc character varying,
-    registration_date timestamp without time zone,
-    validation_date timestamp without time zone,
+    registration_date date,
+    validation_date date,
     state_id bigint,
     city_id bigint,
     customer_id bigint
 );
 
 
-ALTER TABLE public.antts OWNER TO postgres;
+ALTER TABLE antts OWNER TO postgres;
 
 --
--- TOC entry 176 (class 1259 OID 25297)
+-- TOC entry 201 (class 1259 OID 16439)
 -- Name: antts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -190,11 +193,11 @@ CREATE SEQUENCE antts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.antts_id_seq OWNER TO postgres;
+ALTER TABLE antts_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2184 (class 0 OID 0)
--- Dependencies: 176
+-- TOC entry 3044 (class 0 OID 0)
+-- Dependencies: 201
 -- Name: antts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -202,8 +205,8 @@ ALTER SEQUENCE antts_id_seq OWNED BY antts.id;
 
 
 --
--- TOC entry 177 (class 1259 OID 25299)
--- Name: bank_accounts; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 202 (class 1259 OID 16441)
+-- Name: bank_accounts; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE bank_accounts (
@@ -219,11 +222,11 @@ CREATE TABLE bank_accounts (
 );
 
 
-ALTER TABLE public.bank_accounts OWNER TO postgres;
+ALTER TABLE bank_accounts OWNER TO postgres;
 
 --
--- TOC entry 2185 (class 0 OID 0)
--- Dependencies: 177
+-- TOC entry 3045 (class 0 OID 0)
+-- Dependencies: 202
 -- Name: COLUMN bank_accounts.type; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -232,7 +235,7 @@ COMMENT ON COLUMN bank_accounts.type IS '0 - corrente
 
 
 --
--- TOC entry 178 (class 1259 OID 25305)
+-- TOC entry 203 (class 1259 OID 16447)
 -- Name: bank_accounts_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -244,11 +247,11 @@ CREATE SEQUENCE bank_accounts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bank_accounts_id_seq OWNER TO postgres;
+ALTER TABLE bank_accounts_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2186 (class 0 OID 0)
--- Dependencies: 178
+-- TOC entry 3046 (class 0 OID 0)
+-- Dependencies: 203
 -- Name: bank_accounts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -256,8 +259,8 @@ ALTER SEQUENCE bank_accounts_id_seq OWNED BY bank_accounts.id;
 
 
 --
--- TOC entry 179 (class 1259 OID 25307)
--- Name: banks; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 204 (class 1259 OID 16449)
+-- Name: banks; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE banks (
@@ -269,10 +272,10 @@ CREATE TABLE banks (
 );
 
 
-ALTER TABLE public.banks OWNER TO postgres;
+ALTER TABLE banks OWNER TO postgres;
 
 --
--- TOC entry 180 (class 1259 OID 25313)
+-- TOC entry 205 (class 1259 OID 16455)
 -- Name: banks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -284,11 +287,11 @@ CREATE SEQUENCE banks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.banks_id_seq OWNER TO postgres;
+ALTER TABLE banks_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2187 (class 0 OID 0)
--- Dependencies: 180
+-- TOC entry 3047 (class 0 OID 0)
+-- Dependencies: 205
 -- Name: banks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -296,8 +299,8 @@ ALTER SEQUENCE banks_id_seq OWNED BY banks.id;
 
 
 --
--- TOC entry 181 (class 1259 OID 25315)
--- Name: categorys; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 206 (class 1259 OID 16457)
+-- Name: categorys; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE categorys (
@@ -307,10 +310,10 @@ CREATE TABLE categorys (
 );
 
 
-ALTER TABLE public.categorys OWNER TO postgres;
+ALTER TABLE categorys OWNER TO postgres;
 
 --
--- TOC entry 182 (class 1259 OID 25321)
+-- TOC entry 207 (class 1259 OID 16463)
 -- Name: categorys_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -322,11 +325,11 @@ CREATE SEQUENCE categorys_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.categorys_id_seq OWNER TO postgres;
+ALTER TABLE categorys_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2188 (class 0 OID 0)
--- Dependencies: 182
+-- TOC entry 3048 (class 0 OID 0)
+-- Dependencies: 207
 -- Name: categorys_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -334,8 +337,8 @@ ALTER SEQUENCE categorys_id_seq OWNED BY categorys.id;
 
 
 --
--- TOC entry 183 (class 1259 OID 25323)
--- Name: city; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 208 (class 1259 OID 16465)
+-- Name: city; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE city (
@@ -351,10 +354,10 @@ CREATE TABLE city (
 );
 
 
-ALTER TABLE public.city OWNER TO postgres;
+ALTER TABLE city OWNER TO postgres;
 
 --
--- TOC entry 184 (class 1259 OID 25329)
+-- TOC entry 209 (class 1259 OID 16471)
 -- Name: city_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -366,11 +369,11 @@ CREATE SEQUENCE city_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.city_id_seq OWNER TO postgres;
+ALTER TABLE city_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2189 (class 0 OID 0)
--- Dependencies: 184
+-- TOC entry 3049 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: city_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -378,8 +381,8 @@ ALTER SEQUENCE city_id_seq OWNED BY city.id;
 
 
 --
--- TOC entry 185 (class 1259 OID 25331)
--- Name: customers; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 210 (class 1259 OID 16473)
+-- Name: customers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE customers (
@@ -404,10 +407,10 @@ CREATE TABLE customers (
 );
 
 
-ALTER TABLE public.customers OWNER TO postgres;
+ALTER TABLE customers OWNER TO postgres;
 
 --
--- TOC entry 186 (class 1259 OID 25337)
+-- TOC entry 211 (class 1259 OID 16479)
 -- Name: customers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -419,11 +422,11 @@ CREATE SEQUENCE customers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.customers_id_seq OWNER TO postgres;
+ALTER TABLE customers_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2190 (class 0 OID 0)
--- Dependencies: 186
+-- TOC entry 3050 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: customers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -431,8 +434,8 @@ ALTER SEQUENCE customers_id_seq OWNED BY customers.id;
 
 
 --
--- TOC entry 187 (class 1259 OID 25339)
--- Name: deposits; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 212 (class 1259 OID 16481)
+-- Name: deposits; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE deposits (
@@ -448,11 +451,11 @@ CREATE TABLE deposits (
 );
 
 
-ALTER TABLE public.deposits OWNER TO postgres;
+ALTER TABLE deposits OWNER TO postgres;
 
 --
--- TOC entry 2191 (class 0 OID 0)
--- Dependencies: 187
+-- TOC entry 3051 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: COLUMN deposits.type; Type: COMMENT; Schema: public; Owner: postgres
 --
 
@@ -460,8 +463,8 @@ COMMENT ON COLUMN deposits.type IS '(0 - dinheiro, 1 - cheque)';
 
 
 --
--- TOC entry 188 (class 1259 OID 25345)
--- Name: drivers; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 213 (class 1259 OID 16487)
+-- Name: drivers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE drivers (
@@ -486,14 +489,15 @@ CREATE TABLE drivers (
     naturalness character varying,
     register_cnh character varying,
     mother_name character varying,
-    cnh_pdf character varying
+    cnh_pdf character varying,
+    observations character varying
 );
 
 
-ALTER TABLE public.drivers OWNER TO postgres;
+ALTER TABLE drivers OWNER TO postgres;
 
 --
--- TOC entry 189 (class 1259 OID 25351)
+-- TOC entry 214 (class 1259 OID 16493)
 -- Name: drivers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -505,11 +509,11 @@ CREATE SEQUENCE drivers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.drivers_id_seq OWNER TO postgres;
+ALTER TABLE drivers_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2192 (class 0 OID 0)
--- Dependencies: 189
+-- TOC entry 3052 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: drivers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -517,8 +521,8 @@ ALTER SEQUENCE drivers_id_seq OWNED BY drivers.id;
 
 
 --
--- TOC entry 190 (class 1259 OID 25353)
--- Name: freights; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 215 (class 1259 OID 16495)
+-- Name: freights; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE freights (
@@ -547,10 +551,10 @@ CREATE TABLE freights (
 );
 
 
-ALTER TABLE public.freights OWNER TO postgres;
+ALTER TABLE freights OWNER TO postgres;
 
 --
--- TOC entry 191 (class 1259 OID 25359)
+-- TOC entry 216 (class 1259 OID 16501)
 -- Name: freights_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -562,11 +566,11 @@ CREATE SEQUENCE freights_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.freights_id_seq OWNER TO postgres;
+ALTER TABLE freights_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2193 (class 0 OID 0)
--- Dependencies: 191
+-- TOC entry 3053 (class 0 OID 0)
+-- Dependencies: 216
 -- Name: freights_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -574,8 +578,8 @@ ALTER SEQUENCE freights_id_seq OWNED BY freights.id;
 
 
 --
--- TOC entry 192 (class 1259 OID 25361)
--- Name: fueleds; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 217 (class 1259 OID 16503)
+-- Name: fueleds; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE fueleds (
@@ -595,10 +599,10 @@ CREATE TABLE fueleds (
 );
 
 
-ALTER TABLE public.fueleds OWNER TO postgres;
+ALTER TABLE fueleds OWNER TO postgres;
 
 --
--- TOC entry 193 (class 1259 OID 25367)
+-- TOC entry 218 (class 1259 OID 16509)
 -- Name: fueleds_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -610,11 +614,11 @@ CREATE SEQUENCE fueleds_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.fueleds_id_seq OWNER TO postgres;
+ALTER TABLE fueleds_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2194 (class 0 OID 0)
--- Dependencies: 193
+-- TOC entry 3054 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: fueleds_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -622,8 +626,8 @@ ALTER SEQUENCE fueleds_id_seq OWNED BY fueleds.id;
 
 
 --
--- TOC entry 194 (class 1259 OID 25369)
--- Name: logins; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 219 (class 1259 OID 16511)
+-- Name: logins; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE logins (
@@ -636,10 +640,10 @@ CREATE TABLE logins (
 );
 
 
-ALTER TABLE public.logins OWNER TO postgres;
+ALTER TABLE logins OWNER TO postgres;
 
 --
--- TOC entry 195 (class 1259 OID 25375)
+-- TOC entry 220 (class 1259 OID 16517)
 -- Name: logins_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -651,11 +655,11 @@ CREATE SEQUENCE logins_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.logins_id_seq OWNER TO postgres;
+ALTER TABLE logins_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2195 (class 0 OID 0)
--- Dependencies: 195
+-- TOC entry 3055 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: logins_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -663,8 +667,8 @@ ALTER SEQUENCE logins_id_seq OWNED BY logins.id;
 
 
 --
--- TOC entry 196 (class 1259 OID 25377)
--- Name: mails; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 221 (class 1259 OID 16519)
+-- Name: mails; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE mails (
@@ -678,10 +682,10 @@ CREATE TABLE mails (
 );
 
 
-ALTER TABLE public.mails OWNER TO postgres;
+ALTER TABLE mails OWNER TO postgres;
 
 --
--- TOC entry 197 (class 1259 OID 25383)
+-- TOC entry 222 (class 1259 OID 16525)
 -- Name: mails_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -693,11 +697,11 @@ CREATE SEQUENCE mails_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.mails_id_seq OWNER TO postgres;
+ALTER TABLE mails_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2196 (class 0 OID 0)
--- Dependencies: 197
+-- TOC entry 3056 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: mails_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -705,8 +709,8 @@ ALTER SEQUENCE mails_id_seq OWNED BY mails.id;
 
 
 --
--- TOC entry 198 (class 1259 OID 25385)
--- Name: outputs; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 223 (class 1259 OID 16527)
+-- Name: outputs; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE outputs (
@@ -723,10 +727,10 @@ CREATE TABLE outputs (
 );
 
 
-ALTER TABLE public.outputs OWNER TO postgres;
+ALTER TABLE outputs OWNER TO postgres;
 
 --
--- TOC entry 199 (class 1259 OID 25391)
+-- TOC entry 224 (class 1259 OID 16533)
 -- Name: outputs_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -738,11 +742,11 @@ CREATE SEQUENCE outputs_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.outputs_id_seq OWNER TO postgres;
+ALTER TABLE outputs_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2197 (class 0 OID 0)
--- Dependencies: 199
+-- TOC entry 3057 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: outputs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -750,8 +754,8 @@ ALTER SEQUENCE outputs_id_seq OWNED BY outputs.id;
 
 
 --
--- TOC entry 200 (class 1259 OID 25393)
--- Name: payments; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 225 (class 1259 OID 16535)
+-- Name: payments; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE payments (
@@ -772,10 +776,10 @@ CREATE TABLE payments (
 );
 
 
-ALTER TABLE public.payments OWNER TO postgres;
+ALTER TABLE payments OWNER TO postgres;
 
 --
--- TOC entry 201 (class 1259 OID 25400)
+-- TOC entry 226 (class 1259 OID 16542)
 -- Name: payments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -787,11 +791,11 @@ CREATE SEQUENCE payments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.payments_id_seq OWNER TO postgres;
+ALTER TABLE payments_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2198 (class 0 OID 0)
--- Dependencies: 201
+-- TOC entry 3058 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: payments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -799,8 +803,8 @@ ALTER SEQUENCE payments_id_seq OWNED BY payments.id;
 
 
 --
--- TOC entry 202 (class 1259 OID 25402)
--- Name: states; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 227 (class 1259 OID 16544)
+-- Name: states; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE states (
@@ -810,10 +814,10 @@ CREATE TABLE states (
 );
 
 
-ALTER TABLE public.states OWNER TO postgres;
+ALTER TABLE states OWNER TO postgres;
 
 --
--- TOC entry 203 (class 1259 OID 25408)
+-- TOC entry 228 (class 1259 OID 16550)
 -- Name: states_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -825,11 +829,11 @@ CREATE SEQUENCE states_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.states_id_seq OWNER TO postgres;
+ALTER TABLE states_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2199 (class 0 OID 0)
--- Dependencies: 203
+-- TOC entry 3059 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: states_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -837,8 +841,8 @@ ALTER SEQUENCE states_id_seq OWNED BY states.id;
 
 
 --
--- TOC entry 204 (class 1259 OID 25410)
--- Name: stays; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 229 (class 1259 OID 16552)
+-- Name: stays; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE stays (
@@ -857,10 +861,10 @@ CREATE TABLE stays (
 );
 
 
-ALTER TABLE public.stays OWNER TO postgres;
+ALTER TABLE stays OWNER TO postgres;
 
 --
--- TOC entry 205 (class 1259 OID 25413)
+-- TOC entry 230 (class 1259 OID 16555)
 -- Name: stays_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -872,11 +876,11 @@ CREATE SEQUENCE stays_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.stays_id_seq OWNER TO postgres;
+ALTER TABLE stays_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2200 (class 0 OID 0)
--- Dependencies: 205
+-- TOC entry 3060 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: stays_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -884,8 +888,8 @@ ALTER SEQUENCE stays_id_seq OWNED BY stays.id;
 
 
 --
--- TOC entry 206 (class 1259 OID 25415)
--- Name: trailers; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 231 (class 1259 OID 16557)
+-- Name: trailers; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE trailers (
@@ -907,10 +911,10 @@ CREATE TABLE trailers (
 );
 
 
-ALTER TABLE public.trailers OWNER TO postgres;
+ALTER TABLE trailers OWNER TO postgres;
 
 --
--- TOC entry 207 (class 1259 OID 25421)
+-- TOC entry 232 (class 1259 OID 16563)
 -- Name: trailers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -922,11 +926,11 @@ CREATE SEQUENCE trailers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.trailers_id_seq OWNER TO postgres;
+ALTER TABLE trailers_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2201 (class 0 OID 0)
--- Dependencies: 207
+-- TOC entry 3061 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: trailers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -934,8 +938,8 @@ ALTER SEQUENCE trailers_id_seq OWNED BY trailers.id;
 
 
 --
--- TOC entry 208 (class 1259 OID 25423)
--- Name: trucks; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 233 (class 1259 OID 16565)
+-- Name: trucks; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE trucks (
@@ -951,15 +955,14 @@ CREATE TABLE trucks (
     registred_at timestamp without time zone,
     color character varying,
     driver_id bigint,
-    antt integer,
     antt_id bigint
 );
 
 
-ALTER TABLE public.trucks OWNER TO postgres;
+ALTER TABLE trucks OWNER TO postgres;
 
 --
--- TOC entry 209 (class 1259 OID 25429)
+-- TOC entry 234 (class 1259 OID 16571)
 -- Name: trucks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -971,11 +974,11 @@ CREATE SEQUENCE trucks_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.trucks_id_seq OWNER TO postgres;
+ALTER TABLE trucks_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2202 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 3062 (class 0 OID 0)
+-- Dependencies: 234
 -- Name: trucks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -983,8 +986,8 @@ ALTER SEQUENCE trucks_id_seq OWNED BY trucks.id;
 
 
 --
--- TOC entry 210 (class 1259 OID 25431)
--- Name: users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 235 (class 1259 OID 16573)
+-- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE users (
@@ -998,10 +1001,10 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE public.users OWNER TO postgres;
+ALTER TABLE users OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 25437)
+-- TOC entry 236 (class 1259 OID 16579)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -1013,11 +1016,11 @@ CREATE SEQUENCE users_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.users_id_seq OWNER TO postgres;
+ALTER TABLE users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2203 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3063 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -1025,168 +1028,168 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
--- TOC entry 1963 (class 2604 OID 25439)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2810 (class 2604 OID 16581)
+-- Name: accounts_to_pay id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY accounts_to_pay ALTER COLUMN id SET DEFAULT nextval('accounts_to_pay_id_seq'::regclass);
 
 
 --
--- TOC entry 1964 (class 2604 OID 25440)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2811 (class 2604 OID 16582)
+-- Name: address id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY address ALTER COLUMN id SET DEFAULT nextval('address_id_seq'::regclass);
 
 
 --
--- TOC entry 1965 (class 2604 OID 25441)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2812 (class 2604 OID 16583)
+-- Name: antts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY antts ALTER COLUMN id SET DEFAULT nextval('antts_id_seq'::regclass);
 
 
 --
--- TOC entry 1966 (class 2604 OID 25442)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2813 (class 2604 OID 16584)
+-- Name: bank_accounts id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY bank_accounts ALTER COLUMN id SET DEFAULT nextval('bank_accounts_id_seq'::regclass);
 
 
 --
--- TOC entry 1967 (class 2604 OID 25443)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2814 (class 2604 OID 16585)
+-- Name: banks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY banks ALTER COLUMN id SET DEFAULT nextval('banks_id_seq'::regclass);
 
 
 --
--- TOC entry 1968 (class 2604 OID 25444)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2815 (class 2604 OID 16586)
+-- Name: categorys id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY categorys ALTER COLUMN id SET DEFAULT nextval('categorys_id_seq'::regclass);
 
 
 --
--- TOC entry 1969 (class 2604 OID 25445)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2816 (class 2604 OID 16587)
+-- Name: city id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY city ALTER COLUMN id SET DEFAULT nextval('city_id_seq'::regclass);
 
 
 --
--- TOC entry 1970 (class 2604 OID 25446)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2817 (class 2604 OID 16588)
+-- Name: customers id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customers ALTER COLUMN id SET DEFAULT nextval('customers_id_seq'::regclass);
 
 
 --
--- TOC entry 1971 (class 2604 OID 25447)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2818 (class 2604 OID 16589)
+-- Name: drivers id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY drivers ALTER COLUMN id SET DEFAULT nextval('drivers_id_seq'::regclass);
 
 
 --
--- TOC entry 1972 (class 2604 OID 25448)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2819 (class 2604 OID 16590)
+-- Name: freights id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY freights ALTER COLUMN id SET DEFAULT nextval('freights_id_seq'::regclass);
 
 
 --
--- TOC entry 1973 (class 2604 OID 25449)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2820 (class 2604 OID 16591)
+-- Name: fueleds id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY fueleds ALTER COLUMN id SET DEFAULT nextval('fueleds_id_seq'::regclass);
 
 
 --
--- TOC entry 1974 (class 2604 OID 25450)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2821 (class 2604 OID 16592)
+-- Name: logins id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY logins ALTER COLUMN id SET DEFAULT nextval('logins_id_seq'::regclass);
 
 
 --
--- TOC entry 1975 (class 2604 OID 25451)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2822 (class 2604 OID 16593)
+-- Name: mails id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY mails ALTER COLUMN id SET DEFAULT nextval('mails_id_seq'::regclass);
 
 
 --
--- TOC entry 1976 (class 2604 OID 25452)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2823 (class 2604 OID 16594)
+-- Name: outputs id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY outputs ALTER COLUMN id SET DEFAULT nextval('outputs_id_seq'::regclass);
 
 
 --
--- TOC entry 1978 (class 2604 OID 25453)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2825 (class 2604 OID 16595)
+-- Name: payments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY payments ALTER COLUMN id SET DEFAULT nextval('payments_id_seq'::regclass);
 
 
 --
--- TOC entry 1979 (class 2604 OID 25454)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2826 (class 2604 OID 16596)
+-- Name: states id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY states ALTER COLUMN id SET DEFAULT nextval('states_id_seq'::regclass);
 
 
 --
--- TOC entry 1980 (class 2604 OID 25455)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2827 (class 2604 OID 16597)
+-- Name: stays id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY stays ALTER COLUMN id SET DEFAULT nextval('stays_id_seq'::regclass);
 
 
 --
--- TOC entry 1981 (class 2604 OID 25456)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2828 (class 2604 OID 16598)
+-- Name: trailers id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY trailers ALTER COLUMN id SET DEFAULT nextval('trailers_id_seq'::regclass);
 
 
 --
--- TOC entry 1982 (class 2604 OID 25457)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2829 (class 2604 OID 16599)
+-- Name: trucks id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY trucks ALTER COLUMN id SET DEFAULT nextval('trucks_id_seq'::regclass);
 
 
 --
--- TOC entry 1983 (class 2604 OID 25458)
--- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+-- TOC entry 2830 (class 2604 OID 16600)
+-- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
 --
--- TOC entry 2133 (class 0 OID 25275)
--- Dependencies: 171
+-- TOC entry 2994 (class 0 OID 16417)
+-- Dependencies: 196
 -- Data for Name: accounts_to_pay; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1234,17 +1237,8 @@ INSERT INTO accounts_to_pay (id, chave, number, serie, customer_id, emission_at,
 
 
 --
--- TOC entry 2204 (class 0 OID 0)
--- Dependencies: 172
--- Name: accounts_to_pay_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('accounts_to_pay_id_seq', 33, true);
-
-
---
--- TOC entry 2135 (class 0 OID 25283)
--- Dependencies: 173
+-- TOC entry 2996 (class 0 OID 16425)
+-- Dependencies: 198
 -- Data for Name: address; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1359,14 +1353,12 @@ INSERT INTO address (id, name, district, city_id, state_id, number, complement, 
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (110, 'AV GOVERNADOR MARIO COVAS JUNIOR', 'BAIRRO ESTUARIO', 5326, 26, 'S/N', 'ARMAZ.39, XLI E XLIII', '11020-300');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (115, 'R ULISSES P DE CAMPOS', 'SUBURBANO', 2414, 13, '132', 'POSTO IDAZA', '78110-798');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (117, 'AV COLOMBO', 'JARDIM KOSMOS', 3403, 18, '9796', 'SALA  06', '87070-000');
-INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (118, 'R PIRACICABA', 'PARQUE INDUSTRIAL FABRICIO VETORASSO MENDES', 2386, 13, '11', 'ANEXO POSTO LOCATELLI', '78700-790');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (119, 'R AYRTON SENNA', 'NOVA PRATA', 2405, 13, '628', 'DISTRITO INDUSTRIAL', '78890-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (120, 'AV ELIEZER OLIVEIRA GUIMARAES', 'DISTRITO AGROINDUSTRIAL', 1105, 9, 'S/N', 'MODULO 10', '75890-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (121, 'AV EMERSON VALCANAIA', 'INDUSTRIAL', 2339, 13, '46 N', 'MT 449', '78455-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (122, 'ROD 364', 'ZONA RURAL', 2395, 13, 'SN', 'KM 393', '78180-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (124, 'ROD PR 317', 'ZONA 46', 3403, 18, '4652', NULL, '87035-510');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (125, 'ROD MS 306 KM 100', 'ZONA RURAL', 2221, 12, 'SN', NULL, '79560-000');
-INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (126, 'ROD DO CAFE BR 376, KM 140', 'SUBURBANO', 3427, 18, 'S/N', NULL, '87600-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (127, 'ROD PR 317', 'ZONA 46', 3403, 18, '4652', 'BLOCO 04', '87035-510');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (116, 'ROD BR 163', 'ZONA RURAL', 2226, 12, 'S/N', 'KM 786', '79400-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (123, 'ROD BR 364 KM 237', 'DISTRITO BOA VISTA', 2386, 13, 'SN', 'BOA VISTA MT', '78752-000');
@@ -1391,6 +1383,8 @@ INSERT INTO address (id, name, district, city_id, state_id, number, complement, 
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (145, 'R TAMANDARE', 'VILA PLANALTO', 2331, 13, '781', NULL, '78820-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (146, 'RUA FOZ DO IGUACU', 'MENINO DEUS', 2339, 13, '232', 'S', '78455-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (142, 'AV DAS ACAÇIAS ', 'BANDEIRANTES', 2339, 13, '253', 'W', '78455-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (118, 'R PIRACICABA', 'PARQUE INDUSTRIAL FABRICIO VETORASSO MENDES', 2386, 13, '11', 'ANEXO POSTO LOCATELLI', '78700-790');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (126, 'ROD DO CAFE BR 376, KM 140', 'SUBURBANO', 3427, 18, 'S/N', NULL, '87600-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (147, 'ROD BR 163/364', 'JARDIM PAULA II', 2414, 13, 'SN', NULL, '78110-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (148, 'AV P DAS SAMAMBAIAS', 'DISTRITO INDUSTRIAL SUL', 2355, 13, '3012W', 'LOTE: 01; QUADRA: 528;', '78450-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (149, 'AV DA FEB (LOT P NOVA)', 'PONTE NOVA', 2414, 13, '1150', 'PROXIMO PONTE PORTO', '78115-005');
@@ -1436,54 +1430,43 @@ INSERT INTO address (id, name, district, city_id, state_id, number, complement, 
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (187, 'ROD BR-452', 'DISTRITO INDUSTRIAL', 2170, 11, 'S/N', 'KM    128                 SALA  03 E 04             ANEXO POSTO CERRADO', '38402-343');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (189, 'AVENIDA MARANHAO', 'INDUSTRIAL', 2339, 13, '1736', 'N', '78455-000');
 INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (188, 'AVENIDA MARANHÃO', 'INDUSTRIAL', 2339, 13, '1335', 'N', '78455-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (190, 'AV GOVERNADOR MANOEL RIBAS', 'DOM PEDRO II', 3447, 18, '1244', NULL, '83221-560');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (191, 'R B', 'PARQUE INDUSTRIAL INTERMODAL DE RONDONOPOLIS', 2386, 13, 'SN', 'LOTE: 02; QUADRA: AREA; : AREA B;', '78746-860');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (192, 'ROD  BR 364', 'VILA RICA', 2386, 13, 'S/N', 'KM     210', '78750-541');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (193, 'AV BENTO ROCHA', 'DOM PEDRO II', 3447, 18, '67', 'ARMZ: PASA;', '83221-565');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (194, 'FAZ SAO JOSE', 'TRES MORRINHOS', 3569, 18, 'S/N', 'LOTE 35 E ANEXOS', '87890-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (195, 'ROD BR 376 KM 504', 'DISTRITO INDUSTRIAL', 3469, 18, 'S/N', NULL, '84046-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (196, 'ROD DO CAFE,  BR 376', 'SERRA DO CADEADO', 3412, 18, 'S/N', 'KM 297', '86828-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (197, 'AV IDEMAR RIEDI', 'INDUSTRIAL 1 ETAPA', 2405, 13, '9.922', NULL, '78890-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (198, 'ROD PR 218', 'DISTRITO DE GRACIOSA', 3449, 18, 'S/N', 'KM: 372+500M;', '87722-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (199, 'AV UNIVERSITARIA', 'PARQUE DAS EMAS', 2339, 13, '629-W', 'SALA  02 B', '78455-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (200, 'ROD MG 400, KM 03', 'ZONA RURAL', 1446, 11, 'S/N', ': FAZENDA GADO BRAVO;', '38660-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (201, 'ROD MT 10 SN PROJ ELDORADO ', 'ZONZ RURAL ', 2327, 13, NULL, NULL, '78578-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (202, 'AV MARANHAO', 'INDUSTRIAL', 2339, 13, '1266-N', 'SETOR 14                  QUADRA033                 LOTE  0009', '78455-000');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (203, 'ROD BR 020 KM 36', 'PLANALTINA', 804, 7, 'SN', NULL, '73320-030');
+INSERT INTO address (id, name, district, city_id, state_id, number, complement, cep) VALUES (204, 'ROD BR 070', 'PONTE A. DO ARAGUAIA', 1029, 9, 'S/N', 'KM 60', '76255-000');
 
 
 --
--- TOC entry 2205 (class 0 OID 0)
--- Dependencies: 174
--- Name: address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('address_id_seq', 189, true);
-
-
---
--- TOC entry 2137 (class 0 OID 25291)
--- Dependencies: 175
+-- TOC entry 2998 (class 0 OID 16433)
+-- Dependencies: 200
 -- Data for Name: antts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO antts (id, rntrc, status_rntrc, registration_date, validation_date, state_id, city_id, customer_id) VALUES (1, '0', '0', '2017-01-09', '2017-01-03', 13, 2339, 8);
 
 
 --
--- TOC entry 2206 (class 0 OID 0)
--- Dependencies: 176
--- Name: antts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('antts_id_seq', 1, false);
-
-
---
--- TOC entry 2139 (class 0 OID 25299)
--- Dependencies: 177
+-- TOC entry 3000 (class 0 OID 16441)
+-- Dependencies: 202
 -- Data for Name: bank_accounts; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 2207 (class 0 OID 0)
--- Dependencies: 178
--- Name: bank_accounts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('bank_accounts_id_seq', 1, false);
-
-
---
--- TOC entry 2141 (class 0 OID 25307)
--- Dependencies: 179
+-- TOC entry 3002 (class 0 OID 16449)
+-- Dependencies: 204
 -- Data for Name: banks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1707,17 +1690,8 @@ INSERT INTO banks (id, code, cnpj, name, site) VALUES (217, '84', '02.398.976/00
 
 
 --
--- TOC entry 2208 (class 0 OID 0)
--- Dependencies: 180
--- Name: banks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('banks_id_seq', 1, false);
-
-
---
--- TOC entry 2143 (class 0 OID 25315)
--- Dependencies: 181
+-- TOC entry 3004 (class 0 OID 16457)
+-- Dependencies: 206
 -- Data for Name: categorys; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -1741,17 +1715,8 @@ INSERT INTO categorys (id, type, name) VALUES (17, 0, 'SEGURO');
 
 
 --
--- TOC entry 2209 (class 0 OID 0)
--- Dependencies: 182
--- Name: categorys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('categorys_id_seq', 17, true);
-
-
---
--- TOC entry 2145 (class 0 OID 25323)
--- Dependencies: 183
+-- TOC entry 3006 (class 0 OID 16465)
+-- Dependencies: 208
 -- Data for Name: city; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -7323,245 +7288,233 @@ INSERT INTO city (id, name, cod_ibge, state_id, population, demographic, gentili
 
 
 --
--- TOC entry 2210 (class 0 OID 0)
--- Dependencies: 184
--- Name: city_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('city_id_seq', 5565, true);
-
-
---
--- TOC entry 2147 (class 0 OID 25331)
--- Dependencies: 185
+-- TOC entry 3008 (class 0 OID 16473)
+-- Dependencies: 210
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (2, 'ALL AMERICA LATINA LOGISTICA MALHA NORTE SA', NULL, '24.962.466/0011-08', 5, '2015-07-08', 1, false, '133347435', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (5, 'SARTCO LTDA', 'SARTCO LTDA', '02.199.856/0015-69', 8, '2015-07-08', 1, false, '132060981', '(66) 3421-1037', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (7, 'MECANICA SERRA SÃO VICENTE', NULL, '17.699.397/0001-54', 10, '2015-07-09', 1, false, NULL, '(65) 8123-1143', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (8, 'TRANSPORTES CADORE LTDA-ME', 'WJM TRANSPORTES', '12.665.225/0001-46', 11, '2015-07-09', 1, false, '134019490', '(65) 3549-0079', '(65) 9971-7690', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (10, 'POSTO ALDO CUIABA LTDA', 'POSTO LOCATELLI', '24.956.658/0001-30', 14, '2015-07-15', 1, false, '130684023', '(65) 3616-5080', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (11, 'C CARVALHO SILVA & CIA LTDA', 'POSTO ESPLANADA', '05.302.564/0001-00', 15, '2015-07-15', 1, false, '13.224.105-6', '(66) 3426-8064', '(66) 4141-0021', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (47, 'AGTL ARMAZENS GERAIS TERMINAL LTDA', NULL, '81.174.138/0001-09', 51, '2015-08-28', 1, false, '9015237039', '(44) 8888-8888', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (12, 'VERGRAN COMERCIAL LTDA', 'COMAGRAN LUCAS', '05.529.624/0001-14', 16, '2015-07-15', 1, false, '13.218160-6', '(65) 3549-5045', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (13, 'O MONTAGNA & CIA LTDA', 'UNIÃO AUTO PEÇAS', '24.969.636/0002-95', 17, '2015-07-15', 1, false, '13.370.315-0', '(65) 3549-6656', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (15, 'RODO BELO TRANS. LTDA-MT', 'RODO BELO', '02.910.203/0004-93', 19, '2015-07-15', 1, false, '13.185.519-0', '(66) 3421-1745', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (17, 'ADM DO BRASIL LTDA', 'ADM RONDONOPOLIS', '02.003.402/0024-61', 21, '2015-07-15', 1, false, '13.210.491-1', '(66) 3411-2800', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (9, 'TICO TICO POSTO DE SERVIÇOS LTDA', 'POSTO SÃO CRISTOVÃO', '02.335.535/0001-49', 13, '2015-07-15', 1, false, '13203910-9', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (1, 'ADM DO BRASIL LTDA', 'ADM LUCAS DO RIO VERDE', '02.003.402/0079-35', 4, '2015-07-08', 1, false, '133347435', '(65) 3549-2964', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (18, 'KIRST COMERCIO COMBUSTIVEL', 'POSTO CIRIEMA', '00.445.400/0001-00', 22, '2015-07-16', 1, false, '13.162.910-7', '(65) 3549-1149', '(65) 3549-1835', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (19, 'RODO PARAISO TRANSPORTES LTDA-ME', 'RODO PARAISO', '05.955.002/0001-58', 23, '2015-07-16', 1, false, '13.234.001-1', '(65) 3549-3907', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (20, 'ECOPLAN MINERAÇÃO LTDA', 'ECOPLAN', '87.987.863/0001-82', 24, '2015-07-16', 1, false, '13.084.564-7', '(65) 3376-1426', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (21, 'HILARIO RENATO PICCINI', 'FAZ RESERVA DOS MINEIROS', '224.818.269-49', 25, '2015-07-16', 1, false, '13.539.362-0', '(65) 3549-1459', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (22, 'ADMINISTRADORA DE PEDAGIOS', 'RODOVIA DA MUDANÇA', '12.933.650/0001-79', 26, '2015-07-16', 1, false, NULL, '(65) 3549-4423', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (23, 'PEDRISA PAVIMANTAÇÕES LTDA-ME', 'PEDRISA', '01.897.846/0001-39', 27, '2015-07-16', 1, false, '13.546.817-5', '(65) 3549-5138', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (24, 'COPACEL IND. E COM. DE CALCARIO E CEREAIS LTDA', 'COPACEL PRETO', '00.951.459/0002-51', 28, '2015-07-16', 1, false, '13.211.449-6', '(65) 3376-2537', '(65) 3376-1516', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (25, 'RODEP COMERCIO DE COMBUSTIVEL E TRANSPORTES', 'POSTO RODEP', '08.490.193/0001-18', 29, '2015-07-16', 1, false, '13.371.855-7', '(65) 3427-1338', '(65) 3427-1335', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (26, 'BRADO LOGISTICA S/A', 'BRADO', '03.307.926/0026-70', 30, '2015-07-16', 1, false, '13.481.060-0', '(66) 2103-7900', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (27, 'PEDRO FIBRAS E PINTURA', NULL, '000.000.000-00', 31, '2015-07-16', 1, false, NULL, '(65) 9215-1526', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (28, 'LIBERALLI COMERCIO DE COMBUSTIVEIS LTDA', 'POSTO SABIA', '03.060.562/0001-19', 32, '2015-07-16', 1, false, '13.186.613-3', '(65) 3549-1316', '(65) 3549-1565', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (29, 'POSTO MANGUEIRAS LTDA', 'POSTO MANGUEIRAS', '26.808.923/0001-68', 33, '2015-07-16', 1, false, '13.445.361-1', '(65) 3667-6204', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (30, 'ADM DO BRASIL LTDA', 'ADM TAPURAH', '02.003.402/0062-97', 34, '2015-07-17', 1, false, '13.224.079-3', '(66) 3547-2030', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (31, 'POSTO ALDO RONDONOPOLIS LTDA', 'POSTO LOCATELI RONDONOPOLIS', '37.523.586/0001-89', 35, '2015-07-17', 1, false, '13.141.119-5', '(66) 3439-6800', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (32, 'PREFEITURA MUNICIPAL DE LUCAS DO RIO VERDE', 'PM DE LUCAS', '24.772.246/0001-40', 36, '2015-07-17', 1, false, NULL, '(65) 3548-2315', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (34, 'COOPERLIRA COMERCIO DE INSUMOS AGRICOLAS LTDA - EPP', 'COOPERLIRA INSUMOS AGRICOLAS', '18.933.239/0001-80', 38, '2015-08-03', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (35, 'BRF S.A.', 'BRF/SADIA LRV', '01.838.723/0394-14', 39, '2015-08-03', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (36, 'TRANSPORTES MONIQUE LTDA', 'MONIQUE TRANSPORTES', '14.148.533/0001-20', 40, '2015-08-03', 1, false, '134324838', '(66) 3439-6900', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (38, 'ROTA OESTE VEÍCULOS LTDA', 'RODA OESTE SCANIA', '01.549.753/0006-28', 42, '2015-08-03', 1, false, '13.367.663-3', '(65) 3549-7200', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (37, 'COMERCIO DE PEÇAS VERDE LUCAS LTDA', 'CASTRILLON AUTO PEÇAS (LRV)', '07.270.160/0001-08', 41, '2015-08-03', 1, false, '13.294.793-5', '(65) 3548-4700', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (39, 'MIRIAN AUTO POSTO LTDA', 'POSTO MIRIAN', '16.519.674/0001-37', 43, '2015-08-03', 1, false, '13.460.883-6', '(65) 3632-4500', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (40, 'ODELTO', 'DENICOLO', '274.127.760-53', 44, '2015-08-03', 1, false, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (41, 'COMBUSTIVEIS E LUBRIFICANTES XAXIM LTDA', 'POSTO XAXIM', '36.961.837/0001-44', 45, '2015-08-03', 1, false, '13.130.253-1', '(65) 3376-1240', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (42, 'BUNGE ALIMENTOS SA', 'BUNGUE PRIMAVERINHA', '84.046.101/0053-14', 46, '2015-08-03', 1, false, '13.057.245-4', '(65) 3544-1463', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (43, 'ADM DO BRASIL LTDA', 'ADM CARAVÁGIO', '02.003.402/0028-95', 47, '2015-08-28', 1, false, '132104946', '(65) 3549-2813', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (44, 'ADM DO BRASIL LTDA', 'ADM SORRISO', '02.003.402/0027-04', 48, '2015-08-28', 1, false, '132104938', '(66) 3545-3100', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (54, 'AUTO POSTO TRANSAMERICA LTDA', 'POSTO AMERICA RONDONOPOLIS', '15.521.660/0001-95', 58, '2015-08-29', 1, false, '134575750', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (45, 'BUNGE ALIMENTOS S/A ', 'BUNGE MARINGA', '84.046.101/0278-06', 49, '2015-08-28', 1, false, '-', '(44) 2244-1111', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (33, 'BUNGE ALIMENTOS SA', 'BUNGE  FILIAL 21', '84.046.101/0016-70', 37, '2015-08-03', 1, false, '131189336', '(66) 3411-1600', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (46, 'COPASUL COOPERATIVA AGRÍCOLA SUL MATOGROSSENSE', NULL, '03.902.129/0022-08', 50, '2015-08-28', 1, false, '283880988', '(67) 3448-1400', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (48, 'TRANSDOURADENSE TRANSPORTE RODOVIARIO EIRELI EPP', '', '14.087.198/0001-05', 52, '2015-08-28', 1, false, '283705884', '(67) 3426-9745', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (49, 'AUTO POSTO DIAMANTE DO NORTE LTDA', 'POSTO DIAMANTE', '12.603.016/0001-78', 53, '2015-08-28', 1, false, '9055025735', '(00) 0000-0000', '', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (50, 'BJ TRANSPORTES PARANAGUÁ', 'BOM JESUS TRANSPORTES', '03.861.231/0003-40', 54, '2015-08-29', 1, false, '9043068005', '(41) 3420-9100', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (51, 'ANDALI OPERAÇÕES INDUSTRIAIS SA', 'ANDALI', '02.227.264/0004-50', 55, '2015-08-29', 1, false, '9028222243', '(41) 3423-2211', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (52, 'BOM JESUS AGROPECUARIA LTDA', 'BOM JESUS PEDRA PETRA', '08.895.796/0004-42', 56, '2015-08-29', 1, false, '00133607453', '(66) 3411-5662', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (53, 'POSTO CUPIM PARANAGUÁ LTDA', 'POSTO CUPIM', '04.165.297/0003-68', 57, '2015-08-29', 1, false, '9045509653', '(41) 3423-6556', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (16, 'CARGIL AGRICOLA S/A', 'CARGIL  LUCAS RIO VERDE', '60.498.706/0323-50', 20, '2015-07-15', 1, false, '13.185.388-0', '(65) 3549-1069', '(65) 3549-1116', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (55, 'ADM DO BRASIL LTDA', 'ADM NOVA MUTUM', '02.003.402/0065-30', 59, '2015-08-29', 1, false, '132307510', '(65) 3308-3582', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (56, 'GRANLIDER TRANSPORTES E AGENCIAMENTO DE CARGAS LTDA', 'GRANLIDER TRANSPORTES', '05.096.998/0001-93', 60, '2015-08-31', 2, false, '133740161', '(66) 3424-0409', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (6, 'BUNGE ALIMENTOS SA', 'BUNGE LUCAS DO RIO VERDE', '84.046.101/0128-76', 9, '2015-07-09', 1, false, '130792020', '(65) 3579-1408', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (57, 'BOA ESPERANCA AGROPECUARIA', NULL, '01.722.958/0002-30', 63, '2015-08-31', 2, false, '134207645', '(65) 3212-7000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (58, 'BOM JESUS TRANSPORTES E LOJISTICA LTDA', NULL, '03.861.231/0001-88', 64, '2015-08-31', 2, false, '131949144', '(66) 3439-4300', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (59, 'BUNGE ALIMENTOS SA', 'BUNGE TROPICAL', '84.046.101/0334-40', 65, '2015-08-31', 2, false, '131835807', '(66) 3544-3198', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (60, 'FIAGRIL LTDA', 'FIAGRIL SORRISO', '02.734.023/0009-02', 66, '2002-01-02', 2, false, '133324168', '(65) 3549-9724', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (61, 'GA MT TRANSPORTES E LOGISTICA LTDA ME', 'GRUPO ASTORGA', '21.897.261/0001-26', 67, '2015-09-29', 2, false, '135694779', '(66) 3302-5888', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (62, 'AGRICOLA ALVORADA', NULL, '04.854.422/0001-85', 68, '2015-09-29', 2, false, '132065720', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (63, 'INTERALLI ADMINISTRAÇÃO E PARTICIPAÇÕES SA', NULL, '04.731.861/0001-09', 69, '2015-09-29', 2, false, NULL, '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (64, 'ALDO LOCATELLI', 'ALDO PARANAGUA', '01.253.054/0001-21', 70, '2015-09-29', 2, false, '9010930755', '(41) 3420-1650', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (65, 'RAFAEL ZOWTYI', 'POSTO RAFA', '77.937.290/0002-00', 71, '2015-09-29', 2, false, '90514447740', '(44) 3436-1271', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (66, 'BUNGE ALIMENTOS SA', 'BUNGE NOVA MUTUM', '84.046.101/0543-66', 72, '2015-09-29', 2, false, '133491838', '(65) 3305-6900', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (67, 'BERGAMASCHI & CIA LTDA', 'BERGAMASCHI & CIA LTDA.', '79.810.099/0013-80', 73, '2015-09-30', 2, false, '9051808190', '(66)3411-3411', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (68, 'FOSPAR S/A', '', '76.204.130/0001-08', 74, '2015-09-30', 2, false, '1180338094', '(41)4201-700', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (69, 'PNEU TECH LTDA - EPP', 'RS PNEUS', '09.592.451/0002-10', 75, '2015-10-28', 2, false, '135379806', '(65) 3549-3008', '(65)3308-4069', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (70, 'AUTO POSTO MASUT VII LTDA', 'POSTO MASUT TREVAO', '09.663.620/0001-85', 76, '2015-10-28', 2, false, '133610322', '(66)3421-7856', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (71, 'CGG TRADING S.A', 'CGG TRADING S.A.', '13.448.516/0010-36', 77, '2015-10-28', 2, false, '134624149', '(11)3235-2500', '(11)3235-2531', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (72, 'AUTO POSTO CRISTO REI LTDA', 'POSTO DO MEL II', '80.245.988/0003-50', 78, '2015-10-28', 2, false, '9059437310', '(42)3225-1929', '(42)3225-1929', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (73, 'ENERGISA MATO GROSSO - DISTRIBUIDORA DE ENERGIA S.A. ', 'ENERGISA', '03.467.321/0001-99', 79, '2015-10-28', 2, false, '130204250', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (74, 'DIPECARR DISTRIBUIDORA DE PECAS E ACESSORIOS PARA CARRETAS LTDA', 'DIPECARR', '74.607.839/0003-90', 80, '2015-10-28', 2, false, '0', '(66)2101-1000', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (76, 'AUTO PECAS E MECANICA DARCI LTDA - EPP', 'MECANICA PARANA', '00.462.843/0001-00', 82, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (77, 'LEXUS IMPORTACAO E COMERCIO LTDA', 'LEXUS IMPORTACAO E COMERCIO LTDA', '07.688.329/0001-36', 83, '2015-10-28', 2, false, NULL, '(27)3324-1245', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (78, 'MARONESI & MARONESI LTDA', 'CASA DAS BATERIAS', '05.103.655/0001-09', 84, '2015-10-28', 2, false, NULL, '(66)3410-4333', '(66)3410-4326', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (79, 'ASSOCIACAO DE PROTECAO DOS TRANSPORTADORES DO OESTE CATARINENSE - APROTOCA', 'APROTOCA', '15.249.598/0001-24', 85, '2015-10-28', 2, false, NULL, '(49)3346-3206', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (80, 'BELLAVER & BELLAVER LTDA - EPP', 'BELLAVER & BELLAVER', '04.169.739/0001-82', 86, '2015-10-28', 2, false, NULL, '(65) 3549-2203', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (81, 'YARA BRASIL FERTILIZANTES S/A', '', '92.660.604/0001-82', 87, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (82, 'BINOTTI ARMAZENS GERAIS LTDA', '', '03.938.098/0001-10', 88, '2015-10-28', 2, false, NULL, '(65)3549-1488', '(65)3549-3455', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (83, 'LONTANO TRANSPORTES LTDA', 'LONTANO RONDONOPOLIS-MT', '11.455.829/0002-86', 89, '2015-10-28', 2, false, NULL, '(66)3423-2477', '(66)3423-2477', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (84, 'BUNGE ALIMENTOS S/A', 'BUNGE TAPURAH', '84.046.101/0126-04', 90, '2015-10-28', 2, false, NULL, '(11)3914-0940', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (85, 'RODORAPIDO TRANSPORTES LTDA', 'RODORAPIDO', '05.476.044/0001-06', 91, '2015-10-29', 2, false, '132139466', '(67)3383-2800', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (86, 'MS TRANSPORTES EIRELI - EPP', 'MS TRANSPORTES', '18.246.301/0001-65', 92, '2015-10-30', 2, false, '134911210', '(66)3515-9222', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (87, 'AGROVERDE AGRONEGOCIOS E LOGISTICA LTDA', 'AGROVERDE', '07.632.515/0006-68', 93, '2015-10-30', 2, false, '133219453', '(66)3545-5900', '(66)3545-5900', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (88, 'ROLAND TRENTINI', 'FAZ. ARCO IRIS', '253.444.200-72', 94, '2015-10-30', 2, false, '132692023', '(66) 3471-3900', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (89, 'DASSOLER AGRONEGOCIOS LTDA', 'DASSOLER AGRONEGOCIOS', '08.061.626/0001-10', 95, '2015-10-30', 2, false, '133215008', '(65)3548-4800', '(65)3548-4807', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (91, 'ABASTECEDORA DE COMBUSTIVEIS SANTA RITA LTDA', 'POSTO VALE DO ARAGUAIA - SANTA RITA', '12.792.451/0001-98', 97, '2015-10-30', 2, false, NULL, '(64)3635-1411', '(64)3635-1250', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (92, 'MACEDO & SOUZA LTDA', 'DECIO PARADA BONITA', '19.046.218/0009-62', 98, '2015-10-30', 2, false, '3421889220897', '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (93, 'RODOVIA COMERCIO DE COMBUSTIVEIS E DERIVADOS LTDA', 'POSTO JK', '17.361.190/0001-75', 99, '2015-10-30', 2, false, '105561908', '(64)3411-4520', '(64)3411-4520', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (94, 'NELSON JOSE VIGOLO E OUTRO', NULL, '345.493.401-00', 100, '2015-10-30', 2, false, '132486636', '(66) 3411-5600', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (95, 'EVEREST TRANSPORTES RODOVIARIOS LTDA', 'EVEREST RONDONOPOLIS', '07.196.139/0003-63', 101, '2015-10-30', 2, false, '133895793', '(65)3382-1224', '(65)3382-1990', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (96, 'O. M. MAZETTO - ME', 'W. G. TORNO, SOLDA', '10.780.298/0001-53', 102, '2015-11-18', 1, false, '133702065', '(65)3549-6021', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (97, 'CONCESSIONARIA ROTA DO OESTE S.A.', 'ODEBRECHT', '19.521.322/0001-04', 103, '2015-11-18', 1, false, NULL, '(65)3056-9148', '(65)9311-2076', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (98, 'CONSTRULAR MATERIAIS DE CONSTRUCAO LTDA', 'CONSTRULAR', '08.694.987/0001-01', 104, '2015-11-18', 1, false, NULL, '(65)3549-2052', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (99, 'TONIAL & CIA LTDA - EPP', 'TONIAL D''LUCAS MATERIAIS PARA CONSTRUCAO', '08.864.643/0001-95', 105, '2015-11-18', 1, false, NULL, '(65)3549-1904', '(65)3549-4089', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (100, 'AUTO POSTO CHARRUA LTDA. - ME', 'AUTO POSTO CHARRUA', '09.602.869/0001-80', 106, '2015-12-01', 1, false, '13.356.570-0', '(66)3544-2626', '(66)3584-1021', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (101, 'URSO AUTO POSTO LTDA', 'URSO AUTO POSTO', '11.806.721/0001-00', 107, '2015-12-01', 1, false, NULL, '(66)3422-2449', '(66)3422-3349', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (145, 'BUNGE ALIMENTOS S/A', 'BUNGUE SÃO FRANCISCO-SC', '84.046.101/0009-40', 155, '2016-04-30', 1, false, '25.062.243-2', '(047)4440-177', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (102, 'INTERVIAS - CONCESSIONARIA DA EXPLORACAO DA RODOVIA MT-242/493/140 COM EXTENSAO DE 141,60 KM LTDA', 'INTERVIAS CONCESSIONARIA', '12.978.476/0001-80', 108, '2015-12-01', 1, false, NULL, '(66)3545-5500', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (105, 'MACEDO & SOUZA LTDA', 'DECIO ARAPORA', '19.046.218/0011-87', 111, '2015-12-01', 1, false, NULL, '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (103, 'ADM DO BRASIL LTDA', 'ADM ARAGUARI', '02.003.402/0052-15', 109, '2015-12-01', 1, false, NULL, '(11)5185-3590', '(11)5185-3500', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (75, 'CARLOS ELMINO FILHO - EPP', 'TRIANGULO PNEUS', '03.497.728/0001-69', 81, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (106, 'POSTO TABOCAO VI LTDA', 'POSTO ECONOMICO/ PASSARINHO', '05.324.187/0001-00', 112, '2015-12-01', 1, false, '10355.295-2', '(64) 3666-1174', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (107, 'RENASCENCA AUTO POSTO LTDA', 'POSTO IDAZA', '04.825.223/0004-91', 113, '2015-12-01', 1, false, '13.345.886-5', '(65)3634-6067', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (104, 'ADM DO BRASIL LTDA', 'ADM  SANTOS', '02.003.402/0007-60', 110, '2015-12-01', 1, false, NULL, '(013)3271-8880', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (108, 'PNEUAR COMERCIO DE PNEUS LTDA - EPP', 'PANTANAL PNEUS /VERA', '03.532.991/0001-41', 115, '2015-12-04', 1, false, '13.078.698-5', '(65) 3682-3441', '(65) 9967-1168', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (110, 'GONCALVES & TORTOLA S/A', 'GT FOODS', '85.070.068/0041-97', 117, '2015-12-04', 1, false, '90.691.359-32', '(44)3218-3259', '(44)3218-3500', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (111, 'TRANSPORTE RODOVIARIO 1500 LTDA', 'TRANSPORTE RODOVIARIO 1500', '09.576.958/0002-80', 118, '2015-12-09', 1, false, '13.358.843-2', '(66)3423-6362', '(66) 3423-3099', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (112, 'CARAMURU ALIMENTOS S/A.', 'CARAMURU SORISSO', '00.080.671/0026-68', 119, '2015-12-09', 1, false, '13.344.020-6', '(64)3404-0916', '(64)3404-0210', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (113, 'CARAMURU ALIMENTOS S/A.', 'CARAMURU SÃO SIMÃO', '00.080.671/0003-71', 120, '2015-12-09', 1, false, '10.259.586-0', '(64)3404-0916', '(64)9226-2537', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (114, 'COOPERATIVA AGRICOLA LUCAS RIO VERDE LTDA.', 'COOALVE', '08.017.888/0001-87', 121, '2015-12-09', 1, false, '13.329784-5', '(65)3549-9500', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (115, 'COMERCIO DE COMBUSTIVEIS CARMELITANO LTDA', 'POSTO CARMELITANO', '18.148.531/0001-91', 122, '2015-12-09', 1, false, '13.502.275-4', '(66)9985-4672', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (117, 'G10 - AUTO POSTO LTDA', 'G10 - AUTO POSTO', '06.259.317/0001-23', 124, '2015-12-09', 1, false, '90.330.260-70', '(44)2670-010', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (118, 'JOSE VISANI & CIA LTDA', 'POSTO NOVO MATO GROSSO', '03.824.646/0003-43', 125, '2015-12-09', 1, false, '28.270.507-4', '(067)5621-892', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (119, 'REDE FAROL DO ATLANTICO DE COMBUSTIVEL LTDA.', 'REDE FAROL', '04.204.548/0001-04', 126, '2015-12-09', 1, false, '90.248.758-11', '(44)3252-5253', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (120, 'G10 - TRANSPORTES LTDA', 'G10 - TRANSPORTES   PATIO', '07.569.161/0001-40', 127, '2015-12-09', 1, false, '90.351.706-90', '(44)3261-0010', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (109, 'COM.DE COMBUSTIVEIS E TRANSPORTE TRANSPANTANEIRA LTDA', ' PEGORARO  PEDRO GOMES', '00.300.357/0001-95', 116, '2015-12-04', 1, false, '28.286.985-9', '(67) 3291-9200', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (116, 'BOA VISTA COMERCIO DE COMBUSTIVEIS LTDA', ' PEGORARO BOA VISTA', '11.498.928/0001-64', 123, '2015-12-09', 1, false, '13..84.078-6', '(67)3291-1650', '(67)3219-3060', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (121, 'BOM FUTURO AGRICOLA LTDA', 'BOM FUTURO SEMENTES', '10.425.282/0003-94', 128, '2015-12-09', 1, false, NULL, '(65)3645-8000', '(65)3645-8000', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (122, 'ALFEO BOSCOLI NETO', 'FAZ BRAGANÇA', '429.254.101-97', 129, '2015-12-09', 1, false, '13.223.506-4', '(65) 3549-2121', NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (123, 'BRASILIA ALIMENTOS LTDA.', 'BRASILIA ALIMENTOS', '56.809.338/0001-43', 130, '2015-12-09', 1, false, '612.000.646.114', '(14)3332-1400', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (124, 'J VISANI & CIA LTDA', 'BRASIL PETRO', '60.364.130/0002-16', 131, '2015-12-09', 1, false, '749.016.031.116', '(67)3579-1211', '(67)3521-9360', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (125, 'BRADOPNEUS - IMPORTACAO E COMERCIO DE PNEUS - EIRELI', 'BRADO PNEUS', '16.698.384/0001-06', 132, '2015-12-09', 1, false, '13.467.145-7', '(65)3684-2200', '(65) 8115-0536', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (126, 'COMPANHIA INTEGRADA DE DESENVOLVIMENTO AGRICOLA DE SC', 'CIDASC', '83.807.586/0003-90', 133, '2015-12-14', 1, false, '25.058.850.01', '(47) 4044-0244', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (127, 'RICOLOG - TRANSBORDO E MULTIMODAL S/A', 'RICOLOG', '11.589.126/0001-60', 134, '2015-12-14', 1, false, '90.511.049-75', '(43)3322-7525', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (128, 'ABASTECEDORA DE COMBUSTIVEIS AMERICA LTDA - ME', 'POSTO AMERICA CAMPO GRANDE', '07.741.437/0001-25', 135, '2015-12-14', 1, false, '28.338.120-5', '(67)3388-2882', '(67)3388-2828', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (129, 'TRUCAO CENTRO DE ABASTECIMENTO DE COMBUSTIVEIS LTDA', 'REDE GAT AUTO POSTO', '11.066.163/0001-93', 136, '2015-12-14', 1, false, '162.081.929.112', '(18)3117-7010', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (130, 'AUTO POSTO TREVISAN LTDA', 'POSTO TREVISAN III', '01.334.614/0003-34', 137, '2016-01-09', 1, false, NULL, '(65)3322-5186', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (132, 'CARGILL AGRICOLA S A', 'CARGILL AGRICOLA ALTO ARAGUAIA', '60.498.706/0037-68', 139, '2016-01-09', 1, false, '13205928-2', '(067)7989-113', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (90, 'CARGILL AGRICOLA S A', 'CARGILL UBERLANDIA', '60.498.706/0134-88', 96, '2015-10-30', 2, false, '7020247030776', '(34)3218-5226', '(11)5099-3858', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (131, 'CARGILL AGRICOLA S A', 'CARGILL AGRICOLA PRIMAVERA DO LESTE', '60.498.706/0228-00', 138, '2016-01-09', 1, false, NULL, '(67)3398-9113', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (133, 'POSTO TAPERAO LTDA', 'POSTO MARTELLI', '03.202.934/0001-02', 140, '2016-01-09', 1, false, '13.055.666-1', '(66) 3461-1997', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (134, 'SERGIO ROBERTO STORTI E CIA LTDA', 'TRANS CAÇAMBA', '05.609.837/0001-56', 144, '2016-04-07', 1, false, '132185636', '(65) 3308-3020', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (135, 'AUTO PECAS GIDIAO LTDA - EPP', 'AUTO PECAS GIDIAO', '00.960.583/0001-00', 145, '2016-04-08', 1, false, '136.022.283-36', '(66) 3461-1410', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (136, 'ML. BOTTEGA E CIA LTDA', 'CRISTAL VIDROS', '01.242.663/0001-85', 146, '2016-04-08', 1, false, '131690639', '(65) 3549-1155', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (137, 'MECANICA PANTANAL', 'MECANICA PANTANAL', '08.154.125/0001-88', 147, '2016-04-08', 1, false, NULL, '(65) 3694-6835', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (138, 'R. C. GIEQUELIN & CIA LTDA', 'POSTO BEM BRASIL III', '73.453.177/0001-17', 148, '2016-04-18', 1, false, '13.148.660-8', '(65)3027-5959', '(65)3027-9559', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (139, 'PEMAZA CENTRO-NORTE S/A', 'PEMAZA VARZEA GRANDE', '33.657.677/0001-56', 149, '2016-04-19', 1, false, '13.079.683-2', '(92)3616-4990', '(65)3688-2519', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (140, 'SIMONE REGINA DE ARRUDA - EPP', 'MCA TRANSPORTES', '18.144.823/0001-56', 150, '2016-04-28', 1, false, '13.488.522-8', '(65)3376-2008', '(65)9638-4388', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (141, 'AGUIA BRANCA COMERCIO DE COMBUSTIVEIS LTDA', 'POSTO AGUIA BRANCA N. MUTUM', '11.512.642/0001-96', 151, '2016-04-28', 1, false, '13.383.265-1', '(66)3545-4500', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (142, 'WEIHRICH E BRUSAMARELLO LTDA - EPP', 'W. B. TRANSPORTES', '18.356.214/0001-60', 152, '2016-04-28', 1, false, '13.499.379-9', '(65)3376-1217', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (143, 'TOMIKO NAKAMURA', 'AUTO POSTO JANGADAO', '00.788.240/0005-26', 153, '2016-04-28', 1, false, NULL, '(65)3311-2512', '(65)3326-1416', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (144, 'FZ TRANSPORTES DE CARGAS LTDA  - ME', 'PORTAL AGROLOGISTICA', '03.770.735/0001-92', 154, '2016-04-29', 1, false, '13.492.634-0', '(65)3549-3415', '(65) 9973-3453', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (146, 'AUTO SINUELO LTDA', 'SINUELO SÃO FRANCISCO', '82.968.983/0002-08', 156, '2016-04-30', 1, false, '25.655.223-1', '(47)3433-0008', '(47)3433-0008', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (147, 'TRANSPORTADORA BRASIL CENTRAL LTDA', 'BRASIL CENTRAL SÃO FRANCISCO', '02.726.560/0002-34', 157, '2016-04-30', 1, false, '25.729.829-0', '(64)2101-5000', '(64)2101-5010', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (148, 'LITORAL CARGAS LTDA', 'LITORAL CARGAS', '03.946.551/0002-11', 158, '2016-04-30', 1, false, '25.560.573-0', '(47)3471-1300', '(47)3471-1345', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (149, 'MOSAIC FERTILIZANTES DO BRASIL LTDA.', 'MOSAIC RONDONOPOLIS', '61.156.501/0115-14', 159, '2016-04-30', 1, false, '13.566.238-9', '(11)4950-2796', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (150, 'SALDANHA AR CONDICIONADO AUTOMOTIVO LTDA - ME', 'SALDANHA AR CONDICIONADO AUTOMOTIVO', '21.111.891/0001-23', 160, '2016-04-30', 1, false, NULL, '(65)3684-5528', '(65)9956-3837', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (151, 'AUTO POSTO CRISTO REI LTDA', 'AUTO POSTO DO MEL I', '80.245.988/0001-98', 161, '2016-05-02', 1, false, '90.397.344-75', '(42)3225-1929', '(42)3225-1929', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (152, 'AUTO POSTO PETROISA LTDA', 'PETROISA', '03.069.175/0001-43', 162, '2016-05-02', 1, false, '74.901.162.811-10', '(15)3234-9100', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (14, 'POSTO ALDO RODOVIA DOS IMIGRANTES', 'LOCATELLI IMIGRANTES', '01.099.106/0001-57', 18, '2015-07-15', 1, false, '13.167.297-5', '(65) 3668-4080', '(65) 8161-3500', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (153, 'MECANICA E AUTO PECAS ANNA VITORIA LTDA - ME', 'CENTER DIESEL', '10.774.366/0001-71', 163, '2016-05-11', 1, false, '13.370.018-6', '(65)8416-5958', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (154, 'RODOESTE - IMPLEMENTOS DE TRANSPORTE LTDA', 'RANDON CUIABA', '00.955.815/0001-24', 164, '2016-05-11', 1, false, '13.018.701-1', '(65)3611-8800', '(65)3611-8810', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (155, 'BUNGE ALIMENTOS S/A RONDONOPOLIS', 'BUNGUE FABRICA RONDONOPOLIS', '84.046.101/0247-00', 165, '2016-05-17', 1, false, '130794180', '(66)3411-1610', '(66)3411-1731', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (156, 'MANOEL CORDEIRO RIBEIRO - EPP', 'AUTO ELETRICA RIBEIRO', '36.963.452/0001-16', 166, '2016-05-18', 1, false, '13130522-0', '(65)3322-0852', '(65) 9912-1862', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (157, 'AUTO POSTO PAULISTAO DE SANTA FE DO SUL LTDA.', 'AUTO POSTO PAULISTAO', '03.606.265/0001-26', 167, '2016-05-25', 1, false, '614.023147.112', '(17)3631-1710', '(17)3631-4161', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (158, 'POSTO ALDO IPIRANGA LTDA', 'POSTO ALDO PARANAGUÁ', '08.306.220/0001-50', 168, '2016-05-25', 1, false, '90.393.174-40', '(41)3422-7038', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (159, 'RDM TRANSPORTES E LOGISTICA LTDA  - ME', 'RDM TRANSPORTES E LOGISTICA', '08.867.797/0001-30', 169, '2016-05-25', 1, false, '13.339.237-6', '(66)3423-6667', '(66)3425-1025', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (160, 'COMERCIAL DE COMBUSTIVEIS GRAZUL LTDA', 'POSTO CRISTO REI II', '00.558.799/0001-36', 170, '2016-05-25', 1, false, '507.016.510-6', '(043)8221-096', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (161, 'TRANSVERDE TRANSPORTE RODOVIARIO DE CARGAS LTDA - ME', 'TRANS VERDE', '13.321.991/0002-37', 171, '2016-05-25', 1, false, '906.836.912-3', '(41)3423-9811', '(41)3423-9811', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (162, 'BRF S.A.', 'BRF SA VIDEIRA', '01.838.723/0213-96', 173, '2016-07-12', 1, false, NULL, '(47)3249-4420', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (163, 'AUTO POSTO SABIAZINHO LTDA', 'AUTO POSTO SABIAZINHO NERCEDES', '08.586.167/0001-98', 174, '2016-07-12', 1, false, '90.395497-32', '(44)3645-1996', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (164, 'NC AUTO POSTO LTDA', 'POSTO SORRISAO', '37.457.686/0001-54', 175, '2016-07-12', 1, false, '13.140.563-2', '(66) 3545-2700', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (165, 'AUTO POSTO GRAMADAO DE MERIDIANO LTDA.', 'AUTO POSTO GRAMADAO', '00.527.703/0001-72', 176, '2016-07-12', 1, false, '44.400.149.711-4', '(17) 3422-4747', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (166, 'POSSA AUTO POSTO LTDA - ME', 'POSTO FORMULA 1', '04.783.454/0001-37', 177, '2016-07-12', 1, false, '60.406.496.911-6', '(17)5712-142', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (167, 'POSTO DE COMBUSTIVEL AREIA BRANCA LTDA', 'POSTO LOCOMOTIVA III', '17.536.224/0001-15', 178, '2016-07-12', 1, false, '13.480.413-9', '(66)3486-1143', '(66)3486-1127', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (168, 'REICAL INDUSTRIA E COMERCIO DE CALCARIO LTDA', 'REICAL', '26.765.453/0002-83', 179, '2016-08-29', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (169, 'ADM DO BRASIL LTDA', 'ADM DO IPIRANGA DO NORTE', '02.003.402/0017-32', 180, '2016-09-01', 1, false, '13.210.486-5', '(11)5185-3590', '(65)3411-2800', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (170, 'ALL- AMERICA LATINA LOGISTICA MALHA NORTE S/A', 'ALL ALTO ARAGUAIA', '24.962.466/0010-27', 181, '2016-09-01', 1, false, 'ISENTO', '(19)3735-3671', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (171, 'POSTO SILOEIRO LTDA', 'POSTO MARTELLI ALTO GARÇAS', '04.505.289/0001-51', 182, '2016-09-01', 1, false, NULL, '(66) 3471-1776', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (172, 'MACEDO & SOUZA LTDA', 'DECIO RIO VERDE', '19.046.218/0021-59', 183, '2016-09-12', 1, false, '10.511.395-6', '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (173, 'BIAVATTI & CIA LTDA', 'AUTO POSTO ALVORADA', '01.289.412/0001-56', 184, '2016-09-12', 1, false, '13.024.571-2', '(66)3498-8055', '(66)3498-8056', 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (174, 'POSTO CAXUXA II LTDA', 'CAXUXA II', '23.145.287/0001-43', 185, '2016-09-12', 1, false, '701.550.332.00-35', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (175, 'MORRO DA MESA CONCESSIONARIA S/A.', 'MORRO DA MESSA ROO- PRIMAVERA DO LESTE', '13.858.125/0001-07', 186, '2016-09-12', 1, false, 'ISENTA', '(66)3498-2037', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
-INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (176, 'TRANSPORTE RODOVIARIO 1500 LTDA', '1500 UBERLANDIA', '09.576.958/0024-96', 187, '2016-09-12', 1, false, '00.109.679.401-09', '(34)3211-9400', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (2, 'ALL AMERICA LATINA LOGISTICA MALHA NORTE SA', NULL, '24.962.466/0011-08', 5, '2015-07-08', 1, false, '133347435', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (5, 'SARTCO LTDA', 'SARTCO LTDA', '02.199.856/0015-69', 8, '2015-07-08', 1, false, '132060981', '(66) 3421-1037', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (7, 'MECANICA SERRA SÃO VICENTE', NULL, '17.699.397/0001-54', 10, '2015-07-09', 1, false, NULL, '(65) 8123-1143', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (10, 'POSTO ALDO CUIABA LTDA', 'POSTO LOCATELLI', '24.956.658/0001-30', 14, '2015-07-15', 1, false, '130684023', '(65) 3616-5080', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (11, 'C CARVALHO SILVA & CIA LTDA', 'POSTO ESPLANADA', '05.302.564/0001-00', 15, '2015-07-15', 1, false, '13.224.105-6', '(66) 3426-8064', '(66) 4141-0021', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (47, 'AGTL ARMAZENS GERAIS TERMINAL LTDA', NULL, '81.174.138/0001-09', 51, '2015-08-28', 1, false, '9015237039', '(44) 8888-8888', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (12, 'VERGRAN COMERCIAL LTDA', 'COMAGRAN LUCAS', '05.529.624/0001-14', 16, '2015-07-15', 1, false, '13.218160-6', '(65) 3549-5045', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (13, 'O MONTAGNA & CIA LTDA', 'UNIÃO AUTO PEÇAS', '24.969.636/0002-95', 17, '2015-07-15', 1, false, '13.370.315-0', '(65) 3549-6656', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (15, 'RODO BELO TRANS. LTDA-MT', 'RODO BELO', '02.910.203/0004-93', 19, '2015-07-15', 1, false, '13.185.519-0', '(66) 3421-1745', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (17, 'ADM DO BRASIL LTDA', 'ADM RONDONOPOLIS', '02.003.402/0024-61', 21, '2015-07-15', 1, false, '13.210.491-1', '(66) 3411-2800', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (9, 'TICO TICO POSTO DE SERVIÇOS LTDA', 'POSTO SÃO CRISTOVÃO', '02.335.535/0001-49', 13, '2015-07-15', 1, false, '13203910-9', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (1, 'ADM DO BRASIL LTDA', 'ADM LUCAS DO RIO VERDE', '02.003.402/0079-35', 4, '2015-07-08', 1, false, '133347435', '(65) 3549-2964', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (18, 'KIRST COMERCIO COMBUSTIVEL', 'POSTO CIRIEMA', '00.445.400/0001-00', 22, '2015-07-16', 1, false, '13.162.910-7', '(65) 3549-1149', '(65) 3549-1835', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (19, 'RODO PARAISO TRANSPORTES LTDA-ME', 'RODO PARAISO', '05.955.002/0001-58', 23, '2015-07-16', 1, false, '13.234.001-1', '(65) 3549-3907', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (20, 'ECOPLAN MINERAÇÃO LTDA', 'ECOPLAN', '87.987.863/0001-82', 24, '2015-07-16', 1, false, '13.084.564-7', '(65) 3376-1426', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (21, 'HILARIO RENATO PICCINI', 'FAZ RESERVA DOS MINEIROS', '224.818.269-49', 25, '2015-07-16', 1, false, '13.539.362-0', '(65) 3549-1459', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (22, 'ADMINISTRADORA DE PEDAGIOS', 'RODOVIA DA MUDANÇA', '12.933.650/0001-79', 26, '2015-07-16', 1, false, NULL, '(65) 3549-4423', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (23, 'PEDRISA PAVIMANTAÇÕES LTDA-ME', 'PEDRISA', '01.897.846/0001-39', 27, '2015-07-16', 1, false, '13.546.817-5', '(65) 3549-5138', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (24, 'COPACEL IND. E COM. DE CALCARIO E CEREAIS LTDA', 'COPACEL PRETO', '00.951.459/0002-51', 28, '2015-07-16', 1, false, '13.211.449-6', '(65) 3376-2537', '(65) 3376-1516', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (25, 'RODEP COMERCIO DE COMBUSTIVEL E TRANSPORTES', 'POSTO RODEP', '08.490.193/0001-18', 29, '2015-07-16', 1, false, '13.371.855-7', '(65) 3427-1338', '(65) 3427-1335', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (26, 'BRADO LOGISTICA S/A', 'BRADO', '03.307.926/0026-70', 30, '2015-07-16', 1, false, '13.481.060-0', '(66) 2103-7900', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (27, 'PEDRO FIBRAS E PINTURA', NULL, '000.000.000-00', 31, '2015-07-16', 1, false, NULL, '(65) 9215-1526', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (28, 'LIBERALLI COMERCIO DE COMBUSTIVEIS LTDA', 'POSTO SABIA', '03.060.562/0001-19', 32, '2015-07-16', 1, false, '13.186.613-3', '(65) 3549-1316', '(65) 3549-1565', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (29, 'POSTO MANGUEIRAS LTDA', 'POSTO MANGUEIRAS', '26.808.923/0001-68', 33, '2015-07-16', 1, false, '13.445.361-1', '(65) 3667-6204', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (30, 'ADM DO BRASIL LTDA', 'ADM TAPURAH', '02.003.402/0062-97', 34, '2015-07-17', 1, false, '13.224.079-3', '(66) 3547-2030', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (31, 'POSTO ALDO RONDONOPOLIS LTDA', 'POSTO LOCATELI RONDONOPOLIS', '37.523.586/0001-89', 35, '2015-07-17', 1, false, '13.141.119-5', '(66) 3439-6800', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (32, 'PREFEITURA MUNICIPAL DE LUCAS DO RIO VERDE', 'PM DE LUCAS', '24.772.246/0001-40', 36, '2015-07-17', 1, false, NULL, '(65) 3548-2315', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (34, 'COOPERLIRA COMERCIO DE INSUMOS AGRICOLAS LTDA - EPP', 'COOPERLIRA INSUMOS AGRICOLAS', '18.933.239/0001-80', 38, '2015-08-03', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (35, 'BRF S.A.', 'BRF/SADIA LRV', '01.838.723/0394-14', 39, '2015-08-03', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (36, 'TRANSPORTES MONIQUE LTDA', 'MONIQUE TRANSPORTES', '14.148.533/0001-20', 40, '2015-08-03', 1, false, '134324838', '(66) 3439-6900', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (38, 'ROTA OESTE VEÍCULOS LTDA', 'RODA OESTE SCANIA', '01.549.753/0006-28', 42, '2015-08-03', 1, false, '13.367.663-3', '(65) 3549-7200', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (37, 'COMERCIO DE PEÇAS VERDE LUCAS LTDA', 'CASTRILLON AUTO PEÇAS (LRV)', '07.270.160/0001-08', 41, '2015-08-03', 1, false, '13.294.793-5', '(65) 3548-4700', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (39, 'MIRIAN AUTO POSTO LTDA', 'POSTO MIRIAN', '16.519.674/0001-37', 43, '2015-08-03', 1, false, '13.460.883-6', '(65) 3632-4500', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (40, 'ODELTO', 'DENICOLO', '274.127.760-53', 44, '2015-08-03', 1, false, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (41, 'COMBUSTIVEIS E LUBRIFICANTES XAXIM LTDA', 'POSTO XAXIM', '36.961.837/0001-44', 45, '2015-08-03', 1, false, '13.130.253-1', '(65) 3376-1240', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (42, 'BUNGE ALIMENTOS SA', 'BUNGUE PRIMAVERINHA', '84.046.101/0053-14', 46, '2015-08-03', 1, false, '13.057.245-4', '(65) 3544-1463', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (43, 'ADM DO BRASIL LTDA', 'ADM CARAVÁGIO', '02.003.402/0028-95', 47, '2015-08-28', 1, false, '132104946', '(65) 3549-2813', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (44, 'ADM DO BRASIL LTDA', 'ADM SORRISO', '02.003.402/0027-04', 48, '2015-08-28', 1, false, '132104938', '(66) 3545-3100', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (54, 'AUTO POSTO TRANSAMERICA LTDA', 'POSTO AMERICA RONDONOPOLIS', '15.521.660/0001-95', 58, '2015-08-29', 1, false, '134575750', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (45, 'BUNGE ALIMENTOS S/A ', 'BUNGE MARINGA', '84.046.101/0278-06', 49, '2015-08-28', 1, false, '-', '(44) 2244-1111', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (33, 'BUNGE ALIMENTOS SA', 'BUNGE  FILIAL 21', '84.046.101/0016-70', 37, '2015-08-03', 1, false, '131189336', '(66) 3411-1600', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (46, 'COPASUL COOPERATIVA AGRÍCOLA SUL MATOGROSSENSE', NULL, '03.902.129/0022-08', 50, '2015-08-28', 1, false, '283880988', '(67) 3448-1400', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (48, 'TRANSDOURADENSE TRANSPORTE RODOVIARIO EIRELI EPP', '', '14.087.198/0001-05', 52, '2015-08-28', 1, false, '283705884', '(67) 3426-9745', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (49, 'AUTO POSTO DIAMANTE DO NORTE LTDA', 'POSTO DIAMANTE', '12.603.016/0001-78', 53, '2015-08-28', 1, false, '9055025735', '(00) 0000-0000', '', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (50, 'BJ TRANSPORTES PARANAGUÁ', 'BOM JESUS TRANSPORTES', '03.861.231/0003-40', 54, '2015-08-29', 1, false, '9043068005', '(41) 3420-9100', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (51, 'ANDALI OPERAÇÕES INDUSTRIAIS SA', 'ANDALI', '02.227.264/0004-50', 55, '2015-08-29', 1, false, '9028222243', '(41) 3423-2211', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (52, 'BOM JESUS AGROPECUARIA LTDA', 'BOM JESUS PEDRA PETRA', '08.895.796/0004-42', 56, '2015-08-29', 1, false, '00133607453', '(66) 3411-5662', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (53, 'POSTO CUPIM PARANAGUÁ LTDA', 'POSTO CUPIM', '04.165.297/0003-68', 57, '2015-08-29', 1, false, '9045509653', '(41) 3423-6556', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (16, 'CARGIL AGRICOLA S/A', 'CARGIL  LUCAS RIO VERDE', '60.498.706/0323-50', 20, '2015-07-15', 1, false, '13.185.388-0', '(65) 3549-1069', '(65) 3549-1116', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (55, 'ADM DO BRASIL LTDA', 'ADM NOVA MUTUM', '02.003.402/0065-30', 59, '2015-08-29', 1, false, '132307510', '(65) 3308-3582', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (56, 'GRANLIDER TRANSPORTES E AGENCIAMENTO DE CARGAS LTDA', 'GRANLIDER TRANSPORTES', '05.096.998/0001-93', 60, '2015-08-31', 2, false, '133740161', '(66) 3424-0409', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (6, 'BUNGE ALIMENTOS SA', 'BUNGE LUCAS DO RIO VERDE', '84.046.101/0128-76', 9, '2015-07-09', 1, false, '130792020', '(65) 3579-1408', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (57, 'BOA ESPERANCA AGROPECUARIA', NULL, '01.722.958/0002-30', 63, '2015-08-31', 2, false, '134207645', '(65) 3212-7000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (58, 'BOM JESUS TRANSPORTES E LOJISTICA LTDA', NULL, '03.861.231/0001-88', 64, '2015-08-31', 2, false, '131949144', '(66) 3439-4300', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (59, 'BUNGE ALIMENTOS SA', 'BUNGE TROPICAL', '84.046.101/0334-40', 65, '2015-08-31', 2, false, '131835807', '(66) 3544-3198', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (60, 'FIAGRIL LTDA', 'FIAGRIL SORRISO', '02.734.023/0009-02', 66, '2002-01-02', 2, false, '133324168', '(65) 3549-9724', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (61, 'GA MT TRANSPORTES E LOGISTICA LTDA ME', 'GRUPO ASTORGA', '21.897.261/0001-26', 67, '2015-09-29', 2, false, '135694779', '(66) 3302-5888', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (62, 'AGRICOLA ALVORADA', NULL, '04.854.422/0001-85', 68, '2015-09-29', 2, false, '132065720', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (63, 'INTERALLI ADMINISTRAÇÃO E PARTICIPAÇÕES SA', NULL, '04.731.861/0001-09', 69, '2015-09-29', 2, false, NULL, '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (64, 'ALDO LOCATELLI', 'ALDO PARANAGUA', '01.253.054/0001-21', 70, '2015-09-29', 2, false, '9010930755', '(41) 3420-1650', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (65, 'RAFAEL ZOWTYI', 'POSTO RAFA', '77.937.290/0002-00', 71, '2015-09-29', 2, false, '90514447740', '(44) 3436-1271', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (66, 'BUNGE ALIMENTOS SA', 'BUNGE NOVA MUTUM', '84.046.101/0543-66', 72, '2015-09-29', 2, false, '133491838', '(65) 3305-6900', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (67, 'BERGAMASCHI & CIA LTDA', 'BERGAMASCHI & CIA LTDA.', '79.810.099/0013-80', 73, '2015-09-30', 2, false, '9051808190', '(66)3411-3411', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (68, 'FOSPAR S/A', '', '76.204.130/0001-08', 74, '2015-09-30', 2, false, '1180338094', '(41)4201-700', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (69, 'PNEU TECH LTDA - EPP', 'RS PNEUS', '09.592.451/0002-10', 75, '2015-10-28', 2, false, '135379806', '(65) 3549-3008', '(65)3308-4069', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (70, 'AUTO POSTO MASUT VII LTDA', 'POSTO MASUT TREVAO', '09.663.620/0001-85', 76, '2015-10-28', 2, false, '133610322', '(66)3421-7856', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (71, 'CGG TRADING S.A', 'CGG TRADING S.A.', '13.448.516/0010-36', 77, '2015-10-28', 2, false, '134624149', '(11)3235-2500', '(11)3235-2531', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (72, 'AUTO POSTO CRISTO REI LTDA', 'POSTO DO MEL II', '80.245.988/0003-50', 78, '2015-10-28', 2, false, '9059437310', '(42)3225-1929', '(42)3225-1929', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (73, 'ENERGISA MATO GROSSO - DISTRIBUIDORA DE ENERGIA S.A. ', 'ENERGISA', '03.467.321/0001-99', 79, '2015-10-28', 2, false, '130204250', '(00) 0000-0000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (74, 'DIPECARR DISTRIBUIDORA DE PECAS E ACESSORIOS PARA CARRETAS LTDA', 'DIPECARR', '74.607.839/0003-90', 80, '2015-10-28', 2, false, '0', '(66)2101-1000', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (76, 'AUTO PECAS E MECANICA DARCI LTDA - EPP', 'MECANICA PARANA', '00.462.843/0001-00', 82, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (77, 'LEXUS IMPORTACAO E COMERCIO LTDA', 'LEXUS IMPORTACAO E COMERCIO LTDA', '07.688.329/0001-36', 83, '2015-10-28', 2, false, NULL, '(27)3324-1245', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (78, 'MARONESI & MARONESI LTDA', 'CASA DAS BATERIAS', '05.103.655/0001-09', 84, '2015-10-28', 2, false, NULL, '(66)3410-4333', '(66)3410-4326', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (79, 'ASSOCIACAO DE PROTECAO DOS TRANSPORTADORES DO OESTE CATARINENSE - APROTOCA', 'APROTOCA', '15.249.598/0001-24', 85, '2015-10-28', 2, false, NULL, '(49)3346-3206', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (80, 'BELLAVER & BELLAVER LTDA - EPP', 'BELLAVER & BELLAVER', '04.169.739/0001-82', 86, '2015-10-28', 2, false, NULL, '(65) 3549-2203', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (81, 'YARA BRASIL FERTILIZANTES S/A', '', '92.660.604/0001-82', 87, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (82, 'BINOTTI ARMAZENS GERAIS LTDA', '', '03.938.098/0001-10', 88, '2015-10-28', 2, false, NULL, '(65)3549-1488', '(65)3549-3455', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (83, 'LONTANO TRANSPORTES LTDA', 'LONTANO RONDONOPOLIS-MT', '11.455.829/0002-86', 89, '2015-10-28', 2, false, NULL, '(66)3423-2477', '(66)3423-2477', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (84, 'BUNGE ALIMENTOS S/A', 'BUNGE TAPURAH', '84.046.101/0126-04', 90, '2015-10-28', 2, false, NULL, '(11)3914-0940', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (85, 'RODORAPIDO TRANSPORTES LTDA', 'RODORAPIDO', '05.476.044/0001-06', 91, '2015-10-29', 2, false, '132139466', '(67)3383-2800', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (86, 'MS TRANSPORTES EIRELI - EPP', 'MS TRANSPORTES', '18.246.301/0001-65', 92, '2015-10-30', 2, false, '134911210', '(66)3515-9222', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (87, 'AGROVERDE AGRONEGOCIOS E LOGISTICA LTDA', 'AGROVERDE', '07.632.515/0006-68', 93, '2015-10-30', 2, false, '133219453', '(66)3545-5900', '(66)3545-5900', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (88, 'ROLAND TRENTINI', 'FAZ. ARCO IRIS', '253.444.200-72', 94, '2015-10-30', 2, false, '132692023', '(66) 3471-3900', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (89, 'DASSOLER AGRONEGOCIOS LTDA', 'DASSOLER AGRONEGOCIOS', '08.061.626/0001-10', 95, '2015-10-30', 2, false, '133215008', '(65)3548-4800', '(65)3548-4807', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (91, 'ABASTECEDORA DE COMBUSTIVEIS SANTA RITA LTDA', 'POSTO VALE DO ARAGUAIA - SANTA RITA', '12.792.451/0001-98', 97, '2015-10-30', 2, false, NULL, '(64)3635-1411', '(64)3635-1250', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (92, 'MACEDO & SOUZA LTDA', 'DECIO PARADA BONITA', '19.046.218/0009-62', 98, '2015-10-30', 2, false, '3421889220897', '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (93, 'RODOVIA COMERCIO DE COMBUSTIVEIS E DERIVADOS LTDA', 'POSTO JK', '17.361.190/0001-75', 99, '2015-10-30', 2, false, '105561908', '(64)3411-4520', '(64)3411-4520', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (94, 'NELSON JOSE VIGOLO E OUTRO', NULL, '345.493.401-00', 100, '2015-10-30', 2, false, '132486636', '(66) 3411-5600', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (95, 'EVEREST TRANSPORTES RODOVIARIOS LTDA', 'EVEREST RONDONOPOLIS', '07.196.139/0003-63', 101, '2015-10-30', 2, false, '133895793', '(65)3382-1224', '(65)3382-1990', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (96, 'O. M. MAZETTO - ME', 'W. G. TORNO, SOLDA', '10.780.298/0001-53', 102, '2015-11-18', 1, false, '133702065', '(65)3549-6021', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (97, 'CONCESSIONARIA ROTA DO OESTE S.A.', 'ODEBRECHT', '19.521.322/0001-04', 103, '2015-11-18', 1, false, NULL, '(65)3056-9148', '(65)9311-2076', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (98, 'CONSTRULAR MATERIAIS DE CONSTRUCAO LTDA', 'CONSTRULAR', '08.694.987/0001-01', 104, '2015-11-18', 1, false, NULL, '(65)3549-2052', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (99, 'TONIAL & CIA LTDA - EPP', 'TONIAL D''LUCAS MATERIAIS PARA CONSTRUCAO', '08.864.643/0001-95', 105, '2015-11-18', 1, false, NULL, '(65)3549-1904', '(65)3549-4089', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (100, 'AUTO POSTO CHARRUA LTDA. - ME', 'AUTO POSTO CHARRUA', '09.602.869/0001-80', 106, '2015-12-01', 1, false, '13.356.570-0', '(66)3544-2626', '(66)3584-1021', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (101, 'URSO AUTO POSTO LTDA', 'URSO AUTO POSTO', '11.806.721/0001-00', 107, '2015-12-01', 1, false, NULL, '(66)3422-2449', '(66)3422-3349', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (102, 'INTERVIAS - CONCESSIONARIA DA EXPLORACAO DA RODOVIA MT-242/493/140 COM EXTENSAO DE 141,60 KM LTDA', 'INTERVIAS CONCESSIONARIA', '12.978.476/0001-80', 108, '2015-12-01', 1, false, NULL, '(66)3545-5500', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (105, 'MACEDO & SOUZA LTDA', 'DECIO ARAPORA', '19.046.218/0011-87', 111, '2015-12-01', 1, false, NULL, '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (103, 'ADM DO BRASIL LTDA', 'ADM ARAGUARI', '02.003.402/0052-15', 109, '2015-12-01', 1, false, NULL, '(11)5185-3590', '(11)5185-3500', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (75, 'CARLOS ELMINO FILHO - EPP', 'TRIANGULO PNEUS', '03.497.728/0001-69', 81, '2015-10-28', 2, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (106, 'POSTO TABOCAO VI LTDA', 'POSTO ECONOMICO/ PASSARINHO', '05.324.187/0001-00', 112, '2015-12-01', 1, false, '10355.295-2', '(64) 3666-1174', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (107, 'RENASCENCA AUTO POSTO LTDA', 'POSTO IDAZA', '04.825.223/0004-91', 113, '2015-12-01', 1, false, '13.345.886-5', '(65)3634-6067', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (104, 'ADM DO BRASIL LTDA', 'ADM  SANTOS', '02.003.402/0007-60', 110, '2015-12-01', 1, false, NULL, '(013)3271-8880', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (108, 'PNEUAR COMERCIO DE PNEUS LTDA - EPP', 'PANTANAL PNEUS /VERA', '03.532.991/0001-41', 115, '2015-12-04', 1, false, '13.078.698-5', '(65) 3682-3441', '(65) 9967-1168', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (110, 'GONCALVES & TORTOLA S/A', 'GT FOODS', '85.070.068/0041-97', 117, '2015-12-04', 1, false, '90.691.359-32', '(44)3218-3259', '(44)3218-3500', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (112, 'CARAMURU ALIMENTOS S/A.', 'CARAMURU SORISSO', '00.080.671/0026-68', 119, '2015-12-09', 1, false, '13.344.020-6', '(64)3404-0916', '(64)3404-0210', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (113, 'CARAMURU ALIMENTOS S/A.', 'CARAMURU SÃO SIMÃO', '00.080.671/0003-71', 120, '2015-12-09', 1, false, '10.259.586-0', '(64)3404-0916', '(64)9226-2537', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (114, 'COOPERATIVA AGRICOLA LUCAS RIO VERDE LTDA.', 'COOALVE', '08.017.888/0001-87', 121, '2015-12-09', 1, false, '13.329784-5', '(65)3549-9500', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (115, 'COMERCIO DE COMBUSTIVEIS CARMELITANO LTDA', 'POSTO CARMELITANO', '18.148.531/0001-91', 122, '2015-12-09', 1, false, '13.502.275-4', '(66)9985-4672', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (117, 'G10 - AUTO POSTO LTDA', 'G10 - AUTO POSTO', '06.259.317/0001-23', 124, '2015-12-09', 1, false, '90.330.260-70', '(44)2670-010', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (118, 'JOSE VISANI & CIA LTDA', 'POSTO NOVO MATO GROSSO', '03.824.646/0003-43', 125, '2015-12-09', 1, false, '28.270.507-4', '(067)5621-892', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (120, 'G10 - TRANSPORTES LTDA', 'G10 - TRANSPORTES   PATIO', '07.569.161/0001-40', 127, '2015-12-09', 1, false, '90.351.706-90', '(44)3261-0010', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (109, 'COM.DE COMBUSTIVEIS E TRANSPORTE TRANSPANTANEIRA LTDA', ' PEGORARO  PEDRO GOMES', '00.300.357/0001-95', 116, '2015-12-04', 1, false, '28.286.985-9', '(67) 3291-9200', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (116, 'BOA VISTA COMERCIO DE COMBUSTIVEIS LTDA', ' PEGORARO BOA VISTA', '11.498.928/0001-64', 123, '2015-12-09', 1, false, '13..84.078-6', '(67)3291-1650', '(67)3219-3060', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (121, 'BOM FUTURO AGRICOLA LTDA', 'BOM FUTURO SEMENTES', '10.425.282/0003-94', 128, '2015-12-09', 1, false, NULL, '(65)3645-8000', '(65)3645-8000', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (122, 'ALFEO BOSCOLI NETO', 'FAZ BRAGANÇA', '429.254.101-97', 129, '2015-12-09', 1, false, '13.223.506-4', '(65) 3549-2121', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (123, 'BRASILIA ALIMENTOS LTDA.', 'BRASILIA ALIMENTOS', '56.809.338/0001-43', 130, '2015-12-09', 1, false, '612.000.646.114', '(14)3332-1400', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (124, 'J VISANI & CIA LTDA', 'BRASIL PETRO', '60.364.130/0002-16', 131, '2015-12-09', 1, false, '749.016.031.116', '(67)3579-1211', '(67)3521-9360', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (125, 'BRADOPNEUS - IMPORTACAO E COMERCIO DE PNEUS - EIRELI', 'BRADO PNEUS', '16.698.384/0001-06', 132, '2015-12-09', 1, false, '13.467.145-7', '(65)3684-2200', '(65) 8115-0536', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (126, 'COMPANHIA INTEGRADA DE DESENVOLVIMENTO AGRICOLA DE SC', 'CIDASC', '83.807.586/0003-90', 133, '2015-12-14', 1, false, '25.058.850.01', '(47) 4044-0244', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (127, 'RICOLOG - TRANSBORDO E MULTIMODAL S/A', 'RICOLOG', '11.589.126/0001-60', 134, '2015-12-14', 1, false, '90.511.049-75', '(43)3322-7525', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (128, 'ABASTECEDORA DE COMBUSTIVEIS AMERICA LTDA - ME', 'POSTO AMERICA CAMPO GRANDE', '07.741.437/0001-25', 135, '2015-12-14', 1, false, '28.338.120-5', '(67)3388-2882', '(67)3388-2828', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (129, 'TRUCAO CENTRO DE ABASTECIMENTO DE COMBUSTIVEIS LTDA', 'REDE GAT AUTO POSTO', '11.066.163/0001-93', 136, '2015-12-14', 1, false, '162.081.929.112', '(18)3117-7010', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (130, 'AUTO POSTO TREVISAN LTDA', 'POSTO TREVISAN III', '01.334.614/0003-34', 137, '2016-01-09', 1, false, NULL, '(65)3322-5186', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (132, 'CARGILL AGRICOLA S A', 'CARGILL AGRICOLA ALTO ARAGUAIA', '60.498.706/0037-68', 139, '2016-01-09', 1, false, '13205928-2', '(067)7989-113', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (90, 'CARGILL AGRICOLA S A', 'CARGILL UBERLANDIA', '60.498.706/0134-88', 96, '2015-10-30', 2, false, '7020247030776', '(34)3218-5226', '(11)5099-3858', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (131, 'CARGILL AGRICOLA S A', 'CARGILL AGRICOLA PRIMAVERA DO LESTE', '60.498.706/0228-00', 138, '2016-01-09', 1, false, NULL, '(67)3398-9113', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (133, 'POSTO TAPERAO LTDA', 'POSTO MARTELLI', '03.202.934/0001-02', 140, '2016-01-09', 1, false, '13.055.666-1', '(66) 3461-1997', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (134, 'SERGIO ROBERTO STORTI E CIA LTDA', 'TRANS CAÇAMBA', '05.609.837/0001-56', 144, '2016-04-07', 1, false, '132185636', '(65) 3308-3020', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (135, 'AUTO PECAS GIDIAO LTDA - EPP', 'AUTO PECAS GIDIAO', '00.960.583/0001-00', 145, '2016-04-08', 1, false, '136.022.283-36', '(66) 3461-1410', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (136, 'ML. BOTTEGA E CIA LTDA', 'CRISTAL VIDROS', '01.242.663/0001-85', 146, '2016-04-08', 1, false, '131690639', '(65) 3549-1155', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (137, 'MECANICA PANTANAL', 'MECANICA PANTANAL', '08.154.125/0001-88', 147, '2016-04-08', 1, false, NULL, '(65) 3694-6835', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (138, 'R. C. GIEQUELIN & CIA LTDA', 'POSTO BEM BRASIL III', '73.453.177/0001-17', 148, '2016-04-18', 1, false, '13.148.660-8', '(65)3027-5959', '(65)3027-9559', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (139, 'PEMAZA CENTRO-NORTE S/A', 'PEMAZA VARZEA GRANDE', '33.657.677/0001-56', 149, '2016-04-19', 1, false, '13.079.683-2', '(92)3616-4990', '(65)3688-2519', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (140, 'SIMONE REGINA DE ARRUDA - EPP', 'MCA TRANSPORTES', '18.144.823/0001-56', 150, '2016-04-28', 1, false, '13.488.522-8', '(65)3376-2008', '(65)9638-4388', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (141, 'AGUIA BRANCA COMERCIO DE COMBUSTIVEIS LTDA', 'POSTO AGUIA BRANCA N. MUTUM', '11.512.642/0001-96', 151, '2016-04-28', 1, false, '13.383.265-1', '(66)3545-4500', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (142, 'WEIHRICH E BRUSAMARELLO LTDA - EPP', 'W. B. TRANSPORTES', '18.356.214/0001-60', 152, '2016-04-28', 1, false, '13.499.379-9', '(65)3376-1217', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (143, 'TOMIKO NAKAMURA', 'AUTO POSTO JANGADAO', '00.788.240/0005-26', 153, '2016-04-28', 1, false, NULL, '(65)3311-2512', '(65)3326-1416', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (144, 'FZ TRANSPORTES DE CARGAS LTDA  - ME', 'PORTAL AGROLOGISTICA', '03.770.735/0001-92', 154, '2016-04-29', 1, false, '13.492.634-0', '(65)3549-3415', '(65) 9973-3453', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (145, 'BUNGE ALIMENTOS S/A', 'BUNGUE SÃO FRANCISCO-SC', '84.046.101/0009-40', 155, '2016-04-30', 1, false, '25.062.243-2', '(047)4440-177', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (119, 'REDE FAROL DO ATLANTICO DE COMBUSTIVEL LTDA.', 'REDE FAROL', '04.204.548/0001-04', 126, '2015-12-09', 1, false, '90.248.758-11', '(44)3252-5253', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (146, 'AUTO SINUELO LTDA', 'SINUELO SÃO FRANCISCO', '82.968.983/0002-08', 156, '2016-04-30', 1, false, '25.655.223-1', '(47)3433-0008', '(47)3433-0008', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (147, 'TRANSPORTADORA BRASIL CENTRAL LTDA', 'BRASIL CENTRAL SÃO FRANCISCO', '02.726.560/0002-34', 157, '2016-04-30', 1, false, '25.729.829-0', '(64)2101-5000', '(64)2101-5010', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (148, 'LITORAL CARGAS LTDA', 'LITORAL CARGAS', '03.946.551/0002-11', 158, '2016-04-30', 1, false, '25.560.573-0', '(47)3471-1300', '(47)3471-1345', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (149, 'MOSAIC FERTILIZANTES DO BRASIL LTDA.', 'MOSAIC RONDONOPOLIS', '61.156.501/0115-14', 159, '2016-04-30', 1, false, '13.566.238-9', '(11)4950-2796', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (150, 'SALDANHA AR CONDICIONADO AUTOMOTIVO LTDA - ME', 'SALDANHA AR CONDICIONADO AUTOMOTIVO', '21.111.891/0001-23', 160, '2016-04-30', 1, false, NULL, '(65)3684-5528', '(65)9956-3837', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (151, 'AUTO POSTO CRISTO REI LTDA', 'AUTO POSTO DO MEL I', '80.245.988/0001-98', 161, '2016-05-02', 1, false, '90.397.344-75', '(42)3225-1929', '(42)3225-1929', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (152, 'AUTO POSTO PETROISA LTDA', 'PETROISA', '03.069.175/0001-43', 162, '2016-05-02', 1, false, '74.901.162.811-10', '(15)3234-9100', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (14, 'POSTO ALDO RODOVIA DOS IMIGRANTES', 'LOCATELLI IMIGRANTES', '01.099.106/0001-57', 18, '2015-07-15', 1, false, '13.167.297-5', '(65) 3668-4080', '(65) 8161-3500', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (153, 'MECANICA E AUTO PECAS ANNA VITORIA LTDA - ME', 'CENTER DIESEL', '10.774.366/0001-71', 163, '2016-05-11', 1, false, '13.370.018-6', '(65)8416-5958', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (154, 'RODOESTE - IMPLEMENTOS DE TRANSPORTE LTDA', 'RANDON CUIABA', '00.955.815/0001-24', 164, '2016-05-11', 1, false, '13.018.701-1', '(65)3611-8800', '(65)3611-8810', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (155, 'BUNGE ALIMENTOS S/A RONDONOPOLIS', 'BUNGUE FABRICA RONDONOPOLIS', '84.046.101/0247-00', 165, '2016-05-17', 1, false, '130794180', '(66)3411-1610', '(66)3411-1731', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (156, 'MANOEL CORDEIRO RIBEIRO - EPP', 'AUTO ELETRICA RIBEIRO', '36.963.452/0001-16', 166, '2016-05-18', 1, false, '13130522-0', '(65)3322-0852', '(65) 9912-1862', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (157, 'AUTO POSTO PAULISTAO DE SANTA FE DO SUL LTDA.', 'AUTO POSTO PAULISTAO', '03.606.265/0001-26', 167, '2016-05-25', 1, false, '614.023147.112', '(17)3631-1710', '(17)3631-4161', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (158, 'POSTO ALDO IPIRANGA LTDA', 'POSTO ALDO PARANAGUÁ', '08.306.220/0001-50', 168, '2016-05-25', 1, false, '90.393.174-40', '(41)3422-7038', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (159, 'RDM TRANSPORTES E LOGISTICA LTDA  - ME', 'RDM TRANSPORTES E LOGISTICA', '08.867.797/0001-30', 169, '2016-05-25', 1, false, '13.339.237-6', '(66)3423-6667', '(66)3425-1025', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (160, 'COMERCIAL DE COMBUSTIVEIS GRAZUL LTDA', 'POSTO CRISTO REI II', '00.558.799/0001-36', 170, '2016-05-25', 1, false, '507.016.510-6', '(043)8221-096', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (161, 'TRANSVERDE TRANSPORTE RODOVIARIO DE CARGAS LTDA - ME', 'TRANS VERDE', '13.321.991/0002-37', 171, '2016-05-25', 1, false, '906.836.912-3', '(41)3423-9811', '(41)3423-9811', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (162, 'BRF S.A.', 'BRF SA VIDEIRA', '01.838.723/0213-96', 173, '2016-07-12', 1, false, NULL, '(47)3249-4420', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (163, 'AUTO POSTO SABIAZINHO LTDA', 'AUTO POSTO SABIAZINHO NERCEDES', '08.586.167/0001-98', 174, '2016-07-12', 1, false, '90.395497-32', '(44)3645-1996', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (164, 'NC AUTO POSTO LTDA', 'POSTO SORRISAO', '37.457.686/0001-54', 175, '2016-07-12', 1, false, '13.140.563-2', '(66) 3545-2700', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (165, 'AUTO POSTO GRAMADAO DE MERIDIANO LTDA.', 'AUTO POSTO GRAMADAO', '00.527.703/0001-72', 176, '2016-07-12', 1, false, '44.400.149.711-4', '(17) 3422-4747', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (166, 'POSSA AUTO POSTO LTDA - ME', 'POSTO FORMULA 1', '04.783.454/0001-37', 177, '2016-07-12', 1, false, '60.406.496.911-6', '(17)5712-142', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (167, 'POSTO DE COMBUSTIVEL AREIA BRANCA LTDA', 'POSTO LOCOMOTIVA III', '17.536.224/0001-15', 178, '2016-07-12', 1, false, '13.480.413-9', '(66)3486-1143', '(66)3486-1127', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (168, 'REICAL INDUSTRIA E COMERCIO DE CALCARIO LTDA', 'REICAL', '26.765.453/0002-83', 179, '2016-08-29', 1, false, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (169, 'ADM DO BRASIL LTDA', 'ADM DO IPIRANGA DO NORTE', '02.003.402/0017-32', 180, '2016-09-01', 1, false, '13.210.486-5', '(11)5185-3590', '(65)3411-2800', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (170, 'ALL- AMERICA LATINA LOGISTICA MALHA NORTE S/A', 'ALL ALTO ARAGUAIA', '24.962.466/0010-27', 181, '2016-09-01', 1, false, 'ISENTO', '(19)3735-3671', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (171, 'POSTO SILOEIRO LTDA', 'POSTO MARTELLI ALTO GARÇAS', '04.505.289/0001-51', 182, '2016-09-01', 1, false, NULL, '(66) 3471-1776', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (172, 'MACEDO & SOUZA LTDA', 'DECIO RIO VERDE', '19.046.218/0021-59', 183, '2016-09-12', 1, false, '10.511.395-6', '(34)3262-2301', '(34)3262-2183', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (173, 'BIAVATTI & CIA LTDA', 'AUTO POSTO ALVORADA', '01.289.412/0001-56', 184, '2016-09-12', 1, false, '13.024.571-2', '(66)3498-8055', '(66)3498-8056', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (174, 'POSTO CAXUXA II LTDA', 'CAXUXA II', '23.145.287/0001-43', 185, '2016-09-12', 1, false, '701.550.332.00-35', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (175, 'MORRO DA MESA CONCESSIONARIA S/A.', 'MORRO DA MESSA ROO- PRIMAVERA DO LESTE', '13.858.125/0001-07', 186, '2016-09-12', 1, false, 'ISENTA', '(66)3498-2037', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (176, 'TRANSPORTE RODOVIARIO 1500 LTDA', '1500 UBERLANDIA', '09.576.958/0024-96', 187, '2016-09-12', 1, false, '00.109.679.401-09', '(34)3211-9400', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (177, 'BERTUOL INDUSTRIA DE FERTILIZANTES LTDA', 'BERTUOL FERTILIZAMTES', '05.644.974/0005-55', 190, '2016-09-28', 1, false, '906.858.460-1', '(66)3545-2000', '(66)3545-2016', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (178, 'FERTITEX AGRO - FERTILIZANTES E PRODUTOS AGROPECUARIOS LTDA', 'CAMPO RICO AGROPECUARIA', '74.649.138/0010-43', 191, '2016-09-28', 1, false, '13.576.440-8', '(11)4201-0927', '(11)3033-1763', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (179, 'COMERCIO DE COMBUSTIVEIS PASTORELLO S.A.', 'POSTO COMBOIO ROO', '79.964.177/0017-25', 192, '2016-09-28', 1, false, '13.551.027-9', '(65)3645-3535', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (180, 'PASA - PARANA OPERACOES PORTUARIAS S/A', 'PASA', '02.725.300/0001-63', 193, '2016-09-28', 1, false, '902.326.839-3', '(41)3420-5700', '(44)9984-5842', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (181, 'USINA DE ACUCAR SANTA TEREZINHA LTDA', 'USACUCAR - TERRA RICA', '75.717.355/0008-71', 194, '2016-09-28', 1, false, '902.980.601-0', '(44)2181-924', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (182, 'TORRE ALTA COMERCIO DE COMBUSTIVEIS LTDA', 'TORRE ALTA LOCATELI', '06.124.016/0001-92', 195, '2016-09-28', 1, false, '902.998.330-2', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (183, 'J. H. K.-COMERCIO DE COMBUSTIVEIS LTDA', 'J.H.A ', '02.786.090/0001-13', 196, '2016-09-28', 1, false, '901.693.501-5', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (184, 'SAFRAS ARMAZENS GERAIS LTDA.', 'SAFRAS ARMAZENS GERAIS', '11.644.786/0001-04', 197, '2016-09-29', 1, false, '13.384892-2', '(66)3544-1982', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (185, 'INDEMIL INDUSTRIA E COMERCIO S/A', 'INDEMIL PARANAVAI', '61.887.899/0001-09', 198, '2016-09-29', 1, false, '905.863.150-4', '(44)3428-8300', '(44)3428-8328', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (111, 'TRANSPORTE RODOVIARIO 1500 LTDA', '1500 RONDONOPOLIS', '09.576.958/0002-80', 118, '2015-12-09', 1, false, '13.358.843-2', '(66)3423-6362', '(66) 3423-3099', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (186, 'EMPRESA MATOGROSSENSE DE HABITACAO S.A.', 'EMHA CONSTRUTORA E INCORPORADORA S.A.', '09.137.574/0001-80', 199, '2016-09-29', 1, false, '13.349.910-3', '(65)3549-2743', '(65)3549-3283', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (187, 'SERRA BONITA SEMENTES S.A', '002.215.402.007-0', '16.665.334/0001-14', 200, '2016-09-30', 1, false, NULL, '(33)3333-3333', '(33)3333-3322', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (188, 'MARINO  JOSE FRANZ', 'FAZ MANO JULIO', '430.885.119-04', 201, '2016-09-30', 1, false, '1.322.132-30', '(65) 3549-7000', NULL, 1, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (189, 'FIAGRIL TRANSPORTES E LOGISTICA LTDA', 'FIAGRIL TRANSPORTES LRV', '08.219.277/0001-11', 202, '2016-09-30', 1, false, '13.323.292-21', '(65)3549-6226', '(65)3549-6227', 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (190, 'POSTO SAO ROQUE LTDA', 'POSTO SAO ROQUE', '00.641.761/0001-22', 203, '2016-09-30', 1, false, '07.311.419/001-77', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (191, 'ELEANDRO ANTONIO MARQUES PERES E CIA LTDA - ME', 'AUTO POSTO DOIS IRMAOS', '02.885.666/0001-08', 204, '2016-09-30', 1, false, '10.310.231-0', '(062)3701-336', NULL, 0, NULL, NULL, NULL, NULL, NULL, false);
+INSERT INTO customers (id, corporate_name, fantasy_name, document, address_id, registred_at, registred_by, inactive, ie_rg, phone_fixed, phone_mobile, type, email, manager, document_manager, contact_manager, observations, is_business) VALUES (8, 'TRANSPORTES CADORE LTDA-ME', 'WJM TRANSPORTES', '12.665.225/0001-46', 11, '2015-07-09', 1, false, '134019490', '(65) 3549-0079', '(65) 9971-7690', 0, NULL, NULL, NULL, NULL, NULL, true);
 
 
 --
--- TOC entry 2211 (class 0 OID 0)
--- Dependencies: 186
--- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('customers_id_seq', 176, true);
-
-
---
--- TOC entry 2149 (class 0 OID 25339)
--- Dependencies: 187
+-- TOC entry 3010 (class 0 OID 16481)
+-- Dependencies: 212
 -- Data for Name: deposits; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 2150 (class 0 OID 25345)
--- Dependencies: 188
+-- TOC entry 3011 (class 0 OID 16487)
+-- Dependencies: 213
 -- Data for Name: drivers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (3, 'ORILDO AUGUSTO', '503.180.711-34', 3, '1971-05-26', '756539915', 'AE', 0, NULL, '(65) 9993-3242', true, '2015-07-08 09:31:56.107', 1, 10.50, '2015-05-31', '2015-07-31', '2018-06-19', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (4, 'ALEXANDRO FERREIRA MELLO', '843.204.781-34', 12, '1980-10-18', '164612095', 'AE', 0, NULL, '(65) 9603-2160', true, '2015-07-09 11:20:48.96', 1, 11.00, '2015-05-29', '2015-07-31', '2019-07-24', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (1, 'MEDICE CADORE', '908.064.689-04', 62, '1974-11-08', '02437762922/575469649', 'AE', 0, '(65) 3549-0079', '(65) 9971-7690', false, '2015-07-07 17:53:37.98', 1, 10.50, '2015-01-01', NULL, '2017-06-19', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (6, 'ANTONIO DA ROCHA PEIXOTO', '172.713.471-00', 114, '1951-06-13', '578879007', 'AE', 0, NULL, '(65) 9901-1454', true, '2015-12-03 15:06:52.473', 1, 11.00, '2015-11-18', '2015-12-14', '2017-10-01', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (5, 'MARCIO FERREIRA MELO', '957.081.971-53', 61, '1982-07-24', '03899732338', 'AE', 0, '', '(65) 9907-6983', false, '2015-08-31 19:48:27.703', 2, 11.00, '2015-08-10', '2016-02-17', '2018-10-23', NULL, NULL, NULL, NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (7, 'ADALTON DE OLIVEIRA SALVADOR', '877.218.051-04', 141, '0978-05-02', '4100112552', 'AE', 0, '(65) 9956-4890', '(65) 9956-4890', false, '2016-04-06 08:45:40.435', 1, 5.00, '2016-02-01', NULL, '2016-05-17', NULL, NULL, '00209583105', NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (8, 'NEDIVAN DAL PIVA', '046.231.441-35', 142, '1993-05-05', '1101705752', 'AE', 0, '(65) 9665-0537', '(65) 9634-4150', false, '2016-04-06 08:52:14.506', 1, 5.00, '2016-04-01', NULL, '2020-03-25', NULL, NULL, '05276975392', NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (2, 'VANDERLEI BAUMANN', '018.210.659-48', 2, '1976-06-10', '1023474917', 'AE', 0, NULL, '(65) 9905-9247', false, '2015-07-08 09:27:14.069', 1, 5.00, '2013-01-03', NULL, '2020-04-14', NULL, NULL, '1902080940', NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (9, 'GERHARD SACKMANN', '593.754.181-20', 143, '1975-03-13', '683723480/00201415370', 'AE', 0, '(65) 3549-6151', '(65) 9999-0491', false, '2016-04-07 07:45:49.48', 1, 5.00, '2016-03-23', NULL, '2018-05-05', NULL, NULL, '002201415370', NULL, NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (10, 'ANEILTON JOSE DA SILVA MATIAS', '021.367.414-97', 172, '1980-06-09', '480981867', 'E', 0, '(65) 9901-5791', '(65) 9901-5791', false, '2016-07-11 20:17:08.098', 1, 5.00, '2016-05-31', NULL, '2017-03-11', NULL, 'RECIFE-PE', '04074583789', 'ANITA SILVA', NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (12, 'NELSON WRONSKI', '422.756.109-44', 189, '1958-10-03', '480762096', 'AE', 0, NULL, '(65) 9916-5929', false, '2016-09-21 15:05:36.195', 1, 11.00, '2016-09-12', NULL, '2017-03-15', NULL, NULL, '02317503381', 'LUCIA GRAPSKI WRONSKI', NULL);
-INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf) VALUES (11, 'SERGIO APARECIDO DE SOUSA', '955.700.049-04', 188, '1974-10-12', '412056426', 'AE', 0, NULL, '(65) 9690-8733', false, '2016-09-21 15:03:14.96', 1, 11.00, '2016-04-01', NULL, '2016-08-14', NULL, NULL, '03555454001', 'MARGARIDA VICENTE DE SOUSA', NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (3, 'ORILDO AUGUSTO', '503.180.711-34', 3, '1971-05-26', '756539915', 'AE', 0, NULL, '(65) 9993-3242', true, '2015-07-08 09:31:56.107', 1, 10.50, '2015-05-31', '2015-07-31', '2018-06-19', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (4, 'ALEXANDRO FERREIRA MELLO', '843.204.781-34', 12, '1980-10-18', '164612095', 'AE', 0, NULL, '(65) 9603-2160', true, '2015-07-09 11:20:48.96', 1, 11.00, '2015-05-29', '2015-07-31', '2019-07-24', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (1, 'MEDICE CADORE', '908.064.689-04', 62, '1974-11-08', '02437762922/575469649', 'AE', 0, '(65) 3549-0079', '(65) 9971-7690', false, '2015-07-07 17:53:37.98', 1, 10.50, '2015-01-01', NULL, '2017-06-19', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (6, 'ANTONIO DA ROCHA PEIXOTO', '172.713.471-00', 114, '1951-06-13', '578879007', 'AE', 0, NULL, '(65) 9901-1454', true, '2015-12-03 15:06:52.473', 1, 11.00, '2015-11-18', '2015-12-14', '2017-10-01', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (5, 'MARCIO FERREIRA MELO', '957.081.971-53', 61, '1982-07-24', '03899732338', 'AE', 0, '', '(65) 9907-6983', false, '2015-08-31 19:48:27.703', 2, 11.00, '2015-08-10', '2016-02-17', '2018-10-23', NULL, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (7, 'ADALTON DE OLIVEIRA SALVADOR', '877.218.051-04', 141, '0978-05-02', '4100112552', 'AE', 0, '(65) 9956-4890', '(65) 9956-4890', false, '2016-04-06 08:45:40.435', 1, 5.00, '2016-02-01', NULL, '2016-05-17', NULL, NULL, '00209583105', NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (2, 'VANDERLEI BAUMANN', '018.210.659-48', 2, '1976-06-10', '1023474917', 'AE', 0, NULL, '(65) 9905-9247', false, '2015-07-08 09:27:14.069', 1, 5.00, '2013-01-03', NULL, '2020-04-14', NULL, NULL, '1902080940', NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (9, 'GERHARD SACKMANN', '593.754.181-20', 143, '1975-03-13', '683723480/00201415370', 'AE', 0, '(65) 3549-6151', '(65) 9999-0491', false, '2016-04-07 07:45:49.48', 1, 5.00, '2016-03-23', NULL, '2018-05-05', NULL, NULL, '002201415370', NULL, NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (10, 'ANEILTON JOSE DA SILVA MATIAS', '021.367.414-97', 172, '1980-06-09', '480981867', 'E', 0, '(65) 9901-5791', '(65) 9901-5791', false, '2016-07-11 20:17:08.098', 1, 5.00, '2016-05-31', NULL, '2017-03-11', NULL, 'RECIFE-PE', '04074583789', 'ANITA SILVA', NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (12, 'NELSON WRONSKI', '422.756.109-44', 189, '1958-10-03', '480762096', 'AE', 0, NULL, '(65) 9916-5929', false, '2016-09-21 15:05:36.195', 1, 11.00, '2016-09-12', NULL, '2017-03-15', NULL, NULL, '02317503381', 'LUCIA GRAPSKI WRONSKI', NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (11, 'SERGIO APARECIDO DE SOUSA', '955.700.049-04', 188, '1974-10-12', '412056426', 'AE', 0, NULL, '(65) 9690-8733', false, '2016-09-21 15:03:14.96', 1, 11.00, '2016-04-01', NULL, '2016-08-14', NULL, NULL, '03555454001', 'MARGARIDA VICENTE DE SOUSA', NULL, NULL);
+INSERT INTO drivers (id, full_name, cpf, address, birthday, number_cnh, category_cnh, genre, phone_fixed, phone_mobile, inactive, registred_at, registred_by, comission, admitted_at, dismissed_at, expiration_cnh, document, naturalness, register_cnh, mother_name, cnh_pdf, observations) VALUES (8, 'NEDIVAN DAL PIVA', '046.231.441-35', 142, '1993-05-05', '1101705752', 'AE', 0, '(65) 9665-0537', '(65) 9634-4150', false, '2016-04-06 08:52:14.506', 1, 5.00, '2017-01-31', NULL, '2020-03-25', NULL, NULL, '05276975392', NULL, NULL, 'SALARIO R$1.750,00 + 8% DO FRETE P/ PUXE FAZENDA');
 
 
 --
--- TOC entry 2212 (class 0 OID 0)
--- Dependencies: 189
--- Name: drivers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('drivers_id_seq', 12, true);
-
-
---
--- TOC entry 2152 (class 0 OID 25353)
--- Dependencies: 190
+-- TOC entry 3013 (class 0 OID 16495)
+-- Dependencies: 215
 -- Data for Name: freights; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -7928,20 +7881,55 @@ CH R$ 500,00
 DINHEIRO R$ 1.500,00', 176, 5.00, '9,10,11');
 INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (275, '2016-09-12 07:49:09.375', 1, false, 4, 2, 290269, 347297, 85, 85, 'MILHO', '2016-08-26', '2016-08-30', 50.000, 109.08, 272.70, 0.00, 0.00, 'CAREGAMENTO EM PRIMAVERRA DO LESTE E DESCARGA UBERABA
 DEP DECIO  RIO VERDE R$ 2.000,00', 85, 5.00, '9,10,11');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (278, '2016-09-28 16:06:40.682', 1, false, 2, 7, 1087954, 52908, 181, 180, 'ACUCAR A GRANEL', '2016-09-18', '2016-09-19', 36.380, 57.00, 53.50, 50.18, 0.00, 'KM INICIAL 701022
+KM FINAL702735
+DEPOSITO LOCATELLI SICREDI R$ 1.236,00', 120, 5.00, '4,5,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (277, '2016-09-28 14:38:04.688', 1, false, 2, 7, 622, 10434, 177, 178, 'FERTILIZANTE SUPER SIMPLES', '2016-09-20', '2016-09-24', 36.280, 175.00, 280.40, 37.05, 0.00, 'CAREGAMENTO BERTUOL PARANAGUA DESCARGA ROO
+KM INICIAL 702735
+KM FINAL    703341  
+DEPOSITOS R$ 1.952,40 CUPIN, SICREDI', 161, 5.00, '4,5,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (279, '2016-09-29 08:23:53.182', 1, false, 2, 7, 29318, 559245, 184, 185, 'MILHO', '2016-09-13', '2016-09-21', 36.200, 128.83, 233.18, 0.00, 0.00, 'KM SAIDA 699220
+KM CHEGADA 700953
+DEPOSITOS R$ 2.059,60  CASA MEDICE
+ACERTO CHEQUE  R$  297,30
+             DINHEIRO  RS 369,00
+           PEDAGIO BRITA R$ 93,10', 111, 5.00, '4,5,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (280, '2016-09-29 08:45:48.688', 1, false, 2, 7, 6756, 6756, 24, 186, 'PEDRISCO', '2016-09-25', '2016-09-26', 38.640, 26.00, 45.58, 4.65, 0.00, NULL, 19, 5.00, '4,5,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (281, '2016-09-30 07:50:46.603', 1, false, 3, 12, 1097562, 1002600, 120, 8, 'FERTILIZANTES ', '2016-09-20', '2016-09-23', 38.470, 130.00, 226.33, 23.73, 0.00, 'CARREGAMENTO ROLANDIA P/ SORRISO- MOROCO ELTON DALMOLIN STA RITA TRIVELATO
+DEPOSITOS LOCARELLI  SICREDI FISICA R$ 1.243,87
+   EM DINHEIRO CASA CH R$ 600,00 E R$ 181,00
+', 120, 5.00, '1,2,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (282, '2016-09-30 08:03:55.026', 1, false, 4, 2, 2510756, 25289, 30, 2, 'MILHO', '2016-09-20', '2016-09-22', 50.100, 85.00, 212.93, 0.00, 0.00, 'EMPRESA ADT R$ 710,27
+              SALDO R$ 300,00', 5, 5.00, '9,10,11');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (283, '2016-09-30 08:08:44.78', 1, false, 1, 1, 204098, 538, 24, 99, 'PEDRISCO', '2016-09-16', '2016-09-16', 35.520, 30.00, 111.01, 6.21, 0.00, 'MOT IVAN DIARIAS 
+DEP CREDITO TONIAL', 8, 11.00, '8,0,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (284, '2016-09-30 08:42:43.976', 1, false, 1, 1, 2506512, 45641, 1, 17, 'SOJA', '2016-09-14', '2016-09-16', 34.000, 76.00, 284.24, 0.00, 0.00, 'CARREGAMNETO SANTA INEIS
+PAGO LOTAÇÕAO DEU27+-
+DEP EMPRESA CADORE ADT R$ 305,78 
+DEP EMPRESA CADORE  SALDO R$ 307,80', 5, 11.00, '8,0,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (285, '2016-09-30 11:27:46.524', 1, false, 4, 2, 414, 5642, 187, 188, 'SEMENTE SOJA', '2016-09-14', '2016-09-17', 50.000, 180.00, 309.39, 140.61, 0.00, 'CARREGAMENTO FORMOSA 
+FRETE TOTAL E ADI DEP BB
+KM INICIAL 497357
+KM FINAL 500323', 60, 5.00, '9,10,11');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (286, '2016-09-30 15:08:59.267', 1, false, 3, 10, 2499929, 58322, 44, 1, 'SOJA', '2016-09-02', '2016-09-05', 38.280, 80.00, 153.12, 0.00, 0.00, 'FRETE CARREGADO SIPAL SORRISO
+DEP EMPRESA R$ 600,00
+LOCAT SICR R$ 300,00
+KM INICIAL 590364
+KM FINAL 591083', 5, 5.00, '1,2,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (287, '2016-09-30 15:37:14.13', 1, false, 3, 10, 25023263, 58487, 44, 2, 'MILHO', '2016-09-09', '2016-09-11', 38.400, 90.00, 172.80, 0.00, 0.00, 'KM SAIDA 591937
+KM CHEGADA 592750
+DEP EMPRESA R$ 750,00
+     SICREDI LOCA  R$531,90
+   EMPRESA R$ 328,80
+CARREGAMENTO SIOPAL FELIZ NATAL', 5, 5.00, '1,2,0');
+INSERT INTO freights (id, registred_at, registred_by, inactive, truck_id, driver_id, number_note, number_cte, company_source, company_destination, product, start, "end", weight, value_ton, value_comission, discounts_comission, extra_comission, observations, carrier, taxe_comission, trailers) VALUES (288, '2016-09-30 16:02:36.585', 1, false, 2, 7, 2504102, 25196, 30, 2, 'MILHO', '2016-09-10', '2016-09-12', 36.240, 85.00, 154.02, 0.00, 0.00, 'DEP EMPRESA R$ 552,00
+  LOCAT SICRE R$ 278,00
+  ACERTO R$ 112,00', 5, 5.00, '4,5,0');
 
 
 --
--- TOC entry 2213 (class 0 OID 0)
--- Dependencies: 191
--- Name: freights_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('freights_id_seq', 276, true);
-
-
---
--- TOC entry 2154 (class 0 OID 25361)
--- Dependencies: 192
+-- TOC entry 3015 (class 0 OID 16503)
+-- Dependencies: 217
 -- Data for Name: fueleds; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -8450,20 +8438,37 @@ INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_
 INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (511, 275, 4, 2, '2016-08-27', NULL, 172, 200.00, 3.459, 94.00, '2016-09-12 07:49:09.522', 1, 597.80);
 INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (512, 275, 4, 2, '2016-08-30', NULL, 174, 500.00, 3.209, 155.00, '2016-09-12 07:49:09.602', 1, 1449.50);
 INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (513, 276, 4, 2, '2016-08-31', NULL, 91, 150.00, 3.099, 0.00, '2016-09-12 08:05:09.888', 1, 464.85);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (514, 277, 2, 7, '2016-09-20', '701741', 53, 567.00, 2.940, 85.05, '2016-09-28 14:38:04.837', 1, 1581.93);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (515, 277, 2, 7, '2016-09-21', '702449', 49, 386.10, 2.720, 0.00, '2016-09-28 14:38:04.992', 1, 1050.19);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (516, 277, 2, 7, '2016-09-24', '703376', 179, 200.00, 3.219, 0.00, '2016-09-28 14:38:05.065', 1, 643.80);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (517, 278, 2, 7, '2016-09-19', '701287', 183, 200.00, 2.700, 0.00, '2016-09-28 16:06:40.789', 1, 540.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (518, 278, 2, 7, '2016-09-19', '701456', 182, 100.00, 2.690, 0.00, '2016-09-28 16:06:40.891', 1, 269.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (519, 279, 2, 7, '2016-09-13', NULL, 28, 350.00, 3.430, 0.00, '2016-09-29 08:23:53.335', 1, 1200.50);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (520, 279, 2, 7, '2016-09-15', '699906', 11, 550.00, 3.230, 0.00, '2016-09-29 08:23:53.459', 1, 1776.50);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (521, 279, 2, 7, '2016-09-18', '701118', 119, 200.00, 2.740, 0.00, '2016-09-29 08:23:53.549', 1, 548.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (522, 280, 2, 7, '2016-09-26', NULL, 18, 80.00, 3.398, 8.64, '2016-09-29 08:45:48.784', 1, 263.20);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (523, 281, 3, 12, '2016-09-20', NULL, 119, 523.00, 2.740, 0.00, '2016-09-30 07:50:46.707', 1, 1433.02);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (524, 281, 3, 12, '2016-09-21', NULL, 11, 340.50, 3.230, 0.00, '2016-09-30 07:50:46.79', 1, 1099.82);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (525, 281, 3, 12, '2016-09-23', NULL, 28, 100.00, 3.430, 0.00, '2016-09-30 07:50:46.865', 1, 343.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (526, 282, 4, 2, '2016-09-20', NULL, 18, 431.30, 3.398, 46.58, '2016-09-30 08:03:55.144', 1, 1418.98);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (527, 282, 4, 2, '2016-09-21', NULL, 31, 400.00, 3.380, 54.00, '2016-09-30 08:03:55.253', 1, 1298.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (528, 284, 1, 1, '2016-09-14', NULL, 18, 300.00, 3.398, 32.40, '2016-09-30 08:42:44.203', 1, 987.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (529, 284, 1, 1, '2016-09-15', NULL, 25, 1.47, 3.240, 0.00, '2016-09-30 08:42:44.44', 1, 4.76);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (530, 284, 1, 1, '2016-09-15', NULL, 25, 180.00, 3.240, 0.00, '2016-09-30 08:42:44.606', 1, 583.20);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (531, 285, 4, 2, '2016-09-14', NULL, 190, 477.01, 2.999, 32.88, '2016-09-30 14:49:15.207', 1, 1397.67);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (532, 285, 4, 2, '2016-09-15', NULL, 191, 361.85, 3.040, 0.00, '2016-09-30 14:49:15.318', 1, 1100.02);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (533, 285, 4, 2, '2016-09-16', NULL, 18, 70.00, 3.398, 7.56, '2016-09-30 14:49:15.397', 1, 230.30);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (534, 286, 3, 10, '2016-09-04', '590044', 18, 250.00, 3.398, 25.30, '2016-09-30 15:08:59.441', 1, 824.20);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (535, 286, 3, 10, '2016-09-04', '591083', 31, 250.00, 3.380, 33.50, '2016-09-30 15:08:59.572', 1, 811.50);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (536, 287, 3, 10, '2016-09-09', '592124', 18, 260.00, 3.398, 29.93, '2016-09-30 15:37:14.207', 1, 853.55);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (537, 287, 3, 10, '2016-09-11', '592768', 31, 200.00, 3.280, 26.80, '2016-09-30 15:37:14.28', 1, 629.20);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (538, 288, 2, 7, '2016-09-10', '697894', 18, 300.00, 3.398, 32.40, '2016-09-30 16:02:36.666', 1, 987.00);
+INSERT INTO fueleds (id, freight_id, truck_id, driver_id, date, km, gas_station_id, liters, value_liters, discount, registred_at, registred_by, total) VALUES (539, 288, 2, 7, '2016-09-12', '698545', 11, 300.00, 3.230, 0.00, '2016-09-30 16:02:36.753', 1, 969.00);
 
 
 --
--- TOC entry 2214 (class 0 OID 0)
--- Dependencies: 193
--- Name: fueleds_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('fueleds_id_seq', 513, true);
-
-
---
--- TOC entry 2156 (class 0 OID 25369)
--- Dependencies: 194
+-- TOC entry 3017 (class 0 OID 16511)
+-- Dependencies: 219
 -- Data for Name: logins; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -8664,79 +8669,47 @@ INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (194,
 INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (195, 1, 'CADORE-PC', '2016-09-12 09:10:50.623', '192.168.1.15', '177.201.53.1');
 INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (196, 1, 'CADORE-PC', '2016-09-21 14:59:17.439', '192.168.1.15', '201.34.23.228');
 INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (197, 1, 'CADORE-PC', '2016-09-21 15:06:38.198', '192.168.1.15', '201.34.23.228');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (198, 2, 'CADORE-NOTE', '2016-09-25 13:47:35.621', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (199, 2, 'CADORE-NOTE', '2016-09-25 13:50:24.042', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (200, 2, 'CADORE-NOTE', '2016-09-25 13:55:11.857', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (201, 2, 'CADORE-NOTE', '2016-09-25 13:58:33.995', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (202, 2, 'CADORE-NOTE', '2016-09-25 14:00:28.456', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (203, 2, 'CADORE-NOTE', '2016-09-25 14:04:19.335', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (204, 2, 'CADORE-NOTE', '2016-09-25 14:05:42.232', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (205, 2, 'CADORE-NOTE', '2016-09-25 14:09:42.6', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (206, 2, 'CADORE-NOTE', '2016-09-25 16:23:01.979', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (207, 2, 'CADORE-NOTE', '2016-09-25 16:28:32.48', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (208, 2, 'CADORE-NOTE', '2016-09-25 16:28:57.784', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (209, 2, 'CADORE-NOTE', '2016-09-27 00:37:50.87', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (210, 2, 'CADORE-NOTE', '2016-09-27 00:39:37.529', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (211, 2, 'CADORE-NOTE', '2016-09-27 00:40:47.408', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (212, 2, 'CADORE-NOTE', '2016-09-27 00:44:44.582', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (213, 2, 'CADORE-NOTE', '2016-09-27 00:52:01.359', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (214, 2, 'CADORE-NOTE', '2016-09-27 00:55:07.742', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (215, 2, 'CADORE-NOTE', '2016-09-27 22:41:30.535', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (216, 2, 'CADORE-NOTE', '2016-09-27 22:46:14.247', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (217, 2, 'CADORE-NOTE', '2016-09-27 22:48:28.06', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (218, 2, 'CADORE-NOTE', '2016-09-27 22:50:03.024', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (219, 2, 'CADORE-NOTE', '2016-09-27 23:03:49.76', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (220, 2, 'CADORE-NOTE', '2016-09-27 23:28:49.923', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (221, 2, 'CADORE-NOTE', '2016-09-27 23:30:15.966', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (222, 2, 'CADORE-NOTE', '2016-09-27 23:54:29.772', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (223, 2, 'CADORE-NOTE', '2016-09-27 23:55:44.319', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (224, 2, 'CADORE-NOTE', '2016-09-27 23:58:26.338', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (225, 2, 'CADORE-NOTE', '2016-09-27 23:59:59.231', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (226, 2, 'CADORE-NOTE', '2016-09-28 00:12:30.46', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (227, 2, 'CADORE-NOTE', '2016-09-28 00:13:57.816', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (228, 2, 'CADORE-NOTE', '2016-09-28 00:14:36.418', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (229, 2, 'CADORE-NOTE', '2016-09-28 00:30:37.366', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (230, 2, 'CADORE-NOTE', '2016-09-28 00:31:59.771', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (231, 2, 'CADORE-NOTE', '2016-09-28 00:32:58.2', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (232, 2, 'CADORE-NOTE', '2016-09-28 00:34:33.833', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (233, 2, 'CADORE-NOTE', '2016-09-28 00:35:19.915', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (234, 2, 'CADORE-NOTE', '2016-09-28 00:35:34.858', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (235, 2, 'CADORE-NOTE', '2016-09-28 00:36:22.631', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (236, 2, 'CADORE-NOTE', '2016-09-28 00:42:27.443', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (237, 2, 'CADORE-NOTE', '2016-09-28 00:44:04.413', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (238, 2, 'CADORE-NOTE', '2016-09-28 00:47:45.202', '192.168.1.7', '');
-INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (239, 2, 'CADORE-NOTE', '2016-09-28 00:51:17.413', '192.168.1.7', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (198, 1, 'CADORE-PC', '2016-09-28 14:15:52.37', '192.168.1.15', '200.103.40.30');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (199, 1, 'CADORE-PC', '2016-09-29 07:55:07.762', '192.168.1.15', '201.67.62.144');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (200, 1, 'CADORE-PC', '2016-09-30 07:22:55.174', '192.168.1.15', '201.67.62.144');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (201, 2, 'CADORE-PC', '2016-09-30 13:49:12.12', '192.168.1.15', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (202, 1, 'CADORE-PC', '2016-09-30 14:18:09.164', '192.168.1.15', '179.254.44.9');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (203, 2, 'WJMCADORE-PC', '2017-01-29 20:02:19.975', '192.168.1.121', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (204, 1, 'WJMCADORE-PC', '2017-01-29 22:03:10.061', '192.168.1.121', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (205, 1, 'WJMCADORE-PC', '2017-01-30 22:21:16.855', '192.168.1.124', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (206, 1, 'WJMCADORE-PC', '2017-05-14 10:44:52.079', '192.168.1.12', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (207, 2, 'CADORE-NOTE', '2018-01-14 23:52:04.509426', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (208, 2, 'CADORE-NOTE', '2018-01-14 23:54:31.575562', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (209, 2, 'CADORE-NOTE', '2018-01-14 23:56:42.150603', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (210, 2, 'CADORE-NOTE', '2018-01-15 00:08:58.891879', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (211, 2, 'CADORE-NOTE', '2018-01-15 00:14:02.908253', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (212, 2, 'CADORE-NOTE', '2018-01-15 00:14:20.044876', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (213, 2, 'CADORE-NOTE', '2018-01-15 00:16:14.095629', '192.168.1.11', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (214, 2, 'CADORE-NOTE', '2018-01-15 23:12:04.555447', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (215, 2, 'CADORE-NOTE', '2018-01-15 23:16:24.150748', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (216, 2, 'CADORE-NOTE', '2018-01-15 23:22:12.432158', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (217, 2, 'CADORE-NOTE', '2018-01-15 23:23:49.021472', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (218, 2, 'CADORE-NOTE', '2018-01-15 23:25:12.988493', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (219, 2, 'CADORE-NOTE', '2018-01-15 23:27:56.610363', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (220, 2, 'CADORE-NOTE', '2018-01-15 23:35:29.698868', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (221, 2, 'CADORE-NOTE', '2018-01-15 23:50:16.440788', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (222, 2, 'CADORE-NOTE', '2018-01-15 23:51:09.306253', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (223, 2, 'CADORE-NOTE', '2018-01-15 23:53:17.752781', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (224, 2, 'CADORE-NOTE', '2018-01-15 23:55:53.850851', '192.168.56.1', '');
+INSERT INTO logins (id, user_id, host, date, local_ip, external_ip) VALUES (225, 2, 'CADORE-NOTE', '2018-01-16 00:00:12.309647', '192.168.56.1', '');
 
 
 --
--- TOC entry 2215 (class 0 OID 0)
--- Dependencies: 195
--- Name: logins_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('logins_id_seq', 239, true);
-
-
---
--- TOC entry 2158 (class 0 OID 25377)
--- Dependencies: 196
+-- TOC entry 3019 (class 0 OID 16519)
+-- Dependencies: 221
 -- Data for Name: mails; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 
 
 --
--- TOC entry 2216 (class 0 OID 0)
--- Dependencies: 197
--- Name: mails_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('mails_id_seq', 1, false);
-
-
---
--- TOC entry 2160 (class 0 OID 25385)
--- Dependencies: 198
+-- TOC entry 3021 (class 0 OID 16527)
+-- Dependencies: 223
 -- Data for Name: outputs; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9567,20 +9540,54 @@ INSERT INTO outputs (id, description, observation, customer_id, truck_id, freigh
 INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (772, 'LIMPEZA CARREGAR ADUBO ', NULL, 8, 4, 276, '2016-09-12 08:05:10.053', 1, '2016-08-30', 20.00);
 INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (773, 'SEGURO CARGA', '
 ', 176, 4, 276, '2016-09-12 08:05:10.133', 1, '2016-08-30', 62.70);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (774, 'PEDAGIO PARANAGUA PR - ROO MT', NULL, 22, 2, 277, '2016-09-28 14:38:05.137', 1, '2016-09-23', 741.30);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (775, 'POSTO SERRA CADEADO FILTRO RACOR', 'TRANCOU FILTROS ALIMENTAÇÃO', 8, 2, 277, '2016-09-28 14:38:05.264', 1, '2016-09-22', 68.64);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (776, 'SEGURO CARGA', NULL, 161, 2, 277, '2016-09-28 14:38:05.348', 1, '2016-09-22', 28.87);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (777, 'ESPELHO RETROVISOR', 'MOT FECHOU ELE CHEGANDO PARANAGUA E FUGIU;
+COMPROU ESPELHO SIMPLES E PENUROU NO SUPORTE ANTIGO,', 8, 2, 277, '2016-09-28 14:38:05.42', 1, '2016-09-21', 3.50);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (778, 'PEDAGIO PR', 'PEDAGIOS MARINGA ROTA TRASPORTADORA POR ASTORGA', 22, 2, 278, '2016-09-28 16:06:40.992', 1, '2016-09-18', 103.60);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (779, 'DESCONTO QUEBRA', 'DESCONTO INDEVIDO PELO POSTO', 120, 2, 278, '2016-09-28 16:06:41.09', 1, '2016-09-19', 150.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (780, 'SEGURO', NULL, 120, 2, 278, '2016-09-28 16:06:41.189', 1, '2016-09-19', 50.42);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (781, 'DISCO TACOGRAFO', NULL, 182, 2, 278, '2016-09-28 16:06:41.285', 1, '2016-09-19', 31.90);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (782, 'PEDAGIO VAZIO', 'ROO-NOBRES', 97, 2, 277, '2016-09-29 08:01:46.513', 1, '2016-09-24', 75.20);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (783, 'SEGURO', NULL, 111, 2, 279, '2016-09-29 08:23:53.645', 1, '2016-09-14', 13.38);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (784, 'BORRACHARIA TORE ALTA', 'CONSERTO COM MANCHÃO E UM CONSERTO PONTA GROSSA', 8, 2, 279, '2016-09-29 08:23:53.727', 1, '2016-09-16', 100.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (785, 'ELETRICA TORRE ALTA', 'TROCA DE LAMPADA FAROL', 8, 2, 279, '2016-09-29 08:23:53.809', 1, '2016-09-19', 40.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (786, 'PEDAGIO  LRV-BAREIRO-LRV', 'PEDAGIO VAZIO-CARREGADO', 97, 2, 279, '2016-09-29 08:23:53.901', 1, '2016-09-13', 77.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (787, 'PEDAGIO NOBRES-LRV', NULL, 97, 2, 280, '2016-09-29 08:45:48.878', 1, '2016-09-25', 93.10);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (788, 'PEDAGIO MS', NULL, 97, 3, 281, '2016-09-30 07:50:46.947', 1, '2016-09-20', 256.20);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (789, 'PEDAGIO MT ITIQUIRA-LRV', NULL, 97, 3, 281, '2016-09-30 07:50:47.023', 1, '2016-09-21', 218.40);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (790, 'SEGURO', NULL, 120, 3, 281, '2016-09-30 07:50:46.277', 1, '2016-09-20', 71.29);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (791, 'LIMPEZA CAMINHÃO', NULL, 120, 3, 281, '2016-09-30 07:50:50.103', 1, '2016-09-20', 10.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (792, 'ARLA 32', '02 BALDES', 31, 4, 282, '2016-09-30 08:03:55.376', 1, '2016-09-21', 69.80);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (793, 'PEDAGIO VAZIO ROO-LRV', NULL, 97, 4, 282, '2016-09-30 08:03:55.495', 1, '2016-09-22', 192.60);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (794, 'SEGURO', NULL, 5, 4, 282, '2016-09-30 08:03:55.628', 1, '2016-09-20', 33.95);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (795, 'DESCONTO OCULTO', NULL, 5, 4, 282, '2016-09-30 08:03:55.732', 1, '2016-09-22', 21.29);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (796, 'PEDAGIO CAREGADO NOBRES-LRV', NULL, 97, 1, 283, '2016-09-30 08:08:44.878', 1, '2016-09-16', 56.50);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (797, 'PEDAGIO VAZIO  ROO-NOBRES', NULL, 97, 1, 284, '2016-09-30 08:42:44.822', 1, '2016-09-15', 54.80);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (798, 'SEGURO E TX OCULTA', NULL, 5, 1, 284, '2016-09-30 08:42:45.019', 1, '2016-09-15', 56.41);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (799, 'ARLA 32', NULL, 190, 4, 285, '2016-09-30 14:49:15.501', 1, '2016-09-14', 49.90);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (800, 'CATRACA CINTA DE AMARAÇÃO ', NULL, 8, 4, 285, '2016-09-30 14:49:15.608', 1, '2016-09-14', 330.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (801, 'BORACHARIA FERREIRINHA', 'TROCA PNEU ESTOURO E8 DI', 8, 4, 285, '2016-09-30 14:49:15.681', 1, '2016-09-15', 30.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (802, 'PEDAGIO CARERGADO CAMPO VERDE-IPIRANGA', NULL, 97, 4, 285, '2016-09-30 14:49:15.844', 1, '2016-09-15', 292.20);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (803, 'GORGETA CAREGAMENTO', NULL, 8, 4, 285, '2016-09-30 14:49:15.999', 1, '2016-09-14', 10.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (804, 'SEGURO', NULL, 5, 3, 286, '2016-09-30 15:08:59.696', 1, '2016-09-04', 28.55);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (805, 'LIMPEZA CAREGAR ADUBO', NULL, 8, 3, 286, '2016-09-30 15:08:59.84', 1, '2016-09-05', 20.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (806, 'PEDAGIO ADUBO', NULL, 97, 3, 286, '2016-09-30 15:08:59.968', 1, '2016-09-04', 121.80);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (807, 'OLEO MOTOR WILLIAM', NULL, 18, 3, 287, '2016-09-30 15:37:14.366', 1, '2016-09-09', 15.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (808, 'PEDAGIO CAREGADO SORRISO', 'MANIFESTO SORRISO', 97, 3, 287, '2016-09-30 15:37:14.439', 1, '2016-09-09', 49.90);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (809, 'SEGURO', '
+', 5, 3, 287, '2016-09-30 15:37:14.516', 1, '2016-09-11', 29.62);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (810, 'PEDAGIO VAZIO ROO-LRV', 'DIF VALOR SOBRO O DE SORISSO Q FOI PAGA R$ CARREGADO', 97, 3, 287, '2016-09-30 15:37:14.592', 1, '2016-09-11', 72.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (811, 'BORRACHINHA LONA', NULL, 8, 2, 288, '2016-09-30 16:02:36.828', 1, '2016-09-12', 5.00);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (812, 'SEGURO', NULL, 5, 2, 288, '2016-09-30 16:02:36.905', 1, '2016-09-12', 24.56);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (813, 'AJUSTE FRETE', NULL, 5, 2, 288, '2016-09-30 16:02:36.992', 1, '2016-09-12', 3.40);
+INSERT INTO outputs (id, description, observation, customer_id, truck_id, freight_id, registred_at, registred_by, date, value) VALUES (814, 'PEDAGIO VAZIO ROO-NOBRES', NULL, 97, 2, 288, '2016-09-30 16:02:37.07', 1, '2016-09-12', 75.20);
 
 
 --
--- TOC entry 2217 (class 0 OID 0)
--- Dependencies: 199
--- Name: outputs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('outputs_id_seq', 773, true);
-
-
---
--- TOC entry 2162 (class 0 OID 25393)
--- Dependencies: 200
+-- TOC entry 3023 (class 0 OID 16535)
+-- Dependencies: 225
 -- Data for Name: payments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9755,17 +9762,8 @@ INSERT INTO payments (id, description, expiration_date, value, observation, cust
 
 
 --
--- TOC entry 2218 (class 0 OID 0)
--- Dependencies: 201
--- Name: payments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('payments_id_seq', 165, true);
-
-
---
--- TOC entry 2164 (class 0 OID 25402)
--- Dependencies: 202
+-- TOC entry 3025 (class 0 OID 16544)
+-- Dependencies: 227
 -- Data for Name: states; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9799,17 +9797,8 @@ INSERT INTO states (id, name, symbol) VALUES (27, 'Tocantins', 'TO');
 
 
 --
--- TOC entry 2219 (class 0 OID 0)
--- Dependencies: 203
--- Name: states_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('states_id_seq', 27, true);
-
-
---
--- TOC entry 2166 (class 0 OID 25410)
--- Dependencies: 204
+-- TOC entry 3027 (class 0 OID 16552)
+-- Dependencies: 229
 -- Data for Name: stays; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9818,17 +9807,8 @@ INSERT INTO stays (id, freight_id, truck_id, driver_id, registred_by, registred_
 
 
 --
--- TOC entry 2220 (class 0 OID 0)
--- Dependencies: 205
--- Name: stays_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('stays_id_seq', 2, true);
-
-
---
--- TOC entry 2168 (class 0 OID 25415)
--- Dependencies: 206
+-- TOC entry 3029 (class 0 OID 16557)
+-- Dependencies: 231
 -- Data for Name: trailers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9845,38 +9825,20 @@ INSERT INTO trailers (id, board, renavam, chassi, mark, model, year_fabrication,
 
 
 --
--- TOC entry 2221 (class 0 OID 0)
--- Dependencies: 207
--- Name: trailers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('trailers_id_seq', 11, true);
-
-
---
--- TOC entry 2170 (class 0 OID 25423)
--- Dependencies: 208
+-- TOC entry 3031 (class 0 OID 16565)
+-- Dependencies: 233
 -- Data for Name: trucks; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt, antt_id) VALUES (1, 'IGB-2345', '670241946', '9BSRH4X2ZV3361548', 'SCANIA', 'R 113 H 360 3º EIXO', 1997, 1997, 1, '2015-07-08 09:41:33.472', 'VERMELHA', 8, 43966976, NULL);
-INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt, antt_id) VALUES (4, 'EVO-1779', '462126307', '9BSR6X400C3806335', 'SCANIA/R 440', 'A 6X4', 2012, 2012, 1, '2016-04-07 08:49:22.202', 'VERMELHA', 2, 43966976, NULL);
-INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt, antt_id) VALUES (2, 'HMV-3297', '198338929', '9BSG4X200A3657950', 'SCANIA', 'G420 A4X2 3º EIXO', 2010, 2010, 1, '2015-07-08 09:53:43.631', 'VERMELHA', 7, 43966976, NULL);
-INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt, antt_id) VALUES (3, 'ATP-7400', '673979695', '9BSRH4X2ZV3362114', 'SCANIA', 'R 113H 360 3ºEIXO', 1997, 1997, 1, '2015-07-08 10:35:12.923', 'VERMELHA', 10, 43966976, NULL);
+INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt_id) VALUES (1, 'IGB-2345', '670241946', '9BSRH4X2ZV3361548', 'SCANIA', 'R 113 H 360 3º EIXO', 1997, 1997, 1, '2015-07-08 09:41:33.472', 'VERMELHA', 8, 1);
+INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt_id) VALUES (2, 'HMV-3297', '198338929', '9BSG4X200A3657950', 'SCANIA', 'G420 A4X2 3º EIXO', 2010, 2010, 1, '2015-07-08 09:53:43.631', 'VERMELHA', 7, 1);
+INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt_id) VALUES (3, 'ATP-7400', '673979695', '9BSRH4X2ZV3362114', 'SCANIA', 'R 113H 360 3ºEIXO', 1997, 1997, 1, '2015-07-08 10:35:12.923', 'VERMELHA', 10, 1);
+INSERT INTO trucks (id, board, renavam, chassi, mark, model, year_fabrication, year_model, registred_by, registred_at, color, driver_id, antt_id) VALUES (4, 'EVO-1779', '462126307', '9BSR6X400C3806335', 'SCANIA/R 440', 'A 6X4', 2012, 2012, 1, '2016-04-07 08:49:22.202', 'VERMELHA', 2, 1);
 
 
 --
--- TOC entry 2222 (class 0 OID 0)
--- Dependencies: 209
--- Name: trucks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('trucks_id_seq', 4, true);
-
-
---
--- TOC entry 2172 (class 0 OID 25431)
--- Dependencies: 210
+-- TOC entry 3033 (class 0 OID 16573)
+-- Dependencies: 235
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -9885,8 +9847,179 @@ INSERT INTO users (id, full_name, password, cpf, inactive, admin, money) VALUES 
 
 
 --
--- TOC entry 2223 (class 0 OID 0)
+-- TOC entry 3064 (class 0 OID 0)
+-- Dependencies: 197
+-- Name: accounts_to_pay_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('accounts_to_pay_id_seq', 33, true);
+
+
+--
+-- TOC entry 3065 (class 0 OID 0)
+-- Dependencies: 199
+-- Name: address_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('address_id_seq', 204, true);
+
+
+--
+-- TOC entry 3066 (class 0 OID 0)
+-- Dependencies: 201
+-- Name: antts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('antts_id_seq', 1, true);
+
+
+--
+-- TOC entry 3067 (class 0 OID 0)
+-- Dependencies: 203
+-- Name: bank_accounts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('bank_accounts_id_seq', 1, false);
+
+
+--
+-- TOC entry 3068 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: banks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('banks_id_seq', 1, false);
+
+
+--
+-- TOC entry 3069 (class 0 OID 0)
+-- Dependencies: 207
+-- Name: categorys_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('categorys_id_seq', 17, true);
+
+
+--
+-- TOC entry 3070 (class 0 OID 0)
+-- Dependencies: 209
+-- Name: city_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('city_id_seq', 5565, true);
+
+
+--
+-- TOC entry 3071 (class 0 OID 0)
 -- Dependencies: 211
+-- Name: customers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('customers_id_seq', 191, true);
+
+
+--
+-- TOC entry 3072 (class 0 OID 0)
+-- Dependencies: 214
+-- Name: drivers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('drivers_id_seq', 12, true);
+
+
+--
+-- TOC entry 3073 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: freights_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('freights_id_seq', 288, true);
+
+
+--
+-- TOC entry 3074 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: fueleds_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('fueleds_id_seq', 539, true);
+
+
+--
+-- TOC entry 3075 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: logins_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('logins_id_seq', 225, true);
+
+
+--
+-- TOC entry 3076 (class 0 OID 0)
+-- Dependencies: 222
+-- Name: mails_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('mails_id_seq', 1, false);
+
+
+--
+-- TOC entry 3077 (class 0 OID 0)
+-- Dependencies: 224
+-- Name: outputs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('outputs_id_seq', 814, true);
+
+
+--
+-- TOC entry 3078 (class 0 OID 0)
+-- Dependencies: 226
+-- Name: payments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('payments_id_seq', 165, true);
+
+
+--
+-- TOC entry 3079 (class 0 OID 0)
+-- Dependencies: 228
+-- Name: states_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('states_id_seq', 27, true);
+
+
+--
+-- TOC entry 3080 (class 0 OID 0)
+-- Dependencies: 230
+-- Name: stays_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('stays_id_seq', 2, true);
+
+
+--
+-- TOC entry 3081 (class 0 OID 0)
+-- Dependencies: 232
+-- Name: trailers_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('trailers_id_seq', 11, true);
+
+
+--
+-- TOC entry 3082 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: trucks_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('trucks_id_seq', 5, true);
+
+
+--
+-- TOC entry 3083 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -9894,8 +10027,8 @@ SELECT pg_catalog.setval('users_id_seq', 2, true);
 
 
 --
--- TOC entry 1985 (class 2606 OID 25460)
--- Name: PK_accounts_to_pay_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2832 (class 2606 OID 16602)
+-- Name: accounts_to_pay PK_accounts_to_pay_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY accounts_to_pay
@@ -9903,8 +10036,8 @@ ALTER TABLE ONLY accounts_to_pay
 
 
 --
--- TOC entry 1987 (class 2606 OID 25462)
--- Name: PK_address_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2834 (class 2606 OID 16604)
+-- Name: address PK_address_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY address
@@ -9912,8 +10045,8 @@ ALTER TABLE ONLY address
 
 
 --
--- TOC entry 1989 (class 2606 OID 25464)
--- Name: PK_antts_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2836 (class 2606 OID 16606)
+-- Name: antts PK_antts_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY antts
@@ -9921,8 +10054,8 @@ ALTER TABLE ONLY antts
 
 
 --
--- TOC entry 1991 (class 2606 OID 25466)
--- Name: PK_bank_accounts_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2838 (class 2606 OID 16608)
+-- Name: bank_accounts PK_bank_accounts_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY bank_accounts
@@ -9930,8 +10063,8 @@ ALTER TABLE ONLY bank_accounts
 
 
 --
--- TOC entry 1993 (class 2606 OID 25468)
--- Name: PK_banks_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2840 (class 2606 OID 16610)
+-- Name: banks PK_banks_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY banks
@@ -9939,8 +10072,8 @@ ALTER TABLE ONLY banks
 
 
 --
--- TOC entry 1995 (class 2606 OID 25470)
--- Name: PK_categorys_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2842 (class 2606 OID 16612)
+-- Name: categorys PK_categorys_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY categorys
@@ -9948,8 +10081,8 @@ ALTER TABLE ONLY categorys
 
 
 --
--- TOC entry 1999 (class 2606 OID 25472)
--- Name: PK_customers_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2846 (class 2606 OID 16614)
+-- Name: customers PK_customers_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY customers
@@ -9957,8 +10090,8 @@ ALTER TABLE ONLY customers
 
 
 --
--- TOC entry 2001 (class 2606 OID 25474)
--- Name: PK_deposits_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2848 (class 2606 OID 16616)
+-- Name: deposits PK_deposits_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY deposits
@@ -9966,8 +10099,8 @@ ALTER TABLE ONLY deposits
 
 
 --
--- TOC entry 2003 (class 2606 OID 25476)
--- Name: PK_drivers_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2850 (class 2606 OID 16618)
+-- Name: drivers PK_drivers_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY drivers
@@ -9975,8 +10108,8 @@ ALTER TABLE ONLY drivers
 
 
 --
--- TOC entry 2005 (class 2606 OID 25478)
--- Name: PK_freights_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2852 (class 2606 OID 16620)
+-- Name: freights PK_freights_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY freights
@@ -9984,8 +10117,8 @@ ALTER TABLE ONLY freights
 
 
 --
--- TOC entry 2007 (class 2606 OID 25480)
--- Name: PK_fueleds_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2854 (class 2606 OID 16622)
+-- Name: fueleds PK_fueleds_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY fueleds
@@ -9993,8 +10126,8 @@ ALTER TABLE ONLY fueleds
 
 
 --
--- TOC entry 2009 (class 2606 OID 25482)
--- Name: PK_logins_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2856 (class 2606 OID 16624)
+-- Name: logins PK_logins_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY logins
@@ -10002,8 +10135,8 @@ ALTER TABLE ONLY logins
 
 
 --
--- TOC entry 2011 (class 2606 OID 25484)
--- Name: PK_mails_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2858 (class 2606 OID 16626)
+-- Name: mails PK_mails_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY mails
@@ -10011,8 +10144,8 @@ ALTER TABLE ONLY mails
 
 
 --
--- TOC entry 2013 (class 2606 OID 25486)
--- Name: PK_outputs_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2860 (class 2606 OID 16628)
+-- Name: outputs PK_outputs_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY outputs
@@ -10020,8 +10153,8 @@ ALTER TABLE ONLY outputs
 
 
 --
--- TOC entry 2015 (class 2606 OID 25488)
--- Name: PK_payments_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2862 (class 2606 OID 16630)
+-- Name: payments PK_payments_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY payments
@@ -10029,8 +10162,8 @@ ALTER TABLE ONLY payments
 
 
 --
--- TOC entry 2019 (class 2606 OID 25490)
--- Name: PK_stays_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2866 (class 2606 OID 16632)
+-- Name: stays PK_stays_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY stays
@@ -10038,8 +10171,8 @@ ALTER TABLE ONLY stays
 
 
 --
--- TOC entry 2021 (class 2606 OID 25492)
--- Name: PK_trailers_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2868 (class 2606 OID 16634)
+-- Name: trailers PK_trailers_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY trailers
@@ -10047,8 +10180,8 @@ ALTER TABLE ONLY trailers
 
 
 --
--- TOC entry 2023 (class 2606 OID 25494)
--- Name: PK_trucks_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2870 (class 2606 OID 16636)
+-- Name: trucks PK_trucks_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY trucks
@@ -10056,8 +10189,8 @@ ALTER TABLE ONLY trucks
 
 
 --
--- TOC entry 2025 (class 2606 OID 25496)
--- Name: PK_users_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2872 (class 2606 OID 16638)
+-- Name: users PK_users_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY users
@@ -10065,8 +10198,8 @@ ALTER TABLE ONLY users
 
 
 --
--- TOC entry 1997 (class 2606 OID 25498)
--- Name: pk_city_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2844 (class 2606 OID 16640)
+-- Name: city pk_city_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY city
@@ -10074,27 +10207,15 @@ ALTER TABLE ONLY city
 
 
 --
--- TOC entry 2017 (class 2606 OID 25500)
--- Name: pk_state_id; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+-- TOC entry 2864 (class 2606 OID 16642)
+-- Name: states pk_state_id; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY states
     ADD CONSTRAINT pk_state_id PRIMARY KEY (id);
 
 
---
--- TOC entry 2180 (class 0 OID 0)
--- Dependencies: 7
--- Name: public; Type: ACL; Schema: -; Owner: postgres
---
-
-REVOKE ALL ON SCHEMA public FROM PUBLIC;
-REVOKE ALL ON SCHEMA public FROM postgres;
-GRANT ALL ON SCHEMA public TO postgres;
-GRANT ALL ON SCHEMA public TO PUBLIC;
-
-
--- Completed on 2016-09-28 00:51:38
+-- Completed on 2018-01-16 00:03:23
 
 --
 -- PostgreSQL database dump complete

@@ -95,9 +95,11 @@
             // 
             // tfSearch
             // 
-            this.tfSearch.Location = new System.Drawing.Point(172, 12);
+            this.tfSearch.Location = new System.Drawing.Point(224, 12);
             this.tfSearch.Name = "tfSearch";
-            this.tfSearch.Size = new System.Drawing.Size(613, 20);
+            this.tfSearch.Properties.Mask.IgnoreMaskBlank = false;
+            this.tfSearch.Properties.Mask.ShowPlaceHolders = false;
+            this.tfSearch.Size = new System.Drawing.Size(561, 20);
             this.tfSearch.TabIndex = 1;
             this.tfSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tfSearch_KeyDown);
             // 
@@ -112,8 +114,8 @@
             this.rgSearch.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem("id", "Cod."),
             new DevExpress.XtraEditors.Controls.RadioGroupItem("name", "Nome"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem("cnpj", "CNPJ")});
-            this.rgSearch.Size = new System.Drawing.Size(161, 26);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem("cnpj", "CPF/CNPJ")});
+            this.rgSearch.Size = new System.Drawing.Size(213, 26);
             this.rgSearch.TabIndex = 0;
             this.rgSearch.SelectedIndexChanged += new System.EventHandler(this.rgSearch_SelectedIndexChanged);
             // 

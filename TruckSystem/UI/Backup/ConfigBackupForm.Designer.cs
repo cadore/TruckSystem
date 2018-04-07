@@ -30,28 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigBackupForm));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.tfPathBackup = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.tfPathPG = new DevExpress.XtraEditors.TextEdit();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.btnFindPathBackup = new DevExpress.XtraEditors.SimpleButton();
-            this.btnFindPathPG = new DevExpress.XtraEditors.SimpleButton();
-            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.tfDateLastBackup = new DevExpress.XtraEditors.TextEdit();
+            this.btnFindPathPG = new DevExpress.XtraEditors.SimpleButton();
+            this.btnFindPathBackup = new DevExpress.XtraEditors.SimpleButton();
+            this.tfPathPG = new DevExpress.XtraEditors.TextEdit();
+            this.tfPathBackup = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPathBackup.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPathPG.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateLastBackup.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPathPG.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPathBackup.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -61,8 +61,34 @@
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(661, 384);
+            this.panelControl1.Size = new System.Drawing.Size(657, 298);
             this.panelControl1.TabIndex = 0;
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Controls.Add(this.btnCancel);
+            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelControl2.Location = new System.Drawing.Point(2, 252);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(653, 44);
+            this.panelControl2.TabIndex = 1;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(538, 5);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 33);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Fechar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // xtraTabControl1
             // 
@@ -70,7 +96,7 @@
             this.xtraTabControl1.Location = new System.Drawing.Point(2, 2);
             this.xtraTabControl1.Name = "xtraTabControl1";
             this.xtraTabControl1.SelectedTabPage = this.xtraTabPage1;
-            this.xtraTabControl1.Size = new System.Drawing.Size(657, 380);
+            this.xtraTabControl1.Size = new System.Drawing.Size(653, 294);
             this.xtraTabControl1.TabIndex = 0;
             this.xtraTabControl1.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xtraTabPage1});
@@ -86,59 +112,17 @@
             this.xtraTabPage1.Controls.Add(this.labelControl2);
             this.xtraTabPage1.Controls.Add(this.labelControl1);
             this.xtraTabPage1.Name = "xtraTabPage1";
-            this.xtraTabPage1.Size = new System.Drawing.Size(651, 352);
+            this.xtraTabPage1.Size = new System.Drawing.Size(647, 266);
             this.xtraTabPage1.Text = "Diretórios";
             // 
-            // labelControl1
+            // tfDateLastBackup
             // 
-            this.labelControl1.Location = new System.Drawing.Point(9, 18);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(93, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Diretório de Backup";
-            // 
-            // tfPathBackup
-            // 
-            this.tfPathBackup.Location = new System.Drawing.Point(9, 37);
-            this.tfPathBackup.Name = "tfPathBackup";
-            this.tfPathBackup.Properties.ReadOnly = true;
-            this.tfPathBackup.Size = new System.Drawing.Size(528, 20);
-            this.tfPathBackup.TabIndex = 1;
-            // 
-            // labelControl2
-            // 
-            this.labelControl2.Location = new System.Drawing.Point(9, 80);
-            this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(116, 13);
-            this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "Diretório \'Bin\' PostgreSql";
-            // 
-            // tfPathPG
-            // 
-            this.tfPathPG.Location = new System.Drawing.Point(9, 99);
-            this.tfPathPG.Name = "tfPathPG";
-            this.tfPathPG.Properties.ReadOnly = true;
-            this.tfPathPG.Size = new System.Drawing.Size(528, 20);
-            this.tfPathPG.TabIndex = 2;
-            // 
-            // panelControl2
-            // 
-            this.panelControl2.Controls.Add(this.btnCancel);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(2, 338);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(657, 44);
-            this.panelControl2.TabIndex = 1;
-            // 
-            // btnFindPathBackup
-            // 
-            this.btnFindPathBackup.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
-            this.btnFindPathBackup.Location = new System.Drawing.Point(560, 35);
-            this.btnFindPathBackup.Name = "btnFindPathBackup";
-            this.btnFindPathBackup.Size = new System.Drawing.Size(75, 23);
-            this.btnFindPathBackup.TabIndex = 3;
-            this.btnFindPathBackup.Text = "Escolher";
-            this.btnFindPathBackup.Click += new System.EventHandler(this.btnFindPathBackup_Click);
+            this.tfDateLastBackup.EditValue = "";
+            this.tfDateLastBackup.Location = new System.Drawing.Point(9, 170);
+            this.tfDateLastBackup.Name = "tfDateLastBackup";
+            this.tfDateLastBackup.Properties.ReadOnly = true;
+            this.tfDateLastBackup.Size = new System.Drawing.Size(545, 20);
+            this.tfDateLastBackup.TabIndex = 4;
             // 
             // btnFindPathPG
             // 
@@ -150,22 +134,31 @@
             this.btnFindPathPG.Text = "Escolher";
             this.btnFindPathPG.Click += new System.EventHandler(this.btnFindPathPG_Click);
             // 
-            // btnCancel
+            // btnFindPathBackup
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(539, 5);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 33);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Fechar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnFindPathBackup.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat;
+            this.btnFindPathBackup.Location = new System.Drawing.Point(560, 35);
+            this.btnFindPathBackup.Name = "btnFindPathBackup";
+            this.btnFindPathBackup.Size = new System.Drawing.Size(75, 23);
+            this.btnFindPathBackup.TabIndex = 3;
+            this.btnFindPathBackup.Text = "Escolher";
+            this.btnFindPathBackup.Click += new System.EventHandler(this.btnFindPathBackup_Click);
+            // 
+            // tfPathPG
+            // 
+            this.tfPathPG.Location = new System.Drawing.Point(9, 99);
+            this.tfPathPG.Name = "tfPathPG";
+            this.tfPathPG.Properties.ReadOnly = true;
+            this.tfPathPG.Size = new System.Drawing.Size(545, 20);
+            this.tfPathPG.TabIndex = 2;
+            // 
+            // tfPathBackup
+            // 
+            this.tfPathBackup.Location = new System.Drawing.Point(9, 37);
+            this.tfPathBackup.Name = "tfPathBackup";
+            this.tfPathBackup.Properties.ReadOnly = true;
+            this.tfPathBackup.Size = new System.Drawing.Size(545, 20);
+            this.tfPathBackup.TabIndex = 1;
             // 
             // labelControl3
             // 
@@ -175,20 +168,27 @@
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "Ultimo Backup realizado em:";
             // 
-            // tfDateLastBackup
+            // labelControl2
             // 
-            this.tfDateLastBackup.EditValue = "Sem informações, função ainda não implementada.";
-            this.tfDateLastBackup.Location = new System.Drawing.Point(9, 170);
-            this.tfDateLastBackup.Name = "tfDateLastBackup";
-            this.tfDateLastBackup.Properties.ReadOnly = true;
-            this.tfDateLastBackup.Size = new System.Drawing.Size(528, 20);
-            this.tfDateLastBackup.TabIndex = 4;
+            this.labelControl2.Location = new System.Drawing.Point(9, 80);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(141, 13);
+            this.labelControl2.TabIndex = 0;
+            this.labelControl2.Text = "Diretório \'PgDump\' PostgreSql";
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(9, 18);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(149, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Diretório de Backup Secundário";
             // 
             // ConfigBackupForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 384);
+            this.ClientSize = new System.Drawing.Size(657, 298);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -200,15 +200,15 @@
             this.Text = "Configurações de Backup";
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPathBackup.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfPathPG.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tfDateLastBackup.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPathPG.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfPathBackup.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -14,6 +14,7 @@ namespace TruckSystem.UI.Utils
     public partial class UserControlUtil : XtraUserControl
     {
         public static DesktopForm desk = null;
+
         protected bool IsNew;
         public UserControlUtil()
         {

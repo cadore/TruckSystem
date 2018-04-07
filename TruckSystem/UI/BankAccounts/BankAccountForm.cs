@@ -18,7 +18,7 @@ namespace TruckSystem.UI.BankAccounts
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
-            bdgBanks.DataSource = banks.Fetch("ORDER BY name");
+            bdgBanks.DataSource = banks.Fetch("ORDER BY code");
             bdgCustomers.DataSource = customer.Fetch("ORDER BY corporate_name");
 
             if (bc == null)
@@ -75,6 +75,7 @@ namespace TruckSystem.UI.BankAccounts
             {
                 customer c = customer.SingleOrDefault(cbCustomer.EditValue);
                 tfDocument.Text = c.document;
+                tfDocument.EditValue = c.document;
                 //((customer)bdgBankAccount.Current).document = c.document;
             }
         }

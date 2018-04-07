@@ -285,11 +285,21 @@ namespace TruckSystem.UI.Trailer
 
         private void cbTruck_EditValueChanged(object sender, EventArgs e)
         {
+            pnTabs.Enabled = false;
+            lbDriver.Text = "";
+            bdgTrailer1.Clear();
+            bdgTrailer2.Clear();
+            bdgTrailer3.Clear();
+            ckTrailer1.Checked = false;
+            ckTrailer2.Checked = false;
+            ckTrailer3.Checked = false;
+            
             if (cbTruck.EditValue != null || Convert.ToInt64(cbTruck.EditValue) > 0)
             {
                 pnTabs.Enabled = true;
                 IsNew = true;
-                CurrentTruck = truck.SingleOrDefault(Convert.ToInt64(cbTruck.EditValue));
+                CurrentTruck = truck.SingleOrDefault(
+                    Convert.ToInt64(cbTruck.EditValue));
                 lbDriver.Text = driver.SingleOrDefault(CurrentTruck.driver_id).full_name;
 
                 trailer tr1 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", CurrentTruck.id, 1);
@@ -314,14 +324,6 @@ namespace TruckSystem.UI.Trailer
                     bdgTrailer3.DataSource = tr3;
                     IsNew = false;
                 }
-            }
-            else
-            {
-                pnTabs.Enabled = false;
-                lbDriver.Text = "";
-                bdgTrailer1.Clear();
-                bdgTrailer2.Clear();
-                bdgTrailer3.Clear();
             }
         }
     }

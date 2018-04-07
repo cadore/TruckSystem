@@ -84,6 +84,7 @@
             this.pnTrailer3 = new DevExpress.XtraEditors.PanelControl();
             this.ckTrailer3 = new DevExpress.XtraEditors.CheckEdit();
             this.tfIndexTrailer3 = new DevExpress.XtraEditors.TextEdit();
+            this.bdgTrailer3 = new System.Windows.Forms.BindingSource(this.components);
             this.tfIdTrailer3 = new DevExpress.XtraEditors.TextEdit();
             this.tfRenavamTrailer3 = new DevExpress.XtraEditors.TextEdit();
             this.labelControl30 = new DevExpress.XtraEditors.LabelControl();
@@ -106,7 +107,6 @@
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.btnSave = new WCButtons.Black.ButtonSaveBlack();
             this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.bdgTrailer3 = new System.Windows.Forms.BindingSource(this.components);
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.lbDriver = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -156,6 +156,7 @@
             this.pnTrailer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckTrailer3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIndexTrailer3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTrailer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIdTrailer3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavamTrailer3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfModelTrailer3.Properties)).BeginInit();
@@ -167,7 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfBoardTrailer3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTrailer3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbTruck.Properties)).BeginInit();
@@ -339,7 +339,7 @@
             // 
             // tfAnttTrailer1
             // 
-            this.tfAnttTrailer1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer1, "antt", true));
+            this.tfAnttTrailer1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer1, "antt_number", true));
             this.tfAnttTrailer1.Enabled = false;
             this.tfAnttTrailer1.Location = new System.Drawing.Point(299, 57);
             this.tfAnttTrailer1.Name = "tfAnttTrailer1";
@@ -602,7 +602,7 @@
             // 
             // tfAnttTrailer2
             // 
-            this.tfAnttTrailer2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer2, "antt", true));
+            this.tfAnttTrailer2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer2, "antt_number", true));
             this.tfAnttTrailer2.Enabled = false;
             this.tfAnttTrailer2.Location = new System.Drawing.Point(299, 57);
             this.tfAnttTrailer2.Name = "tfAnttTrailer2";
@@ -781,6 +781,10 @@
             this.tfIndexTrailer3.TabIndex = 38;
             this.tfIndexTrailer3.TabStop = false;
             // 
+            // bdgTrailer3
+            // 
+            this.bdgTrailer3.DataSource = typeof(TruckSystem.trailer);
+            // 
             // tfIdTrailer3
             // 
             this.tfIdTrailer3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer3, "id", true));
@@ -854,7 +858,7 @@
             // 
             // tfAnttTrailer3
             // 
-            this.tfAnttTrailer3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer3, "antt", true));
+            this.tfAnttTrailer3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgTrailer3, "antt_number", true));
             this.tfAnttTrailer3.Enabled = false;
             this.tfAnttTrailer3.Location = new System.Drawing.Point(299, 57);
             this.tfAnttTrailer3.Name = "tfAnttTrailer3";
@@ -1028,10 +1032,6 @@
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // bdgTrailer3
-            // 
-            this.bdgTrailer3.DataSource = typeof(TruckSystem.trailer);
-            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.lbDriver);
@@ -1179,6 +1179,7 @@
             this.pnTrailer3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ckTrailer3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIndexTrailer3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgTrailer3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfIdTrailer3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfRenavamTrailer3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfModelTrailer3.Properties)).EndInit();
@@ -1190,7 +1191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.tfBoardTrailer3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdgTrailer3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panelControl3.PerformLayout();
