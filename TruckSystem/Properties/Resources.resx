@@ -118,13 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Refresh_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Refresh_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wjm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wjm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SelectOneFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\FileManager\Utils\SelectOneFile.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Anchor_22px_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Anchor_22px_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Cancel_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Cancel_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ErrorFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\FileManager\Utils\ErrorFile.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="wjm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\wjm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Save_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Save_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gas_Station_22px_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Gas Station_22px_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="General_Ledger_22px_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\General Ledger_22px_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Money_Bag_22px_green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Money Bag_22px_green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

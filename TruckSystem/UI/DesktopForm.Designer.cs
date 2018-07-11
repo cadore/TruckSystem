@@ -310,7 +310,6 @@
             this.btnSearchCNPJ.Id = 25;
             this.btnSearchCNPJ.Name = "btnSearchCNPJ";
             this.btnSearchCNPJ.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            this.btnSearchCNPJ.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnSearchCNPJ.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSearchCNPJ_ItemClick);
             // 
             // btnEmitterReceipt

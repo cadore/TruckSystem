@@ -27,9 +27,13 @@ namespace TruckSystem.UI.Freights
         //outputs
         List<output> ListOutputs = null;
         decimal ValueOutputs = 0;
+        decimal ValueOthersOutputs = 0;
         //deposits
         List<deposits> ListDeposits = null;
         decimal ValueDeposits = 0;
+
+        List<trailer> Trailers = null;
+
         public FreightForm(freight f)
         {
             InitializeComponent();
@@ -142,7 +146,7 @@ namespace TruckSystem.UI.Freights
                         fre.registred_by = Singleton.getUser().id;
                     }
 
-                    trailer tr1 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 1);
+                    /*trailer tr1 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 1);
                     trailer tr2 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 2);
                     trailer tr3 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", fre.truck_id, 3);
                     
@@ -150,7 +154,19 @@ namespace TruckSystem.UI.Freights
                         (tr1 != null ? tr1.id.ToString() : "0"),
                         (tr2 != null ? tr2.id.ToString() : "0"), 
                         (tr3 != null ? tr3.id.ToString() : "0"));
+                    */
                     fre.Save();
+
+                    foreach (trailer t in Trailers)
+                    {
+                        set_freight_trailers sft = new set_freight_trailers() 
+                        { 
+                            freight_id = fre.id,
+                            trailer_id = t.id, 
+                            index_trailer = t.index 
+                        };
+                        sft.Save();
+                    }
 
                     if (ListFueleds != null)
                     {
@@ -224,11 +240,10 @@ namespace TruckSystem.UI.Freights
                 if (cbTruck.EditValue != DBNull.Value && Convert.ToInt64(cbTruck.EditValue) > 0)
                 {
                     truck t = truck.SingleOrDefault(cbTruck.EditValue);
-                    trailer t1 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", t.id, 1);
-                    trailer t2 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", t.id, 2);
-                    trailer t3 = trailer.SingleOrDefault("WHERE truck_id=@0 AND index=@1", t.id, 3);
-                    lbTrailers.Text = String.Format("Reboques: {0}{1}{2}",
-                        (t1 != null ? t1.board : ""), (t2 != null ? "/" + t2.board : ""), (t3 != null ? "/" + t3.board : ""));
+                    Trailers = trailer.Fetch("WHERE truck_id=@0 ORDER BY index", t.id);
+
+                    setTrailers();
+
                     if (IsNew)
                     {
                         cbDriver.EditValue = t.driver_id;
@@ -249,6 +264,19 @@ namespace TruckSystem.UI.Freights
                 XtraMessageBox.Show(String.Format("Ocorreu um erro:\n\n{0}\n{1}", ex.Message, ex.InnerException));
             }
         }
+
+        void setTrailers()
+        {
+            string lbT = "Reboques: ";
+            int count = 0;
+            foreach (trailer tr in Trailers)
+            {
+                lbT += String.Format((count == 0 ? "" : @"/") + "{0}", tr.board);
+                count++;
+            }
+            count = 0;
+            lbTrailers.Text = lbT;
+        }
         void calcValues(object sender, EventArgs e)
         {
             decimal weight = toDecimal(tfWeight.EditValue);
@@ -256,19 +284,29 @@ namespace TruckSystem.UI.Freights
             decimal gross = toDecimal(weight * value_ton);
             tfGross.EditValue = gross;
             
-            decimal taxe_comission = toDecimal(tfPercentComission.EditValue);
+            decimal taxe_comission_gross = toDecimal(tfPercentComissionGross.EditValue);
+            decimal taxe_comission_liquid = toDecimal(tfPercentComissionLiquid.EditValue);
             decimal discount_comission = toDecimal(tfDiscountComission.EditValue);
             decimal extra_comission = toDecimal(tfExtraComission.EditValue);
-            decimal value_comission = toDecimal(((gross * taxe_comission) / 100) 
-                + (extra_comission - discount_comission));
-            tfValueComission.EditValue = value_comission;
-            if (((freight)bdgFreight.Current) != null)
-                ((freight)bdgFreight.Current).value_comission = value_comission;
 
             decimal fueled = toDecimal(tfFueled.EditValue);
             decimal outputs = toDecimal(tfOutputs.EditValue);
+            decimal othersOutputs = toDecimal(tfOthersOutputs.EditValue);
             decimal stay = toDecimal(tfStay.EditValue);
-            decimal liquid_freight = toDecimal((gross + stay) - (value_comission + fueled + outputs));
+            decimal subtotal_freight = (gross + stay) - (fueled + outputs + othersOutputs);
+            decimal subtotal_comission_liquid = gross - (fueled + outputs);
+            decimal value_comission_gross = toDecimal(((gross * taxe_comission_gross) / 100));
+            decimal value_comission_liquid = toDecimal(((subtotal_comission_liquid * taxe_comission_liquid) / 100));
+            decimal liquid_freight = toDecimal((gross + stay) - (value_comission_gross + value_comission_liquid + fueled 
+                + outputs + othersOutputs));
+
+            lbBaseComissionGross.Text = String.Format("Valor Base: {0:c2}", gross);
+            lbBaseComissionLiquid.Text = String.Format("Valor Base: {0:c2}", subtotal_comission_liquid);
+            tfPartialComissionGross.EditValue = value_comission_gross;
+            tfPartialComissionLiquid.EditValue = value_comission_liquid;
+            tfValueComission.EditValue = (value_comission_gross + value_comission_liquid + extra_comission) - discount_comission;
+
+            tfSubTotalFreight.EditValue = subtotal_freight;
             tfLiquidFreight.EditValue = liquid_freight;
         }
 
@@ -291,14 +329,12 @@ namespace TruckSystem.UI.Freights
                     if (IsNew)
                     {
                         driver d = driver.SingleOrDefault(cbDriver.EditValue);
-                        tfPercentComission.EditValue = d.comission;
-                        ((freight)bdgFreight.Current).taxe_comission = d.comission;
+                        tfPercentComissionGross.EditValue = d.comission;
                     }
                 }
                 else
                 {
-                    tfPercentComission.EditValue = 0;
-                    ((freight)bdgFreight.Current).taxe_comission = 0;
+                    tfPercentComissionGross.EditValue = 0;
                 }
                 SplashScreenManager.CloseForm(false);
             }
@@ -359,11 +395,16 @@ namespace TruckSystem.UI.Freights
                         ListOutputs.Add(o);
 
                 ValueOutputs = 0;
+                ValueOthersOutputs = 0;
                 foreach (output o in ListOutputs)
                 {
-                    ValueOutputs += o.value;
+                    if(o.others_outputs)
+                        ValueOthersOutputs += o.value;
+                    else
+                        ValueOutputs += o.value;
                 }
                 tfOutputs.EditValue = ValueOutputs;
+                tfOthersOutputs.EditValue = ValueOthersOutputs;
                 calcValues(sender, e);
             }
         }
@@ -442,6 +483,35 @@ namespace TruckSystem.UI.Freights
                 tfDeposits.EditValue = ValueDeposits;
                 calcValues(sender, e);
             }
+        }
+
+        private void lbTrailers_Click(object sender, EventArgs e)
+        {
+            if (cbTruck.EditValue != DBNull.Value && Convert.ToInt64(cbTruck.EditValue) > 0)
+            {
+                SelectTrailersFreight stf = new SelectTrailersFreight();
+                if (stf.ShowDialog() == DialogResult.OK)
+                {
+                    Trailers.Clear();
+                    Trailers = stf.listTrailers;
+                    setTrailers();
+                }
+            }            
+        }
+
+        private void lbTrailers_MouseEnter(object sender, EventArgs e)
+        {
+            lbTrailers.ForeColor = Color.Blue;
+        }
+
+        private void lbTrailers_MouseLeave(object sender, EventArgs e)
+        {
+            lbTrailers.ForeColor = Color.Black;
+        }
+
+        private void FreightForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            XtraMessageBox.Show("ok");
         }
     }
 }

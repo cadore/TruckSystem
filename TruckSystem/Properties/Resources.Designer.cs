@@ -61,6 +61,26 @@ namespace TruckSystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Anchor_22px_yellow {
+            get {
+                object obj = ResourceManager.GetObject("Anchor_22px_yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Cancel_48px {
+            get {
+                object obj = ResourceManager.GetObject("Cancel_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;html&gt;
         ///    &lt;head&gt;
         ///        &lt;/br&gt;
@@ -78,6 +98,56 @@ namespace TruckSystem.Properties {
         internal static string ErrorFile {
             get {
                 return ResourceManager.GetString("ErrorFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gas_Station_22px_blue {
+            get {
+                object obj = ResourceManager.GetObject("Gas_Station_22px_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap General_Ledger_22px_red {
+            get {
+                object obj = ResourceManager.GetObject("General_Ledger_22px_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Money_Bag_22px_green {
+            get {
+                object obj = ResourceManager.GetObject("Money_Bag_22px_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Refresh_48px {
+            get {
+                object obj = ResourceManager.GetObject("Refresh_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Save_48px {
+            get {
+                object obj = ResourceManager.GetObject("Save_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

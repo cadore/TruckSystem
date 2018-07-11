@@ -326,6 +326,12 @@
     <Compile Include="UI\Freights\SearchFreightsForm.Designer.cs">
       <DependentUpon>SearchFreightsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Freights\SelectTrailersFreight.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Freights\SelectTrailersFreight.Designer.cs">
+      <DependentUpon>SelectTrailersFreight.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Freights\Stays\StayForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -547,6 +553,9 @@
     <EmbeddedResource Include="UI\Freights\SearchFreightsForm.resx">
       <DependentUpon>SearchFreightsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Freights\SelectTrailersFreight.resx">
+      <DependentUpon>SelectTrailersFreight.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Freights\Stays\StayForm.resx">
       <DependentUpon>StayForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -678,6 +687,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\FreeButtons\FreeButtons.csproj">
+      <Project>{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}</Project>
+      <Name>FreeButtons</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\WCButtons\WCButtons.csproj">
       <Project>{29f95c63-598a-4ab1-8c10-bd1f955c9d66}</Project>
       <Name>WCButtons</Name>
@@ -687,6 +700,13 @@
     <Content Include="favicon.ico" />
     <Content Include="FileManager\Utils\ErrorFile.html" />
     <Content Include="FileManager\Utils\SelectOneFile.html" />
+    <None Include="Images\Save_48px.png" />
+    <None Include="Images\Cancel_48px.png" />
+    <None Include="Images\Refresh_48px.png" />
+    <None Include="Images\Anchor_22px_yellow.png" />
+    <None Include="Images\Money Bag_22px_green.png" />
+    <None Include="Images\Gas Station_22px_blue.png" />
+    <None Include="Images\General Ledger_22px_red.png" />
     <None Include="Resources\wjm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

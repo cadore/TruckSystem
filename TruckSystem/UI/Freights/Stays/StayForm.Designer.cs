@@ -36,19 +36,25 @@
             DevExpress.XtraEditors.LabelControl totalLabel;
             DevExpress.XtraEditors.LabelControl truck_idLabel;
             DevExpress.XtraEditors.LabelControl value_horLabel;
+            DevExpress.XtraEditors.LabelControl labelControl4;
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StayForm));
-            DevExpress.XtraEditors.LabelControl labelControl4;
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tfDateEnd = new DevExpress.XtraEditors.DateEdit();
+            this.bdgStay = new System.Windows.Forms.BindingSource(this.components);
             this.tfId = new DevExpress.XtraEditors.TextEdit();
             this.tfDateStart = new DevExpress.XtraEditors.DateEdit();
             this.tfValueEstay = new DevExpress.XtraEditors.CalcEdit();
             this.tfValueHor = new DevExpress.XtraEditors.CalcEdit();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnSave = new WCButtons.Black.ButtonSaveBlack();
+            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.tfFreight = new DevExpress.XtraEditors.TextEdit();
+            this.tfTruck = new DevExpress.XtraEditors.TextEdit();
+            this.tfTotalComission = new DevExpress.XtraEditors.CalcEdit();
             this.tfTaxeComission = new DevExpress.XtraEditors.CalcEdit();
             this.tfNameDriver = new DevExpress.XtraEditors.TextEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -56,13 +62,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.tfTimeEnd = new DevExpress.XtraEditors.TimeEdit();
             this.tfTimeStart = new DevExpress.XtraEditors.TimeEdit();
-            this.tfTotalComission = new DevExpress.XtraEditors.CalcEdit();
-            this.btnSave = new WCButtons.Black.ButtonSaveBlack();
-            this.btnCancel = new WCButtons.Black.ButtonCancelBlack();
-            this.tfTruck = new DevExpress.XtraEditors.TextEdit();
-            this.tfFreight = new DevExpress.XtraEditors.TextEdit();
             this.tfTotal = new DevExpress.XtraEditors.CalcEdit();
-            this.bdgStay = new System.Windows.Forms.BindingSource(this.components);
             this.validator = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             endLabel = new DevExpress.XtraEditors.LabelControl();
             freight_idLabel = new DevExpress.XtraEditors.LabelControl();
@@ -74,6 +74,7 @@
             labelControl4 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEnd.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEnd.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgStay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties)).BeginInit();
@@ -83,15 +84,14 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfFreight.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTruck.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTotalComission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTaxeComission.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNameDriver.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeEnd.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeStart.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfTotalComission.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfTruck.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfFreight.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotal.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgStay)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,6 +151,14 @@
             value_horLabel.TabIndex = 13;
             value_horLabel.Text = "R$ Hora:";
             // 
+            // labelControl4
+            // 
+            labelControl4.Location = new System.Drawing.Point(134, 170);
+            labelControl4.Name = "labelControl4";
+            labelControl4.Size = new System.Drawing.Size(102, 13);
+            labelControl4.TabIndex = 9;
+            labelControl4.Text = "Total Liquido Estadia:";
+            // 
             // tfDateEnd
             // 
             this.tfDateEnd.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgStay, "end", true));
@@ -167,6 +175,10 @@
             conditionValidationRule1.ErrorText = "Informe a data Final";
             this.validator.SetValidationRule(this.tfDateEnd, conditionValidationRule1);
             this.tfDateEnd.EditValueChanged += new System.EventHandler(this.calcValues);
+            // 
+            // bdgStay
+            // 
+            this.bdgStay.DataSource = typeof(TruckSystem.stay);
             // 
             // tfId
             // 
@@ -232,10 +244,44 @@
             this.panelControl1.Controls.Add(this.btnSave);
             this.panelControl1.Controls.Add(this.btnCancel);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 192);
+            this.panelControl1.Location = new System.Drawing.Point(0, 213);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(353, 44);
+            this.panelControl1.Size = new System.Drawing.Size(364, 44);
             this.panelControl1.TabIndex = 15;
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnSave.ForeColor = System.Drawing.Color.White;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSave.Location = new System.Drawing.Point(115, 6);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(110, 33);
+            this.btnSave.TabIndex = 1;
+            this.btnSave.Text = "Salvar";
+            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
+            this.btnCancel.ForeColor = System.Drawing.Color.White;
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancel.Location = new System.Drawing.Point(231, 6);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 33);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // panelControl2
             // 
@@ -266,8 +312,37 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(353, 192);
+            this.panelControl2.Size = new System.Drawing.Size(364, 213);
             this.panelControl2.TabIndex = 16;
+            // 
+            // tfFreight
+            // 
+            this.tfFreight.Location = new System.Drawing.Point(197, 5);
+            this.tfFreight.Name = "tfFreight";
+            this.tfFreight.Properties.ReadOnly = true;
+            this.tfFreight.Size = new System.Drawing.Size(52, 20);
+            this.tfFreight.TabIndex = 24;
+            // 
+            // tfTruck
+            // 
+            this.tfTruck.Location = new System.Drawing.Point(62, 5);
+            this.tfTruck.Name = "tfTruck";
+            this.tfTruck.Properties.ReadOnly = true;
+            this.tfTruck.Size = new System.Drawing.Size(93, 20);
+            this.tfTruck.TabIndex = 24;
+            // 
+            // tfTotalComission
+            // 
+            this.tfTotalComission.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgStay, "total_comission", true));
+            this.tfTotalComission.Location = new System.Drawing.Point(242, 135);
+            this.tfTotalComission.Name = "tfTotalComission";
+            this.tfTotalComission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.tfTotalComission.Properties.Mask.EditMask = "c2";
+            this.tfTotalComission.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.tfTotalComission.Properties.ReadOnly = true;
+            this.tfTotalComission.Size = new System.Drawing.Size(100, 20);
+            this.tfTotalComission.TabIndex = 23;
             // 
             // tfTaxeComission
             // 
@@ -347,77 +422,6 @@
             this.tfTimeStart.TabIndex = 15;
             this.tfTimeStart.EditValueChanged += new System.EventHandler(this.calcValues);
             // 
-            // tfTotalComission
-            // 
-            this.tfTotalComission.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgStay, "total_comission", true));
-            this.tfTotalComission.Location = new System.Drawing.Point(242, 135);
-            this.tfTotalComission.Name = "tfTotalComission";
-            this.tfTotalComission.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.tfTotalComission.Properties.Mask.EditMask = "c2";
-            this.tfTotalComission.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.tfTotalComission.Properties.ReadOnly = true;
-            this.tfTotalComission.Size = new System.Drawing.Size(100, 20);
-            this.tfTotalComission.TabIndex = 23;
-            // 
-            // btnSave
-            // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(115, 6);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(110, 33);
-            this.btnSave.TabIndex = 1;
-            this.btnSave.Text = "Salvar";
-            this.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(117)))), ((int)(((byte)(199)))));
-            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Font = new System.Drawing.Font("Segoe UI Light", 12F);
-            this.btnCancel.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancel.Location = new System.Drawing.Point(231, 6);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(110, 33);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // tfTruck
-            // 
-            this.tfTruck.Location = new System.Drawing.Point(62, 5);
-            this.tfTruck.Name = "tfTruck";
-            this.tfTruck.Properties.ReadOnly = true;
-            this.tfTruck.Size = new System.Drawing.Size(93, 20);
-            this.tfTruck.TabIndex = 24;
-            // 
-            // tfFreight
-            // 
-            this.tfFreight.Location = new System.Drawing.Point(197, 5);
-            this.tfFreight.Name = "tfFreight";
-            this.tfFreight.Properties.ReadOnly = true;
-            this.tfFreight.Size = new System.Drawing.Size(52, 20);
-            this.tfFreight.TabIndex = 24;
-            // 
-            // labelControl4
-            // 
-            labelControl4.Location = new System.Drawing.Point(134, 170);
-            labelControl4.Name = "labelControl4";
-            labelControl4.Size = new System.Drawing.Size(102, 13);
-            labelControl4.TabIndex = 9;
-            labelControl4.Text = "Total Liquido Estadia:";
-            // 
             // tfTotal
             // 
             this.tfTotal.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdgStay, "total", true));
@@ -431,15 +435,11 @@
             this.tfTotal.Size = new System.Drawing.Size(100, 20);
             this.tfTotal.TabIndex = 10;
             // 
-            // bdgStay
-            // 
-            this.bdgStay.DataSource = typeof(TruckSystem.stay);
-            // 
             // StayForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 236);
+            this.ClientSize = new System.Drawing.Size(364, 257);
             this.ControlBox = false;
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
@@ -451,6 +451,7 @@
             this.Text = "Estadia";
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEnd.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateEnd.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdgStay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfId.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfDateStart.Properties)).EndInit();
@@ -461,15 +462,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
             this.panelControl2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tfFreight.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTruck.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tfTotalComission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTaxeComission.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfNameDriver.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeEnd.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTimeStart.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfTotalComission.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfTruck.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tfFreight.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tfTotal.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdgStay)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.validator)).EndInit();
             this.ResumeLayout(false);
 

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TruckSystem", "TruckSystem\TruckSystem.csproj", "{2DADE4BA-6C9F-4ADF-934E-87373974333F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCButtons", "..\WCButtons\WCButtons.csproj", "{29F95C63-598A-4AB1-8C10-BD1F955C9D66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FreeButtons", "..\FreeButtons\FreeButtons.csproj", "{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{29F95C63-598A-4AB1-8C10-BD1F955C9D66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F95C63-598A-4AB1-8C10-BD1F955C9D66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F95C63-598A-4AB1-8C10-BD1F955C9D66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA9ED4CD-5C86-4BCA-9FFA-A41A2E813FAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

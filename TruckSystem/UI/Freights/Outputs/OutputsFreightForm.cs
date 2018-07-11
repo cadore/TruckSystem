@@ -18,7 +18,7 @@ namespace TruckSystem.UI.Freights.Outputs
         {
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
-            bdgOutput.DataSource = new output() { freight_id = 0, truck_id = f.truck_id };
+            bdgOutput.DataSource = new output() { freight_id = 0, truck_id = f.truck_id, others_outputs = false };
             bdgCustomers.DataSource = customer.Fetch("");
             tfDate.Properties.MaxValue = Convert.ToDateTime(f.end);
             tfDate.Properties.MinValue = Convert.ToDateTime(f.start);

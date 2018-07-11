@@ -33,6 +33,7 @@ namespace TruckSystem.UI.Deposits
                 banks b = banks.SingleOrDefault(bc[i].bank_id);
                 bc[i].account_name = String.Format("{0}-{1} / {2}-{3}", b.code, b.name, bc[i].agency, bc[i].account);
                 bc[i].bank_name = b.name;
+                bc[i].holder = customer.SingleOrDefault(bc[i].customer_id).corporate_name;
             }
             bdgBankAccounts.DataSource = bc;
         }

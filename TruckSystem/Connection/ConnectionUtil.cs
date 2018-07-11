@@ -15,7 +15,6 @@ namespace TruckSystem.Connection
         public static string User { get; private set; }
         public static string Password { get; private set; }
 
-        public static string InvariantName { get; private set; }
         public static string ConnectionString { get; private set; }
         
         public ConnectionUtil()
@@ -27,7 +26,6 @@ namespace TruckSystem.Connection
                 DataBase = Util.Decrypt(INI.ReadValue("CONNECTION", "db"));
                 User = Util.Decrypt(INI.ReadValue("CONNECTION", "user"));
                 Password = Util.Decrypt(INI.ReadValue("CONNECTION", "password"));
-                InvariantName = Util.Decrypt(INI.ReadValue("CONNECTION", "invariantName"));
 
                 ConnectionString = String.Format("Server={0};Port={1};User id={2};password={3};Database={4};",
                 Host, Port, User, Password, DataBase);
@@ -35,7 +33,6 @@ namespace TruckSystem.Connection
             catch (Exception ex)
             {
                 ConnectionString = null;
-                InvariantName = null;
                 throw new Exception(ex.Message, ex.InnerException);
             }
         }

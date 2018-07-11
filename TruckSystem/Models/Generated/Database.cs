@@ -12,7 +12,7 @@ namespace TruckSystem
     public partial class TruckSystemRepo : Database
     {
         public TruckSystemRepo()
-            : base(ConnectionUtil.ConnectionString, ConnectionUtil.InvariantName)
+            : base(ConnectionUtil.ConnectionString, "Npgsql")
         {
             CommonConstruct();
         }
@@ -275,7 +275,7 @@ namespace TruckSystem
         [Column]
         public long truck_id { get; set; }
         [Column]
-        public long index { get; set; }
+        public int index { get; set; }
         [Column]
         public long antt_id { get; set; }
 
@@ -403,6 +403,9 @@ namespace TruckSystem
         public DateTime? date { get; set; }
         [Column]
         public decimal value { get; set; }
+        [Column]
+        public bool others_outputs { get; set; }
+
     }
 
 
@@ -642,7 +645,9 @@ namespace TruckSystem
         [Column]
         public decimal value_comission { get; set; }
         [Column]
-        public decimal taxe_comission { get; set; }
+        public decimal percent_comission_gross { get; set; }
+        [Column]
+        public decimal percent_comission_liquid { get; set; }
         [Column]
         public decimal discounts_comission { get; set; }
         [Column]
@@ -806,5 +811,19 @@ namespace TruckSystem
 
         public string customer_name { get; set; }
         public string customer_cnpj { get; set; }
+    }
+    [TableName("set_freights_trailers")]
+    [PrimaryKey("id")]
+    [ExplicitColumns]
+    public partial class set_freight_trailers : TruckSystemRepo.Record<set_freight_trailers>
+    {
+        [Column]
+        public long id { get; set; }
+        [Column]
+        public long freight_id { get; set; }
+        [Column]
+        public long trailer_id { get; set; }
+        [Column]
+        public int index_trailer { get; set; }
     }
 }

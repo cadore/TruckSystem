@@ -21,6 +21,10 @@ namespace TruckSystem.UI.Freights
             InitializeComponent();
             ControlsUtil.SetBackColor(this.Controls);
             bdgTruck.DataSource = truck.Fetch("");
+
+            DateTime dt = freight.Now();
+            tfEnd.EditValue = dt;
+            tfStart.EditValue = dt.AddMonths(-3);
         }
 
         void searchFreights()

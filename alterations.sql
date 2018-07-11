@@ -312,4 +312,32 @@ ALTER TABLE bank_accounts
   ADD COLUMN customer_id bigserial;
 ALTER TABLE bank_accounts
   DROP COLUMN document;
+  
+CREATE TABLE public.set_freight_trailers
+(
+   id bigserial NOT NULL, 
+   freight_id bigint, 
+   trailer_id bigint, 
+   CONSTRAINT "PK_set_freights_trailers_id" PRIMARY KEY (id)
+) 
+WITH (
+  OIDS = FALSE
+)
+;
+ALTER TABLE public.set_freight_trailers
+  ADD COLUMN index_trailer integer;
+  
+  ALTER TABLE public.outputs
+  ADD COLUMN others_outputs boolean;
+  
+ALTER TABLE public.freights
+  DROP COLUMN value_comission;
+ALTER TABLE public.freights RENAME taxe_comission  TO percent_comission_gross;
+ALTER TABLE public.freights
+  ADD COLUMN percent_comission_liquid numeric(19,2);
+  
+
+
+
+
 
